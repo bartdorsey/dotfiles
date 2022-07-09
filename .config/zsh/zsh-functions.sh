@@ -41,6 +41,8 @@ function zsh_configure_completion() {
   unsetopt listambiguous
   setopt AUTO_LIST
   LISTMAX=-1
+  # bun completions
+  [ -s "/home/echo/.bun/_bun" ] && source "/home/echo/.bun/_bun"
 }
 
 function fzf_cd() {

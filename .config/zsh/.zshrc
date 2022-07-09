@@ -1,3 +1,5 @@
+# Skip global compinit initialization in Ubuntu
+skip_global_compinit=1
 # Load zsh functions
 source $ZDOTDIR/zsh-functions.sh
 # Load Environment Variables
@@ -6,8 +8,11 @@ zsh_config_run zsh-env.sh
 # Configure colors for zsh
 autoload -U colors && colors
 
+# Configure zmv 
+autoload zmv
+
 # Configure completion for zsh
-zsh_configure_completion
+zsh_configure_completion > /dev/null 2>&1
 
 # Stop Ctrl-S freezing the terminal
 stty stop undef
@@ -29,6 +34,8 @@ zsh_config_run zsh-binds.sh
 
 #code-quotes -c "#6600FF"
 
+macchina -t Lithium
 
 # Starship prompt
 eval "$(starship init zsh)"
+

@@ -28,6 +28,6 @@ GIT_CONFIG_GLOBAL=$HOME/.config/git/config
 export BUN_INSTALL="/home/echo/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-if [-z "/opt/homebrew" ]; then
+if [ -z "/opt/homebrew" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi

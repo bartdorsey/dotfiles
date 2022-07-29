@@ -1,4 +1,4 @@
-source /usr/share/zplug/init.zsh
+source $HOME/.zplug/init.zsh
 
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"

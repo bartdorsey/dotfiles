@@ -8,7 +8,7 @@ zsh_config_run zsh-env.sh
 # Configure colors for zsh
 autoload -U colors && colors
 
-# Configure zmv 
+# Configure zmv
 autoload zmv
 
 # Configure completion for zsh
@@ -17,11 +17,10 @@ zsh_configure_completion > /dev/null 2>&1
 # Stop Ctrl-S freezing the terminal
 stty stop undef
 
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-eval "`pip completion --zsh`"
-source /usr/share/autojump/autojump.sh
-source /etc/grc.zsh
+source $HOME/.fzf.zsh
+eval "`pip3 completion --zsh`"
+[[ -s /etc/grc.zsh ]] && source /etc/grc.zsh
+[[ -s /opt/homebrew/etc/grc.zsh ]] && source /opt/homebrew/etc/grc.zsh
 
 #zsh_config_run zsh-nvm.sh
 # fnm
@@ -38,4 +37,3 @@ macchina -t Lithium
 
 # Starship prompt
 eval "$(starship init zsh)"
-

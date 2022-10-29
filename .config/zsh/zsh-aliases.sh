@@ -6,6 +6,8 @@ alias wsl='wsl.exe'
 alias ll=ls -al
 alias fd=fdfind
 ### Python Virtual Environment stuff
+alias python=python3
+alias pip=pip3
 alias venv="python -m venv .venv && source .venv/bin/activate"
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"

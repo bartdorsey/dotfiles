@@ -49,6 +49,10 @@ function fzf_cd() {
 	cd $(fdfind --type d --hidden | fzf)
 }
 
+function fzfz() {
+    cd $(zshz | column --table --table-hide 1 | fzf)
+}
+
 function find_programming_files() {
 	fdfind --hidden '.(sh|js|html|py|css|md|rs|json|yaml)$' | fzf
 }
@@ -67,3 +71,11 @@ function fzf_code() {
 	code $repo
 }
 
+
+function django-setup-project() {
+    python -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+    python manage.py migrate
+    python manage.py createsuperuser
+}

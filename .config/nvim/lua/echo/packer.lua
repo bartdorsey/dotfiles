@@ -16,5 +16,7 @@ return require('packer').startup(function()
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'romgrk/barbar.nvim'
+    use 'catppuccin/nvim'
+    use 'ghifarit53/tokyonight-vim'
 end)
 

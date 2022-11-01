@@ -19,6 +19,8 @@ export SETUPTOOLS_USE_DISTUTILS=stdlib
 export PIPENV_VENV_IN_PROJECT=1
 # Rust
 export PATH=$PATH:~/.cargo/bin
+# Go
+export PATH=$PATH:~/go/bin
 # Man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fpath=($HOME/.config/zsh/functions $fpath)

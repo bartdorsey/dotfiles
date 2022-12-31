@@ -1,7 +1,13 @@
+add_newline = true
+
+format = """\
+[╭╴](238)$env_var\
+$all[╰─](238)$character """
+
 [character]
-#success_symbol = "[>](bold green)"
-#error_symbol = "[x](bold red)"
-#vicmd_symbol = "[<](bold green)"
+success_symbol = "[](bold yellow)"
+error_symbol = "[](bold red)"
+vicmd_symbol = "[](bold green)"
 
 [git_commit]
 #tag_symbol = " tag "
@@ -14,110 +20,89 @@
 #deleted = "x"
 
 [aws]
-#symbol = "aws "
+symbol = "  "
 disabled = true
 
-[c]
-#symbol = "C "
+[buf]
+symbol = " "
 
-[cobol]
-#symbol = "cobol "
+[c]
+symbol = " "
 
 [conda]
-#symbol = "conda "
-
-[crystal]
-#symbol = "cr "
-
-[cmake]
-#symbol = "cmake "
+symbol = " "
 
 [dart]
-#symbol = "dart "
-
-[deno]
-#symbol = "deno "
-
-[dotnet]
-#symbol = ".NET "
+symbol = " "
 
 [directory]
-#read_only = " ro"
+read_only = " "
 
 [docker_context]
-#symbol = "docker "
+symbol = "  "
 
 [elixir]
-#symbol = "exs "
+symbol = " "
 
 [elm]
-#symbol = "elm "
+symbol = " "
 
 [git_branch]
-#symbol = "git "
+symbol = " "
 
 [golang]
-#symbol = "go "
+symbol = " "
+
+[haskell]
+symbol = " "
 
 [hg_branch]
-#symbol = "hg "
+symbol = " "
 
 [java]
-#symbol = "java "
+symbol = " "
 
 [julia]
-#symbol = "jl "
+symbol = " "
 
-[kotlin]
-#symbol = "kt "
-
-[nodejs]
-#symbol = "nodejs "
+[lua]
+symbol = " "
 
 [memory_usage]
-#symbol = "memory "
+symbol = "  "
+
+# [meson]
+# symbol = "喝  "
 
 [nim]
-#symbol = "nim "
+symbol = "  "
 
 [nix_shell]
-#symbol = "nix "
+symbol = "  "
 
-[ocaml]
-#symbol = "ml "
+[nodejs]
+symbol = " "
 
 [package]
-#symbol = "pkg "
-
-[perl]
-#symbol = "pl "
-
-[php]
-#symbol = "php "
-
-[pulumi]
-#symbol = "pulumi "
-
-[purescript]
-#symbol = "purs "
+symbol = " "
 
 [python]
-#symbol = "py "
+symbol = "  "
+
+[rlang]
+symbol = "ﳒ  "
 
 [ruby]
-#symbol = "rb "
+symbol = " "
 
 [rust]
-#symbol = "rs "
+symbol = " "
 
 [scala]
-#symbol = "scala "
+symbol = " "
 
 [spack]
-#symbol = "spack "
+symbol = "🅢 "
 
-[sudo]
-#symbol = "sudo "
-
-[swift]
-#symbol = "swift "
+[container]
+disabled = true

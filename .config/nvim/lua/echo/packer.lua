@@ -4,9 +4,9 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use 'gruvbox-community/gruvbox'
-    use {'neoclide/coc.nvim', branch = 'release'}
-    use 'preservim/nerdtree'
-    use 'Xuyuanp/nerdtree-git-plugin'
+    -- use {'neoclide/coc.nvim', branch = 'release'}
+    -- use 'preservim/nerdtree'
+    -- use 'Xuyuanp/nerdtree-git-plugin'
     use 'ryanoasis/vim-devicons'
     use 'tiagofumo/vim-nerdtree-syntax-highlight'
     use 'airblade/vim-gitgutter'
@@ -18,5 +18,6 @@ return require('packer').startup(function()
     use 'romgrk/barbar.nvim'
     use 'catppuccin/nvim'
     use 'ghifarit53/tokyonight-vim'
+    use 'neovim/nvim-lspconfig'
 end)
 

@@ -10,3 +10,4 @@ map("n", "<leader>fb", "", { callback = telescope.buffers, noremap = true, silen
 map("n", "<leader>fh", "", { callback = telescope.help_tags, noremap = true, silent = true })
 
 map("n", "<C-n>", "<cmd>NERDTreeToggle<CR>", opts)
+

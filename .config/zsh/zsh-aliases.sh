@@ -14,4 +14,4 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias vim=nvim
 alias vi=nvim
-alias ls="exa --icons --git -F -h"
+alias ls="exa -g --icons --git -F -h -G --group-directories-first --octal-permissions -@"

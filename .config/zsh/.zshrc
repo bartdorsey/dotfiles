@@ -23,6 +23,7 @@ eval "`pip completion --zsh`"
 # fnm
 export PATH=$HOME/.fnm:$PATH
 eval "`fnm env`"
+zsh_config_run zsh-nix.sh
 zsh_config_run zsh-python.sh
 zsh_config_run zsh-ssh.sh
 zsh_config_run zsh-aliases.sh
@@ -30,8 +31,9 @@ zsh_config_run zsh-grc-rs.sh
 zsh_config_run zsh-plugins.sh
 zsh_config_run zsh-binds.sh
 zsh_config_run zsh-wsl2.sh
-
+#zsh_config_run zsh-nix-shell/nix-shell.plugin.zsh
 #code-quotes -c "#6600FF"
+eval "$(direnv hook zsh)"
 
 macchina -t Lithium
 
@@ -42,3 +44,8 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 # MacOS default prompt
 #PS1="%n@%m %1~ %# "
+
+# pnpm
+export PNPM_HOME="/home/echo/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

@@ -7,12 +7,6 @@ fi
 # Misc 
 alias ll=ls -al
 
-if type fdfind > /dev/null; then
-    alias fd=fdfind
-else
-    echo "fd-find missing."
-fi
-
 # Python Virtual Environment stuff
 alias python=python3
 alias pip=pip3

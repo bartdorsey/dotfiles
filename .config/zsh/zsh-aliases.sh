@@ -28,7 +28,7 @@ fi
 
 # exa - fancy ls
 if type exa > /dev/null; then
-    alias ls="exa -g --icons --git -F -h -G --group-directories-first --octal-permissions -@"
+    alias ls="exa -g --icons --git -F -h --group-directories-first --octal-permissions -@"
 else
     echo "exa missing."
 fi

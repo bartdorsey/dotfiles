@@ -1,3 +1,6 @@
+if ! type zplug > /dev/null; then 
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
 source $HOME/.zplug/init.zsh
 
 zplug "zsh-users/zsh-history-substring-search"

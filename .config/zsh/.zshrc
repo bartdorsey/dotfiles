@@ -19,33 +19,47 @@ stty stop undef
 
 eval "`pip completion --zsh`"
 
-#zsh_config_run zsh-nvm.sh
-# fnm
-export PATH=$HOME/.fnm:$PATH
-eval "`fnm env`"
-zsh_config_run zsh-nix.sh
-zsh_config_run zsh-python.sh
-zsh_config_run zsh-ssh.sh
-zsh_config_run zsh-aliases.sh
-zsh_config_run zsh-grc-rs.sh
-zsh_config_run zsh-plugins.sh
-zsh_config_run zsh-binds.sh
+# Node
+zsh_config_run zsh-fnm.sh
+zsh_config_run zsh-volta.sh
+zsh_config_run zsh-pnpm.sh
+
+# FZF
+zsh_config_run zsh-fzf.sh
+
+# WSL
 zsh_config_run zsh-wsl2.sh
-#zsh_config_run zsh-nix-shell/nix-shell.plugin.zsh
-#code-quotes -c "#6600FF"
-eval "$(direnv hook zsh)"
 
-macchina -t Lithium
+# NIX
+zsh_config_run zsh-nix.sh
 
-# Initialize zoxide
-eval "$(zoxide init zsh)"
+# Python
+zsh_config_run zsh-python.sh
 
-# Starship prompt
-eval "$(starship init zsh)"
-# MacOS default prompt
-#PS1="%n@%m %1~ %# "
+# SSH
+zsh_config_run zsh-ssh.sh
 
-# pnpm
-export PNPM_HOME="/home/echo/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+# Aliases
+zsh_config_run zsh-aliases.sh
+
+# GRC Aliases
+zsh_config_run zsh-grc-rs.sh
+
+# Plugins
+zsh_config_run zsh-plugins.sh
+
+# Key binds
+zsh_config_run zsh-binds.sh
+
+# Zoxide
+zsh_config_run zsh-zoxide.sh
+
+# direnv
+zsh_config_run zsh-direnv.sh
+
+# Prompt
+zsh_config_run zsh-starship.sh
+
+# Macchina system info
+zsh_config_run zsh-macchina.sh
+

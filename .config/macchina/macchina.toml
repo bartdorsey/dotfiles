@@ -2,5 +2,5 @@ long_uptime = false
 long_shell = false
 long_kernel = false
 physical_cores = false
-current_shell = false
+current_shell = true
 theme = "Lithium"

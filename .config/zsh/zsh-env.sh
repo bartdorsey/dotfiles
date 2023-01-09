@@ -8,8 +8,7 @@ HISTFILE=~/.cache/zsh/history
 FZF_DEFAULT_COMMAND='fdfind -type f --color=never --hidden'
 FZF_DEFAULT_OPTS='--no-height'
 # Prompt Title
-# PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
-DISABLE_AUTO_TITLE="true"
+PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
 # Default editor
 export EDITOR="code -w"
 # Postgres

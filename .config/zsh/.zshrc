@@ -63,3 +63,5 @@ zsh_config_run zsh-starship.sh
 # Macchina system info
 zsh_config_run zsh-macchina.sh
 
+# Helix setup
+zsh_config_run zsh-helix.sh

@@ -1,0 +1,1 @@
+export HELIX_RUNTIME=$HOME/.local/share/helix/runtime

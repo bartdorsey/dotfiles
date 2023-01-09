@@ -1,0 +1,42 @@
+theme = "tokyonight"
+
+[editor]
+true-color = true
+line-number = "relative"
+mouse = false
+bufferline = "always"
+rulers = [80]
+color-modes = true
+
+[editor.lsp]
+display-messages = true
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+C-s = ":w"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "separator", "file-type"]
+right = [
+  "workspace-diagnostics", 
+  "separator", 
+  "selections", 
+  "separator", 
+  "position", 
+  "position-percentage", 
+  "file-encoding", 
+  "file-line-ending"
+]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.whitespace]
+render = "none"
+
+[editor.indent-guides]
+render = true
+character = "┊"

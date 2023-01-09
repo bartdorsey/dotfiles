@@ -1,3 +1,4 @@
 .config/coc
 .config/memos.json
 .zcompdump
+packer_compiled.lua

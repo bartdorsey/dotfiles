@@ -2,3 +2,25 @@
 name = "rust"
 auto-format = true
 
+[[language]]
+name = "python"
+language-server = { command = "pyright-langserver", args = ["--stdio"] }
+formatter = { command = "black", "args" = ["-"] }
+
+[language.debugger]
+name = "debugpy"
+command = "python"
+args = ["-m", "debugpy"]
+port-arg = "--listen localhost:{}"
+transport = "tcp"
+
+[[language.debugger.templates]]
+name = "source"
+request = "launch"
+[[language.debugger.templates.completion]]
+completion = "filename"
+name = "source"
+
+[language.debugger.templates.args]
+program = "{0}"
+runInTerminal = true

@@ -321,7 +321,16 @@ lsp.ensure_installed({
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<Tab>'] = cmp.mapping.confirm()
+  ['<Tab>'] = cmp.mapping.confirm(),
+  -- This makes Escape cancel the autocomplete AND go back to normal mode
+  ['<Esc>'] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.abort()
+      vim.cmd("stopinsert")
+    else
+      fallback()
+    end
+  end, {"i"})
 })
 
 lsp.setup_nvim_cmp({

@@ -34,5 +34,5 @@ if [[ -v WSL_DISTRO_NAME ]]; then
    alias clip='clip.exe'
    alias open='explorer.exe'
    alias wsl='wsl.exe'
-
+   alias pwsh='pwsh.exe'
 fi

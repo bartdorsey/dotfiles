@@ -23,3 +23,5 @@ eval "`pip completion --zsh`"
 # Plugins
 zsh_config_run zsh-plugins.sh
 
+# End Profiler
+#zprof

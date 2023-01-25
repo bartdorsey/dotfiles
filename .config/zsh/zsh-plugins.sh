@@ -11,7 +11,7 @@ zplug "agkozak/zsh-z"
 zplug "zsh-users/zsh-completions"
 zplug "sunlei/zsh-ssh"
 
-zplug "~/.config/zsh/plugins", from:local, use:"*.zsh"
+zplug "bartdorsey/dotfiles", use:".config/zsh/plugins/*.zsh"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

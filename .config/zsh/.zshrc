@@ -24,4 +24,4 @@ eval "`pip completion --zsh`"
 zsh_config_run zsh-plugins.sh
 
 # End Profiler
-zprof
+#zprof

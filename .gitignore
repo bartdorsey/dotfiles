@@ -1,4 +1,5 @@
 .config/coc
+.config/helix/runtime
 .config/memos.json
 .zcompdump
 packer_compiled.lua

@@ -1,28 +1,24 @@
-# Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
+# Install zinit
+if [[ ! -d "${HOME}/.local/share/zinit" ]]; then
+    bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+    zinit self-update
 fi
 
-source $HOME/.zplug/init.zsh
+# Initialize zinit
+source "${HOME}/.local/share/zinit/zinit.git/zinit.zsh"
 
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "agkozak/zsh-z"
-zplug "zsh-users/zsh-completions"
-zplug "sunlei/zsh-ssh"
+autoload -Uz _zinit
 
-zplug "bartdorsey/dotfiles", use:".config/zsh/plugins/*.zsh"
+(( ${+_comps} )) && _comps[zinit]=_zinit
+# plugins
+zinit for wait lucid \
+    zsh-users/zsh-history-substring-search \
+    zsh-users/zsh-autosuggestions \
+    zsh-users/zsh-syntax-highlighting \
+    agkozak/zsh-z \
+    zsh-users/zsh-completions \
+    sunlei/zsh-ssh
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load --verbose
+# Custom scripts
+zinit ice multisrc".config/zsh/plugins/*.zsh"
+zinit load bartdorsey/dotfiles

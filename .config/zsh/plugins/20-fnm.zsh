@@ -1,5 +1,5 @@
-if type fnm > /dev/null; then
-    eval "$(fnm env --use-on-cd)"
-else
-    echo "fnm missing."
+if ! type fnm > /dev/null; then
+    echo "Installing Fast Node Manager"
+    cargo install fnm --locked
 fi
+eval "$(fnm env --use-on-cd)"

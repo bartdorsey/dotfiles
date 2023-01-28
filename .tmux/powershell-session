@@ -1,0 +1,3 @@
+neww "pwsh.exe -wd C:\\\\Users\\\\bart"
+rename-window PowerShell
+

@@ -7,7 +7,9 @@ $all[╰─](238)$character """
 [character]
 success_symbol = "[](bold yellow)"
 error_symbol = "[](bold red)"
-vicmd_symbol = "[](bold green)"
+vimcmd_symbol = "[](bold green)"
+vimcmd_visual_symbol = "[](bold green)"
+ 
 
 [git_commit]
 #tag_symbol = " tag "

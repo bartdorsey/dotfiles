@@ -18,8 +18,6 @@ zsh_configure_completion > /dev/null 2>&1
 # Stop Ctrl-S freezing the terminal
 stty stop undef
 
-eval "`pip completion --zsh`"
-
 # Plugins
 zsh_config_run zsh-plugins.sh
 

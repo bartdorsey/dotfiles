@@ -1,18 +1,5 @@
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
-  -- In this case, we create a function that lets us more easily define mappings specific
-  -- for LSP related items. It sets the mode, buffer and description for us each time.
-  local nmap = function(keys, func, desc)
-    if desc then
-      desc = 'LSP: ' .. desc
-    end
-
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-  end
 
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[R]e[n]ame' })
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
@@ -78,7 +65,6 @@ lsp.ensure_installed({
 })
 
 local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<Tab>'] = cmp.mapping.confirm(),
   -- This makes Escape cancel the autocomplete AND go back to normal mode
@@ -89,11 +75,15 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     else
       fallback()
     end
-  end, {"i"})
+  end, { "i" })
 })
 
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+  preselect = 'none',
+  mapping = cmp_mappings,
+  completion = {
+    completeopt = 'menu,menuone,noinsert,noselect'
+  },
 })
 
 lsp.on_attach(on_attach)
@@ -111,4 +101,3 @@ table.insert(runtime_path, 'lua/?/init.lua')
 vim.diagnostic.config({
   virtual_text = true
 });
-

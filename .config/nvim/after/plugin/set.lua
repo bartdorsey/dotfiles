@@ -25,7 +25,6 @@ vim.wo.signcolumn = 'yes'
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect,preview'
 
-
 -- Indenting
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -42,6 +41,7 @@ vim.opt.termguicolors = true
 
 -- Scrolling
 vim.opt.scrolloff = 8
+-- Turn on column for icons all the time
 vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50

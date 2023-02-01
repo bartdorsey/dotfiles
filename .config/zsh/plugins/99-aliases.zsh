@@ -27,9 +27,8 @@ else
 fi
 
 # exa - fancy ls
-if type exa > /dev/null; then
-    alias ls="exa -g --icons --git -F -h --group-directories-first --octal-permissions -@"
-else
-    echo "exa missing."
+if ! type exa > /dev/null; then
+    cargo install exa --locked
 fi
+alias ls="exa -g --icons --git -F -h --group-directories-first --octal-permissions -@"
 	

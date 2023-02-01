@@ -18,14 +18,6 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
-# neovim
-if type nvim > /dev/null; then
-    alias vim=nvim
-    alias vi=nvim
-else
-    echo "neovim missing."
-fi
-
 # exa - fancy ls
 if ! type exa > /dev/null; then
     cargo install exa --locked

@@ -12,7 +12,7 @@ if [[ $OSTYPE == "linux-gnu" ]]; then
     PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
 fi
 # Default editor
-export EDITOR="code -w"
+export EDITOR="vim"
 # Postgres
 export PGHOST=localhost
 # Python

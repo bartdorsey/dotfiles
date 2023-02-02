@@ -1,3 +1,10 @@
-export GOROOT="$HOME/go"
-export GOPATH="$HOME/go"
-export PATH="$HOME/go/bin:$PATH"
+if ! type gobrew > /dev/null; then
+    curl -sLk https://git.io/gobrew | sh
+    gobrew install latest
+    gobrew use latest
+fi
+
+export PATH="$HOME/.gobrew/current/bin:$HOME/.gobrew/bin:$PATH"
+export GOROOT="$HOME/.gobrew/current/go"
+
+

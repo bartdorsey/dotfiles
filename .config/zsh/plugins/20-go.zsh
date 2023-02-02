@@ -1,2 +1,2 @@
-export PATH="$HOME/.gobrew/current/bin:$HOME/.gobrew/bin:$PATH"
-export GOROOT="$HOME/.gobrew/current/go"
+export GOROOT="$HOME/go"
+export PATH="$HOME/go/bin:$PATH"

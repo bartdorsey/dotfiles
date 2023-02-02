@@ -1,6 +1,5 @@
-if type zoxide > /dev/null; then
-    # Initialize zoxide
-    eval "$(zoxide init zsh)"
-else
-    echo "zoxide missing."
+if ! type zoxide > /dev/null; then
+    cargo install zoxide --locked
 fi
+# Initialize zoxide
+eval "$(zoxide init zsh)"

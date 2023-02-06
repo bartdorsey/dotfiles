@@ -47,5 +47,5 @@ vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
--- Window direction vertical by default
-vim.opt.eadirection = "ver"
+-- Clipboard
+vim.opt.clipboard = "unnamedplus"

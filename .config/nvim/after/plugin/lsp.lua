@@ -14,7 +14,7 @@ local on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
-  -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
 
   -- Lesser used LSP functionality
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
@@ -24,14 +24,31 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, { desc = '[W]orkspace [L]ist Folders' })
 
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+  local function organize_imports()
+    local params = {
+      command = "_typescript.organizeImports",
+      arguments = { vim.api.nvim_buf_get_name(0) },
+      title = ""
+    }
+    vim.lsp.buf.execute_command(params)
+  end
+
+  local function format_file()
     if vim.lsp.buf.format then
       vim.lsp.buf.format()
     elseif vim.lsp.buf.formatting then
       vim.lsp.buf.formatting()
     end
-  end, { desc = 'Format current buffer with LSP' })
+  end
+
+  -- Create a command `:Format` local to the LSP buffer
+  vim.api.nvim_buf_create_user_command(bufnr, 'Format', format_file, { desc = 'Format current buffer with LSP' })
+
+  vim.keymap.set('n', '<leader>ff', format_file, { desc = "[f]ormat [f]ile" })
+
+  vim.api.nvim_buf_create_user_command(bufnr, 'OrganizeImports', organize_imports,
+    { desc = "Organize TypeScript Imports" })
+
 end
 
 -- LSP settings.
@@ -66,7 +83,7 @@ lsp.ensure_installed({
 
 lsp.configure('emmet_ls', {
   settings = {
-    filetypes = {'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less'}
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' }
   }
 })
 

@@ -32,3 +32,4 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set("n", "<leader>cp", require('telescope.builtin').commands, { desc = "[C]ommand [P]allet" })
 vim.keymap.set("n", "<leader>sg", require('telescope.builtin').git_files, { desc = "Search [G]it [F]iles" })
+vim.keymap.set("n", "<leader>sk", require('telescope.builtin').keymaps, { desc = "[S]earch [K]eymaps" })

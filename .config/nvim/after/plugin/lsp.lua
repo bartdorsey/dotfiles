@@ -64,6 +64,14 @@ lsp.ensure_installed({
   'pyright',
 })
 
+lsp.configure('emmet_ls', {
+  settings = {
+    filetypes = {'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less'}
+  }
+})
+
+require('nvim-autopairs').setup {}
+
 local cmp = require('cmp')
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<Tab>'] = cmp.mapping.confirm(),
@@ -77,6 +85,12 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     end
   end, { "i" })
 })
+
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 
 lsp.setup_nvim_cmp({
   preselect = 'none',

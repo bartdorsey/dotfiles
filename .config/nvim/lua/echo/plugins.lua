@@ -31,6 +31,7 @@ packer.startup(function(use)
 
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
+      { 'windwp/nvim-autopairs' },
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
       { 'saadparwaiz1/cmp_luasnip' },
@@ -85,6 +86,14 @@ packer.startup(function(use)
 
   -- vim tmux navigator
   use 'christoomey/vim-tmux-navigator'
+
+  -- tree plugin
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    }
+  }
 
   if is_bootstrap then
     require('packer').sync()

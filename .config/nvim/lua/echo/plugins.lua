@@ -10,7 +10,7 @@ end
 local packer = require('packer')
 
 packer.init({
-  max_jobs = 10
+    max_jobs = 10
 })
 
 packer.startup(function(use)
@@ -22,39 +22,39 @@ packer.startup(function(use)
 
   -- LSP
   use {
-    'VonHeikemen/lsp-zero.nvim',
-    requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },
-      { 'williamboman/mason.nvim' },
-      { 'williamboman/mason-lspconfig.nvim' },
+      'VonHeikemen/lsp-zero.nvim',
+      requires = {
+          -- LSP Support
+          { 'neovim/nvim-lspconfig' },
+          { 'williamboman/mason.nvim' },
+          { 'williamboman/mason-lspconfig.nvim' },
 
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },
-      { 'windwp/nvim-autopairs' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-nvim-lua' },
+          -- Autocompletion
+          { 'hrsh7th/nvim-cmp' },
+          { 'windwp/nvim-autopairs' },
+          { 'hrsh7th/cmp-buffer' },
+          { 'hrsh7th/cmp-path' },
+          { 'saadparwaiz1/cmp_luasnip' },
+          { 'hrsh7th/cmp-nvim-lsp' },
+          { 'hrsh7th/cmp-nvim-lua' },
 
-      { 'j-hui/fidget.nvim' },
-      -- Snippets
-      { 'L3MON4D3/LuaSnip' },
-      { 'rafamadriz/friendly-snippets' },
-    }
+          { 'j-hui/fidget.nvim' },
+          -- Snippets
+          { 'L3MON4D3/LuaSnip' },
+          { 'rafamadriz/friendly-snippets' },
+      }
   }
 
   use { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
+      'nvim-treesitter/nvim-treesitter',
+      run = function()
+        pcall(require('nvim-treesitter.install').update { with_sync = true })
+      end,
   }
 
   use { -- Additional text objects via treesitter
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      after = 'nvim-treesitter',
   }
 
   -- Git related plugins
@@ -75,7 +75,12 @@ packer.startup(function(use)
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
   -- Markdown Preview
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use({
+      "iamcco/markdown-preview.nvim",
+      run = "cd app && npm install",
+      setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+      ft = { "markdown" },
+  })
   use 'jose-elias-alvarez/null-ls.nvim'
 
   -- Debuggin
@@ -84,15 +89,24 @@ packer.startup(function(use)
   use 'theHamsta/nvim-dap-virtual-text'
   use 'nvim-telescope/telescope-dap.nvim'
 
+
+  use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
+
+  use {
+      "microsoft/vscode-js-debug",
+      opt = true,
+      run = "npm install --legacy-peer-deps && npm run compile"
+  }
+
   -- vim tmux navigator
   use 'christoomey/vim-tmux-navigator'
 
   -- tree plugin
   use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
-    }
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+          'nvim-tree/nvim-web-devicons',
+      }
   }
 
   if is_bootstrap then
@@ -116,8 +130,7 @@ end
 -- Automatically source and re-compile packer whenever you save this init.lua
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | PackerCompile',
-  group = packer_group,
-  pattern = vim.fn.expand '$MYVIMRC',
+    command = 'source <afile> | PackerCompile',
+    group = packer_group,
+    pattern = vim.fn.expand '$MYVIMRC',
 })
-

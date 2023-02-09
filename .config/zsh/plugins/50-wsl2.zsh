@@ -22,7 +22,7 @@ if [[ -v WSL_DISTRO_NAME ]]; then
       if ss -elx | grep -q "$socket"; then
          export WSL_INTEROP=$socket
       else
-         rm $socket 
+         rm -v $socket 
       fi
    done
 

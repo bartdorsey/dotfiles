@@ -3,3 +3,4 @@ if ! type zoxide > /dev/null; then
 fi
 # Initialize zoxide
 eval "$(zoxide init zsh)"
+alias j=z

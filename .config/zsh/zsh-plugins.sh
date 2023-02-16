@@ -15,11 +15,8 @@ zinit for wait lucid \
     zsh-users/zsh-history-substring-search \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-syntax-highlighting \
-    agkozak/zsh-z \
     zsh-users/zsh-completions \
     sunlei/zsh-ssh \
-    jeffreytse/zsh-vi-mode
-
 
 # Custom scripts
 zinit ice multisrc".config/zsh/plugins/*.zsh"

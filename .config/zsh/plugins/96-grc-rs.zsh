@@ -1,44 +1,5 @@
 if type grc-rs > /dev/null; then
-    alias blkid='${HOME}/.cargo/bin/grc-rs blkid';
-    alias curl='${HOME}/.cargo/bin/grc-rs curl';
-    alias df='${HOME}/.cargo/bin/grc-rs df';
-    alias diff='${HOME}/.cargo/bin/grc-rs diff';
-    alias dig='${HOME}/.cargo/bin/grc-rs dig';
-    alias docker='${HOME}/.cargo/bin/grc-rs docker';
-    alias du='${HOME}/.cargo/bin/grc-rs du';
-    alias env='${HOME}/.cargo/bin/grc-rs env';
-    alias fdisk='${HOME}/.cargo/bin/grc-rs fdisk';
-    alias findmnt='${HOME}/.cargo/bin/grc-rs findmnt';
-    alias free='${HOME}/.cargo/bin/grc-rs free';
-    alias gcc='${HOME}/.cargo/bin/grc-rs gcc';
-    alias getfacl='${HOME}/.cargo/bin/grc-rs getfacl';
-    alias id='${HOME}/.cargo/bin/grc-rs id';
-    alias ip='${HOME}/.cargo/bin/grc-rs ip';
-    alias iptables='${HOME}/.cargo/bin/grc-rs iptables';
-    alias iwconfig='${HOME}/.cargo/bin/grc-rs iwconfig';
-    alias kubectl='${HOME}/.cargo/bin/grc-rs kubectl';
-    alias last='${HOME}/.cargo/bin/grc-rs last';
-    alias lsattr='${HOME}/.cargo/bin/grc-rs lsattr';
-    alias lsblk='${HOME}/.cargo/bin/grc-rs lsblk';
-    alias lsmod='${HOME}/.cargo/bin/grc-rs lsmod';
-    alias lsof='${HOME}/.cargo/bin/grc-rs lsof';
-    alias lspci='${HOME}/.cargo/bin/grc-rs lspci';
-    alias mount='${HOME}/.cargo/bin/grc-rs mount';
-    alias ping='${HOME}/.cargo/bin/grc-rs ping';
-    alias ps='${HOME}/.cargo/bin/grc-rs ps';
-    alias pv='${HOME}/.cargo/bin/grc-rs pv';
-    alias ss='${HOME}/.cargo/bin/grc-rs ss';
-    alias stat='${HOME}/.cargo/bin/grc-rs stat';
-    alias sysctl='${HOME}/.cargo/bin/grc-rs sysctl';
-    alias systemctl='${HOME}/.cargo/bin/grc-rs systemctl';
-    alias tcpdump='${HOME}/.cargo/bin/grc-rs tcpdump';
-    alias tune2fs='${HOME}/.cargo/bin/grc-rs tune2fs';
-    alias uptime='${HOME}/.cargo/bin/grc-rs uptime';
-    alias vmstat='${HOME}/.cargo/bin/grc-rs vmstat';
-    alias docker='${HOME}/.cargo/bin/grc-rs docker';
-    alias go='${HOME}/.cargo/bin/grc-rs go';
-    alias iostat='${HOME}/.cargo/bin/grc-rs iostat';
-    alias lsusb='${HOME}/.cargo/bin/grc-rs lsusb';
+    eval $(grc-rs --aliases)
 else
     echo "grc-rs missing."
 fi

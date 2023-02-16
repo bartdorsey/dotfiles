@@ -1,6 +1,4 @@
-if ! type starship > /dev/null; then
-    echo "Installing Starship Prompt"
-    cargo install starship --locked
+if type starship > /dev/null; then
+    # Starship prompt
+    eval "$(starship init zsh)"
 fi
-# Starship prompt
-eval "$(starship init zsh)"

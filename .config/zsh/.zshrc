@@ -18,6 +18,9 @@ zsh_configure_completion > /dev/null 2>&1
 # Stop Ctrl-S freezing the terminal
 stty stop undef
 
+# Environment
+zsh_config_run env.zsh
+
 # Plugins
 zsh_config_run zsh-plugins.sh
 

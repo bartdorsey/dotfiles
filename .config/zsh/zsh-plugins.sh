@@ -11,13 +11,22 @@ autoload -Uz _zinit
 
 (( ${+_comps} )) && _comps[zinit]=_zinit
 # plugins
-zinit for wait lucid \
-    zsh-users/zsh-history-substring-search \
-    zsh-users/zsh-autosuggestions \
-    zsh-users/zsh-syntax-highlighting \
-    zsh-users/zsh-completions \
-    sunlei/zsh-ssh \
+zinit ice wait lucid
+zinit load zsh-users/zsh-history-substring-search
+
+zinit ice wait lucid
+zinit load zsh-users/zsh-autosuggestions
+
+zinit ice wait lucid
+zinit load zsh-users/zsh-syntax-highlighting
+
+zinit ice wait lucid 
+zinit load zsh-users/zsh-completions
+
+zinit ice wait lucid
+zinit load sunlei/zsh-ssh
 
 # Custom scripts
-zinit ice multisrc".config/zsh/plugins/*.zsh"
+zinit ice wait lucid multisrc".config/zsh/plugins/*.zsh"
 zinit load bartdorsey/dotfiles
+

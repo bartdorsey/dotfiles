@@ -21,5 +21,11 @@ stty stop undef
 # Plugins
 zsh_config_run zsh-plugins.sh
 
+# Prompt
+zsh_config_run starship.zsh
+
+# MOTD
+zsh_config_run macchina.zsh
+
 # End Profiler
 #zprof

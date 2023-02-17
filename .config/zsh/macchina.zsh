@@ -1,3 +1,3 @@
 if type macchina > /dev/null; then
-    macchina -t Lithium
+    macchina -t Catppuccin
 fi

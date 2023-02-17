@@ -19,6 +19,9 @@ packer.startup(function(use)
 
     -- Theme
     use 'folke/tokyonight.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
+
+
 
     -- Which key
 

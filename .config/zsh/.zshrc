@@ -28,7 +28,8 @@ zsh_config_run zsh-plugins.sh
 zsh_config_run starship.zsh
 
 # MOTD
-zsh_config_run macchina.zsh
+#zsh_config_run macchina.zsh
+cat $HOME/.config/art/catppuccin
 
 # End Profiler
 #zprof

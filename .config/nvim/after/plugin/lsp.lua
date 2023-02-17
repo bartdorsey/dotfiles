@@ -75,7 +75,7 @@ lsp.set_preferences({
 lsp.ensure_installed({
   'tsserver',
   'eslint',
-  'sumneko_lua',
+  'lua_ls',
   'rust_analyzer',
   'emmet_ls',
   'pyright',

@@ -1,15 +1,14 @@
 add_newline = true
 
 format = """\
-[╭╴](238) $character$env_var\
-$all[╰─](238)   """
+[╭╴](238) [󰄛 ](bold yellow) $env_var\
+$all[╰─](238) $character"""
 
 [character]
-success_symbol = "[󰄛](bold yellow)"
-error_symbol = "[󰄛](bold red)"
-vimcmd_symbol = "[󰄛](bold green)"
-vimcmd_visual_symbol = "[󰄛](bold green)"
- 
+success_symbol = "[ ](bold blue)"
+error_symbol = "[ ](bold red)"
+vimcmd_symbol = "[ ](bold green)"
+vimcmd_visual_symbol = "[ ](bold green)"
 
 [git_commit]
 #tag_symbol = " tag "
@@ -39,6 +38,8 @@ symbol = " "
 
 [directory]
 read_only = " "
+truncation_symbol = "… "
+truncate_to_repo = false
 
 [docker_context]
 symbol = "  "

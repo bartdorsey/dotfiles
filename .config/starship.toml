@@ -1,8 +1,8 @@
 add_newline = true
 
 format = """\
-[╭╴](238)$env_var\
-$all[╰─](238)$character """
+[╭╴](238) $character$env_var\
+$all[╰─](238)   """
 
 [character]
 success_symbol = "[󰄛](bold yellow)"

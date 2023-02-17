@@ -6,15 +6,15 @@
 PLUGIN_DIR=${0:h}
 
 # ZSH
-ln -sfv "${PLUGIN_DIR}/.zshenv" "$HOME/.zshenv"
+ln -sf "${PLUGIN_DIR}/.zshenv" "$HOME/.zshenv"
 # .config folder
-ln -sfv "${PLUGIN_DIR}/.config/"* "$HOME/.config/"
+ln -sf "${PLUGIN_DIR}/.config/"* "$HOME/.config/"
 # tmux
-ln -sfv "${PLUGIN_DIR}/.tmux.conf" "$HOME/.tmux.conf"
-ln -sfv "${PLUGIN_DIR}/.tmux/"* "$HOME/.tmux/"
+ln -sf "${PLUGIN_DIR}/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "${PLUGIN_DIR}/.tmux/"* "$HOME/.tmux/"
 # SSH Setup
 if [ ! -d "$HOME/.ssh" ]; then
     mkdir "$HOME/.ssh"
 fi
-ln -sfv "${PLUGIN_DIR}/.ssh/config" "$HOME/.ssh/config"
+ln -sf "${PLUGIN_DIR}/.ssh/config" "$HOME/.ssh/config"
 

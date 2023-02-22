@@ -1,1 +1,0 @@
-/Users/echo/.local/share/zinit/plugins/bartdorsey---dotfiles/.tmux/theme.tmux

@@ -1,1 +1,2 @@
-/Users/echo/.local/share/zinit/plugins/bartdorsey---dotfiles/.tmux/powershell-session
+neww "pwsh.exe -wd C:\\\\Users\\\\bart"
+rename-window PowerShell

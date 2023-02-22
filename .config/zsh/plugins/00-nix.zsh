@@ -46,3 +46,12 @@ if ! type zoxide > /dev/null; then
    nix-env -iA nixpkgs.zoxide
 fi
 
+# Install direnv
+if ! type direnv > /dev/null; then
+    nix-env -iA nixpkgs.direnv
+fi
+
+# Install exa
+if ! type exa > /dev/null; then
+    nix-env -iA nixpkgs.exa
+fi

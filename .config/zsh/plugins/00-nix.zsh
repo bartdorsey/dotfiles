@@ -55,3 +55,8 @@ fi
 if ! type exa > /dev/null; then
     nix-env -iA nixpkgs.exa
 fi
+
+# Install macchina
+if ! type macchina > /dev/null; then
+   nix-env -iA nixpkgs.macchina
+fi

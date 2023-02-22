@@ -20,3 +20,18 @@ fi
 if ! type starship > /dev/null; then
    nix-env -iA nixpkgs.starship
 fi
+
+# Install fnm
+if ! type fnm > /dev/null; then
+   nix-env -iA nixpkgs.fnm
+fi
+
+# Install fzf
+if ! type fzf > /dev/null; then
+   nix-env -iA nixpkgs.fzf
+fi
+
+# Install go
+if ! type go > /dev/null; then
+   nix-env -iA go
+fi

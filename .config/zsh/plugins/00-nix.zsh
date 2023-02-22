@@ -65,3 +65,8 @@ fi
 if ! type bat > /dev/null; then
    nix-env -iA nixpkgs.bat
 fi
+
+# Install lazygit
+if ! type lazygit > /dev/null; then
+   nix-env -iA lazygit
+fi

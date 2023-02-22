@@ -60,3 +60,8 @@ fi
 if ! type macchina > /dev/null; then
    nix-env -iA nixpkgs.macchina
 fi
+
+# Install bat
+if ! type bat > /dev/null; then
+   nix-env -iA nixpkgs.bat
+fi

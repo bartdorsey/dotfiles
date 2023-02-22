@@ -33,5 +33,16 @@ fi
 
 # Install go
 if ! type go > /dev/null; then
-   nix-env -iA go
+   nix-env -iA nixpkgs.go
 fi
+
+# Install rustup
+if ! type rustup > /dev/null; then
+   nix-env -iA nixpkgs.rustup
+fi
+
+# Install zoxide
+if ! type zoxide > /dev/null; then
+   nix-env -iA nixpkgs.zoxide
+fi
+

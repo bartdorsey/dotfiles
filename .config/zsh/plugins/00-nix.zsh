@@ -68,5 +68,5 @@ fi
 
 # Install lazygit
 if ! type lazygit > /dev/null; then
-   nix-env -iA lazygit
+   nix-env -iA nixpkgs.lazygit
 fi

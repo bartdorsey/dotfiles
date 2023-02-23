@@ -80,3 +80,9 @@ fi
 if ! type fd > /dev/null; then
    nix-env -iA nixpkgs.fd
 fi
+
+# install helix
+if ! type hx > /dev/null; then
+   nix-env -iA nixpkgs.helix
+fi
+

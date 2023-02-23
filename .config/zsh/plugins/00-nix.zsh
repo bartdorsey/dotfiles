@@ -70,3 +70,8 @@ fi
 if ! type lazygit > /dev/null; then
    nix-env -iA nixpkgs.lazygit
 fi
+
+# Install ripgrep
+if ! type rg > /dev/null; then
+   nix-env -iA nixpkgs.ripgrep
+fi

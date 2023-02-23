@@ -86,3 +86,8 @@ if ! type hx > /dev/null; then
    nix-env -iA nixpkgs.helix
 fi
 
+# install htop
+if ! type htop > /dev/null; then
+   nix-env -iA nixpkgs.htop
+fi
+

@@ -75,3 +75,8 @@ fi
 if ! type rg > /dev/null; then
    nix-env -iA nixpkgs.ripgrep
 fi
+
+# install fd
+if ! type fd > /dev/null; then
+   nix-env -iA nixpkgs.fd
+fi

@@ -1,5 +1,7 @@
 # PATH
-export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH:
+# t script
+export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 # History
 HISTSIZE=10000
 SAVEHIST=10000

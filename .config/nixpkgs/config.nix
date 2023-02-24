@@ -3,7 +3,6 @@
     myProfile = writeText "my-profile" ''
       export PATH=$HOME/.nix-profile/bin:/nix/var/profiles/default/bin:$PATH
       export MANPATH=$HOME/.nix-profile/share/man:/nix/var/profiles/default/share/man:$MANPATH
-      export GRC_ALIASES=true
     '';
     myEnv = pkgs.buildEnv {
       name = "myEnv";

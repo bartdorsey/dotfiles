@@ -125,6 +125,12 @@ packer.startup(function(use)
         }
     }
 
+    -- markdown preview
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+
     if is_bootstrap then
         require('packer').sync()
     end

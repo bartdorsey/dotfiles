@@ -35,6 +35,8 @@
         zig
         zstd
         luarocks
+        grc
+        erdtree
         (python3.withPackages (
           ps: with ps; [
             pip

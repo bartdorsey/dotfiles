@@ -34,3 +34,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 if [ -d "/opt/homebrew" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+# Bob
+if [ -d "$HOME/.local/share/bob/nvim-bin" ];then
+    export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
+fi

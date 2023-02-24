@@ -10,3 +10,5 @@ require('gitsigns').setup {
   },
 }
 
+-- LazyGit
+vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>', { desc = '[l]azy[g]it' })

@@ -131,6 +131,9 @@ packer.startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
 
+    -- lazygit.nvim
+    use 'kdheepak/lazygit.nvim'
+
     if is_bootstrap then
         require('packer').sync()
     end

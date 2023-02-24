@@ -23,4 +23,6 @@ if ! type exa > /dev/null; then
     cargo install exa --locked
 fi
 alias ls="exa -g --icons --git -F -h --group-directories-first --octal-permissions -@"
-	
+
+# lazygit
+alias lg=lazygit

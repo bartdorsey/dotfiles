@@ -79,6 +79,7 @@ lsp.ensure_installed({
   'rust_analyzer',
   'emmet_ls',
   'pyright',
+  'markdownlint',
 })
 
 lsp.configure('emmet_ls', {

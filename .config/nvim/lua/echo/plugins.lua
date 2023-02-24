@@ -21,8 +21,6 @@ packer.startup(function(use)
     use 'folke/tokyonight.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
 
-
-
     -- Which key
 
     use {
@@ -124,12 +122,6 @@ packer.startup(function(use)
             'nvim-tree/nvim-web-devicons',
         }
     }
-
-    -- markdown preview
-    use({
-        "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
-    })
 
     -- lazygit.nvim
     use 'kdheepak/lazygit.nvim'

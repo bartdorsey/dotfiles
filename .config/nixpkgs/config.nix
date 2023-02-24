@@ -37,6 +37,7 @@
         luarocks
         grc
         erdtree
+        gitui
         (python3.withPackages (
           ps: with ps; [
             pip

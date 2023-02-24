@@ -17,3 +17,9 @@
 
 [diff]
 	external = difft
+
+[alias]
+	co = checkout
+	st = status
+	ci = commit
+	br = branch

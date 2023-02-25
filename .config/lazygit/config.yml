@@ -1,5 +1,13 @@
 gui:
-
+  windowSize: 'normal'
+  language: 'en'
+  mouseEvents: true
+  showIcons: true
+  expandFocusedSidePanel: false
+  showListFooter: false
+  showRandomTip: true
+  showBottomLine: false
+notARepository: 'quit'
 theme:
   lightTheme: false 
   activeBorderColor:

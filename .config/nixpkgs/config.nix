@@ -43,6 +43,8 @@
         openssl.dev
         wget
         aerc
+        pandoc
+        wiki-tui
         (python3.withPackages (
           ps: with ps; [
             pip

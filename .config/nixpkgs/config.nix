@@ -3,6 +3,7 @@
     myProfile = writeText "my-profile" ''
       export PATH=$HOME/.nix-profile/bin:/nix/var/profiles/default/bin:$PATH
       export MANPATH=$HOME/.nix-profile/share/man:/nix/var/profiles/default/share/man:$MANPATH
+      export PKG_CONFIG_PATH=$HOME/.nix-profile/lib/pkgconfig
     '';
     myEnv = pkgs.buildEnv {
       name = "myEnv";
@@ -38,6 +39,8 @@
         grc
         erdtree
         gitui
+        pkg-config
+        openssl.dev
         (python3.withPackages (
           ps: with ps; [
             pip
@@ -46,7 +49,7 @@
           ]
         ))
       ];
-      pathsToLink = ["/share" "/bin" "/etc"];
+      pathsToLink = ["/share" "/bin" "/etc" "/include" "/lib"];
       extraOutputsToInstall = ["man" "doc"];
     };
   };

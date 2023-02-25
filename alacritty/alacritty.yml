@@ -445,11 +445,11 @@ font:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
 shell:
-  program: ~/.nix-profile/bin/tmux
+  program: /Users/echo/.nix-profile/bin/tmux
   args:
     - new 
     - -As 
-    - Default
+    - macOS
 
 # Startup directory
 #

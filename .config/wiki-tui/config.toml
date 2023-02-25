@@ -6,4 +6,5 @@ highlight_text = "#1e1e2e"
 search_match = "#f9e2af"
 border = "round"
 
-logging.enabled = false
+[logging]
+enabled = false

@@ -1,4 +1,0 @@
-2023-02-25T14:59:03.986328-06:00 INFO wiki_tui::logging - successfully initialized the logging system
-2023-02-25T14:59:09.339813-06:00 INFO wiki_tui::ui::search::display - displaying '10' search results
-2023-02-25T14:59:09.340187-06:00 INFO wiki_tui::ui::search - selecting the item 'LaTeX', page id: '18195'
-2023-02-25T14:59:09.340262-06:00 INFO wiki_tui::ui::search - selecting the item 'Pandoc', page id: '43162750'

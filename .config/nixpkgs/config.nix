@@ -42,6 +42,7 @@
         pkg-config
         openssl.dev
         wget
+        aerc
         (python3.withPackages (
           ps: with ps; [
             pip

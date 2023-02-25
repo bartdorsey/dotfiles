@@ -1,0 +1,8 @@
+[theme]
+background = "#1e1e2e"
+title = "#94e2d5"
+highlight = "#89b4fa"
+highlight_text = "#1e1e2e"
+search_match = "#f9e2af"
+border = "round"
+

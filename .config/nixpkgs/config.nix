@@ -45,6 +45,7 @@
         aerc
         pandoc
         wiki-tui
+        php
         (python3.withPackages (
           ps: with ps; [
             pip

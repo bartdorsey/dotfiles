@@ -45,7 +45,8 @@
         aerc
         pandoc
         wiki-tui
-        php
+        php82
+        php82Packages.composer
         (python3.withPackages (
           ps: with ps; [
             pip

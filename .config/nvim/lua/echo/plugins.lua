@@ -75,6 +75,7 @@ packer.startup(function(use)
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
     use 'lewis6991/gitsigns.nvim'
+    use 'ThePrimeagen/git-worktree.nvim'
 
     -- Misc
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline

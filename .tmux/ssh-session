@@ -1,2 +1,0 @@
-new-session "ssh $(grep -P \"^Host ([^*]+)$\" /home/echo/.ssh/config | sed '\''s/Host //'\ | fzf-tmux)"
-

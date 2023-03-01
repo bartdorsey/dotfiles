@@ -1,2 +1,2 @@
-neww "ssh $(grep -P \"^Host ([^*]+)$\" /home/echo/.ssh/config | sed '\''s/Host //'\ | fzf-tmux)"
+new -s "ssh $(grep -P \"^Host ([^*]+)$\" /home/echo/.ssh/config | sed '\''s/Host //'\ | fzf-tmux)"
 

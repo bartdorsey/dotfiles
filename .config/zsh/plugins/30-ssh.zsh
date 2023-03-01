@@ -20,3 +20,5 @@ fi
 
 unset env
 ### END Add SSH Agent startup
+
+alias ssh-hosts="grep -P \"^Host ([^*]+)$\" $HOME/.ssh/config | sed 's/Host //'"

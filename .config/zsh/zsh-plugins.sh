@@ -13,6 +13,11 @@ autoload -Uz _zinit
 
 BASE_SNIPPET_URL="https://raw.githubusercontent.com/bartdorsey/dotfiles/main/.config/zsh/plugins/"
 
+function install_snippet_sync {
+    zinit ice load
+    zinit snippet "${BASE_SNIPPET_URL}${1}"
+}
+
 function install_snippet {
     zinit ice wait lucid
     zinit snippet "${BASE_SNIPPET_URL}${1}" 
@@ -23,8 +28,8 @@ function install_snippet_silent {
     zinit snippet "${BASE_SNIPPET_URL}${1}"
 }
 
-install_snippet "00-nix.zsh"
-install_snippet "20-python.zsh"
+install_snippet_sync "00-nix.zsh"
+install_snippet_sync "20-python.zsh"
 
 # fzf-tab
 zinit light Aloxaf/fzf-tab

@@ -51,5 +51,5 @@ vim.opt.colorcolumn = "80"
 vim.opt.clipboard = "unnamedplus"
 
 -- Split
-vim.g.splitbelow = true
-vim.g.splitright = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true

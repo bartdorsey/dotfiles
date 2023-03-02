@@ -49,3 +49,7 @@ vim.opt.colorcolumn = "80"
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
+
+-- Split
+vim.g.splitbelow = true
+vim.g.splitright = true

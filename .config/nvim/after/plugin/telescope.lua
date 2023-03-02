@@ -2,6 +2,7 @@
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
+    file_ignore_patters = "^.git/",
     mappings = {
       i = {
         ['<C-u>'] = false,
@@ -9,6 +10,12 @@ require('telescope').setup {
       },
     },
   },
+  pickers = {
+    find_files = {
+      hidden = true,
+
+    }
+  }
 }
 
 -- Enable telescope fzf native, if installed
@@ -33,4 +40,3 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set("n", "<leader>cp", require('telescope.builtin').commands, { desc = "[C]ommand [P]allet" })
 vim.keymap.set("n", "<leader>sg", require('telescope.builtin').git_files, { desc = "Search [G]it [F]iles" })
 vim.keymap.set("n", "<leader>sk", require('telescope.builtin').keymaps, { desc = "[S]earch [K]eymaps" })
-

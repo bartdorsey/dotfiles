@@ -18,7 +18,6 @@ packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Theme
-    use 'folke/tokyonight.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Which key
@@ -29,7 +28,10 @@ packer.startup(function(use)
             vim.o.timeout = true
             vim.o.timeoutlen = true
             require("which-key").setup {
-
+                window = {
+                    border = "single",
+                    position = "top"
+                }
             }
         end
     }

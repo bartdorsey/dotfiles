@@ -9,3 +9,4 @@ packer_compiled.lua
 .config/zsh/.grc-rs.zsh
 .config/aerc/accounts.conf
 .tmux/plugins
+*.log

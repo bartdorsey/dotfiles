@@ -9,6 +9,11 @@ source $ZDOTDIR/zsh-functions.sh
 # Configure colors for zsh
 autoload -U colors && colors
 
+# Configure LS_COLORS
+if type dircolors > /dev/null; then
+    eval $(dircolors)
+fi
+
 # Configure zmv
 autoload zmv
 

@@ -13,16 +13,21 @@ ColorMyPencils()
 require('catppuccin').setup({
 })
 
--- lualine
+require('feline').setup({
+  components = require("catppuccin.groups.integrations.feline").get(),
+})
+require('feline').winbar.setup()
 
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'catppuccin',
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
-  }
-}
-
+-- -- lualine
+--
+-- require('lualine').setup {
+--   options = {
+--     icons_enabled = true,
+--     theme = 'catppuccin',
+--     component_separators = { left = '', right = '' },
+--     section_separators = { left = '', right = '' },
+--   }
+-- }
+--
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

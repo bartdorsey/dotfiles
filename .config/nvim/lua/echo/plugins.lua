@@ -78,8 +78,11 @@ packer.startup(function(use)
     use 'tpope/vim-rhubarb'
     use 'lewis6991/gitsigns.nvim'
 
+    -- StatusLine
+    -- use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+    use 'feline-nvim/feline.nvim'
+
     -- Misc
-    use 'nvim-lualine/lualine.nvim' -- Fancier statusline
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
     use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
     use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically

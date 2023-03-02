@@ -23,8 +23,11 @@ function install_snippet_silent {
     zinit snippet "${BASE_SNIPPET_URL}${1}"
 }
 
-# plugins
+# fzf-tab
 zinit light Aloxaf/fzf-tab
+
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 zinit ice wait lucid
 zinit load zsh-users/zsh-history-substring-search
@@ -63,4 +66,11 @@ install_snippet "99-aliases.zsh"
 
 # Completions
 
-zstyle :plugin:zsh-completion-generator programs exa bat cargo rustup node python3 pip3
+zstyle :plugin:zsh-completion-generator programs \
+exa \
+bat \
+cargo \
+rustup \
+node \
+rg \
+fd \

@@ -2,7 +2,7 @@
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
-    file_ignore_patters = "^.git/",
+    file_ignore_patterns = "^.git/",
     mappings = {
       i = {
         ['<C-u>'] = false,
@@ -13,7 +13,6 @@ require('telescope').setup {
   pickers = {
     find_files = {
       hidden = true,
-
     }
   }
 }

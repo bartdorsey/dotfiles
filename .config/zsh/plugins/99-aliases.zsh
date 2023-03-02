@@ -7,12 +7,6 @@ fi
 # Misc 
 alias ll=ls -al
 
-# Python Virtual Environment stuff
-alias python=python3
-alias pip=pip3
-alias venv="python -m venv .venv && source .venv/bin/activate"
-alias activate="source .venv/bin/activate"
-
 # Color Grep
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"

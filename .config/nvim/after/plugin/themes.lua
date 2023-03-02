@@ -8,15 +8,9 @@ end
 
 ColorMyPencils()
 
--- Setup tokyonight
+-- Setup catppuccin
 
-require('tokyonight').setup({
-  transparent = true,
-  lualine_bold = true,
-  styles = {
-    comments = { italic = true },
-  },
-  dim_inactive = true,
+require('catppuccin').setup({
 })
 
 -- lualine
@@ -24,7 +18,7 @@ require('tokyonight').setup({
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
+    theme = 'catppuccin',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
   }

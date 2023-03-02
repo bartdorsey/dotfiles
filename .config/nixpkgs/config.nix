@@ -48,6 +48,7 @@
         php82
         php82Packages.composer
         btop
+        zellij
         (python3.withPackages (
           ps: with ps; [
             pip

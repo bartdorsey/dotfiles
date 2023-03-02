@@ -24,6 +24,8 @@ function install_snippet_silent {
 }
 
 # plugins
+zinit light Aloxaf/fzf-tab
+
 zinit ice wait lucid
 zinit load zsh-users/zsh-history-substring-search
 
@@ -38,6 +40,8 @@ zinit load zsh-users/zsh-completions
 
 zinit ice wait lucid
 zinit load sunlei/zsh-ssh
+
+zinit load RobSis/zsh-completion-generator
 
 install_snippet "00-nix.zsh"
 install_snippet "01-neovim.zsh"
@@ -57,3 +61,6 @@ install_snippet "80-binds.zsh"
 install_snippet "95-nvim.zsh"
 install_snippet "99-aliases.zsh"
 
+# Completions
+
+zstyle :plugin:zsh-completion-generator programs exa bat cargo rustup node python3 pip3

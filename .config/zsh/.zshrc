@@ -30,5 +30,8 @@ zsh_config_run starship.zsh
 # MOTD
 zsh_config_run macchina.zsh
 
+# Run compinit
+compinit
+
 # End Profiler
 #zprof

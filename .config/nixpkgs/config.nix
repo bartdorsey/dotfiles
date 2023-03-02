@@ -47,6 +47,7 @@
         wiki-tui
         php82
         php82Packages.composer
+        btop
         (python3.withPackages (
           ps: with ps; [
             pip

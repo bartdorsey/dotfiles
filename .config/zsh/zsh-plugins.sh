@@ -10,6 +10,19 @@ source "${HOME}/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 
 (( ${+_comps} )) && _comps[zinit]=_zinit
+
+BASE_SNIPPET_URL="https://raw.githubusercontent.com/bartdorsey/dotfiles/main/.config/zsh/plugins/"
+
+function install_snippet {
+    zinit ice wait lucid
+    zinit snippet "${BASE_SNIPPET_URL}${1}" 
+}
+
+function install_snippet_silent {
+    zinit ice wait silent
+    zinit snippet "${BASE_SNIPPET_URL}${1}"
+}
+
 # plugins
 zinit ice wait lucid
 zinit load zsh-users/zsh-history-substring-search
@@ -26,7 +39,21 @@ zinit load zsh-users/zsh-completions
 zinit ice wait lucid
 zinit load sunlei/zsh-ssh
 
-# Custom scripts
-zinit ice wait lucid multisrc".config/zsh/plugins/*.zsh"
-zinit load bartdorsey/dotfiles
+install_snippet "00-nix.zsh"
+install_snippet "01-neovim.zsh"
+install_snippet "01-tmux.zsh"
+install_snippet_silent "10-rust.zsh"
+install_snippet "20-fnm.zsh"
+install_snippet "20-go.zsh"
+install_snippet "20-pnpm.zsh"
+install_snippet "20-python.zsh"
+install_snippet "30-ssh.zsh"
+install_snippet "40-nix.zsh"
+install_snippet "50-wsl2.zsh"
+install_snippet "60-direnv.zsh"
+install_snippet "60-fzf.zsh"
+install_snippet "60-zoxide.zsh"
+install_snippet "80-binds.zsh"
+install_snippet "95-nvim.zsh"
+install_snippet "99-aliases.zsh"
 

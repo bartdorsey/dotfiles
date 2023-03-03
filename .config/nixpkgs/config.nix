@@ -50,6 +50,7 @@
         btop
         zellij
         gcc
+        wl-clipboard
         (python3.withPackages (
           ps: with ps; [
             pip

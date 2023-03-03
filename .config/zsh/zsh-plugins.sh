@@ -28,8 +28,7 @@ function install_snippet_silent {
     zinit snippet "${BASE_SNIPPET_URL}${1}"
 }
 
-install_snippet_sync "00-nix.zsh"
-install_snippet_sync "20-python.zsh"
+install_snippet "00-nix.zsh"
 
 # fzf-tab
 zinit light Aloxaf/fzf-tab
@@ -57,6 +56,7 @@ zinit load RobSis/zsh-completion-generator
 install_snippet "01-neovim.zsh"
 install_snippet "01-tmux.zsh"
 install_snippet_silent "10-rust.zsh"
+install_snippet "20-python.zsh"
 install_snippet "20-fnm.zsh"
 install_snippet "20-go.zsh"
 install_snippet "20-pnpm.zsh"

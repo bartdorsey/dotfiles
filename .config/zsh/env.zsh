@@ -1,5 +1,7 @@
 # PATH
 export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH:
+# Nix PATH
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
 # t script
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 # History

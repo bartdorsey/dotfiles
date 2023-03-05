@@ -1,28 +1,23 @@
--- Install packer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-local is_bootstrap = false
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    is_bootstrap = true
-    vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-    vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer = require('packer')
-
-packer.init({
-    max_jobs = 10
-})
-
-packer.startup(function(use)
-    -- Package manager
-    use 'wbthomason/packer.nvim'
-
+local plugins = {
     -- Theme
-    use { "catppuccin/nvim", as = "catppuccin" }
+    { "catppuccin/nvim", name = "catppuccin" },
 
     -- Which key
 
-    use {
+    {
         "folke/which-key.nvim",
         config = function()
             vim.o.timeout = true
@@ -34,12 +29,12 @@ packer.startup(function(use)
                 }
             }
         end
-    }
+    },
 
     -- LSP
-    use {
+    {
         'VonHeikemen/lsp-zero.nvim',
-        requires = {
+        dependencies = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
             { 'williamboman/mason.nvim' },
@@ -59,106 +54,83 @@ packer.startup(function(use)
             { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
         }
-    }
+    },
 
-    use { -- Highlight, edit, and navigate code
+    { -- Highlight, edit, and navigate code
         'nvim-treesitter/nvim-treesitter',
-        run = function()
+        build = function()
             pcall(require('nvim-treesitter.install').update { with_sync = true })
         end,
-    }
+    },
 
-    use { -- Additional text objects via treesitter
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        after = 'nvim-treesitter',
-    }
+    { -- Additional text objects via treesitter
+        'nvim-treesitter/nvim-treesitter-textobjects'
+    },
 
     -- Git related plugins
-    use 'tpope/vim-fugitive'
-    use 'tpope/vim-rhubarb'
-    use 'lewis6991/gitsigns.nvim'
+    'tpope/vim-fugitive',
+    'tpope/vim-rhubarb',
+    'lewis6991/gitsigns.nvim',
 
     -- StatusLine
     -- use 'nvim-lualine/lualine.nvim' -- Fancier statusline
-    use 'feline-nvim/feline.nvim'
+    'feline-nvim/feline.nvim',
 
     -- Misc
-    use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-    use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-    use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+    'lukas-reineke/indent-blankline.nvim', -- Add indentation guides even on blank lines
+    'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
+    'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
     -- Fuzzy Finder (files, lsp, etc)
-    use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+    { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
 
     -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
 
     -- Telescope file manager
-    use {
+    {
         "nvim-telescope/telescope-file-browser.nvim",
-        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-    }
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    },
 
     -- Markdown Preview
-    use({
+    {
         "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-        ft = { "markdown" },
-    })
-    use 'jose-elias-alvarez/null-ls.nvim'
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
+    'jose-elias-alvarez/null-ls.nvim',
 
     -- Debuggin
-    use 'mfussenegger/nvim-dap'
-    use 'rcarriga/nvim-dap-ui'
-    use 'theHamsta/nvim-dap-virtual-text'
-    use 'nvim-telescope/telescope-dap.nvim'
+    'mfussenegger/nvim-dap',
+    'rcarriga/nvim-dap-ui',
+    'theHamsta/nvim-dap-virtual-text',
+    'nvim-telescope/telescope-dap.nvim',
 
 
-    use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
+    { "mxsdev/nvim-dap-vscode-js", dependencies = { "mfussenegger/nvim-dap" } },
 
-    use {
+    {
         "microsoft/vscode-js-debug",
-        opt = true,
-        run = "npm install --legacy-peer-deps && npm run compile"
-    }
+        lazy = true,
+        build = "npm install --legacy-peer-deps && npm run compile"
+    },
 
     -- vim tmux navigator
-    use 'christoomey/vim-tmux-navigator'
+    'christoomey/vim-tmux-navigator',
 
     -- tree plugin
-    use {
+    {
         'nvim-tree/nvim-tree.lua',
-        requires = {
+        dependencies = {
             'nvim-tree/nvim-web-devicons',
         }
-    }
+    },
 
     -- lazygit.nvim
-    use 'kdheepak/lazygit.nvim'
+    'kdheepak/lazygit.nvim',
+}
 
-    if is_bootstrap then
-        require('packer').sync()
-    end
-end)
+local opts = {}
 
--- When we are bootstrapping a configuration, it doesn't
--- make sense to execute the rest of the init.lua.
---
--- You'll need to restart nvim, and then it will work.
-if is_bootstrap then
-    print '=================================='
-    print '    Plugins are being installed'
-    print '    Wait until Packer completes,'
-    print '       then restart nvim'
-    print '=================================='
-    return
-end
+require('lazy').setup(plugins, opts)
 
--- Automatically source and re-compile packer whenever you save this init.lua
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-    command = 'source <afile> | PackerCompile',
-    group = packer_group,
-    pattern = vim.fn.expand '$MYVIMRC',
-})

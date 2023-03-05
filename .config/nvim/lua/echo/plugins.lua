@@ -130,7 +130,12 @@ local plugins = {
     'kdheepak/lazygit.nvim',
 }
 
-local opts = {}
+local opts = {
+    checker = {
+        enabled = true,
+        notify = true
+    }
+}
 
 require('lazy').setup(plugins, opts)
 

@@ -9,22 +9,24 @@ end
 -- Theme
 return {
   -- StatusLine
-  { 'nvim-lualine/lualine.nvim',
-    config = function()
-      require('lualine').setup({
-        options = {
-          theme = "catppuccin"
-        }
-      })
-    end },
   {
     'catppuccin/nvim',
     name = "catppuccin",
     config = function()
       ColorMyPencils()
-      require('catppuccin').setup({})
+      require('catppuccin').setup({
+      })
     end
-  }
+  },
+  {
+    'feline-nvim/feline.nvim',
+    dependencies = { 'catppuccin/nvim' },
+    config = function()
+      require("feline").setup({
+        components = require("catppuccin.groups.integrations.feline").get(),
+      })
+    end
+  },
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

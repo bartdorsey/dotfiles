@@ -51,6 +51,7 @@
         zellij
         gcc
         wl-clipboard
+        du-dust
         (python3.withPackages (
           ps: with ps; [
             pip

@@ -1,3 +1,3 @@
-require('echo.plugins');
 require('echo.remap');
+require('echo.plugins');
 

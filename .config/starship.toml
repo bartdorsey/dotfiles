@@ -38,8 +38,8 @@ symbol = " "
 
 [directory]
 read_only = " "
-truncation_symbol = "… "
-truncate_to_repo = true
+truncation_symbol = "..."
+truncate_to_repo = false
 
 [docker_context]
 symbol = "  "

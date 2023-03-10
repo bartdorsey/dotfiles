@@ -67,6 +67,7 @@ install_snippet "60-fzf.zsh"
 install_snippet "60-zoxide.zsh"
 install_snippet "80-binds.zsh"
 install_snippet "95-nvim.zsh"
+install_snippet "98-1password.zsh"
 install_snippet "99-aliases.zsh"
 
 # Completions

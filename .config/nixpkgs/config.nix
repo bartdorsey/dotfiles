@@ -1,4 +1,5 @@
 {
+  allowUnfree = true;
   packageOverrides = pkgs: with pkgs; rec {
     myProfile = writeText "my-profile" ''
       export PATH=$HOME/.nix-profile/bin:/nix/var/profiles/default/bin:$PATH

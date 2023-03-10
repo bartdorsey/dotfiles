@@ -51,6 +51,7 @@
         zellij
         gcc
         du-dust
+        twitch-tui
         (python3.withPackages (
           ps: with ps; [
             pip

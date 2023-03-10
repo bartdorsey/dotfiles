@@ -52,6 +52,7 @@
         gcc
         du-dust
         twitch-tui
+        _1password
         (python3.withPackages (
           ps: with ps; [
             pip

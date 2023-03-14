@@ -13,6 +13,7 @@
           mkdir -p $out/etc/profile.d
           cp ${myProfile} $out/etc/profile.d/my-profile.sh
         '')
+        curl
         tmux
         neovim
         starship
@@ -54,6 +55,8 @@
         du-dust
         twitch-tui
         _1password
+        zip
+        unzip
         (python3.withPackages (
           ps: with ps; [
             pip

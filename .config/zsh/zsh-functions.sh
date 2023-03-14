@@ -57,40 +57,45 @@ function zsh_configure_completion() {
   setopt AUTO_LIST
   LISTMAX=-1
   # bun completions
-  [ -s "/home/echo/.bun/_bun" ] && source "/home/echo/.bun/_bun"
+  [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 }
 
-function fzf_cd() {
-	cd $(fdfind --type d --hidden | fzf)
-}
+# FZF Functions
+if type fzf > /dev/null;then
+    function fzf_cd() {
+        cd $(fdfind --type d --hidden | fzf)
+    }
 
-function fzfz() {
-    cd $(zshz | column --table --table-hide 1 | fzf)
-}
+    function fzfz() {
+        cd $(zshz | column --table --table-hide 1 | fzf)
+    }
 
-function find_programming_files() {
-	fdfind --hidden '.(sh|js|html|py|css|md|rs|json|yaml)$' | fzf
-}
+    function find_programming_files() {
+       fdfind --hidden '.(sh|js|html|py|css|md|rs|json|yaml)$' | fzf
+    }
 
-function find_git_repos() {
-	fdfind --hidden '.(git|workspace)$' | sed s/.git$// | fzf
-}
+    function find_git_repos() {
+        fdfind --hidden '.(git|workspace)$' | sed s/.git$// | fzf
+    }
 
-function fzf_vi() {
-	file=$(find_programming_files)||return
-	nvim $file
-}
+    function fzf_vi() {
+        file=$(find_programming_files)||return
+        nvim $file
+    }
 
-function fzf_code() {
-	repo=$(find_git_repos)||return
-	code $repo
-}
+    function fzf_code() {
+        repo=$(find_git_repos)||return
+        code $repo
+    }
+fi
 
-
-function django-setup-project() {
-    python -m venv .venv
-    source .venv/bin/activate
-    pip install -r requirements.txt
-    python manage.py migrate
-    python manage.py createsuperuser
-}
+# Django
+if type python3 > /dev/null;then
+    function django-setup-project() {
+        python -m venv .venv
+        source .venv/bin/activate
+        pip install -r requirements.txt
+        python manage.py migrate
+        python manage.py createsuperuser
+    }
+fi

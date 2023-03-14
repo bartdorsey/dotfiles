@@ -35,8 +35,10 @@ if type fzf > /dev/null; then
 fi
 
 # Prompt Title
-if [[ $OSTYPE == "linux-gnu" ]]; then
-    export PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
+if type lsb_release > /dev/null;then
+    if [[ $OSTYPE == "linux-gnu" ]]; then
+        export PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
+    fi
 fi
 
 # Default editor

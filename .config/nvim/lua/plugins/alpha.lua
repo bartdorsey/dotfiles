@@ -1,11 +1,9 @@
 return {
 	'goolord/alpha-nvim',
-	dependencies = { 'nvim-tree/nvim-web-devicons' },
+	dependencies = { 'nvim-tree/nvim-web-devicons', 'Shatur/neovim-session-manager' },
 	config = function()
 		local alpha = require('alpha')
 		local startify = require('alpha.themes.startify')
-		local width = 46
-		local height = 25
 		startify.section.header.val = {
 			"  ／l、",
 			"（ﾟ､ ｡７",

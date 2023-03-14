@@ -51,7 +51,9 @@ zinit load zsh-users/zsh-completions
 zinit ice wait lucid
 zinit load sunlei/zsh-ssh
 
-zinit load RobSis/zsh-completion-generator
+if type python3 > /dev/null;then
+	zinit load RobSis/zsh-completion-generator
+fi
 
 install_snippet "01-neovim.zsh"
 install_snippet "01-tmux.zsh"

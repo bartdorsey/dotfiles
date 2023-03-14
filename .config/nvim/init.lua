@@ -3,12 +3,43 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- vim.g.netrw_liststyle = 3
 
+-- Set <space> as the leader key
+-- See `:help mapleader`
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+vim.opt.termguicolors = true
+-- Plugins
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+
+vim.opt.rtp:prepend(lazypath)
+
+local opts = {
+    checker = {
+        enabled = true,
+        notify = true
+    }
+}
+
+require('lazy').setup("plugins", opts)
+
+-- Post plugin configurations 
 if vim.g.neovide then
   vim.o.guifont = "Iosevka NF"
   vim.g.neovide_background_color = "#1e1e2e"
 end
+
 -- [[ Setting options ]]
--- See `:help vim.o`
 
 -- Make line numbers default
 vim.wo.number = true
@@ -35,18 +66,19 @@ vim.wo.signcolumn = 'yes'
 vim.o.completeopt = 'menuone,noselect,preview'
 
 -- Indenting
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-
 vim.opt.wrap = false
 
+vim.opt.list = true
+vim.opt.listchars = { tab = '».', extends ='›' ,precedes = '‹', nbsp = '·', trail= '·' }
 -- Search Highlighting
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.termguicolors = true
 
 -- Scrolling
 vim.opt.scrolloff = 8
@@ -64,10 +96,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- [[ Basic Keymaps ]]
--- Set <space> as the leader key
--- See `:help mapleader`
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -122,28 +150,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
--- Plugins
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-
-vim.opt.rtp:prepend(lazypath)
-
-local opts = {
-    checker = {
-        enabled = true,
-        notify = true
-    }
-}
-
-require('lazy').setup("plugins", opts)
 

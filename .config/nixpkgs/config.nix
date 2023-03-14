@@ -57,6 +57,8 @@
         _1password
         zip
         unzip
+        gnupg
+        pass
         (python3.withPackages (
           ps: with ps; [
             pip

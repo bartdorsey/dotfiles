@@ -1,39 +1,57 @@
 # PATH
 export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH:
+
 # Nix PATH
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+
 # t script
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+
 # History
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
+
 # FZF Config
 FZF_DEFAULT_COMMAND='fdfind -type f --color=never --hidden'
 FZF_DEFAULT_OPTS='--no-height'
+
 # Prompt Title
 if [[ $OSTYPE == "linux-gnu" ]]; then
     PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
 fi
+
 # Default editor
 export EDITOR="vim"
+
 # Postgres
 export PGHOST=localhost
+
 # Python
 export SETUPTOOLS_USE_DISTUTILS=stdlib
 export PIPENV_VENV_IN_PROJECT=1
+
 # Go
 export PATH=$PATH:~/go/bin
+
 # Man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fpath=($HOME/.config/zsh/functions $fpath)
+
 # GIT
 GIT_CONFIG_GLOBAL=$HOME/.config/git/config
+
 # BUN
 export BUN_INSTALL="/home/echo/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# Homebrew
 if [ -d "/opt/homebrew" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# TERMINFO for macOS
+if [[ $(uname -s) == "Darwin" ]]; then
+   /usr/bin/tic -x -o $HOME/.local/share/terminfo $HOME/.dotfiles/terminfo/tmux-256color.info 
+   export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
+fi

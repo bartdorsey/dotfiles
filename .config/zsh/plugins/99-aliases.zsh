@@ -1,7 +1,6 @@
+# Git worktree
 if type git > /dev/null; then
     alias wt="git worktree"
-else
-    echo "git missing."
 fi
 
 # Misc 
@@ -13,10 +12,11 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
 # exa - fancy ls
-if ! type exa > /dev/null; then
-    cargo install exa --locked
+if type exa > /dev/null; then
+    alias ls="exa -g --icons --git -F -h --group-directories-first --octal-permissions -@"
 fi
-alias ls="exa -g --icons --git -F -h --group-directories-first --octal-permissions -@"
 
 # lazygit
-alias lg=lazygit
+if type lazygit > /dev/null;then
+    alias lg=lazygit
+fi

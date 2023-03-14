@@ -1,24 +1,42 @@
-# PATH
-export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH:
-
-# Nix PATH
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
-
-# t script
-export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-
 # History
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+
+if [ ! -d $HOME/.cache/zsh ];then
+    mkdir -p $HOME/.cache/zsh
+fi
+
+HISTFILE=$HOME/.cache/zsh/history
+
+# Local bin
+if [ -d "$HOME/.local/bin" ];then
+    export PATH=$HOME/.local/bin:$PATH:
+fi
+
+# Rust
+if [ -d "$HOME/.cargo/bin" ];then
+    export PATH=$HOME/.cargo/bin:$PATH:
+fi
+
+# Nix PATH
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then 
+    . $HOME/.nix-profile/etc/profile.d/nix.sh;
+fi
+
+# t script
+if [ -d $HOME/.tmux/plugins/t-smart-tmux-session-manager ];then
+    export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+fi
 
 # FZF Config
-FZF_DEFAULT_COMMAND='fdfind -type f --color=never --hidden'
-FZF_DEFAULT_OPTS='--no-height'
+if type fzf > /dev/null; then
+    export FZF_DEFAULT_COMMAND='fdfind -type f --color=never --hidden'
+    export FZF_DEFAULT_OPTS='--no-height'
+fi
 
 # Prompt Title
 if [[ $OSTYPE == "linux-gnu" ]]; then
-    PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
+    export PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
 fi
 
 # Default editor
@@ -28,22 +46,30 @@ export EDITOR="vim"
 export PGHOST=localhost
 
 # Python
-export SETUPTOOLS_USE_DISTUTILS=stdlib
-export PIPENV_VENV_IN_PROJECT=1
+if type python3 > /dev/null;then
+    export SETUPTOOLS_USE_DISTUTILS=stdlib
+    export PIPENV_VENV_IN_PROJECT=1
+fi
 
 # Go
-export PATH=$PATH:~/go/bin
+if [ -d "$HOME/go" ];then
+    export PATH=$PATH:~/go/bin
+fi
 
-# Man pages
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-fpath=($HOME/.config/zsh/functions $fpath)
+# Man pages in bat
+if type bat > /dev/null; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    fpath=($HOME/.config/zsh/functions $fpath)
+fi
 
 # GIT
-GIT_CONFIG_GLOBAL=$HOME/.config/git/config
+export GIT_CONFIG_GLOBAL=$HOME/.config/git/config
 
 # BUN
-export BUN_INSTALL="/home/echo/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+if [ -d "$HOME/.bun" ]; then
+    export BUN_INSTALL="$HOME/.bun"
+    export PATH="$BUN_INSTALL/bin:$PATH"
+fi
 
 # Homebrew
 if [ -d "/opt/homebrew" ]; then

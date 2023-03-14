@@ -78,8 +78,9 @@ if [ -d "/opt/homebrew" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# TERMINFO for macOS
-if [[ $(uname -s) == "Darwin" ]]; then
+
+# TERMINFO for tmux when it's not installed by default
+if [[ $(toe -a | grep -c tmux-256color) != "0" ]]; then
    /usr/bin/tic -x -o $HOME/.local/share/terminfo $HOME/.dotfiles/terminfo/tmux-256color.info 
    export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 fi

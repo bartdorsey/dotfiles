@@ -59,6 +59,12 @@
         unzip
         gnupg
         pass
+        dogdns
+        xh
+        sd
+        procs
+        teip
+        choose
         (python3.withPackages (
           ps: with ps; [
             pip

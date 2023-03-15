@@ -1,7 +1,7 @@
 return {
-  'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
-  config = function()
-    -- Enable Comment.nvim
-    require('Comment').setup()
-  end
+    'echasnovski/mini.comment',
+    version = '*',
+    config = function()
+        require('mini.comment').setup()
+    end
 }

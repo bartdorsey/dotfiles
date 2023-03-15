@@ -2,14 +2,15 @@ return {
     -- DAP
     {
         'mfussenegger/nvim-dap',
+        keys = {
+            { '<leader>dc',  '<cmd>DapContinue<cr>',         desc = '[d]ebug [c]ontinue' },
+            { '<leader>dso', '<cmd>DapStepOver<cr>',         desc = '[d]ebug [s]tep [o]ver' },
+            { '<leader>dsi', '<cmd>DapStepInto<cr>',         desc = '[d]ebug [s]tep [i]nto' },
+            { '<leader>dsu', '<cmd>DapStepOut<cr>',          desc = '[d]ebug [s]tep o[u]t' },
+            { '<leader>db',  '<cmd>DapToggleBreakpoint<cr>', desc = '[d]ebug toggle [b]reakpoint' },
+        },
         config = function()
             local dap = require('dap')
-            -- debugging keymaps
-            vim.keymap.set("n", "<leader>dc", dap.continue)
-            vim.keymap.set("n", "<leader>dso", dap.step_over)
-            vim.keymap.set("n", "<leader>dsi", dap.step_into)
-            vim.keymap.set("n", "<leader>dsu", dap.step_out)
-            vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
 
             -- Rust Configuration
             dap.adapters.lldb = {
@@ -57,7 +58,8 @@ return {
         config = function()
             -- Setup dap virtual text
             require('nvim-dap-virtual-text').setup()
-        end },
+        end
+    },
     -- Telescope DAP
     'nvim-telescope/telescope-dap.nvim',
     -- Dap VSCode

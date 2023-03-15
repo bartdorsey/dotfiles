@@ -42,6 +42,7 @@ return {
             end
 
             -- DapUI keybinds
-            vim.keymap.set("n", "<leader>dui", dapui.toggle)
-        end },
+            vim.keymap.set("n", "<leader>dui", dapui.toggle, { desc = '[d]ebug [u]ser [i]nterface toggle' })
+        end
+    },
 }

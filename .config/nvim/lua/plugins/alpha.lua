@@ -1,6 +1,6 @@
 return {
     'goolord/alpha-nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons', 'kdheepak/lazygit.nvim' },
     config = function()
         local alpha = require('alpha')
         local theta = require('alpha.themes.theta')

@@ -26,7 +26,7 @@ return {
             { '<leader>sr',      '<cmd>Telescope live_grep<cr>',   desc = '[s]earch by [g]rep' },
             { '<leader>sd',      '<cmd>Telescope diagnostics<cr>', desc = '[s]earch [d]iagnostics' },
             { '<leader>cp',      '<cmd>Telescope commands<cr>',    desc = '[c]ommand [p]allete' },
-            { '<leader>sg',      '<cmd>Telescope git_files<cr>',   desc = '[s]earch [g]it files' },
+            { '<leader>gf',      '<cmd>Telescope git_files<cr>',   desc = 'search [g]it [f]iles' },
             { '<leader>sk',      '<cmd>Telescope keymaps<cr>',     desc = '[s]earch [k]eymaps' },
             { '<leader>fb',      open_file_browser,           desc = '[f]ile [b]rowser' }
         },

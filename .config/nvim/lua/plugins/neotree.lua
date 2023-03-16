@@ -11,6 +11,7 @@ return {
     },
     opts = {
         close_if_last_window = true,
+        use_libuv_file_watcher = true,
         filesystem = {
             filtered_items = {
                 visible = true

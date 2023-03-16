@@ -94,7 +94,8 @@ return {
             'emmet_ls',
             'pyright',
             'marksman',
-            'bashls'
+            'bashls',
+            'jsonls'
         })
 
         -- Mason Tool Installer

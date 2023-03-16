@@ -91,6 +91,17 @@ vim.opt.colorcolumn = "80"
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
+local in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil
+
+if in_wsl then
+    vim.g.clipboard = {
+        name = 'wsl clipboard',
+        copy =  { ["+"] = { "clip.exe" },   ["*"] = { "clip.exe" } },
+        paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
+        cache_enabled = true
+    }
+end
+
 -- Split
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -130,9 +141,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- Yank into system clipboard
--- vim.keymap.set("n", "<leader>y", "\"+y")
--- vim.keymap.set("v", "<leader>y", "\"+y")
--- vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Captial Q is the worst place in the universe
 vim.keymap.set("n", "Q", "<nop>")

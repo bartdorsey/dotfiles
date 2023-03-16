@@ -18,3 +18,8 @@ if [ ! -d "$HOME/.ssh" ]; then
 fi
 ln -sf "${PLUGIN_DIR}/.ssh/config" "$HOME/.ssh/config"
 
+if [ ! -d "$HOME/.local/bin" ];then
+    mkdir -p "$HOME/.local/bin"
+fi
+
+ln -sf "${PLUGIN_DIR}/bin/"* "$HOME/.local/bin/"

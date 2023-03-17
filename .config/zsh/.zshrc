@@ -2,7 +2,7 @@
 zmodload zsh/zprof
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux new -As default
+  exec tmux -u new -As default
 else
 
     # Skip global compinit initialization in Ubuntu

@@ -24,6 +24,5 @@ return {
             "  じしf_,)ノ",
         }
         alpha.setup(theta.config)
-        -- alpha.setup(dashboard.config)
     end
 }

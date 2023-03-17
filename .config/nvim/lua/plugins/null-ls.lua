@@ -6,8 +6,9 @@ return {
 
         null_ls.setup({
             sources = {
-                null_ls.builtins.formatting.markdownlint,
-                null_ls.builtins.diagnostics.markdownlint,
+                null_ls.builtins.diagnostics.markdownlint.with({
+                    filetypes = { 'markdown' }
+                }),
                 null_ls.builtins.diagnostics.cspell.with({
                     filetypes = { 'markdown' }
                 }),
@@ -20,16 +21,10 @@ return {
                 null_ls.builtins.diagnostics.alex.with({
                     filetypes = { 'markdown' }
                 }),
-                null_ls.builtins.hover.dictionary.with({
-                    filetypes = { 'markdown' }
-                }),
-                null_ls.builtins.formatting.prettierd.with({
-                    filetypes = { "html", "json", "yaml", "markdown" }
+                null_ls.builtins.formatting.prettier.with({
+                    filetypes = { "html", "json", "yaml", "markdown", "javascript", "typescript" }
                 })
             }
-        })
-        vim.api.nvim_create_autocmd({ "BufWrite" }, {
-            command = 'LspZeroFormat'
         })
     end
 }

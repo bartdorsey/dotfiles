@@ -1,9 +1,6 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
     lazy = false,
-    keys = {
-        { '<leader>ff', '<cmd>LspZeroFormat<cr>', desc = '[f]ormat [f]ile' }
-    },
     dependencies = {
         -- LSP Support
         { 'neovim/nvim-lspconfig' },
@@ -51,6 +48,7 @@ return {
             vim.keymap.set('n', '<leader>wl', function()
                 require('notify')(vim.inspect(vim.lsp.buf.list_workspace_folders()))
             end, { desc = 'Workspace List Folders' })
+            vim.keymap.set('n', '<leader>ff', '<cmd>LspZeroFormat<cr>', { desc = "Format File" })
 
             local function organize_imports()
                 local params = {
@@ -156,5 +154,10 @@ return {
         vim.diagnostic.config({
             virtual_text = true
         });
+
+        vim.api.nvim_create_autocmd({ "BufWrite" }, {
+            pattern = { "*.md", "*.js", "*.ts", "*.jsx", "*.tsx", "*.json", "*.py" },
+            command = 'LspZeroFormat'
+        })
     end
 }

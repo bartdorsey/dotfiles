@@ -12,14 +12,14 @@ vim.opt.termguicolors = true
 -- Plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 
 vim.opt.rtp:prepend(lazypath)
@@ -33,10 +33,10 @@ local opts = {
 
 require('lazy').setup("plugins", opts)
 
--- Post plugin configurations 
+-- Post plugin configurations
 if vim.g.neovide then
-  vim.o.guifont = "Iosevka NF"
-  vim.g.neovide_background_color = "#1e1e2e"
+    vim.o.guifont = "Iosevka NF"
+    vim.g.neovide_background_color = "#1e1e2e"
 end
 
 -- [[ Setting options ]]
@@ -74,7 +74,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.list = true
-vim.opt.listchars = { tab = '».', extends ='›' ,precedes = '‹', nbsp = '·', trail= '·' }
+vim.opt.listchars = { tab = '».', extends = '›', precedes = '‹', nbsp = '·', trail = '·' }
 -- Search Highlighting
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -96,8 +96,8 @@ local in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil
 if in_wsl then
     vim.g.clipboard = {
         name = 'wsl clipboard',
-        copy =  { ["+"] = { "clip.exe" },   ["*"] = { "clip.exe" } },
-        paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
+        copy = { ["+"] = { "clip.exe" },["*"] = { "clip.exe" } },
+        paste = { ["+"] = { "nvim_paste" },["*"] = { "nvim_paste" } },
         cache_enabled = true
     }
 end
@@ -149,15 +149,49 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Control-S save
-vim.keymap.set({"n", "i", "v"}, "<C-s>", "<cmd>w<CR>")
+vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>")
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
 })
+
+-- local function get_focusable_windows()
+--     local focusable_windows = {}
+--     local windows = vim.api.nvim_list_wins()
+--     for _, win in ipairs(windows) do
+--         local wininfo = vim.api.nvim_win_get_config(win)
+--         if wininfo.relative == '' then
+--             table.insert(focusable_windows, win)
+--         end
+--     end
+--     return focusable_windows
+-- end
+--
+-- vim.api.nvim_create_user_command('Windows', function()
+--     vim.pretty_print(get_focusable_windows())
+-- end, { desc = "Get Windows"} )
+--
+-- vim.api.nvim_create_user_command("Q", function()
+--     local windows = get_focusable_windows()
+--     vim.pretty_print(windows)
+--     if #windows >= 2 then
+--         vim.cmd.quit()
+--         return
+--     end
+--     local filetype = vim.bo.filetype
+--     if filetype ~= "alpha" then
+--         vim.cmd.bd()
+--         vim.cmd.Alpha()
+--         return
+--     end
+--     vim.cmd.quit()
+-- end, {desc = "Smart close." })
+--
+-- vim.cmd.cnoreabbrev("<expr>", "q", "'Q'")

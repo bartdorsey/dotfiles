@@ -5,6 +5,7 @@ return {
         local null_ls = require("null-ls")
 
         null_ls.setup({
+            debug = true,
             sources = {
                 null_ls.builtins.diagnostics.markdownlint.with({
                     filetypes = { 'markdown' }
@@ -23,7 +24,8 @@ return {
                 }),
                 null_ls.builtins.formatting.prettier.with({
                     filetypes = { "html", "json", "yaml", "markdown", "javascript", "typescript" }
-                })
+                }),
+                null_ls.builtins.formatting.phpcsfixer,
             }
         })
     end

@@ -22,6 +22,7 @@ return {
         { 'rafamadriz/friendly-snippets' },
     },
     config = function()
+        vim.keymap.set('n', '<leader>ff', '<cmd>LspZeroFormat<cr>', { desc = "Format File" })
         --  This function gets run when an LSP connects to a particular buffer.
         local on_attach = function(client, bufnr)
             vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename Symbol' })
@@ -48,7 +49,6 @@ return {
             vim.keymap.set('n', '<leader>wl', function()
                 require('notify')(vim.inspect(vim.lsp.buf.list_workspace_folders()))
             end, { desc = 'Workspace List Folders' })
-            vim.keymap.set('n', '<leader>ff', '<cmd>LspZeroFormat<cr>', { desc = "Format File" })
 
             local function organize_imports()
                 local params = {

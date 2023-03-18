@@ -1,6 +1,5 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
-    lazy = false,
     dependencies = {
         -- LSP Support
         { 'neovim/nvim-lspconfig' },
@@ -21,6 +20,8 @@ return {
         { 'L3MON4D3/LuaSnip' },
         { 'rafamadriz/friendly-snippets' },
     },
+    cmd = { 'Mason' },
+    event = {'BufReadPre'},
     config = function()
         vim.keymap.set('n', '<leader>ff', '<cmd>LspZeroFormat<cr>', { desc = "Format File" })
         --  This function gets run when an LSP connects to a particular buffer.
@@ -38,8 +39,8 @@ return {
                 { desc = 'Workspace Symbols' })
 
             -- See `:help K` for why this keymap
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
-            vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
+            -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
+            -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
 
             -- Lesser used LSP functionality
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Goto Declaration' })

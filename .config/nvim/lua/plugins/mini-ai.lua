@@ -1,1 +1,5 @@
-return { 'echasnovski/mini.ai', version = false }
+return {
+    'echasnovski/mini.ai',
+    version = false,
+    event = "BufReadPre",
+}

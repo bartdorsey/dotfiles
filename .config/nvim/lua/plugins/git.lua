@@ -1,8 +1,11 @@
 return {
-    'tpope/vim-fugitive',
-    'tpope/vim-rhubarb',
+    {
+        'tpope/vim-fugitive',
+        event = "BufReadPre"
+    },
     {
         'lewis6991/gitsigns.nvim',
+        event = "BufReadPre",
         config = function()
             require('gitsigns').setup {
                 signs = {
@@ -18,6 +21,7 @@ return {
     -- lazygit.nvim
     {
         'kdheepak/lazygit.nvim',
+        cmd = { 'LazyGit '},
         keys = {
             { '<leader>lg', '<cmd>LazyGit<cr>', desc = '[l]azy [g]it' }
         }

@@ -2,6 +2,18 @@ return {
     -- DAP UI
     {
         'rcarriga/nvim-dap-ui',
+        keys = {
+            {
+                '<leader>dbg',
+                function()
+                    require('dapui').toggle()
+                end,
+                desc = 'Debug'
+            }
+        },
+        dependencies = {
+            'mfussenegger/nvim-dap'
+        },
         config = function()
             -- DapUI Setup
             local dapui = require('dapui')
@@ -40,9 +52,6 @@ return {
             dap.listeners.before.event_exited["dapui_config"] = function()
                 dapui.close()
             end
-
-            -- DapUI keybinds
-            vim.keymap.set("n", "<leader>dui", dapui.toggle, { desc = '[d]ebug [u]ser [i]nterface toggle' })
         end
     },
 }

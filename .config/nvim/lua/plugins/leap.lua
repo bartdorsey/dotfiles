@@ -1,6 +1,7 @@
 return {
-  'ggandor/leap.nvim',
-  config = function()
-    require('leap').add_default_mappings()
-  end
+    'ggandor/leap.nvim',
+    event = 'BufReadPre',
+    config = function()
+        require('leap').add_default_mappings()
+    end
 }

@@ -7,6 +7,7 @@ return {
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects'
   },
+  event = {'BufReadPre'},
   config = function()
     -- [[ Configure Treesitter ]]
     -- See `:help nvim-treesitter`

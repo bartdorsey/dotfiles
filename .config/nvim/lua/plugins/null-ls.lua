@@ -1,5 +1,6 @@
 return {
     'jose-elias-alvarez/null-ls.nvim',
+    event = {'BufReadPre'},
     config = function()
         vim.lsp.buf.format({ timeout_ms = 10000 })
         local null_ls = require("null-ls")

@@ -28,6 +28,11 @@ if [ -d $HOME/.tmux/plugins/t-smart-tmux-session-manager ];then
     export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 fi
 
+if type npm > /dev/null;then
+    npm set prefix $HOME/.npm-global
+    export PATH=$HOME/.npm-global/bin:$PATH
+fi
+
 # FZF Config
 if type fzf > /dev/null; then
     export FZF_DEFAULT_COMMAND='fdfind -type f --color=never --hidden'

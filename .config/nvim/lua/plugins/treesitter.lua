@@ -34,7 +34,6 @@ return {
         'markdown',
         'markdown_inline',
         'nix',
-        'php',
         'prisma',
         'python',
         'rust',

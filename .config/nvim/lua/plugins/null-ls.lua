@@ -26,7 +26,7 @@ return {
                 null_ls.builtins.formatting.prettier.with({
                     filetypes = { "html", "json", "yaml", "markdown", "javascript", "typescript" }
                 }),
-                null_ls.builtins.formatting.phpcsfixer,
+                null_ls.builtins.formatting.phpcbf,
             }
         })
     end

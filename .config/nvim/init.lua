@@ -195,3 +195,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- end, {desc = "Smart close." })
 --
 -- vim.cmd.cnoreabbrev("<expr>", "q", "'Q'")
+--
+vim.api.nvim_create_user_command("Q", function()
+    local multiple_windows, _ = pcall(vim.api.nvim_win_close, vim.fn.win_getid(), false)
+
+    if multiple_windows then
+        vim.cmd.bd()
+    elseif vim.o.ft == "alpha" then
+        vim.cmd.quitall()
+    else
+        vim.cmd.bd()
+        vim.cmd.Alpha()
+    end
+end, {})

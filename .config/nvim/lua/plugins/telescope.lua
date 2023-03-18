@@ -25,6 +25,7 @@ return {
                 end
             },
         },
+        cmd = { 'Telescope' },
         keys = {
             { '<leader>?',       '<cmd>Telescope oldfiles<cr>',    desc = 'Find recently opened files' },
             { '<leader><space>', '<cmd>Telescope buffers<cr>',     desc = 'Find existing buffers' },

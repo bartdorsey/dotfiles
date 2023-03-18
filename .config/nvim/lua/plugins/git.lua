@@ -21,9 +21,9 @@ return {
     -- lazygit.nvim
     {
         'kdheepak/lazygit.nvim',
-        cmd = { 'LazyGit '},
+        cmd = { 'LazyGit' },
         keys = {
-            { '<leader>lg', '<cmd>LazyGit<cr>', desc = '[l]azy [g]it' }
+            { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' }
         }
     },
 }

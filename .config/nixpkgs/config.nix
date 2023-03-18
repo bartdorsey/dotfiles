@@ -13,11 +13,15 @@
           mkdir -p $out/etc/profile.d
           cp ${myProfile} $out/etc/profile.d/my-profile.sh
         '')
+	neovim
+        nodejs
+        nodePackages.markdownlint-cli
+        nodePackages.cspell
+        sc-im
+        tree
         curl
         tmux
-        neovim
         starship
-        fnm
         fzf
         go
         rustup

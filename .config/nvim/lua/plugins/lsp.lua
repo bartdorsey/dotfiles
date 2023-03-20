@@ -94,7 +94,7 @@ return {
             'pyright',
             'marksman',
             'bashls',
-            'jsonls'
+            'jsonls',
         })
 
         -- Mason Tool Installer
@@ -103,13 +103,20 @@ return {
                 'prettierd',
                 'alex',
                 'cspell',
-                'markdownlint'
+                'markdownlint',
             }
         })
 
         lsp.configure('emmet_ls', {
             settings = {
                 filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' }
+            }
+        })
+
+        lsp.configure('pyright', {
+            settings = {
+                typeCheckingMode = "strict",
+                reportMissingTypeStubs = true
             }
         })
 

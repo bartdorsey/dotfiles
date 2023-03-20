@@ -13,10 +13,15 @@
           mkdir -p $out/etc/profile.d
           cp ${myProfile} $out/etc/profile.d/my-profile.sh
         '')
-	neovim
+        neovim
         nodejs
         nodePackages.markdownlint-cli
         nodePackages.cspell
+        nodePackages.yarn
+        nodePackages.pnpm
+        nodePackages.neovim
+        efm-langserver
+        chafa
         sc-im
         tree
         curl
@@ -74,6 +79,7 @@
             pip
             black
             pytest
+            pynvim
           ]
         ))
       ];

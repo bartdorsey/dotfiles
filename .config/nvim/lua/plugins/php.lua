@@ -1,3 +1,4 @@
 return {
-    'StanAngeloff/php.vim'
+    'StanAngeloff/php.vim',
+    ft = "php"
 }

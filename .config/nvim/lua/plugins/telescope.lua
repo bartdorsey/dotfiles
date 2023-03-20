@@ -62,50 +62,58 @@ return {
         end
     },
     {
-        {
-            'ghassan0/telescope-glyph.nvim',
-            keys = {
-                { '<leader>snf', '<cmd>Telescope glyph<cr>', desc = 'Search Nerd Font Glyphs' },
-            },
-            config = function()
-                pcall(require('telescope').load_extension, 'glyph')
-            end
+        'ghassan0/telescope-glyph.nvim',
+        keys = {
+            { '<leader>snf', '<cmd>Telescope glyph<cr>', desc = 'Search Nerd Font Glyphs' },
         },
-        {
-            'xiyaowong/telescope-emoji.nvim',
-            keys = {
-                { '<leader>se', '<cmd>Telescope emoji<cr>', desc = 'Search Emoji' },
-            },
-            config = function()
-                pcall(require('telescope').load_extension, 'emoji')
-            end
+        config = function()
+            pcall(require('telescope').load_extension, 'glyph')
+        end
+    },
+    {
+        'xiyaowong/telescope-emoji.nvim',
+        keys = {
+            { '<leader>se', '<cmd>Telescope emoji<cr>', desc = 'Search Emoji' },
         },
-        {
-            'sudormrfbin/cheatsheet.nvim',
-            keys = {
-                { '<leader>cht', '<cmd>Telescope cheatsheet<cr>', desc = 'Cheatsheet' }
-            },
-            dependencies = { 'nvim-lua/popup.nvim', },
-            config = function()
-                pcall(require('telescope').load_extension, 'cheatsheet')
-            end
+        config = function()
+            pcall(require('telescope').load_extension, 'emoji')
+        end
+    },
+    {
+        'sudormrfbin/cheatsheet.nvim',
+        keys = {
+            { '<leader>cht', '<cmd>Telescope cheatsheet<cr>', desc = 'Cheatsheet' }
         },
-        {
-            'nvim-telescope/telescope-file-browser.nvim',
-            keys = {
-                { '<leader>fb', open_file_browser, desc = 'File Browser' }
-            },
-            config = function()
-                pcall(require('telescope').load_extension, 'file_browser')
-            end
+        dependencies = { 'nvim-lua/popup.nvim', },
+        config = function()
+            pcall(require('telescope').load_extension, 'cheatsheet')
+        end
+    },
+    {
+        'nvim-telescope/telescope-file-browser.nvim',
+        keys = {
+            { '<leader>fb', open_file_browser, desc = 'File Browser' }
         },
-        {
-            'nvim-telescope/telescope-dap.nvim',
-            keys = {
+        config = function()
+            pcall(require('telescope').load_extension, 'file_browser')
+        end
+    },
+    {
+        'nvim-telescope/telescope-dap.nvim',
+        keys = {
 
-            },
-            config = function()
-            end
         },
+        config = function()
+        end
+    },
+    {
+        'nvim-telescope/telescope-media-files.nvim',
+        keys = {
+            { '<leader>sm', '<cmd>Telescope media_files<cr>', desc = 'Find Media Files' }
+        },
+        config = function()
+            require('telescope').load_extension('media_files')
+        end
     }
+
 }

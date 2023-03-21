@@ -36,6 +36,9 @@ else
     # MOTD
     zsh_config_run macchina.zsh
 
+    # Path
+    zsh_config_run path.zsh
+
     # Run compinit
     compinit
 

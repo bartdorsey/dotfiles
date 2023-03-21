@@ -28,8 +28,6 @@ function install_snippet_silent {
     zinit snippet "${BASE_SNIPPET_URL}${1}"
 }
 
-install_snippet "00-nix.zsh"
-
 # fzf-tab
 zinit light Aloxaf/fzf-tab
 

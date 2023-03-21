@@ -8,24 +8,21 @@ fi
 
 HISTFILE=$HOME/.cache/zsh/history
 
-# Local bin
-if [ -d "$HOME/.local/bin" ];then
-    export PATH=$HOME/.local/bin:$PATH:
+#Nix setup
+if [ ! -e /nix ]; then
+   sh <(curl -L https://nixos.org/nix/install) --daemon
 fi
 
-# Rust
-if [ -d "$HOME/.cargo/bin" ];then
-    export PATH=$HOME/.cargo/bin:$PATH:
+if type grc > /dev/null;then
+    export GRC_ALIASES=true
 fi
 
-# Nix PATH
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then 
-    . $HOME/.nix-profile/etc/profile.d/nix.sh;
-fi
-
-# t script
-if [ -d $HOME/.tmux/plugins/t-smart-tmux-session-manager ];then
-    export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+if [ -d $HOME/.nix-profile/etc/profile.d ] ; then
+   for i in $HOME/.nix-profile/etc/profile.d/*.sh; do
+      if [ -r $i ]; then
+         . $i
+      fi
+   done
 fi
 
 # FZF Config
@@ -53,11 +50,6 @@ if type python3 > /dev/null;then
     export PIPENV_VENV_IN_PROJECT=1
 fi
 
-# Go
-if [ -d "$HOME/go" ];then
-    export PATH=$PATH:~/go/bin
-fi
-
 # Man pages in bat
 if type bat > /dev/null; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -67,25 +59,9 @@ fi
 # GIT
 export GIT_CONFIG_GLOBAL=$HOME/.config/git/config
 
-# BUN
-if [ -d "$HOME/.bun" ]; then
-    export BUN_INSTALL="$HOME/.bun"
-    export PATH="$BUN_INSTALL/bin:$PATH"
-fi
-
-# Homebrew
-if [ -d "/opt/homebrew" ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
-
 # TERMINFO for tmux when it's not installed by default
 if [[ $(toe -a | grep -c tmux-256color) != "0" ]]; then
    /usr/bin/tic -x -o $HOME/.local/share/terminfo $HOME/.dotfiles/terminfo/tmux-256color.info 
    export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 fi
 
-# Bob
-if [ -d "$HOME/.local/share/bob/nvim-bin" ];then
-    export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
-fi

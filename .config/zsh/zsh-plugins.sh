@@ -55,7 +55,6 @@ if type python3 > /dev/null;then
 	zinit load RobSis/zsh-completion-generator
 fi
 
-install_snippet "01-neovim.zsh"
 install_snippet "01-tmux.zsh"
 install_snippet_silent "10-rust.zsh"
 install_snippet "20-python.zsh"

@@ -84,3 +84,8 @@ if [[ $(toe -a | grep -c tmux-256color) != "0" ]]; then
    /usr/bin/tic -x -o $HOME/.local/share/terminfo $HOME/.dotfiles/terminfo/tmux-256color.info 
    export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 fi
+
+# Bob
+if [ -d "$HOME/.local/share/bob/nvim-bin" ];then
+    export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
+fi

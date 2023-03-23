@@ -48,7 +48,6 @@ return {
                         i = {
                             ['<C-u>'] = false,
                             ['<C-d>'] = false,
-                            ['<esc>'] = actions.close
                         },
                     },
                 },

@@ -23,19 +23,28 @@ return {
         -- Snippets
         { "L3MON4D3/LuaSnip" },
         { "rafamadriz/friendly-snippets" },
+
+        {
+            "folke/neodev.nvim",
+            ft = "lua",
+            config = function()
+                require('neodev').setup()
+            end,
+        },
     },
     cmd = { "Mason" },
     event = { "BufReadPre" },
     config = function()
+        -- LSP settings.
+        local lsp = require("lsp-zero")
+
+        -- Formatting keybind
         vim.keymap.set(
             "n",
             "<leader>ff",
             "<cmd>LspZeroFormat<cr>",
             { desc = "Format File" }
         )
-
-        -- LSP settings.
-        local lsp = require("lsp-zero")
 
         --  This function gets run when an LSP connects to a particular buffer.
         local on_attach = function(_, bufnr)

@@ -1,6 +1,5 @@
 return {
     "folke/which-key.nvim",
-    dependencies = {'xiyaowong/nvim-transparent'},
     config = function()
         vim.o.timeout = true
         vim.o.timeoutlen = true

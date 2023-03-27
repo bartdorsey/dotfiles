@@ -29,7 +29,6 @@
         starship
         fzf
         go
-        rustup
         zoxide
         direnv
         macchina

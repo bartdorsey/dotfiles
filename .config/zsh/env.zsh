@@ -10,7 +10,7 @@ HISTFILE=$HOME/.cache/zsh/history
 
 #Nix setup
 if [ ! -e /nix ]; then
-   sh <(curl -L https://nixos.org/nix/install) --daemon
+    sh <(curl -L https://nixos.org/nix/install) --daemon
 fi
 
 if type grc > /dev/null;then
@@ -18,11 +18,11 @@ if type grc > /dev/null;then
 fi
 
 if [ -d $HOME/.nix-profile/etc/profile.d ] ; then
-   for i in $HOME/.nix-profile/etc/profile.d/*.sh; do
-      if [ -r $i ]; then
-         . $i
-      fi
-   done
+    for i in $HOME/.nix-profile/etc/profile.d/*.sh; do
+        if [ -r $i ]; then
+            . $i
+        fi
+    done
 fi
 
 # FZF Config
@@ -60,8 +60,6 @@ fi
 export GIT_CONFIG_GLOBAL=$HOME/.config/git/config
 
 # TERMINFO for tmux when it's not installed by default
-if [[ $(toe -a | grep -c tmux-256color) != "0" ]]; then
-   /usr/bin/tic -x -o $HOME/.local/share/terminfo $HOME/.dotfiles/terminfo/tmux-256color.info 
-   export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
+if [[ $(toe -a | grep -c tmux-256color) == "0" ]]; then
+    sudo /usr/bin/tic -xe tmux-256color $HOME/.dotfiles/terminfo/terminfo.src
 fi
-

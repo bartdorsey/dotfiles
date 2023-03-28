@@ -5,8 +5,8 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.opt.termguicolors = true
 -- Plugins
@@ -27,11 +27,14 @@ vim.opt.rtp:prepend(lazypath)
 local opts = {
     checker = {
         enabled = true,
-        notify = true
-    }
+        notify = false,
+    },
+    change_detection = {
+        enabled = false,
+    },
 }
 
-require('lazy').setup("plugins", opts)
+require("lazy").setup("plugins", opts)
 
 -- Post plugin configurations
 if vim.g.neovide then
@@ -46,7 +49,7 @@ vim.wo.number = true
 vim.opt.relativenumber = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -60,10 +63,10 @@ vim.o.smartcase = true
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect,preview'
+vim.o.completeopt = "menuone,noselect,preview"
 
 -- Indenting
 vim.opt.softtabstop = 4
@@ -74,11 +77,16 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.list = true
-vim.opt.listchars = { tab = '».', extends = '›', precedes = '‹', nbsp = '·', trail = '·' }
+vim.opt.listchars = {
+    tab = "».",
+    extends = "›",
+    precedes = "‹",
+    nbsp = "·",
+    trail = "·",
+}
 -- Search Highlighting
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-
 
 -- Scrolling
 vim.opt.scrolloff = 8
@@ -91,14 +99,14 @@ vim.opt.colorcolumn = "80"
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
-local in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil
+local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
 
 if in_wsl then
     vim.g.clipboard = {
-        name = 'wsl clipboard',
+        name = "wsl clipboard",
         copy = { ["+"] = { "clip.exe" },["*"] = { "clip.exe" } },
         paste = { ["+"] = { "nvim_paste" },["*"] = { "nvim_paste" } },
-        cache_enabled = true
+        cache_enabled = true,
     }
 end
 
@@ -125,7 +133,12 @@ vim.opt.splitright = true
 -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
-vim.api.nvim_set_keymap('n', '<Leader>mp', ':MarkdownPreview<CR>', { silent = true })
+vim.api.nvim_set_keymap(
+    "n",
+    "<Leader>mp",
+    ":MarkdownPreview<CR>",
+    { silent = true }
+)
 
 -- Let you move visual blocks with J and K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -141,9 +154,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- Yank into system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- Captial Q is the worst place in the universe
 vim.keymap.set("n", "Q", "<nop>")
@@ -153,13 +166,14 @@ vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>")
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
+local highlight_group =
+    vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
     end,
     group = highlight_group,
-    pattern = '*',
+    pattern = "*",
 })
 
 -- local function get_focusable_windows()
@@ -197,7 +211,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- vim.cmd.cnoreabbrev("<expr>", "q", "'Q'")
 --
 vim.api.nvim_create_user_command("Q", function()
-    local multiple_windows, _ = pcall(vim.api.nvim_win_close, vim.fn.win_getid(), false)
+    local multiple_windows, _ =
+        pcall(vim.api.nvim_win_close, vim.fn.win_getid(), false)
 
     if multiple_windows then
         vim.cmd.bd()

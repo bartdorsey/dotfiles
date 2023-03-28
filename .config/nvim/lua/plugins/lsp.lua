@@ -100,10 +100,6 @@ return {
                 { desc = "Workspace Symbols" }
             )
 
-            -- See `:help K` for why this keymap
-            -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
-            -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
-
             -- Lesser used LSP functionality
             vim.keymap.set(
                 "n",
@@ -210,7 +206,7 @@ return {
                 null_opts.on_attach(client, bufn)
 
                 -- Autoformat for null-ls
-                vim.api.nvim_create_autocmd("BufWritePost", {
+                vim.api.nvim_create_autocmd("BufWritePre", {
                     callback = function()
                         vim.lsp.buf.format()
                     end,
@@ -268,7 +264,6 @@ return {
 
         -- Mason null-ls
         require("mason-null-ls").setup({
-            ensure_installed = nil,
             automatic_installation = true,
             automatic_setup = true,
         })
@@ -325,7 +320,7 @@ return {
             sources = {
                 { name = "path" },
                 { name = "nvim_lsp" },
-                { name = "buffer", keyword_length = 3 },
+                { name = "buffer",  keyword_length = 3 },
                 { name = "luasnip", keyword_length = 2 },
                 { name = "copilot", group_index = 2 },
             },
@@ -348,11 +343,6 @@ return {
         lsp.on_attach(on_attach)
         lsp.nvim_workspace()
         lsp.setup()
-
-        -- Make nvim runtime files discoverable to the server
-        local runtime_path = vim.split(package.path, ";")
-        table.insert(runtime_path, "lua/?.lua")
-        table.insert(runtime_path, "lua/?/init.lua")
 
         vim.diagnostic.config({
             virtual_text = true,

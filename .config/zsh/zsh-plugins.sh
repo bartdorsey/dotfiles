@@ -20,7 +20,7 @@ function install_snippet_sync {
 
 function install_snippet {
     zinit ice wait lucid
-    zinit snippet "${BASE_SNIPPET_URL}${1}" 
+    zinit snippet "${BASE_SNIPPET_URL}${1}"
 }
 
 function install_snippet_silent {
@@ -43,18 +43,18 @@ zinit load zsh-users/zsh-autosuggestions
 zinit ice wait lucid
 zinit load zsh-users/zsh-syntax-highlighting
 
-zinit ice wait lucid 
+zinit ice wait lucid
 zinit load zsh-users/zsh-completions
 
 zinit ice wait lucid
 zinit load sunlei/zsh-ssh
 
 if type python3 > /dev/null;then
-	zinit load RobSis/zsh-completion-generator
+    zinit load RobSis/zsh-completion-generator
 fi
 
 install_snippet "01-tmux.zsh"
-install_snippet_silent "10-rust.zsh"
+install_snippet "10-rust.zsh"
 install_snippet "20-python.zsh"
 install_snippet "20-npm.zsh"
 install_snippet "20-go.zsh"
@@ -71,10 +71,10 @@ install_snippet "99-aliases.zsh"
 # Completions
 
 zstyle :plugin:zsh-completion-generator programs \
-exa \
-bat \
-cargo \
-rustup \
-node \
-rg \
-fd \
+    exa \
+    bat \
+    cargo \
+    rustup \
+    node \
+    rg \
+    fd \

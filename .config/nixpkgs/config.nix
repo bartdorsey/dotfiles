@@ -72,6 +72,8 @@
         sd
         procs
         teip
+        git
+        git-lfs
         choose
         (python3.withPackages (
           ps: with ps; [

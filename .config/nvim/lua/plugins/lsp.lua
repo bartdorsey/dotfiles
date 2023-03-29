@@ -182,6 +182,8 @@ return {
                     "html",
                     "javascriptreact",
                     "typescriptreact",
+                    "typescript",
+                    "javascript",
                     "json",
                     "markdown",
                     "css",
@@ -191,6 +193,8 @@ return {
                     "lua",
                     "zsh",
                     "sh",
+                    "python",
+                    "rust",
                 },
             },
         })
@@ -204,13 +208,6 @@ return {
         null_ls.setup({
             on_attach = function(client, bufn)
                 null_opts.on_attach(client, bufn)
-
-                -- Autoformat for null-ls
-                vim.api.nvim_create_autocmd("BufWritePre", {
-                    callback = function()
-                        vim.lsp.buf.format()
-                    end,
-                })
             end,
             debug = true,
             sources = {
@@ -320,7 +317,7 @@ return {
             sources = {
                 { name = "path" },
                 { name = "nvim_lsp" },
-                { name = "buffer",  keyword_length = 3 },
+                { name = "buffer", keyword_length = 3 },
                 { name = "luasnip", keyword_length = 2 },
                 { name = "copilot", group_index = 2 },
             },

@@ -1,6 +1,6 @@
 return {
-    'xiyaowong/nvim-transparent',
+    "xiyaowong/nvim-transparent",
     config = function()
-        require('transparent').setup()
-    end
+        require("transparent").setup()
+    end,
 }

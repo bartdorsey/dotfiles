@@ -1,0 +1,10 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/echo/.dotfiles
+- /home/echo/worktrees/galvanize/part-time/curriculum/main
+- /home/echo/meta
+- /home/echo/projects/advent-of-code-2022
+startuppopupversion: 5
+customcommandshistory:
+- q
+hidecommandlog: false

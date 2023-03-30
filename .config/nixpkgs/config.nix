@@ -74,6 +74,7 @@
         teip
         git
         git-lfs
+        topgrade
         choose
         (python3.withPackages (
           ps: with ps; [

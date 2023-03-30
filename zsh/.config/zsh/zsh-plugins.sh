@@ -11,7 +11,7 @@ autoload -Uz _zinit
 
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-BASE_SNIPPET_URL="https://raw.githubusercontent.com/bartdorsey/dotfiles/main/.config/zsh/plugins/"
+BASE_SNIPPET_URL="https://raw.githubusercontent.com/bartdorsey/dotfiles/main/zsh/.config/zsh/plugins/"
 
 function install_snippet_sync {
     zinit ice load

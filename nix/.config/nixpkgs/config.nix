@@ -76,6 +76,7 @@
         git-lfs
         topgrade
         choose
+        stow
         (python3.withPackages (
           ps: with ps; [
             pip

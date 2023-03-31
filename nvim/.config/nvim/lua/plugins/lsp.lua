@@ -26,6 +26,9 @@ return {
         { "L3MON4D3/LuaSnip" },
         { "rafamadriz/friendly-snippets" },
 
+        -- Diagnostics
+        { "ErichDonGubler/lsp_lines.nvim" },
+
         {
             "folke/neodev.nvim",
             ft = "lua",
@@ -140,6 +143,20 @@ return {
                 organize_imports,
                 { desc = "Organize TypeScript Imports" }
             )
+
+            require("lsp_lines").setup()
+
+            vim.keymap.set(
+                "",
+                "<leader>l",
+                require("lsp_lines").toggle,
+                { desc = "Toggle Diagnostics" }
+            )
+
+            vim.diagnostic.config({
+                virtual_text = false,
+                virtual_lines = true,
+            })
         end
 
         -- Start with the minimal preset
@@ -340,9 +357,5 @@ return {
         lsp.on_attach(on_attach)
         lsp.nvim_workspace()
         lsp.setup()
-
-        vim.diagnostic.config({
-            virtual_text = true,
-        })
     end,
 }

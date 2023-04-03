@@ -30,7 +30,7 @@ return {
                 'gitignore',
                 'go',
                 'go',
-                'help',
+                'vimdoc',
                 'html',
                 'javascript',
                 'jsdoc',

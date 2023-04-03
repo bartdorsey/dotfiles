@@ -63,3 +63,8 @@ export GIT_CONFIG_GLOBAL=$HOME/.config/git/config
 if [[ $(toe -a | grep -c tmux-256color) == "0" ]]; then
     sudo /usr/bin/tic -xe tmux-256color $HOME/.dotfiles/terminfo/terminfo.src
 fi
+
+# SECRETS
+if type pass > /dev/null; then
+    export OPENAI_API_KEY=$(pass openai)
+fi

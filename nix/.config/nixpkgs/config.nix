@@ -65,8 +65,6 @@
         _1password
         zip
         unzip
-        gnupg
-        pass
         dogdns
         xh
         sd

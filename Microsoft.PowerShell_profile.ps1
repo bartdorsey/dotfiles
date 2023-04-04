@@ -1,8 +1,8 @@
-function Disk-Free {
+function Get-Disk-Free {
 	Get-Volume | Sort-Object -Property DriveLetter
 }
 
-function Django-Project-Setup {
+function Build-Django-Project {
   python -m venv .venv
   .\.venv\Scripts\Activate.ps1
   pip install -r requirements.txt
@@ -11,7 +11,7 @@ function Django-Project-Setup {
 }
 
 
-function Python-Virtual-Environment {
+function Build-Python-Virtual-Environment {
   python -m venv .venv
   .\.venv\Scripts\Activate.ps1
 }
@@ -41,11 +41,11 @@ $env:KOMOREBI_CONFIG_HOME = "$env:USERPROFILE\.config\komorebi"
 Set-Alias p Get-Projects
 Set-Alias open explorer.exe
 Set-Alias w whoami
-Set-Alias df Disk-Free
-Set-Alias venv Python-Virtual-Environment
+Set-Alias df Get-Disk-Free
+Set-Alias venv Build-Python-Virtual-Environment
 Set-Alias which Get-Command
 Set-Alias vim nvim
-Set-Alias dsetup Django-Project-Setup
+Set-Alias dsetup Build-Django-Project-Setup
 Set-Alias lg lazygit
 
 function Invoke-Exa {
@@ -63,6 +63,11 @@ fnm env --use-on-cd | Out-String | Invoke-Expression
 Invoke-Expression (&starship init powershell)
 Import-Module scoop-completion
 Invoke-Expression (&scoop-search --hook)
+
+# Dotfiles
+$DotFilesPath = Join-Path $HOME '.dotfiles'
+
+$DotFilesAutodetect = $false
 
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.

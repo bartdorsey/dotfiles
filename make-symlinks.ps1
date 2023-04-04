@@ -1,9 +1,9 @@
-function make-link ($target, $link) {
-    New-Item -Path $link -ItemType SymbolicLink -Value $target
+function New-Link ($target, $link) {
+    New-Item -Path $link -ItemType SymbolicLink -Value $target -Force
 }
 
-make-link $HOME/.dotfiles/.config/nvim $HOME/.config/nvim
-make-link $HOME/.dotfiles/.config/starship.toml $HOME/.config/starship.toml
-make-link $HOME/.dotfiles/Microsoft.PowerShell_profile.ps1 $PROFILE
+New-Link $HOME/.dotfiles/nvim/.config/nvim $HOME/.config/nvim
+New-Link $HOME/.dotfiles/starship/.config/starship.toml $HOME/.config/starship.toml
+New-Link $HOME/.dotfiles/Microsoft.PowerShell_profile.ps1 $PROFILE
 
 

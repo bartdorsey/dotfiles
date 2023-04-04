@@ -68,3 +68,8 @@ fi
 if type pass > /dev/null; then
     export OPENAI_API_KEY=$(pass openai)
 fi
+
+# Bob
+if type bob > /dev/null; then
+    export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
+fi

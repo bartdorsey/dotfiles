@@ -1,21 +1,40 @@
 return {
     "folke/noice.nvim",
+    lazy = false,
+    keys = {
+        {
+            "<leader>nl",
+            function()
+                require("noice").cmd("last")
+            end,
+            desc = "Last Notification",
+        },
+        {
+            "<leader>nh",
+            function()
+                require("noice").cmd("history")
+            end,
+            desc = "Notification History",
+        },
+    },
     config = function()
-        require('noice').setup({
+        require("noice").setup({
             lsp = {
                 hover = {
-                    enabled = false
+                    enabled = false,
                 },
                 signature = {
-                    enabled = false
+                    enabled = false,
                 },
                 override = {
                     ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                     ["vim.lsp.util.stylize_markdown"] = true,
                     ["cmp.entry.get_documentation"] = true,
-                }
+                },
             },
             presets = {
+                bottom_search = true,
+                command_palette = true,
                 lsp_doc_border = true,
             },
             views = {
@@ -44,7 +63,10 @@ return {
                         padding = { 0, 1 },
                     },
                     win_options = {
-                        winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+                        winhighlight = {
+                            Normal = "Normal",
+                            FloatBorder = "DiagnosticInfo",
+                        },
                     },
                 },
             },
@@ -52,6 +74,6 @@ return {
     end,
     dependencies = {
         "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify"
-    }
+        "rcarriga/nvim-notify",
+    },
 }

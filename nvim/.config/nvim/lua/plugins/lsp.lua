@@ -295,7 +295,6 @@ return {
         local null_ls = require("null-ls")
         local null_opts = lsp.build_options("null-ls", {})
 
-        vim.notify("null ls setup")
         null_ls.setup({
             on_attach = function(client, bufn)
                 null_opts.on_attach(client, bufn)
@@ -317,6 +316,7 @@ return {
                 null_ls.builtins.diagnostics.alex.with({
                     filetypes = { "markdown" },
                 }),
+                null_ls.builtins.formatting.black,
                 null_ls.builtins.formatting.prettier.with({
                     filetypes = {
                         "html",
@@ -351,10 +351,9 @@ return {
         })
 
         -- Mason null-ls
-        vim.notify("Mason Null LS setup")
         require("mason-null-ls").setup({
             automatic_installation = true,
-            automatic_setup = false,
+            automatic_setup = true,
         })
     end,
 }

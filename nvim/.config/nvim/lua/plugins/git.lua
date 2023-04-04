@@ -1,29 +1,29 @@
 return {
     {
-        'tpope/vim-fugitive',
-        event = "BufReadPre"
+        "tpope/vim-fugitive",
+        event = "BufReadPre",
     },
     {
-        'lewis6991/gitsigns.nvim',
+        "lewis6991/gitsigns.nvim",
         event = "BufReadPre",
         config = function()
-            require('gitsigns').setup {
+            require("gitsigns").setup({
                 signs = {
-                    add = { text = '+' },
-                    change = { text = '~' },
-                    delete = { text = '_' },
-                    topdelete = { text = '‾' },
-                    changedelete = { text = '~' },
+                    add = { text = "" },
+                    change = { text = "" },
+                    delete = { text = "" },
+                    topdelete = { text = "" },
+                    changedelete = { text = "" },
                 },
-            }
-        end
+            })
+        end,
     },
     -- lazygit.nvim
     {
-        'kdheepak/lazygit.nvim',
-        cmd = { 'LazyGit' },
+        "kdheepak/lazygit.nvim",
+        cmd = { "LazyGit" },
         keys = {
-            { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' }
-        }
+            { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+        },
     },
 }

@@ -2,7 +2,11 @@
 zmodload zsh/zprof
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ ! "$TERM_PROGRAM" =~ "vscode" ]]&& [ -z "$TMUX" ]; then
-  exec tmux -u new -As default
+    if type lsb_release > /dev/null; then
+        exec tmux -u new -As "$(lsb_release -i -s) $(lsb_release -r -s)"
+    else
+        exec tmux -u new -As default
+    fi
 else
 
     # Skip global compinit initialization in Ubuntu
@@ -44,5 +48,5 @@ else
 
 fi
 
-    # End Profiler
-    #zprof
+# End Profiler
+#zprof

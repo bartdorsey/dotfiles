@@ -21,6 +21,7 @@ return {
         { "hrsh7th/cmp-nvim-lua" },
         { "onsails/lspkind-nvim" },
         { "zbirenbaum/copilot-cmp" },
+        { "hrsh7th/cmp-emoji" },
 
         -- Snippets
         { "L3MON4D3/LuaSnip" },
@@ -263,6 +264,7 @@ return {
                 { name = "buffer", keyword_length = 3 },
                 { name = "luasnip", keyword_length = 2 },
                 { name = "copilot", group_index = 2 },
+                { name = "emoji" },
             },
             formatting = {
                 format = require("lspkind").cmp_format({

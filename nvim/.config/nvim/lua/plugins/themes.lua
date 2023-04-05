@@ -42,13 +42,63 @@ return {
         end,
     },
     {
-        "feline-nvim/feline.nvim",
-        dependencies = { "catppuccin/nvim" },
+        "nvim-lualine/lualine.nvim",
         config = function()
-            require("feline").setup({
-                components = require("catppuccin.groups.integrations.feline").get(),
+            require("lualine").setup({
+                options = {
+                    theme = "catppuccin",
+                    component_separators = "|",
+                    section_separators = { left = "", right = "" },
+                    globalstatus = true,
+                },
+                sections = {
+                    lualine_a = {
+                        {
+                            "mode",
+                            separator = { left = "" },
+                            right_padding = 2,
+                        },
+                    },
+                    lualine_b = {
+                        "filename",
+                        "branch",
+                    },
+                    lualine_c = { "diagnostics" },
+                    lualine_x = {},
+                    lualine_y = {
+                        "filetype",
+                        "encoding",
+                        "progress",
+                    },
+                    lualine_z = {
+                        {
+                            "location",
+                            separator = { right = "" },
+                            left_padding = 2,
+                        },
+                    },
+                },
+                inactive_sections = {
+                    lualine_a = { "filename" },
+                    lualine_b = {},
+                    lualine_c = {},
+                    lualine_x = {},
+                    lualine_y = {},
+                    lualine_z = { "location" },
+                },
+                tabline = {},
+                extensions = {},
             })
-            require("feline").winbar.setup()
         end,
     },
+    -- {
+    --     "feline-nvim/feline.nvim",
+    --     dependencies = { "catppuccin/nvim" },
+    --     config = function()
+    --         require("feline").setup({
+    --             components = require("catppuccin.groups.integrations.feline").get(),
+    --         })
+    --         require("feline").winbar.setup()
+    --     end,
+    -- },
 }

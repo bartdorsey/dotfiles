@@ -14,7 +14,6 @@ return {
 
         -- Autocompletion
         { "hrsh7th/nvim-cmp" },
-        { "windwp/nvim-autopairs" },
         { "hrsh7th/cmp-buffer" },
         { "hrsh7th/cmp-path" },
         { "saadparwaiz1/cmp_luasnip" },
@@ -240,9 +239,6 @@ return {
             },
         })
 
-        -- Autopairs
-        require("nvim-autopairs").setup({})
-
         -- CMP
         local cmp = require("cmp")
         local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -257,9 +253,6 @@ return {
                 end
             end, { "i" }),
         })
-
-        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
         lsp.setup_nvim_cmp({
             preselect = "none",

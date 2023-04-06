@@ -54,7 +54,10 @@ vim.o.mouse = "a"
 -- Enable break indent
 vim.o.breakindent = true
 
--- Save undo history
+-- Swap and undo
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
 vim.o.undofile = true
 
 -- Case insensitive searching UNLESS /C or capital in search
@@ -89,23 +92,20 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 -- Scrolling
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 1000
 -- Turn on column for icons all the time
 vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
--- Clipboard
-vim.opt.clipboard = "unnamedplus"
-
 local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
 
 if in_wsl then
     vim.g.clipboard = {
         name = "wsl clipboard",
-        copy = { ["+"] = { "clip.exe" },["*"] = { "clip.exe" } },
-        paste = { ["+"] = { "nvim_paste" },["*"] = { "nvim_paste" } },
+        copy = { ["+"] = { "clip.exe" }, ["*"] = { "clip.exe" } },
+        paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
         cache_enabled = true,
     }
 end
@@ -113,25 +113,6 @@ end
 -- Split
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-
--- [[ Basic Keymaps ]]
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
--- vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Remap for dealing with word wrap
--- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
--- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- Remap for Ex
--- vim.keymap.set("n", "<leader>ex", vim.cmd.Ex, { desc = "Ex mode" })
-
--- Diagnostic keymaps
--- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
--- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
--- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
--- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 vim.api.nvim_set_keymap(
     "n",
@@ -145,18 +126,22 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Cursor in middle
--- vim.keymap.set("n", "<C-d>", "<C-d>zz")
--- vim.keymap.set("n", "<C-u>", "<C-u>zz")
--- vim.keymap.set("n", "n", "nzzzv")
--- vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
--- vim.keymap.set("x", "<leader>p", "\"_dP")
+-- Paste over without losing what's in your clipboard
+vim.keymap.set("x", "<leader>P", '"_dP')
 
 -- Yank into system clipboard
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
+
+-- Paste from system clipboard
+vim.keymap.set("n", "<leader>p", '"+p"')
+vim.keymap.set("v", "<leader>p", '"+p"')
 
 -- Captial Q is the worst place in the universe
 vim.keymap.set("n", "Q", "<nop>")
@@ -176,40 +161,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = "*",
 })
 
--- local function get_focusable_windows()
---     local focusable_windows = {}
---     local windows = vim.api.nvim_list_wins()
---     for _, win in ipairs(windows) do
---         local wininfo = vim.api.nvim_win_get_config(win)
---         if wininfo.relative == '' then
---             table.insert(focusable_windows, win)
---         end
---     end
---     return focusable_windows
--- end
---
--- vim.api.nvim_create_user_command('Windows', function()
---     vim.pretty_print(get_focusable_windows())
--- end, { desc = "Get Windows"} )
---
--- vim.api.nvim_create_user_command("Q", function()
---     local windows = get_focusable_windows()
---     vim.pretty_print(windows)
---     if #windows >= 2 then
---         vim.cmd.quit()
---         return
---     end
---     local filetype = vim.bo.filetype
---     if filetype ~= "alpha" then
---         vim.cmd.bd()
---         vim.cmd.Alpha()
---         return
---     end
---     vim.cmd.quit()
--- end, {desc = "Smart close." })
---
--- vim.cmd.cnoreabbrev("<expr>", "q", "'Q'")
---
+-- When closing the last window, load alpha back up
 vim.api.nvim_create_user_command("Q", function()
     local multiple_windows, _ =
         pcall(vim.api.nvim_win_close, vim.fn.win_getid(), false)

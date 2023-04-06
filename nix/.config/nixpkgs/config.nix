@@ -75,6 +75,7 @@
         topgrade
         choose
         stow
+        pre-commit
         (python3.withPackages (
           ps: with ps; [
             pip

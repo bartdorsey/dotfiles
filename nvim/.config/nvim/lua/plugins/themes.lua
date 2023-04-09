@@ -91,14 +91,4 @@ return {
             })
         end,
     },
-    -- {
-    --     "feline-nvim/feline.nvim",
-    --     dependencies = { "catppuccin/nvim" },
-    --     config = function()
-    --         require("feline").setup({
-    --             components = require("catppuccin.groups.integrations.feline").get(),
-    --         })
-    --         require("feline").winbar.setup()
-    --     end,
-    -- },
 }

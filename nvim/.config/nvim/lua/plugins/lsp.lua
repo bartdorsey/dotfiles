@@ -240,6 +240,21 @@ return {
             },
         })
 
+        lsp.configure("yamlls", {
+            settings = {
+                yaml = {
+                    format = {
+                        enable = true,
+                    },
+                    validate = true,
+                    hover = true,
+                    schemas = {
+                        ["**/glossary.yml"] = "/tools/glossary-yaml-to-xml/docs/glossary-schema.yml",
+                    },
+                },
+            },
+        })
+
         -- CMP
         local cmp = require("cmp")
         local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -342,6 +357,9 @@ return {
                 null_ls.builtins.code_actions.shellcheck,
                 null_ls.builtins.formatting.beautysh,
                 null_ls.builtins.diagnostics.zsh,
+                null_ls.builtins.formatting.yamlfmt,
+                null_ls.builtins.diagnostics.yamllint,
+                null_ls.builtins.formatting.xmlformat,
             },
         })
 

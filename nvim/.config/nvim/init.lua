@@ -147,7 +147,7 @@ vim.keymap.set("v", "<leader>p", '"+p"')
 vim.keymap.set("n", "Q", "<nop>")
 
 -- q: is too close to :q for my tastes, and I never use it.
-vim.keymap.set("n", "q", "<nop>")
+vim.keymap.set("n", "q:", "<nop>")
 
 -- Control-S save
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>")

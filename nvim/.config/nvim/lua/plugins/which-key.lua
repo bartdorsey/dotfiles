@@ -1,17 +1,32 @@
 return {
     "folke/which-key.nvim",
     config = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = true
-        require("which-key").setup {
+        vim.o.timeout = false
+        vim.o.timeoutlen = 300
+        local wk = require("which-key")
+
+        wk.setup({
             window = {
                 border = "none",
                 position = "bottom",
-                winblend = 0
+                winblend = 0,
             },
             layout = {
-                align = "center"
+                align = "center",
             },
-        }
-    end
+            plugins = {
+                marks = false,
+                registers = false,
+                presets = {
+                    operators = false,
+                    motions = false,
+                    text_objects = false,
+                    windows = false,
+                    nav = false,
+                    z = false,
+                    g = false,
+                },
+            },
+        })
+    end,
 }

@@ -36,6 +36,7 @@ $env:Path = ";$env:USERPROFILE\.gobrew\current\bin;$env:USERPROFILE\.gobrew\bin;
 $env:GOROOT = "$env:USERPROFILE\.gobrew\current\go"
 $env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
 $env:KOMOREBI_CONFIG_HOME = "$env:USERPROFILE\.config\komorebi"
+$env:HOME = $env:USERPROFILE
 
 # Aliases
 Set-Alias p Get-Projects

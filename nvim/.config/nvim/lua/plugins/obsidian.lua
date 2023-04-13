@@ -5,7 +5,7 @@ return {
     },
     config = function()
         require("obsidian").setup({
-            dir = "/mnt/c/Users/bart/Obsidian/Journal",
+            dir = "~/Obsidian/Journal",
             daily_notes = {
                 folder = "Daily Notes",
             },

@@ -57,7 +57,7 @@ vim.o.breakindent = true
 -- Swap and undo
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
+vim.o.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.o.undofile = true
 
 -- Case insensitive searching UNLESS /C or capital in search

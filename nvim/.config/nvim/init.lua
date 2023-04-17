@@ -94,6 +94,13 @@ vim.opt.listchars = {
     nbsp = "·",
     trail = "·",
 }
+
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldenable = true
+
 -- Search Highlighting
 vim.opt.hlsearch = false
 vim.opt.incsearch = true

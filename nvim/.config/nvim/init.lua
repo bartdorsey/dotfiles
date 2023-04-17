@@ -40,6 +40,13 @@ require("lazy").setup("plugins", opts)
 if vim.g.neovide then
     vim.o.guifont = "Iosevka NF"
     vim.g.neovide_background_color = "#1e1e2e"
+    vim.g.neovide_refresh_rate = 60
+    vim.g.neovide_refresh_rate_idle = 60
+    vim.g.neovide_remember_window_size = true
+    vim.g.neovide_confirm_quit = false
+    vim.g.neovide_floating_opacity = 1.0
+    vim.g.neovide_hide_mouse_when_typing = true
+    vim.g.neovide_cursor_animate_command_line = false
 end
 
 -- [[ Setting options ]]

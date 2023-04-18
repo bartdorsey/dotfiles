@@ -76,6 +76,7 @@
         choose
         stow
         pre-commit
+        oath-toolkit
         (python3.withPackages (
           ps: with ps; [
             pip

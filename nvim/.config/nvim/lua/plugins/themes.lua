@@ -44,6 +44,14 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         config = function()
+            local cwd = function()
+                local folders = vim.lsp.buf.list_workspace_folders()
+                local name = folders[1] or vim.fn.getcwd()
+                return "  "
+                    .. vim.fs.basename(vim.fs.dirname(name))
+                    .. "/"
+                    .. vim.fs.basename(name)
+            end
             require("lualine").setup({
                 options = {
                     theme = "catppuccin",
@@ -60,6 +68,7 @@ return {
                         },
                     },
                     lualine_b = {
+                        cwd,
                         "filename",
                         "branch",
                     },

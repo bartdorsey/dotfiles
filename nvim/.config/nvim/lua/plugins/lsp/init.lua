@@ -83,6 +83,7 @@ return {
             "marksman",
             "bashls",
             "jsonls",
+            "ocamllsp",
         })
 
         -- Autoformat on Save
@@ -96,6 +97,7 @@ return {
                     "javascript",
                     "json",
                     "markdown",
+                    "ocaml",
                     "css",
                     "scss",
                     "yaml",

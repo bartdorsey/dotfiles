@@ -1,6 +1,7 @@
 [[language]]
 name = "rust"
 auto-format = true
+language-server = { command = "rustup", args = ["run","stable","rust-analyzer"]}
 
 [[language]]
 name = "python"

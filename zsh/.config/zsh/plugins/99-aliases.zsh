@@ -3,7 +3,7 @@ if type git > /dev/null; then
     alias wt="git worktree"
 fi
 
-# Misc 
+# Misc
 alias ll=ls -al
 
 # Color Grep
@@ -20,3 +20,6 @@ fi
 if type lazygit > /dev/null;then
     alias lg=lazygit
 fi
+
+# gitignore
+function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}

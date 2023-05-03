@@ -1,4 +1,4 @@
-return function(_, bufnr)
+return function(client, bufnr)
     vim.keymap.set(
         "n",
         "<leader>rn",
@@ -90,15 +90,16 @@ return function(_, bufnr)
 
     require("lsp_lines").setup()
 
-    vim.keymap.set(
-        "",
-        "<leader>l",
-        require("lsp_lines").toggle,
-        { desc = "Toggle Diagnostics" }
-    )
+    vim.keymap.set("", "<leader>dt", function()
+        local config = vim.diagnostic.config()
+        vim.diagnostic.config({
+            virtual_text = not config.virtual_text,
+            virtual_lines = not config.virtual_lines,
+        })
+    end, { desc = "Toggle Line Diagnostics" })
 
     vim.diagnostic.config({
-        virtual_text = false,
-        virtual_lines = true,
+        virtual_text = true,
+        virtual_lines = false,
     })
 end

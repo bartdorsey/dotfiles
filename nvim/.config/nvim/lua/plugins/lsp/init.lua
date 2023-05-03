@@ -30,6 +30,9 @@ return {
         -- Diagnostics
         { "ErichDonGubler/lsp_lines.nvim" },
 
+        -- Rust tools
+        { "simrat39/rust-tools.nvim" },
+
         {
             "folke/neodev.nvim",
             ft = "lua",
@@ -125,6 +128,17 @@ return {
                 },
             },
         })
+        -- Rust analyzer
+        -- lsp.configure("rust_analyzer", {
+        --     settings = {
+        --         ["rust-analyzer"] = {
+        --             checkOnSave = {
+        --                 allFeatures = true,
+        --                 command = "clippy",
+        --             },
+        --         },
+        --     },
+        -- })
 
         -- Pyright
         lsp.configure("pyright", {
@@ -143,7 +157,8 @@ return {
                     validate = true,
                     hover = true,
                     schemas = {
-                        ["**/glossary.yml"] = "/tools/glossary-yaml-to-xml/docs/glossary-schema.yml",
+                        ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
+                        ["schema.yml"] = "**/question.yml",
                     },
                 },
             },
@@ -156,6 +171,14 @@ return {
         lsp.on_attach(require("plugins/lsp/onattach"))
         lsp.nvim_workspace()
         lsp.setup()
+
+        require("rust-tools").setup({
+            tools = {
+                inlay_hints = {
+                    only_current_line = true,
+                },
+            },
+        })
 
         -- Setup null ls
         require("plugins/lsp/null-ls")

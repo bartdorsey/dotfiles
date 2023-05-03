@@ -1,0 +1,4 @@
+if has('nvim')
+    source ~/.config/nvim/init.vim
+    finish
+endif

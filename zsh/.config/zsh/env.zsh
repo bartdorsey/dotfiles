@@ -41,6 +41,9 @@ fi
 # Default editor
 export EDITOR="vim"
 
+# vimrc location
+export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+
 # Postgres
 export PGHOST=localhost
 

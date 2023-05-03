@@ -136,8 +136,20 @@ vim.api.nvim_set_keymap(
 )
 
 -- Let you move visual blocks with J and K
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "K", ":m .-2<cr>", { desc = "Move current line up" }) -- up
+vim.keymap.set("n", "J", ":m .+1<cr>", { desc = "Move current line down" }) -- down
+vim.keymap.set(
+    "v",
+    "J",
+    ":m '>+1<cr>gv=gv",
+    { desc = "Move selected lines up" }
+) -- up
+vim.keymap.set(
+    "v",
+    "K",
+    ":m '<-2<cr>gv=gv",
+    { desc = "move selected lines down" }
+) -- down
 
 -- Cursor in middle
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

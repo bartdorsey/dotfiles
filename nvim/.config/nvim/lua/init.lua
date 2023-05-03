@@ -49,42 +49,11 @@ if vim.g.neovide then
     vim.g.neovide_cursor_animate_command_line = false
 end
 
--- [[ Setting options ]]
-
--- Make line numbers default
-vim.wo.number = true
-vim.opt.relativenumber = true
-
--- Enable mouse mode
-vim.o.mouse = "a"
-
--- Enable break indent
-vim.o.breakindent = true
-
 -- Swap and undo
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.o.undofile = true
-
--- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- Decrease update time
-vim.o.updatetime = 250
-vim.wo.signcolumn = "yes"
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect,preview"
-
--- Indenting
-vim.opt.softtabstop = 4
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.wrap = false
 
 vim.opt.list = true
 vim.opt.listchars = {
@@ -100,18 +69,6 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
-
--- Search Highlighting
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
--- Scrolling
-vim.opt.scrolloff = 1000
--- Turn on column for icons all the time
-vim.opt.signcolumn = "yes"
-
-vim.opt.updatetime = 50
-vim.opt.colorcolumn = "80"
 
 local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
 

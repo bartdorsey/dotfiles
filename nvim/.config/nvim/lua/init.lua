@@ -93,8 +93,6 @@ vim.api.nvim_set_keymap(
 )
 
 -- Let you move visual blocks with J and K
-vim.keymap.set("n", "K", ":m .-2<cr>", { desc = "Move current line up" }) -- up
-vim.keymap.set("n", "J", ":m .+1<cr>", { desc = "Move current line down" }) -- down
 vim.keymap.set(
     "v",
     "J",

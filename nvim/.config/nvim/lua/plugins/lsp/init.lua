@@ -129,16 +129,19 @@ return {
             },
         })
         -- Rust analyzer
-        -- lsp.configure("rust_analyzer", {
-        --     settings = {
-        --         ["rust-analyzer"] = {
-        --             checkOnSave = {
-        --                 allFeatures = true,
-        --                 command = "clippy",
-        --             },
-        --         },
-        --     },
-        -- })
+        lsp.configure("rust_analyzer", {
+            settings = {
+                ["rust-analyzer"] = {
+                    cargo = {
+                        features = "all",
+                    },
+                    checkOnSave = true,
+                    check = {
+                        command = "clippy",
+                    },
+                },
+            },
+        })
 
         -- Pyright
         lsp.configure("pyright", {
@@ -172,13 +175,13 @@ return {
         lsp.nvim_workspace()
         lsp.setup()
 
-        require("rust-tools").setup({
-            tools = {
-                inlay_hints = {
-                    only_current_line = true,
-                },
-            },
-        })
+        -- require("rust-tools").setup({
+        --     tools = {
+        --         inlay_hints = {
+        --             only_current_line = true,
+        --         },
+        --     },
+        -- })
 
         -- Setup null ls
         require("plugins/lsp/null-ls")

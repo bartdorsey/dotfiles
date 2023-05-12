@@ -11,7 +11,12 @@ return function(client, bufnr)
         vim.lsp.buf.code_action,
         { desc = "Code Action" }
     )
-
+    vim.keymap.set(
+        "n",
+        "gl",
+        vim.diagnostic.open_float,
+        { desc = "Float Diagnostic" }
+    )
     vim.keymap.set(
         "n",
         "gd",

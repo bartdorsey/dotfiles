@@ -1,12 +1,10 @@
 return {
     "akinsho/toggleterm.nvim",
     version = "*",
-    event = "BufReadPre",
     config = function()
         require("toggleterm").setup({
-            size = 80,
-            direction = "vertical",
-            open_mapping = [[<c-\>]],
+            direction = "float",
+            open_mapping = [[<c-`>]],
             shade_terminals = false,
         })
 

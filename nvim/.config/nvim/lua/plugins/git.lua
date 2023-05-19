@@ -4,6 +4,17 @@ return {
         event = "BufReadPre",
     },
     {
+        "sar/neogit.nvim",
+        dependencies = { "sindrets/diffview.nvim" },
+        config = function()
+            require("neogit").setup({
+                integrations = {
+                    diffview = true,
+                },
+            })
+        end,
+    },
+    {
         "lewis6991/gitsigns.nvim",
         event = "BufReadPre",
         config = function()

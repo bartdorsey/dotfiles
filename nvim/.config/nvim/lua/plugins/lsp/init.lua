@@ -91,6 +91,10 @@ return {
 
         -- Autoformat on Save
         lsp.format_on_save({
+            format_opts = {
+                async = false,
+                timeout_ms = 10000,
+            },
             servers = {
                 ["null-ls"] = {
                     "html",
@@ -128,6 +132,15 @@ return {
                 },
             },
         })
+
+        -- require("rust-tools").setup({
+        --     tools = {
+        --         inlay_hints = {
+        --             only_current_line = true,
+        --         },
+        --     },
+        -- })
+
         -- Rust analyzer
         lsp.configure("rust_analyzer", {
             settings = {
@@ -174,14 +187,6 @@ return {
         lsp.on_attach(require("plugins/lsp/onattach"))
         lsp.nvim_workspace()
         lsp.setup()
-
-        -- require("rust-tools").setup({
-        --     tools = {
-        --         inlay_hints = {
-        --             only_current_line = true,
-        --         },
-        --     },
-        -- })
 
         -- Setup null ls
         require("plugins/lsp/null-ls")

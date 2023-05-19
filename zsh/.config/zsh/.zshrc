@@ -46,6 +46,7 @@ zsh_config_run path.zsh
 # Keybinds for OSes like Arch
 zsh_config_run keybinds.zsh
 
+
 # Run compinit
 compinit
 

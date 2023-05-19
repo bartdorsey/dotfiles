@@ -8,21 +8,29 @@ fi
 
 HISTFILE=$HOME/.cache/zsh/history
 
+
 #Nix setup
-if [ ! -e /nix ]; then
-    sh <(curl -L https://nixos.org/nix/install) --daemon
-fi
+# if [ ! -e /nix ]; then
+#     sh <(curl -L https://nixos.org/nix/install) --daemon
+# fi
+#
+# if type grc > /dev/null;then
+#     export GRC_ALIASES=true
+# fi
+#
+# if [ -d $HOME/.nix-profile/etc/profile.d ] ; then
+#     for i in $HOME/.nix-profile/etc/profile.d/*.sh; do
+#         if [ -r $i ]; then
+#             . $i
+#         fi
+#     done
+# fi
 
-if type grc > /dev/null;then
-    export GRC_ALIASES=true
-fi
-
-if [ -d $HOME/.nix-profile/etc/profile.d ] ; then
-    for i in $HOME/.nix-profile/etc/profile.d/*.sh; do
-        if [ -r $i ]; then
-            . $i
-        fi
-    done
+# GRC
+if type grc > /dev/null; then
+    if [ -e /etc/grc.zsh ]; then
+        source /etc/grc.zsh
+    fi
 fi
 
 # FZF Config

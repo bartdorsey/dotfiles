@@ -4,7 +4,7 @@ return {
         event = "BufReadPre",
     },
     {
-        "sar/neogit.nvim",
+        "TimUntersberger/neogit",
         dependencies = { "sindrets/diffview.nvim" },
         config = function()
             require("neogit").setup({

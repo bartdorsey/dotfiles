@@ -9,3 +9,7 @@ aerc/.config/aerc/accounts.conf
 tmux/.config/tmux/plugins
 *.log
 nvim/.config/nvim/lazy-lock.json
+binaries/.local/bin/pyfiglet
+binaries/.local/bin/streamdeck
+binaries/.local/bin/termdown
+binaries/.local/bin/xmlformat

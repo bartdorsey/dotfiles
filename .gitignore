@@ -13,3 +13,4 @@ binaries/.local/bin/pyfiglet
 binaries/.local/bin/streamdeck
 binaries/.local/bin/termdown
 binaries/.local/bin/xmlformat
+aerc/.config/aerc/accounts.conf

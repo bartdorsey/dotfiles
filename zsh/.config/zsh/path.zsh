@@ -1,6 +1,6 @@
 # Rust
-if [ -d "$HOME/.cargo/bin" ];then
-    export PATH=$HOME/.cargo/bin:$PATH:
+if [ -d "$CARGO_HOME/bin" ];then
+    export PATH=$CARGO_HOME/bin:$PATH:
 fi
 
 # t script

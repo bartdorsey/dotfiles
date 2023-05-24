@@ -8,6 +8,11 @@ fi
 
 HISTFILE=$HOME/.cache/zsh/history
 
+# Rust
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+
+# GPG
+export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
 
 #Nix setup
 # if [ ! -e /nix ]; then

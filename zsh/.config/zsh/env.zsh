@@ -6,13 +6,50 @@ if [ ! -d $HOME/.cache/zsh ];then
     mkdir -p $HOME/.cache/zsh
 fi
 
+export BROWSER="xdg-open"
+
 HISTFILE=$HOME/.cache/zsh/history
+
+# X11
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+
+# KDE
+export KDEHOME="$XDG_CONFIG_HOME"/kde
 
 # Rust
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 
 # GPG
 export GNUPGHOME="${XDG_DATA_HOME}/gnupg"
+
+# GTK
+export GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"
+
+# Java
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java"
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java"
+
+# Node
+export NODE_REPL_HISTORY="${XDG_CACHE_HOME}/node_repl_history"
+export npm_config_cache="${XDG_CACHE_HOME}/npm"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+
+# Nvidia CUDA
+export CUDA_CACHE_PATH="${XDG_CACHE_HOME}/nv"
+export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
+
+# OCaml
+export OPAMROOT="${XDG_DATA_HOME}/opam"
+
+# Pass
+export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
+
+# Go
+export GOPATH="${XDG_DATA_HOME}/go"
+
+# wget
+alias wget="wget --hsts-file="${XDG_CACHE_HOME}/wget-hsts""
 
 #Nix setup
 # if [ ! -e /nix ]; then
@@ -77,7 +114,7 @@ export GIT_CONFIG_GLOBAL=$HOME/.config/git/config
 
 # TERMINFO for tmux when it's not installed by default
 if [[ $(toe -a | grep -c tmux-256color) == "0" ]]; then
-    sudo /usr/bin/tic -xe tmux-256color $HOME/.dotfiles/terminfo/terminfo.src
+    sudo /usr/bin/tic -xe tmux-256color $HOME/.config/terminfo/terminfo.src
 fi
 
 # SECRETS

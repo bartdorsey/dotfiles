@@ -47,6 +47,7 @@ export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 
 # Go
 export GOPATH="${XDG_DATA_HOME}/go"
+export PATH=$PATH:$GOPATH/bin
 
 # wget
 alias wget="wget --hsts-file="${XDG_CACHE_HOME}/wget-hsts""

@@ -31,17 +31,18 @@ zsh_configure_completion > /dev/null 2>&1
 # Stop Ctrl-S freezing the terminal
 stty stop undef
 
+# Path
+zsh_config_run path.zsh
+
 # Plugins
 zsh_config_run zsh-plugins.sh
+
 
 # Prompt
 zsh_config_run starship.zsh
 
 # MOTD
 zsh_config_run macchina.zsh
-
-# Path
-zsh_config_run path.zsh
 
 # Keybinds for OSes like Arch
 zsh_config_run keybinds.zsh

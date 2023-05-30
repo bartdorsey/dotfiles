@@ -90,7 +90,7 @@ if type lsb_release > /dev/null;then
 fi
 
 # Default editor
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # vimrc location
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"

@@ -30,7 +30,8 @@ local opts = {
         notify = false,
     },
     change_detection = {
-        enabled = false,
+        enabled = true,
+        notify = false,
     },
 }
 
@@ -105,6 +106,29 @@ vim.keymap.set(
     ":m '<-2<cr>gv=gv",
     { desc = "move selected lines down" }
 ) -- down
+
+-- Easier reach to beginning and end of lines
+vim.keymap.set(
+    "n",
+    "H",
+    "^",
+    { desc = "Move to beginning of text on current line" }
+)
+vim.keymap.set("n", "L", "g_", { desc = "Move to end of text on current line" })
+vim.keymap.set(
+    "v",
+    "L",
+    "g_",
+    { desc = "Move to end of text on current line - Visual mode" }
+)
+
+-- remap escape to a closer key
+vim.keymap.set(
+    "i",
+    "jj",
+    "<Esc>",
+    { desc = "Remap escape to 'j' key twice for ergonomics - Insert mod" }
+)
 
 -- Cursor in middle
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

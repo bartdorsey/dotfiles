@@ -26,6 +26,9 @@ return {
                     pcall(require("telescope").load_extension, "fzf")
                 end,
             },
+            {
+                "nvim-telescope/telescope-ui-select.nvim",
+            },
         },
         cmd = { "Telescope" },
         keys = {
@@ -112,9 +115,15 @@ return {
                             vim.api.nvim_put({ emoji.value }, "c", false, true)
                         end,
                     },
+                    ["ui-select"] = {
+                        require("telescope.themes").get_cursor({
+                            border = false,
+                        }),
+                    },
                 },
             })
             require("telescope").load_extension("notify")
+            require("telescope").load_extension("ui-select")
         end,
     },
     {

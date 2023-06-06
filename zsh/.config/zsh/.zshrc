@@ -44,6 +44,15 @@ zsh_config_run starship.zsh
 # MOTD
 zsh_config_run macchina.zsh
 
+# Dates
+
+echo -n "US/Pacific  "
+TZ="US/Pacific" date +"%r"
+echo -n "US/Central  "
+TZ="US/Central" date +"%r"
+echo -n "US/Eastern  "
+TZ="US/Eastern" date +"%r"
+
 # Keybinds for OSes like Arch
 zsh_config_run keybinds.zsh
 

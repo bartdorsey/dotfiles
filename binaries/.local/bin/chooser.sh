@@ -6,6 +6,7 @@ FIREFOX="  Firefox"
 FIREFOX_PRIV="  Firefox (Private)"
 CHROME="  Chrome"
 CHROME_PRIV="  Chrome (Private)"
+VIEB="  Vieb"
 CLIPBOARD="  Clipboard"
 
 menu() {
@@ -13,6 +14,7 @@ menu() {
     echo "$FIREFOX_PRIV"
     echo "$CHROME"
     echo "$CHROME_PRIV"
+    echo "$VIEB"
     echo "$CLIPBOARD"
 }
 
@@ -31,6 +33,9 @@ main() {
             ;;
         "$CHROME_PRIV")
             google-chrome-stable --incognito "$URL"
+            ;;
+        "$VIEB")
+            vieb "$URL"
             ;;
         "$CLIPBOARD")
             echo "$URL" | xclip

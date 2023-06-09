@@ -88,6 +88,7 @@ return {
             "bashls",
             "jsonls",
             "ocamllsp",
+            "ruff_lsp",
         })
 
         -- Autoformat on Save

@@ -97,14 +97,25 @@ return function(client, bufnr)
 
     vim.keymap.set("", "<leader>dt", function()
         local config = vim.diagnostic.config()
-        vim.diagnostic.config({
-            virtual_text = not config.virtual_text,
-            virtual_lines = not config.virtual_lines,
-        })
+        if config.virtual_text then
+            vim.diagnostic.config({
+                virtual_text = false,
+                virtual_lines = true,
+            })
+        else
+            vim.diagnostic.config({
+                virtual_text = {
+                    source = true,
+                },
+                virtual_lines = false,
+            })
+        end
     end, { desc = "Toggle Line Diagnostics" })
 
     vim.diagnostic.config({
-        virtual_text = true,
+        virtual_text = {
+            source = true,
+        },
         virtual_lines = false,
     })
 end

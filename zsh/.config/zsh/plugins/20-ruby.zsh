@@ -1,4 +1,4 @@
-if [ type rbenv > /dev/null ]; then
+if type rbenv > /dev/null; then
    eval "$(rbenv init - zsh)"
 fi
 

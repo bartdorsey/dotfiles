@@ -37,6 +37,7 @@ return {
     tab_bar_at_bottom = true,
     window_background_opacity = 0.75,
     warn_about_missing_glyphs = false,
+    window_close_confirmation = "NeverPrompt",
     harfbuzz_features = nil,
     unix_domains = {
         {

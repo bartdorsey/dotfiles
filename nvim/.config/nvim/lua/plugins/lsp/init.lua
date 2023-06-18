@@ -160,6 +160,14 @@ return {
         --     },
         -- })
 
+        lsp.configure("perlnavigator", {
+            settings = {
+                perlimportsTidyEnabled = true,
+                perlimportsLineEnabled = true,
+                includePaths = { "./lib" },
+            },
+        })
+
         -- Rust analyzer
         lsp.configure("rust_analyzer", {
             settings = {
@@ -171,6 +179,15 @@ return {
                     check = {
                         command = "clippy",
                     },
+                },
+            },
+        })
+
+        -- Grammarly
+        lsp.configure("grammarly", {
+            settings = {
+                init_options = {
+                    clientId = "client_NsbE8hVFaZqeCbExsWktzG",
                 },
             },
         })

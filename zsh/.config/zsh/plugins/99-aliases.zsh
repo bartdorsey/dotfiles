@@ -21,5 +21,9 @@ if type lazygit > /dev/null;then
     alias lg=lazygit
 fi
 
+if type xdg-open > /dev/null; then
+    alias open=xdg-open
+fi
+
 # gitignore
 function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}

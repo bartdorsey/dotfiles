@@ -8,6 +8,11 @@ if [ -d $HOME/.tmux/plugins/t-smart-tmux-session-manager ];then
     export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 fi
 
+# Haskell
+if [ -d $HOME/.ghcup ];then
+    export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+]
+
 # Go
 if [ -d "$HOME/go" ];then
     export PATH=$PATH:~/go/bin

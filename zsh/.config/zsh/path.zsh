@@ -11,7 +11,7 @@ fi
 # Haskell
 if [ -d $HOME/.ghcup ];then
     export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
-]
+fi
 
 # Go
 if [ -d "$HOME/go" ];then

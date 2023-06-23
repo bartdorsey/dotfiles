@@ -12,11 +12,11 @@ wezterm.on("toggle-ligature", function(window, _)
     window:set_config_overrides(overrides)
 end)
 
-wezterm.on("window-focus-changed", function()
-    os.execute(
-        "xdotool search -classname org.wezfurlong.wezterm | xargs -I{} xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id {}"
-    )
-end)
+-- wezterm.on("window-focus-changed", function()
+--     os.execute(
+--         "xdotool search -classname org.wezfurlong.wezterm | xargs -I{} xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id {}"
+--     )
+-- end)
 
 wezterm.on("toggle-opacity", function(window, _)
     local overrides = window:get_config_overrides() or {}

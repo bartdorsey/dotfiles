@@ -1,14 +1,12 @@
 * {
-    bg-col:  #1e1e2e;
-    bg-col-light: #1e1e2e;
-    border-col: #1e1e2e;
-    selected-col: #1e1e2e;
-    blue: #89b4fa;
+    bg-col:  rgba(30, 30, 46, 1);
+    bg-col-light: rgba(30, 30, 46, 1);
+    border-col: rgba(30, 30, 46, 1);
+    selected-col: rgba(30, 30, 46, 1);
+    blue: rgba(137, 180, 250, 1);
     fg-col: #cdd6f4;
     fg-col2: #f38ba8;
     grey: #6c7086;
-
-    width: 800;
 }
 
 element-text, element-icon , mode-switcher {
@@ -21,6 +19,7 @@ window {
     border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
+    transparency: "background";
 }
 
 mainbox {
@@ -37,7 +36,7 @@ inputbar {
 prompt {
     background-color: @blue;
     padding: 6px;
-    text-color: @bg-col;
+    text-color: @bg-col; 
     border-radius: 3px;
     margin: 20px 0px 0px 20px;
 }

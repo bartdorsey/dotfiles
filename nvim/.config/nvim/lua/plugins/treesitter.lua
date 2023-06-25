@@ -66,6 +66,7 @@ return {
                 "phpdoc",
                 "prisma",
                 "python",
+                "rasi",
                 "ruby",
                 "rust",
                 "scss",

@@ -63,7 +63,7 @@ function zsh_configure_completion() {
 # FZF Functions
 if type fzf > /dev/null;then
     function fzf_cd() {
-        cd $(fdfind --type d --hidden | fzf)
+        cd $(fd --type d --hidden | fzf)
     }
 
     function fzfz() {
@@ -71,11 +71,11 @@ if type fzf > /dev/null;then
     }
 
     function find_programming_files() {
-        fdfind --hidden '.(sh|js|html|py|css|md|rs|json|yaml)$' | fzf
+        fd --hidden '.(sh|js|html|py|css|md|rs|json|yaml)$' | fzf
     }
 
     function find_git_repos() {
-        fdfind --hidden '.(git|workspace)$' | sed s/.git$// | fzf
+        fd --hidden '.(git|workspace)$' | sed s/.git$// | fzf
     }
 
     function fzf_vi() {

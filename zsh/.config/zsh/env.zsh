@@ -114,8 +114,10 @@ fi
 export GIT_CONFIG_GLOBAL=$HOME/.config/git/config
 
 # TERMINFO for tmux when it's not installed by default
-if [[ $(toe -a | grep -c tmux-256color) == "0" ]]; then
-    sudo /usr/bin/tic -xe tmux-256color $HOME/.config/terminfo/terminfo.src
+if type toe > /dev/null; then
+    if [[ $(toe -a | grep -c tmux-256color) == "0" ]]; then
+        sudo /usr/bin/tic -xe tmux-256color $HOME/.config/terminfo/terminfo.src
+    fi
 fi
 
 # SECRETS

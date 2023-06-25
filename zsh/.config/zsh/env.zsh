@@ -78,7 +78,7 @@ fi
 
 # FZF Config
 if type fzf > /dev/null; then
-    export FZF_DEFAULT_COMMAND='fdfind -type f --color=never --hidden'
+    export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
     export FZF_DEFAULT_OPTS='--no-height'
 fi
 

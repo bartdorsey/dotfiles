@@ -30,10 +30,10 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     fi
 
     # WSL aliases
-    alias clip='clip.exe'
-    alias open='explorer.exe'
-    alias wsl='wsl.exe'
-    alias pwsh='pwsh.exe'
+    alias clip='/mnt/c/Windows/system32/clip.exe'
+    alias open='/mnt/c/Windows/explorer.exe'
+    alias wsl='/mnt/c/Windows/system32/wsl.exe'
+    alias pwsh='/mnt/c/Program Files/PowerShell/7/pwsh.exe'
 
     notify-send() { wsl-notify-send.exe --category $WSL_DISTRO_NAME "${@}"; }
 fi

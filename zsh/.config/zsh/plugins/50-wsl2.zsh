@@ -34,6 +34,7 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     alias open='/mnt/c/Windows/explorer.exe'
     alias wsl='/mnt/c/Windows/system32/wsl.exe'
     alias pwsh='/mnt/c/Program Files/PowerShell/7/pwsh.exe'
+    alias code="/mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
 
     notify-send() { wsl-notify-send.exe --category $WSL_DISTRO_NAME "${@}"; }
 fi

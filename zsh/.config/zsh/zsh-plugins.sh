@@ -11,7 +11,8 @@ autoload -Uz _zinit
 
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-BASE_SNIPPET_URL="https://raw.githubusercontent.com/bartdorsey/dotfiles/main/zsh/.config/zsh/plugins/"
+BASE_SNIPPET_URL="https://raw.githubusercontent.com/bartdorsey/dotfiles/main/zsh/.config/zsh/snippets/"
+BASE_SCRIPT_PATH="${HOME}/.config/zsh/zshrc.d/"
 
 function install_snippet_sync {
     zinit ice load
@@ -26,6 +27,10 @@ function install_snippet {
 function install_snippet_silent {
     zinit ice wait silent
     zinit snippet "${BASE_SNIPPET_URL}${1}"
+}
+
+function run_script {
+    source "${BASE_SCRIPT_PATH}/${1}"
 }
 
 zinit ice wait lucid
@@ -56,7 +61,7 @@ install_snippet "20-ocaml.zsh"
 install_snippet "20-pnpm.zsh"
 install_snippet "20-ruby.zsh"
 install_snippet "30-ssh.zsh"
-install_snippet "50-wsl2.zsh"
+source_script "50-wsl2.zsh"
 install_snippet "60-direnv.zsh"
 install_snippet "60-zoxide.zsh"
 install_snippet "80-binds.zsh"

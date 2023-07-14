@@ -51,23 +51,13 @@ if type python3 > /dev/null;then
     zinit load RobSis/zsh-completion-generator
 fi
 
-install_snippet "01-tmux.zsh"
-install_snippet "10-rust.zsh"
-install_snippet "20-python.zsh"
-install_snippet "20-npm.zsh"
-install_snippet "20-fnm.zsh"
-install_snippet "20-go.zsh"
-install_snippet "20-ocaml.zsh"
-install_snippet "20-pnpm.zsh"
-install_snippet "20-ruby.zsh"
-install_snippet "30-ssh.zsh"
-run_script "50-wsl2.zsh"
-install_snippet "60-direnv.zsh"
-install_snippet "60-zoxide.zsh"
-install_snippet "80-binds.zsh"
-install_snippet "95-nvim.zsh"
-install_snippet "98-1password.zsh"
-install_snippet "99-aliases.zsh"
+for snippet in $ZDOTDIR/snippets/*.zsh;
+do install_snippet "$(basename "$snippet")"
+done;
+
+for script in $ZDOTDIR/zshrc.d/*.zsh;
+do run_script "$(basename "$script")"
+done;
 
 # Completions
 

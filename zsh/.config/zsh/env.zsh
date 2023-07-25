@@ -10,6 +10,13 @@ export BROWSER="xdg-open"
 
 HISTFILE=$HOME/.cache/zsh/history
 
+# MacPorts
+
+if [ -x /opt/local/bin/port ];then
+    export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+    export MANPATH="/opt/local/share/man:$PATH"
+fi
+
 # X11
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 

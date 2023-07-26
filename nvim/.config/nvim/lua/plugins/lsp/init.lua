@@ -4,7 +4,6 @@ return {
         -- LSP Support
         { "neovim/nvim-lspconfig" },
         { "williamboman/mason.nvim" },
-        { "williamboman/mason-lspconfig.nvim" },
 
         -- Null ls
         { "jay-babu/mason-null-ls.nvim" },

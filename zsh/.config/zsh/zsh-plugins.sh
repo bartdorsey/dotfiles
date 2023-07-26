@@ -52,7 +52,7 @@ if type python3 > /dev/null;then
 fi
 
 for snippet in $ZDOTDIR/snippets/*.zsh;
-do install_snippet "$(basename "$snippet")"
+do install_snippet_silent "$(basename "$snippet")"
 done;
 
 for script in $ZDOTDIR/zshrc.d/*.zsh;

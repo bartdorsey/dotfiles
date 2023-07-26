@@ -1,7 +1,7 @@
 add_newline = true
 
 format = """\
-[╭╴](238) [󰄛 ](bold yellow)$env_var $all\
+[╭╴](238) [$os](bold yellow)$env_var $all\
 [╰─](238) $shell$character"""
 
 [character]
@@ -13,11 +13,22 @@ vimcmd_visual_symbol = "[ ](bold green)"
 [hostname]
 ssh_only = false
 style = 'blue'
-ssh_symbol = '󰣀 '
+ssh_symbol = ' '
 
 [shell]
 disabled = false
 style = 'bold yellow'
+
+[os]
+disabled = false
+
+[os.symbols]
+Arch = "[ ](bold blue)"
+Linux = "[ ](bold yellow)"
+Ubuntu = "[ ](bold orange)"
+Debian = "[ ](bold red)"
+Windows = "[ ](bold blue)"
+Raspbian = "[ ](bold red)"
 
 [git_commit]
 #tag_symbol = " tag "

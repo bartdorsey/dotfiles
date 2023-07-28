@@ -1,72 +1,48 @@
-# Install zinit
-if [[ ! -d "${HOME}/.local/share/zinit" ]]; then
-    bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-    zinit self-update
-fi
-
-# Initialize zinit
-source "${HOME}/.local/share/zinit/zinit.git/zinit.zsh"
-
-autoload -Uz _zinit
-
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
 BASE_SNIPPET_URL="https://raw.githubusercontent.com/bartdorsey/dotfiles/main/zsh/.config/zsh/snippets/"
 BASE_SCRIPT_PATH="${HOME}/.config/zsh/zshrc.d/"
 
-function install_snippet_sync {
-    zinit ice load
-    zinit snippet "${BASE_SNIPPET_URL}${1}"
-}
-
-function install_snippet {
-    zinit ice wait lucid
-    zinit snippet "${BASE_SNIPPET_URL}${1}"
-}
-
-function install_snippet_silent {
-    zinit ice wait silent
-    zinit snippet "${BASE_SNIPPET_URL}${1}"
+function run_plugin {
+    if [[ -d "${ZDOTDIR}/plugins/${1}" ]]; then
+        source "${ZDOTDIR}/plugins/${1}/${2}"
+    fi
 }
 
 function run_script {
     source "${BASE_SCRIPT_PATH}/${1}"
 }
 
-zinit ice wait lucid
-zinit load zsh-users/zsh-history-substring-search
+# Auto suggestions
+run_plugin zsh-autosuggestions zsh-autosuggestions.zsh
 
-#zinit ice wait lucid
-#zinit load zsh-users/zsh-autosuggestions
-source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# Fast syntax highlighting
+run_plugin fast-syntax-highlighting fast-syntax-highlighting.plugin.zsh
 
-zinit light zdharma-continuum/fast-syntax-highlighting
+# History Substring Search
+run_plugin zsh-history-substring-search zsh-history-substring-search.zsh
 
-zinit ice wait lucid
-zinit load zsh-users/zsh-completions
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
-zinit ice wait lucid
-zinit load sunlei/zsh-ssh
+# ZSH completions
+run_plugin zsh-completions zsh-completions.plugin.zsh
+
+# SSH completion
+run_plugin zsh-ssh zsh-ssh.zsh
 
 if type python3 > /dev/null;then
-    zinit load RobSis/zsh-completion-generator
-fi
+    run_plugin zsh-completion-generator/zsh-completion-generator.plugin.zsh;
+    # Completions
 
-for snippet in $ZDOTDIR/snippets/*.zsh;
-do install_snippet_silent "$(basename "$snippet")"
-done;
+    zstyle :plugin:zsh-completion-generator programs \
+        exa \
+        bat \
+        cargo \
+        rustup \
+        node \
+        rg \
+        fd
+fi
 
 for script in $ZDOTDIR/zshrc.d/*.zsh;
 do run_script "$(basename "$script")"
 done;
-
-# Completions
-
-zstyle :plugin:zsh-completion-generator programs \
-    exa \
-    bat \
-    cargo \
-    rustup \
-    node \
-    rg \
-    fd \

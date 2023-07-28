@@ -1,4 +1,4 @@
-if  type pip3 > /dev/null; then
+if type pip3 > /dev/null; then
     eval "`pip3 completion --zsh`"
 fi
 

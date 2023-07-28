@@ -1,0 +1,18 @@
+[submodule "zsh/.config/zsh/plugins/fast-syntax-highlighting"]
+	path = zsh/.config/zsh/plugins/fast-syntax-highlighting
+	url = git@github.com:zdharma-continuum/fast-syntax-highlighting.git
+[submodule "zsh/.config/zsh/plugins/zsh-autosuggestions"]
+	path = zsh/.config/zsh/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "zsh/.config/zsh/plugins/zsh-history-substring-search"]
+	path = zsh/.config/zsh/plugins/zsh-history-substring-search
+	url = git@github.com:zsh-users/zsh-history-substring-search.git
+[submodule "zsh/.config/zsh/plugins/zsh-completions"]
+	path = zsh/.config/zsh/plugins/zsh-completions
+	url = git@github.com:zsh-users/zsh-completions.git
+[submodule "zsh/.config/zsh/plugins/zsh-ssh"]
+	path = zsh/.config/zsh/plugins/zsh-ssh
+	url = git@github.com:sunlei/zsh-ssh.git
+[submodule "zsh/.config/zsh/plugins/zsh-completion-generator"]
+	path = zsh/.config/zsh/plugins/zsh-completion-generator
+	url = git@github.com:RobSis/zsh-completion-generator.git

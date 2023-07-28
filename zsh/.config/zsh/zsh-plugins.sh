@@ -36,8 +36,9 @@ function run_script {
 zinit ice wait lucid
 zinit load zsh-users/zsh-history-substring-search
 
-zinit ice wait lucid
-zinit load zsh-users/zsh-autosuggestions
+#zinit ice wait lucid
+#zinit load zsh-users/zsh-autosuggestions
+source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 zinit light zdharma-continuum/fast-syntax-highlighting
 

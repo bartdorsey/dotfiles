@@ -59,23 +59,6 @@ export PATH=$PATH:$GOPATH/bin
 # wget
 alias wget="wget --hsts-file="${XDG_CACHE_HOME}/wget-hsts""
 
-#Nix setup
-# if [ ! -e /nix ]; then
-#     sh <(curl -L https://nixos.org/nix/install) --daemon
-# fi
-#
-# if type grc > /dev/null;then
-#     export GRC_ALIASES=true
-# fi
-#
-# if [ -d $HOME/.nix-profile/etc/profile.d ] ; then
-#     for i in $HOME/.nix-profile/etc/profile.d/*.sh; do
-#         if [ -r $i ]; then
-#             . $i
-#         fi
-#     done
-# fi
-
 # GRC
 if type grc > /dev/null; then
     if [ -e /etc/grc.zsh ]; then

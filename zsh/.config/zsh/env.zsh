@@ -2,6 +2,9 @@
 HISTSIZE=10000
 SAVEHIST=10000
 
+# Hack to make colors work again in new groff
+export GROFF_NO_SGR=1
+
 if [ ! -d $HOME/.cache/zsh ];then
     mkdir -p $HOME/.cache/zsh
 fi

@@ -10,7 +10,10 @@ color-modes = true
 
 [editor.lsp]
 display-messages = true
+display-inlay-hints = true
 
+[editor.file-picker]
+hidden = false
 
 [editor.cursor-shape]
 insert = "bar"

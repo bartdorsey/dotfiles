@@ -151,6 +151,17 @@ return {
             },
         })
 
+        lsp.configure("tsserver", {
+            settings = {
+                filetypes = {
+                    "typescript",
+                    "typescriptreact",
+                    "javascript",
+                    "javascriptreact",
+                },
+            },
+        })
+
         -- require("rust-tools").setup({
         --     tools = {
         --         inlay_hints = {

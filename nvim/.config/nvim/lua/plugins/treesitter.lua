@@ -4,7 +4,7 @@ return {
     dependencies = {
         "windwp/nvim-ts-autotag",
         "nvim-treesitter/nvim-treesitter-textobjects",
-        "HiPhish/nvim-ts-rainbow2",
+        -- "HiPhish/nvim-ts-rainbow2",
     },
     event = { "BufReadPre" },
     config = function()
@@ -17,11 +17,11 @@ return {
             autotag = {
                 enable = true,
             },
-            rainbow = {
-                enable = true,
-                query = "rainbow-parens",
-                strategy = require("ts-rainbow.strategy.global"),
-            },
+            -- rainbow = {
+            --     enable = true,
+            --     query = "rainbow-parens",
+            --     strategy = require("ts-rainbow.strategy.global"),
+            -- },
             -- Add languages to be installed here that you want installed for treesitter
             ensure_installed = {
                 "astro",
@@ -139,12 +139,12 @@ return {
         })
 
         -- Set highlight groups for nvim-ts-rainbow2 for catppuccin
-        vim.cmd("highlight TSRainbowRed guifg=#f38ba8")
-        vim.cmd("highlight TSRainbowYellow guifg=#f9e2af")
-        vim.cmd("highlight TSRainbowBlue guifg=#89b4fa")
-        vim.cmd("highlight TSRainbowOrange guifg=#fab387")
-        vim.cmd("highlight TSRainbowGreen guifg=#a6e3a1")
-        vim.cmd("highlight TSRainbowViolet guifg=#cba6f7")
-        vim.cmd("highlight TSRainbowCyan guifg=#94e2d5")
+        -- vim.cmd("highlight TSRainbowRed guifg=#f38ba8")
+        -- vim.cmd("highlight TSRainbowYellow guifg=#f9e2af")
+        -- vim.cmd("highlight TSRainbowBlue guifg=#89b4fa")
+        -- vim.cmd("highlight TSRainbowOrange guifg=#fab387")
+        -- vim.cmd("highlight TSRainbowGreen guifg=#a6e3a1")
+        -- vim.cmd("highlight TSRainbowViolet guifg=#cba6f7")
+        -- vim.cmd("highlight TSRainbowCyan guifg=#94e2d5")
     end,
 }

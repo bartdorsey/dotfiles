@@ -11,8 +11,8 @@ function run_script {
     source "${BASE_SCRIPT_PATH}/${1}"
 }
 
-# Vi mode
-run_plugin zsh-vi-mode zsh-vi-mode.plugin.zsh
+# My custom vi plugin
+run_plugin zsh-better-vi zsh-better-vi.zsh
 
 # Auto suggestions
 run_plugin zsh-autosuggestions zsh-autosuggestions.zsh
@@ -35,6 +35,9 @@ run_plugin zsh-completions zsh-completions.plugin.zsh
 
 # SSH completion
 run_plugin zsh-ssh zsh-ssh.zsh
+
+# My custom FZF plugin
+run_plugin zsh-fzf zsh-fzf.zsh
 
 if type python3 > /dev/null;then
     run_plugin zsh-completion-generator/zsh-completion-generator.plugin.zsh;

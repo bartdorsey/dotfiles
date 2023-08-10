@@ -59,32 +59,3 @@ function zsh_configure_completion() {
     # bun completions
     [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 }
-
-# FZF Functions
-if type fzf > /dev/null;then
-    function fzf_cd() {
-        cd $(fd --type d --hidden | fzf)
-    }
-
-    function fzfz() {
-        cd $(zshz | column --table --table-hide 1 | fzf)
-    }
-
-    function find_programming_files() {
-        fd --hidden '.(sh|js|html|py|css|md|rs|json|yaml)$' | fzf
-    }
-
-    function find_git_repos() {
-        fd --hidden '.(git|workspace)$' | sed s/.git$// | fzf
-    }
-
-    function fzf_vi() {
-        file=$(find_programming_files)||return
-        nvim $file
-    }
-
-    function fzf_code() {
-        repo=$(find_git_repos)||return
-        code $repo
-    }
-fi

@@ -16,3 +16,6 @@
 [submodule "zsh/.config/zsh/plugins/zsh-completion-generator"]
 	path = zsh/.config/zsh/plugins/zsh-completion-generator
 	url = git@github.com:RobSis/zsh-completion-generator.git
+[submodule "zsh/.config/zsh/plugins/zsh-vi-mode"]
+	path = zsh/.config/zsh/plugins/zsh-vi-mode
+	url = git@github.com:jeffreytse/zsh-vi-mode.git

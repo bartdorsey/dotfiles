@@ -1,6 +1,9 @@
 # Profiler
 zmodload zsh/zprof
 
+# Vi mode
+bindkey -v
+
 # Base 16
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"

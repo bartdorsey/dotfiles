@@ -11,6 +11,9 @@ function run_script {
     source "${BASE_SCRIPT_PATH}/${1}"
 }
 
+# Vi mode
+run_plugin zsh-vi-mode zsh-vi-mode.plugin.zsh
+
 # Auto suggestions
 run_plugin zsh-autosuggestions zsh-autosuggestions.zsh
 
@@ -22,6 +25,10 @@ run_plugin zsh-history-substring-search zsh-history-substring-search.zsh
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # ZSH completions
 run_plugin zsh-completions zsh-completions.plugin.zsh

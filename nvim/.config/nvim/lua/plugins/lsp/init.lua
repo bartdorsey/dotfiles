@@ -22,6 +22,9 @@ return {
         { "zbirenbaum/copilot-cmp" },
         { "hrsh7th/cmp-emoji" },
 
+        -- Schema Store
+        { "b0o/schemastore.nvim" },
+
         -- Snippets
         { "L3MON4D3/LuaSnip" },
         { "rafamadriz/friendly-snippets" },
@@ -151,6 +154,7 @@ return {
             },
         })
 
+        -- TypeScript
         lsp.configure("tsserver", {
             settings = {
                 filetypes = {
@@ -161,6 +165,19 @@ return {
                 },
             },
         })
+
+        -- JSON
+        lsp.configure("jsonls", {
+            settings = {
+                json = {
+                    schemas = require("schemastore").json.schemas(),
+                    validate = { enable = true },
+                },
+            },
+        })
+
+        -- Go
+        lsp.configure("gopls", {})
 
         -- require("rust-tools").setup({
         --     tools = {

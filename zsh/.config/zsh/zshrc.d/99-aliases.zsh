@@ -16,6 +16,10 @@ if type exa > /dev/null; then
     alias ls="exa -g --icons --git -F -h --group-directories-first --octal-permissions"
 fi
 
+if type lsd > /dev/null; then
+    alias ls="lsd --group-directories-first -g"
+fi
+
 # lazygit
 if type lazygit > /dev/null;then
     alias lg=lazygit

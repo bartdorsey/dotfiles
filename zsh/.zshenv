@@ -6,3 +6,6 @@ export XDG_RUNTIME_DIR="$HOME/.local/run"
 ZDOTDIR=$HOME/.config/zsh
 skip_global_compinit=1
 source $ZDOTDIR/env.zsh
+
+# bun completions
+[ -s "/home/echo/.bun/_bun" ] && source "/home/echo/.bun/_bun"

@@ -15,7 +15,10 @@ function cd() {
     #         echo -e "\033[31mNo working WSL_INTEROP socket found !\033[0m"
     #     fi
     # fi
+    venv
+}
 
+function venv() {
     if [[ -z "$VIRTUAL_ENV" ]] ; then
         ## If env folder is found then activate the vitualenv
         if [[ -d ./.venv ]] ; then

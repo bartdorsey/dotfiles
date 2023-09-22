@@ -86,13 +86,6 @@ return function(client, bufnr)
         vim.lsp.buf.execute_command(params)
     end
 
-    vim.api.nvim_buf_create_user_command(
-        bufnr,
-        "OrganizeImports",
-        organize_imports,
-        { desc = "Organize TypeScript Imports" }
-    )
-
     require("lsp_lines").setup()
 
     vim.keymap.set("", "<leader>dt", function()

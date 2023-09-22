@@ -1,15 +1,8 @@
 return {
-    "VonHeikemen/lsp-zero.nvim",
+    "neovim/nvim-lspconfig",
     dependencies = {
         -- LSP Support
-        { "neovim/nvim-lspconfig" },
         { "williamboman/mason.nvim" },
-
-        -- Null ls
-        { "jay-babu/mason-null-ls.nvim" },
-        {
-            "jose-elias-alvarez/null-ls.nvim",
-        },
 
         -- Autocompletion
         { "hrsh7th/nvim-cmp" },
@@ -33,7 +26,7 @@ return {
         { "ErichDonGubler/lsp_lines.nvim" },
 
         -- Rust tools
-        { "simrat39/rust-tools.nvim" },
+        -- { "simrat39/rust-tools.nvim" },
 
         {
             "folke/neodev.nvim",
@@ -47,137 +40,52 @@ return {
     event = { "BufReadPre" },
     config = function()
         -- LSP settings.
-        local lsp = require("lsp-zero")
+        local lsp = require("lspconfig");
 
         -- Formatting keybind
         vim.keymap.set(
             "n",
             "<leader>ff",
-            "<cmd>LspZeroFormat<cr>",
+            vim.lsp.buf.format,
             { desc = "Format File" }
         )
 
-        -- Start with the minimal preset
-        lsp.preset("minimal")
-
-        -- Set some prefs
-        lsp.set_preferences({
-            suggest_lsp_servers = true,
-            setup_servers_on_start = true,
-            set_lsp_keymaps = true,
-            configure_diagnostics = true,
-            cmp_capabilities = true,
-            manage_nvim_cmp = true,
-            call_servers = "local",
-        })
-
-        lsp.set_sign_icons({
-            error = "✘",
-            warn = "▲",
-            hint = "⚑",
-            info = "",
-        })
-
-        -- Ensure that mason installs these
-        lsp.ensure_installed({
-            "tsserver",
-            "eslint",
-            "docker_compose_language_service",
-            "dockerls",
-            "lua_ls",
-            "rust_analyzer",
-            "emmet_ls",
-            "pyright",
-            "gopls",
-            "hls",
-            "html",
-            "marksman",
-            "bashls",
-            "jsonls",
-            "ocamllsp",
-            "ruff_lsp",
-            "ruby_ls",
-            "stylelint_lsp",
-            "svelte",
-            "tailwindcss",
-            "ansiblels",
-            "prismals",
-            "clangd",
-            "cssls",
-            "cssmodules_ls",
-            "vimls",
-            "volar",
-            "yamlls",
-        })
-
-        -- Autoformat on Save
-        lsp.format_on_save({
-            format_opts = {
-                async = false,
-                timeout_ms = 10000,
-            },
-            servers = {
-                ["null-ls"] = {
-                    "html",
-                    "javascriptreact",
-                    "typescriptreact",
-                    "typescript",
-                    "javascript",
-                    "json",
-                    "markdown",
-                    "ocaml",
-                    "css",
-                    "scss",
-                    "yaml",
-                    "php",
-                    "lua",
-                    "zsh",
-                    "sh",
-                    "python",
-                    "rust",
-                },
-            },
-        })
+        -- Format on save
+        vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
         -- Emmet
-        lsp.configure("emmet_ls", {
-            settings = {
-                filetypes = {
-                    "html",
-                    "typescriptreact",
-                    "javascriptreact",
-                    "css",
-                    "sass",
-                    "scss",
-                    "less",
-                },
+        lsp.emmet_ls.setup({
+            filetypes = {
+                "html",
+                "typescriptreact",
+                "javascriptreact",
+                "css",
+                "sass",
+                "scss",
+                "less",
             },
         })
 
         -- TypeScript
-        lsp.configure("tsserver", {
-            settings = {
-                filetypes = {
-                    "typescript",
-                    "typescriptreact",
-                    "javascript",
-                    "javascriptreact",
-                },
+        lsp.tsserver.setup({
+            filetypes = {
+                "typescript",
+                "typescriptreact",
+                "javascript",
+                "javascriptreact",
             },
         })
 
         -- JSON
-        lsp.configure("jsonls", {
-            settings = {
-                json = {
-                    schemas = require("schemastore").json.schemas(),
-                    validate = { enable = true },
-                },
+        lsp.jsonls.setup({
+            json = {
+                schemas = require("schemastore").json.schemas(),
+                validate = { enable = true },
             },
         })
 
         -- Go
-        lsp.configure("gopls", {})
+        lsp.gopls.setup({})
 
         -- require("rust-tools").setup({
         --     tools = {
@@ -187,71 +95,73 @@ return {
         --     },
         -- })
 
-        lsp.configure("perlnavigator", {
-            settings = {
-                perlimportsTidyEnabled = true,
-                perlimportsLineEnabled = true,
-                includePaths = { "./lib" },
-            },
+        lsp.perlnavigator.setup({
+            perlimportsTidyEnabled = true,
+            perlimportsLineEnabled = true,
+            includePaths = { "./lib" },
         })
 
         -- Rust analyzer
-        lsp.configure("rust_analyzer", {
-            settings = {
-                ["rust-analyzer"] = {
-                    cargo = {
-                        features = "all",
-                    },
-                    checkOnSave = true,
-                    check = {
-                        command = "clippy",
-                    },
+        lsp.rust_analyzer.setup({
+            ["rust-analyzer"] = {
+                cargo = {
+                    features = "all",
+                },
+                checkOnSave = true,
+                check = {
+                    command = "clippy",
                 },
             },
         })
 
         -- Grammarly
-        lsp.configure("grammarly", {
-            settings = {
-                init_options = {
-                    clientId = "client_NsbE8hVFaZqeCbExsWktzG",
-                },
+        lsp.grammarly.setup({
+            init_options = {
+                clientId = "client_NsbE8hVFaZqeCbExsWktzG",
             },
         })
 
         -- Pyright
-        lsp.configure("pyright", {
-            settings = {
-                typeCheckingMode = "strict",
-                reportMissingTypeStubs = true,
+        lsp.pyright.setup({
+            typeCheckingMode = "strict",
+            reportMissingTypeStubs = true,
+        })
+
+        lsp.yamlls.setup({
+            yaml = {
+                format = {
+                    enable = true,
+                },
+                validate = true,
+                hover = true,
+                schemas = {
+                    ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
+                    ["schema.yml"] = "**/question.yml",
+                },
             },
         })
 
-        lsp.configure("yamlls", {
+        -- Lua
+        lsp.lua_ls.setup({
             settings = {
-                yaml = {
-                    format = {
-                        enable = true,
-                    },
-                    validate = true,
-                    hover = true,
-                    schemas = {
-                        ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
-                        ["schema.yml"] = "**/question.yml",
-                    },
-                },
-            },
+                Lua = {
+                    completion = {
+                        callSnippet = "Replace"
+                    }
+                }
+            }
         })
 
         -- Setup CMP
         require("plugins/lsp/cmp")
 
-        -- Finish setting up LSP
-        lsp.on_attach(require("plugins/lsp/onattach"))
-        lsp.nvim_workspace()
-        lsp.setup()
+        -- on attach
+        vim.api.nvim_create_autocmd('LspAttach', {
+            group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+            callback = require("plugins/lsp/onattach")
+        })
 
-        -- Setup null ls
-        require("plugins/lsp/null-ls")
+        -- mason
+        require("mason").setup()
     end,
 }

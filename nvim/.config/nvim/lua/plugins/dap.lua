@@ -3,17 +3,17 @@ return {
     {
         'mfussenegger/nvim-dap',
         dependencies = {
-            "mxsdev/nvim-dap-vscode-js",
-            {
-                "microsoft/vscode-js-debug",
-                build = "npm install --legacy-peer-deps && npm run compile",
-                config = function()
-                    -- Setup VSCode JS/TS Debugging
-                    require('dap-vscode-js').setup({
-                        adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }
-                    })
-                end
-            },
+            -- "mxsdev/nvim-dap-vscode-js",
+            -- {
+            --     "microsoft/vscode-js-debug",
+            --     build = "npm install --legacy-peer-deps && npm run compile",
+            --     config = function()
+            --         -- Setup VSCode JS/TS Debugging
+            --         require('dap-vscode-js').setup({
+            --             adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }
+            --         })
+            --     end
+            -- },
             {
                 'theHamsta/nvim-dap-virtual-text',
                 dependencies = {

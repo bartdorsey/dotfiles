@@ -26,13 +26,16 @@ vim.opt.rtp:prepend(lazypath)
 
 local opts = {
     checker = {
-        enabled = true,
-        notify = false,
+        enabled = false,
+        notify = true,
     },
     change_detection = {
         enabled = true,
         notify = false,
     },
+    install = {
+        missing = true
+    }
 }
 
 require("lazy").setup("plugins", opts)

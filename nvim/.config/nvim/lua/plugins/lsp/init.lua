@@ -1,9 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        -- LSP Support
-        { "williamboman/mason.nvim" },
-
         -- Autocompletion
         { "hrsh7th/nvim-cmp" },
         { "hrsh7th/cmp-buffer" },
@@ -36,7 +33,6 @@ return {
             end,
         },
     },
-    cmd = { "Mason" },
     event = { "BufReadPre" },
     config = function()
         -- LSP settings.
@@ -161,7 +157,5 @@ return {
             callback = require("plugins/lsp/onattach")
         })
 
-        -- mason
-        require("mason").setup()
     end,
 }

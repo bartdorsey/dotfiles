@@ -65,11 +65,6 @@ return {
                 ":ene <BAR> startinsert <CR>"
             ),
             dashboard.button(
-                "w",
-                " " .. " Workspaces",
-                ":Telescope workspaces<cr>"
-            ),
-            dashboard.button(
                 "f",
                 " " .. " Find Files",
                 ":Telescope find_files<cr>"
@@ -91,7 +86,6 @@ return {
                 ":Telescope live_grep <CR>"
             ),
             dashboard.button("l", "鈴" .. " Lazy", ":Lazy<CR>"),
-            dashboard.button("m", "󰣪 " .. " Mason", ":Mason<CR>"),
             dashboard.button("q", " " .. " Quit", ":qa<CR>"),
         }
         local art = { neovim, sharp, aot, catppuccin }

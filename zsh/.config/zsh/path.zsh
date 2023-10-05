@@ -38,3 +38,8 @@ fi
 if [ -d "$HOME/.local/bin" ];then
     export PATH=$HOME/.local/bin:$PATH:
 fi
+
+# Nvim tarball
+if [ -d /opt/nvim-linux64/bin ];then
+    export PATH="/opt/nvim-linux64/bin:$PATH"
+fi

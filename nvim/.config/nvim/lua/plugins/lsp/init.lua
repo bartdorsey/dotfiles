@@ -46,6 +46,10 @@ return {
             { desc = "Format File" }
         )
 
+        -- Capabilities
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+
         -- Format on save
         vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
@@ -154,6 +158,33 @@ return {
         lsp.bashls.setup({
             filetypes = { "sh", "zsh" }
         })
+
+        -- CSS
+        lsp.cssls.setup({
+            capabilities = capabilities
+        })
+
+        -- CSS Modules
+        lsp.cssmodules_ls.setup({})
+
+        -- Tailwind
+        lsp.tailwindcss.setup({})
+
+        -- HTML
+        lsp.html.setup({
+            capabilities = capabilities
+        })
+        -- ESLint
+        lsp.eslint.setup({})
+
+        -- Dockerfile
+        lsp.dockerls.setup({})
+
+        -- Ocaml
+        lsp.ocamllsp.setup({})
+
+        -- vimscript
+        lsp.vimls.setup({})
 
         -- Setup CMP
         require("plugins/lsp/cmp")

@@ -62,3 +62,12 @@ function zsh_configure_completion() {
     # bun completions
     [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 }
+
+
+function vmrss() {
+    while true;
+    do
+        awk '/VmRSS:/ {print $2}' "/proc/$1/status";
+        sleep 1;
+    done;
+}

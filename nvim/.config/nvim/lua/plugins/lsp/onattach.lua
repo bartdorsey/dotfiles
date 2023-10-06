@@ -73,6 +73,18 @@ return function(client, bufnr)
         vim.lsp.buf.remove_workspace_folder,
         { desc = "Workspace Remove Folder" }
     )
+    vim.keymap.set(
+        "n",
+        "gn",
+        vim.diagnostic.goto_next,
+        { desc = "Goto Next Diagnostic" }
+    )
+    vim.keymap.set(
+        "n",
+        "gp",
+        vim.diagnostic.goto_prev,
+        { desc = "Goto Previous Diagnostic" }
+    )
     vim.keymap.set("n", "<leader>wl", function()
         require("notify")(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, { desc = "Workspace List Folders" })

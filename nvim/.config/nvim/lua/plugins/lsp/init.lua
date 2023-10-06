@@ -147,6 +147,10 @@ return {
                 }
             }
         })
+        -- Bash
+        lsp.bashls.setup({
+            filetypes = { "sh", "zsh" }
+        })
 
         -- Setup CMP
         require("plugins/lsp/cmp")
@@ -156,6 +160,5 @@ return {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
             callback = require("plugins/lsp/onattach")
         })
-
     end,
 }

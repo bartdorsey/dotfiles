@@ -3,9 +3,15 @@ return {
     version = "*",
     config = function()
         require("toggleterm").setup({
-            direction = "float",
-            open_mapping = [[<c-`>]],
-            shade_terminals = false,
+            direction = "vertical",
+            open_mapping = [[<leader>`]],
+            size = function(term)
+                if term.direction == "horizontal" then
+                    return 15
+                elseif term.direction == "vertical" then
+                    return vim.o.columns * 0.4
+                end
+            end,
         })
 
         function _G.set_terminal_keymaps()

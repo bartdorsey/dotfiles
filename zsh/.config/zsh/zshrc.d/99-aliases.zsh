@@ -13,7 +13,7 @@ alias fgrep="fgrep --color=auto"
 
 # eza - fancy ls
 if type eza > /dev/null; then
-    alias ls="exa -g --icons --git -F -h --group-directories-first --octal-permissions"
+    alias ls="eza -g --icons --git -F -h --group-directories-first --octal-permissions"
 fi
 
 if type lsd > /dev/null; then

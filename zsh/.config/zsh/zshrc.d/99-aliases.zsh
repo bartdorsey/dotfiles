@@ -11,8 +11,8 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
-# exa - fancy ls
-if type exa > /dev/null; then
+# eza - fancy ls
+if type eza > /dev/null; then
     alias ls="exa -g --icons --git -F -h --group-directories-first --octal-permissions"
 fi
 

@@ -76,17 +76,17 @@ vim.opt.foldenable = true
 
 local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
 
-if in_wsl then
-    vim.g.clipboard = {
-        name = "wsl clipboard",
-        copy = {
-            ["+"] = { "/mnt/c/windows/system32/clip.exe" },
-            ["*"] = { "/mnt/c/windows/system32/clip.exe" },
-        },
-        paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
-        cache_enabled = true,
-    }
-end
+-- if in_wsl then
+--     vim.g.clipboard = {
+--         name = "wsl clipboard",
+--         copy = {
+--             ["+"] = { "/mnt/c/windows/system32/clip.exe" },
+--             ["*"] = { "/mnt/c/windows/system32/clip.exe" },
+--         },
+--         paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
+--         cache_enabled = true,
+--     }
+-- end
 
 -- Split
 vim.opt.splitbelow = true

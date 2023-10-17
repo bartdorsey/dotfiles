@@ -35,7 +35,7 @@ return {
     enable_tab_bar = true,
     use_fancy_tab_bar = false,
     tab_bar_at_bottom = true,
-    window_background_opacity = 0.80,
+    window_background_opacity = 1,
     warn_about_missing_glyphs = false,
     window_close_confirmation = "NeverPrompt",
     macos_window_background_blur = 80,

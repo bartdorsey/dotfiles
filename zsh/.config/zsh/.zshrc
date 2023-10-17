@@ -45,10 +45,13 @@ zsh_config_run zsh-plugins.sh
 zsh_config_run starship.zsh
 
 # MOTD
-zsh_config_run macchina.zsh
+# zsh_config_run macchina.zsh
 
 # Keybinds for OSes like Arch
 zsh_config_run keybinds.zsh
 
 # Run compinit
 compinit
+
+# VSCode Integration
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

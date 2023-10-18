@@ -13,11 +13,6 @@ if [ -d $HOME/.ghcup ];then
     export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 fi
 
-# Go
-if [ -d "$HOME/go" ];then
-    export PATH=$PATH:~/go/bin
-fi
-
 # BUN
 if [ -d "$HOME/.bun" ]; then
     export BUN_INSTALL="$HOME/.bun"
@@ -27,6 +22,11 @@ fi
 # Homebrew
 if [ -d "/opt/homebrew" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# GO
+if type go > /dev/null; then
+    export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
 fi
 
 # Bob

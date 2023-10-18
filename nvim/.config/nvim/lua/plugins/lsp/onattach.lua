@@ -53,6 +53,12 @@ return function(client, bufnr)
         require("telescope.builtin").lsp_dynamic_workspace_symbols,
         { desc = "Workspace Symbols" }
     )
+    vim.keymap.set(
+        "n",
+        "K",
+        vim.lsp.buf.hover,
+        { desc = "LSP Hover" }
+    )
 
     -- Lesser used LSP functionality
     vim.keymap.set(

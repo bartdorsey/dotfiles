@@ -95,11 +95,14 @@ return {
         --     },
         -- })
 
-        lsp.perlnavigator.setup({
-            perlimportsTidyEnabled = true,
-            perlimportsLineEnabled = true,
-            includePaths = { "./lib" },
-        })
+        -- Perl
+        -- lsp.perlnavigator.setup({
+        --     perlimportsTidyEnabled = true,
+        --     perlimportsLineEnabled = true,
+        --     includePaths = { "./lib" },
+        -- })
+
+        lsp.perlls.setup({})
 
         -- Rust analyzer
         lsp.rust_analyzer.setup({

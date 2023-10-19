@@ -43,3 +43,9 @@ fi
 if [ -d /opt/nvim-linux64/bin ];then
     export PATH="/opt/nvim-linux64/bin:$PATH"
 fi
+
+# Perl
+if [ -d "$HOME/perl5" ]; then
+    export PERL5LIB="$HOME/perl5/lib/perl5"
+    export PATH="$HOME/perl5/bin:$PATH"
+fi

@@ -22,6 +22,9 @@ return {
         -- Diagnostics
         { "ErichDonGubler/lsp_lines.nvim" },
 
+        -- EFM Configs
+        { "creativenull/efmls-configs-nvim" },
+
         -- Rust tools
         -- { "simrat39/rust-tools.nvim" },
 
@@ -36,7 +39,7 @@ return {
     event = { "BufReadPre" },
     config = function()
         -- LSP settings.
-        local lsp = require("lspconfig");
+        local lsp = require("lspconfig")
 
         -- Formatting keybind
         vim.keymap.set(
@@ -48,10 +51,11 @@ return {
 
         -- Capabilities
         local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
+        capabilities.textDocument.completion.completionItem.snippetSupport =
+            true
 
         -- Format on save
-        vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+        vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
         -- Emmet
         lsp.emmet_ls.setup({
@@ -126,8 +130,17 @@ return {
 
         -- Pyright
         lsp.pyright.setup({
-            typeCheckingMode = "strict",
-            reportMissingTypeStubs = true,
+            settings = {
+                python = {
+                    analysis = {
+                        typeCheckingMode = "basic",
+                        autoSearchPaths = true,
+                        diagnosticMode = "openFilesOnly",
+                        useLibraryCodeForTypes = true,
+                        reportMissingTypeStubs = true,
+                    },
+                },
+            },
         })
 
         lsp.yamlls.setup({
@@ -149,22 +162,22 @@ return {
             settings = {
                 Lua = {
                     completion = {
-                        callSnippet = "Replace"
+                        callSnippet = "Replace",
                     },
                     workspace = {
-                        checkThirdParty = false
-                    }
-                }
-            }
+                        checkThirdParty = false,
+                    },
+                },
+            },
         })
         -- Bash
         lsp.bashls.setup({
-            filetypes = { "sh", "zsh" }
+            filetypes = { "sh", "zsh" },
         })
 
         -- CSS
         lsp.cssls.setup({
-            capabilities = capabilities
+            capabilities = capabilities,
         })
 
         -- CSS Modules
@@ -175,7 +188,7 @@ return {
 
         -- HTML
         lsp.html.setup({
-            capabilities = capabilities
+            capabilities = capabilities,
         })
         -- ESLint
         lsp.eslint.setup({})
@@ -189,13 +202,44 @@ return {
         -- vimscript
         lsp.vimls.setup({})
 
+        local eslint = require("efmls-configs.linters.eslint")
+        local prettier = require("efmls-configs.formatters.prettier")
+        local stylua = require("efmls-configs.formatters.stylua")
+        local flake8 = require("efmls-configs.linters.flake8")
+        local black = require("efmls-configs.formatters.black")
+        local mypy = require("efmls-configs.linters.mypy")
+        local languages = {
+            typescript = { eslint, prettier },
+            lua = { stylua },
+            python = { flake8, black, mypy },
+        }
+
+        -- efm
+        local efmls_config = {
+            filetypes = vim.tbl_keys(languages),
+            settings = {
+                rootMarkers = { ".git/" },
+                languages = languages,
+            },
+            init_options = {
+                hover = true,
+                completion = true,
+                codeAction = true,
+                documentFormatting = true,
+                documentRangeFormatting = true,
+                publishDiagnostics = true,
+            },
+        }
+
+        lsp.efm.setup(vim.tbl_extend("force", efmls_config, {}))
+
         -- Setup CMP
         require("plugins/lsp/cmp")
 
         -- on attach
-        vim.api.nvim_create_autocmd('LspAttach', {
-            group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-            callback = require("plugins/lsp/onattach")
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+            callback = require("plugins/lsp/onattach"),
         })
     end,
 }

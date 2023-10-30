@@ -33,8 +33,8 @@ return {
         cmd = { "Telescope" },
         keys = {
             {
-                "<leader>?",
-                "<cmd>Telescope oldfiles<cr>",
+                "<leader>o",
+                "<cmd>Telescope oldfiles cwd_only=true<cr>",
                 desc = "Find recently opened files",
             },
             {

@@ -1,4 +1,8 @@
-return function(client, bufnr)
+return function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    -- Disable LSP Semantic Highlighting
+    client.server_capabilities.semanticTokensProvider = nil
+
     vim.keymap.set(
         "n",
         "<leader>rn",
@@ -53,12 +57,7 @@ return function(client, bufnr)
         require("telescope.builtin").lsp_dynamic_workspace_symbols,
         { desc = "Workspace Symbols" }
     )
-    vim.keymap.set(
-        "n",
-        "K",
-        vim.lsp.buf.hover,
-        { desc = "LSP Hover" }
-    )
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
 
     -- Lesser used LSP functionality
     vim.keymap.set(

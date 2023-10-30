@@ -1,49 +1,15 @@
 -- Theme
 return {
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.cmd.colorscheme("catppuccin")
-            require("catppuccin").setup({
-                integrations = {
-                    lsp_trouble = true,
-                    markdown = true,
-                    dap = {
-                        enabled = true,
-                        enable_ui = true,
-                    },
-                    native_lsp = {
-                        enabled = true,
-                        virtual_text = {
-                            errors = { "italic" },
-                            hints = { "italic" },
-                            warnings = { "italic" },
-                            information = { "italic" },
-                        },
-                        underlines = {
-                            errors = { "underline" },
-                            hints = { "underline" },
-                            warnings = { "underline" },
-                            information = { "underline" },
-                        },
-                    },
-                    harpoon = true,
-                    neotree = true,
-                    gitsigns = true,
-                    ts_rainbow2 = true,
-                    which_key = true,
-                    notify = true,
-                    noice = true,
-                },
-            })
-        end,
-    },
-    {
         "nvim-lualine/lualine.nvim",
+        dependencies = { "RRethy/nvim-base16", "rose-pine/neovim" },
         config = function()
+            require("base16-colorscheme").with_config({
+                telescope_borders = true,
+            })
+
+            vim.cmd("colorscheme base16-rose-pine")
+
             local cwd = function()
                 local folders = vim.lsp.buf.list_workspace_folders()
                 local name = folders[1] or vim.fn.getcwd()
@@ -54,7 +20,7 @@ return {
             end
             require("lualine").setup({
                 options = {
-                    theme = "catppuccin",
+                    theme = "base16",
                     component_separators = "|",
                     section_separators = { left = "", right = "" },
                     globalstatus = true,

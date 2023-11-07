@@ -9,8 +9,8 @@ separator_color = "#89dceb"
 
 [palette]
 type            = "Light"
-glyph           = "  "
-visible         = true
+glyph           = " 🐱 "
+visible         = false
 
 [bar]
 glyph           = "●"

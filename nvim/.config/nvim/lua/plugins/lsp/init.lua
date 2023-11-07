@@ -128,6 +128,9 @@ return {
             },
         })
 
+        -- Ruff lsp
+        lsp.ruff_lsp.setup({})
+
         -- Pyright
         lsp.pyright.setup({
             settings = {
@@ -205,13 +208,9 @@ return {
         local eslint = require("efmls-configs.linters.eslint")
         local prettier = require("efmls-configs.formatters.prettier")
         local stylua = require("efmls-configs.formatters.stylua")
-        local flake8 = require("efmls-configs.linters.flake8")
-        local black = require("efmls-configs.formatters.black")
-        local mypy = require("efmls-configs.linters.mypy")
         local languages = {
             typescript = { eslint, prettier },
             lua = { stylua },
-            python = { flake8, black, mypy },
         }
 
         -- efm

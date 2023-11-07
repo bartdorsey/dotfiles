@@ -115,11 +115,6 @@ return {
                             vim.api.nvim_put({ emoji.value }, "c", false, true)
                         end,
                     },
-                    ["ui-select"] = {
-                        require("telescope.themes").get_cursor({
-                            border = false,
-                        }),
-                    },
                 },
             })
             require("telescope").load_extension("ui-select")

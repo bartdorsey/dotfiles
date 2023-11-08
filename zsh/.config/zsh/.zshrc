@@ -53,8 +53,23 @@ zsh_config_run keybinds.zsh
 # Run compinit
 compinit
 
+TERMINAL_TITLE="$USER@$(hostname):$(lsb_release -i -s)"
+
 # Set the terminal title with our distribution
-printf "\033]2;$USER@$(hostname):$(lsb_release -i -s)\a"
+set_terminal_title() {
+    printf "\e]0;$TERMINAL_TITLE\a" 
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook precmd set_terminal_title
+
+# Function to set the terminal title with the command being executed
+preexec_set_terminal_title() {
+    local cmd=$1; print -Pn "\e]0;$cmd ● $TERMINAL_TITLE\a"
+}
+
+add-zsh-hook preexec preexec_set_terminal_title
+
 
 # VSCode Integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

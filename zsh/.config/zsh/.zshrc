@@ -53,5 +53,8 @@ zsh_config_run keybinds.zsh
 # Run compinit
 compinit
 
+# Set the terminal title with our distribution
+printf "\033]2;$USER@$(hostname):$(lsb_release -i -s)\a"
+
 # VSCode Integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

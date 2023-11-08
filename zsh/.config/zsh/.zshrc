@@ -53,7 +53,7 @@ zsh_config_run keybinds.zsh
 # Run compinit
 compinit
 
-TERMINAL_TITLE="$USER@$(hostname):$(lsb_release -i -s)"
+TERMINAL_TITLE="$USER@$(hostname -f):$(lsb_release -i -s)"
 
 # Set the terminal title with our distribution
 set_terminal_title() {

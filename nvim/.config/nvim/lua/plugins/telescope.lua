@@ -43,7 +43,7 @@ return {
                 desc = "Find existing buffers",
             },
             {
-                "<leader>sf",
+                "<leader>ff",
                 "<cmd>Telescope find_files<cr>",
                 desc = "Search Files",
             },
@@ -63,7 +63,7 @@ return {
                 desc = "Search Current Word",
             },
             {
-                "<leader>sr",
+                "<leader>fg",
                 "<cmd>Telescope live_grep<cr>",
                 desc = "Search by Grep",
             },
@@ -89,17 +89,48 @@ return {
             },
         },
         config = function()
+            local actions = require("telescope.actions")
             require("telescope").setup({
                 defaults = {
-                    file_ignore_patterns = { "^.git/" },
+                    layout_strategy = "flex",
+                    path_display = "shorten",
+                    color_devicons = true,
+                    dynamic_preview_title = true,
+                    border = true,
+                    sorting_strategy = "descending",
+                    layout_config = {
+                        prompt_position = "bottom",
+                        flip_columns = 160,
+                        height = {
+                            padding = 0,
+                        },
+                        width = {
+                            padding = 0,
+                        },
+                        horizontal = {
+                            preview_width = 0.5,
+                            mirror = false,
+                        },
+                        vertical = {
+                            preview_height = 0.75,
+                            mirror = false,
+                        },
+                    },
+                    file_ignore_patterns = {
+                        "^.git/",
+                    },
                     mappings = {
                         i = {
+                            ["<esc>"] = actions.close,
                             ["<C-u>"] = false,
                             ["<C-d>"] = false,
                         },
                     },
                 },
                 pickers = {
+                    live_grep = {
+                        grep_open_files = false,
+                    },
                     find_files = {
                         hidden = true,
                     },

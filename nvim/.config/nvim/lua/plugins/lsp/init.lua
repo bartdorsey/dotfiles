@@ -41,21 +41,10 @@ return {
         -- LSP settings.
         local lsp = require("lspconfig")
 
-        -- Formatting keybind
-        vim.keymap.set(
-            "n",
-            "<leader>ff",
-            vim.lsp.buf.format,
-            { desc = "Format File" }
-        )
-
         -- Capabilities
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities.textDocument.completion.completionItem.snippetSupport =
             true
-
-        -- Format on save
-        vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
         -- Emmet
         lsp.emmet_ls.setup({

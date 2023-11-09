@@ -58,36 +58,6 @@ return {
         local alpha = require("alpha")
         local theta = require("alpha.themes.theta")
         local dashboard = require("alpha.themes.dashboard")
-        theta.buttons.val = {
-            dashboard.button(
-                "e",
-                " " .. " New File",
-                ":ene <BAR> startinsert <CR>"
-            ),
-            dashboard.button(
-                "f",
-                " " .. " Find Files",
-                ":Telescope find_files<cr>"
-            ),
-            dashboard.button(
-                "g",
-                " " .. " Find Git Files",
-                ":Telescope git_files<cr>"
-            ),
-            dashboard.button("G", " " .. " Lazy Git", ":LazyGit<cr>"),
-            dashboard.button(
-                "o",
-                " " .. " Recent Files",
-                ":Telescope oldfiles <CR>"
-            ),
-            dashboard.button(
-                "r",
-                " " .. " Find Text",
-                ":Telescope live_grep <CR>"
-            ),
-            dashboard.button("l", "鈴" .. " Lazy", ":Lazy<CR>"),
-            dashboard.button("q", " " .. " Quit", ":qa<CR>"),
-        }
         local art = { neovim, sharp, aot, catppuccin }
         math.randomseed(os.time())
         local logo = art[math.random(#art)]

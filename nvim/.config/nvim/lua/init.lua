@@ -8,6 +8,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.cmd("set title")
+
 vim.opt.termguicolors = true
 -- Plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -34,8 +36,8 @@ local opts = {
         notify = false,
     },
     install = {
-        missing = true
-    }
+        missing = true,
+    },
 }
 
 require("lazy").setup("plugins", opts)

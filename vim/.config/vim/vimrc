@@ -33,15 +33,18 @@ set nowrap
 set nohlsearch
 set incsearch
 
-" Scrolling
-set scrolloff=1000
-
 " Turn on column for icons all the time
 set signcolumn=yes
 
 set updatetime=50
 set colorcolumn=80
 
+" keep cursor always centered
+augroup VCenterCursor
+  au!
+  au BufEnter,WinEnter,WinNew,VimResized *,*.*
+        \ let &scrolloff=winheight(win_getid())/2
+augroup END
 
 " Run neovim config if we are in neovim
 if has('nvim')

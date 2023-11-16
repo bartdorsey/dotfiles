@@ -221,6 +221,9 @@ return {
 
         lsp.efm.setup(vim.tbl_extend("force", efmls_config, {}))
 
+        -- SQL
+        lsp.sqlls.setup({})
+
         -- Setup CMP
         require("plugins/lsp/cmp")
 

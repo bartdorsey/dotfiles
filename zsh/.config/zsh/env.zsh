@@ -84,7 +84,8 @@ export EDITOR="nvim"
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 # Postgres
-export PGHOST=localhost
+export PGHOST=postgres.home
+export PGUSER=postgres
 
 # Python
 if type python3 > /dev/null;then

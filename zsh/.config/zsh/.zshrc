@@ -32,6 +32,9 @@ autoload zmv
 # Configure completion for zsh
 zsh_configure_completion
 
+# Run compinit
+compinit
+
 # Stop Ctrl-S freezing the terminal
 stty stop undef
 
@@ -50,8 +53,6 @@ zsh_config_run macchina.zsh
 # Keybinds for OSes like Arch
 zsh_config_run keybinds.zsh
 
-# Run compinit
-compinit
 
 TERMINAL_TITLE="$USER@$(hostname -f):$(lsb_release -i -s)"
 

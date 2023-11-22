@@ -18,7 +18,8 @@ end)
 --     )
 -- end)
 
-local default_program = { "zsh" }
+local shell = os.getenv("SHELL")
+local default_program = { shell }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     default_program = { "wsl", "-d", "Arch", "--cd", "~" }

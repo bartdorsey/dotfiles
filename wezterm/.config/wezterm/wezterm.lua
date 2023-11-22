@@ -18,6 +18,12 @@ end)
 --     )
 -- end)
 
+local default_program = { "zsh" }
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    default_program = { "wsl", "-d", "Arch", "--cd", "~" }
+end
+
 wezterm.on("toggle-opacity", function(window, _)
     local overrides = window:get_config_overrides() or {}
     if not overrides.window_background_opacity then
@@ -32,6 +38,7 @@ return {
     color_scheme = "Catppuccin Mocha", -- or Macchiato, Frappe, Latte
     font = wezterm.font("IosevkaTerm Nerd Font"),
     font_size = 14,
+    default_prog = default_program,
     enable_tab_bar = true,
     use_fancy_tab_bar = false,
     tab_bar_at_bottom = true,

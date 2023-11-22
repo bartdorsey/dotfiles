@@ -33,7 +33,7 @@ return {
         cmd = { "Telescope" },
         keys = {
             {
-                "<leader>o",
+                "<leader>fo",
                 "<cmd>Telescope oldfiles cwd_only=true<cr>",
                 desc = "Find recently opened files",
             },
@@ -48,44 +48,49 @@ return {
                 desc = "Search Files",
             },
             {
-                "<leader>/",
+                "<leader>f/",
                 fuzzily_search,
                 desc = "[/] Fuzzily search in current buffer",
             },
             {
-                "<leader>sh",
+                "<leader>fh",
                 "<cmd>Telescope help_tags<cr>",
                 desc = "Search Help",
             },
             {
-                "<leader>sw",
+                "<leader>fw",
                 "<cmd>Telescope grep_string<cr>",
                 desc = "Search Current Word",
             },
             {
-                "<leader>fg",
+                "<leader>fr",
                 "<cmd>Telescope live_grep<cr>",
                 desc = "Search by Grep",
             },
             {
-                "<leader>sd",
+                "<leader>fd",
                 "<cmd>Telescope diagnostics<cr>",
                 desc = "Search Diagnostics",
             },
             {
-                "<leader>cp",
+                "<leader>f:",
                 "<cmd>Telescope commands<cr>",
                 desc = "Command Pallete",
             },
             {
-                "<leader>gf",
+                "<leader>fg",
                 "<cmd>Telescope git_files<cr>",
                 desc = "Search Git Files",
             },
             {
-                "<leader>sk",
+                "<leader>fk",
                 "<cmd>Telescope keymaps<cr>",
                 desc = "Search Keymaps",
+            },
+            {
+                "<leader>fc",
+                "<cmd>Telescope colorscheme<cr>",
+                desc = "Search Colorschemes",
             },
         },
         config = function()
@@ -130,9 +135,13 @@ return {
                 pickers = {
                     live_grep = {
                         grep_open_files = false,
+                        hidden = true,
                     },
                     find_files = {
                         hidden = true,
+                    },
+                    colorscheme = {
+                        enable_preview = true,
                     },
                 },
                 extensions = {
@@ -155,7 +164,7 @@ return {
         "ghassan0/telescope-glyph.nvim",
         keys = {
             {
-                "<leader>snf",
+                "<leader>fn",
                 "<cmd>Telescope glyph<cr>",
                 desc = "Search Nerd Font Glyphs",
             },
@@ -167,7 +176,7 @@ return {
     {
         "xiyaowong/telescope-emoji.nvim",
         keys = {
-            { "<leader>se", "<cmd>Telescope emoji<cr>", desc = "Search Emoji" },
+            { "<leader>fe", "<cmd>Telescope emoji<cr>", desc = "Search Emoji" },
         },
         config = function()
             pcall(require("telescope").load_extension, "emoji")
@@ -205,7 +214,7 @@ return {
         "nvim-telescope/telescope-media-files.nvim",
         keys = {
             {
-                "<leader>sm",
+                "<leader>fm",
                 "<cmd>Telescope media_files<cr>",
                 desc = "Find Media Files",
             },

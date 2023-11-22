@@ -2,13 +2,15 @@
 return {
     {
         "nvim-lualine/lualine.nvim",
-        dependencies = { "RRethy/nvim-base16", "rose-pine/neovim" },
+        dependencies = {
+            "RRethy/nvim-base16",
+        },
         config = function()
             require("base16-colorscheme").with_config({
                 telescope_borders = true,
             })
 
-            vim.cmd("colorscheme base16-rose-pine")
+            vim.cmd("colorscheme base16-da-one-black")
 
             local cwd = function()
                 local folders = vim.lsp.buf.list_workspace_folders()

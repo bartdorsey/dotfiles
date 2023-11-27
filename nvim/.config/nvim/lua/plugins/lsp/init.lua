@@ -120,6 +120,9 @@ return {
         -- Ruff lsp
         lsp.ruff_lsp.setup({})
 
+        -- Python
+        lsp.jedi_language_server.setup({})
+
         -- Pyright
         lsp.pyright.setup({
             settings = {

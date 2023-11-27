@@ -58,6 +58,12 @@ return function(args)
         { desc = "Workspace Symbols" }
     )
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
+    vim.keymap.set(
+        "n",
+        "C-k",
+        vim.lsp.buf.signature_help,
+        { desc = "LSP Signaure Help" }
+    )
 
     -- Lesser used LSP functionality
     vim.keymap.set(

@@ -135,7 +135,7 @@ return {
                 pickers = {
                     live_grep = {
                         grep_open_files = false,
-                        hidden = true,
+                        additional_args = { "--hidden" },
                     },
                     find_files = {
                         hidden = true,

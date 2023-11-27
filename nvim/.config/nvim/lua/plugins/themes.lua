@@ -10,7 +10,7 @@ return {
                 telescope_borders = true,
             })
 
-            vim.cmd("colorscheme base16-da-one-black")
+            vim.cmd("colorscheme base16-rose-pine")
 
             local cwd = function()
                 local folders = vim.lsp.buf.list_workspace_folders()

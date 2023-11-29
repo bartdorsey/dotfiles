@@ -20,11 +20,12 @@ end)
 
 local shell = os.getenv("SHELL")
 local default_program = { shell }
-local font = wezterm.font_with_fallback({"Monaspace Neon", "IosevkaTerm Nerd Font"})
+local font =
+    wezterm.font_with_fallback({ "Monaspace Neon", "IosevkaTerm Nerd Font" })
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     default_program = { "wsl", "-d", "Arch", "--cd", "~" }
-    font = wezterm.font_with_fallback({"Monaspace Neon", "IosevkaTerm NF"})
+    font = wezterm.font_with_fallback({ "Monaspace Neon", "IosevkaTerm NF" })
 end
 
 wezterm.on("toggle-opacity", function(window, _)
@@ -38,7 +39,6 @@ wezterm.on("toggle-opacity", function(window, _)
 end)
 
 return {
-    color_scheme = "Catppuccin Mocha", -- or Macchiato, Frappe, Latte
     font = font,
     font_size = 14,
     default_prog = default_program,

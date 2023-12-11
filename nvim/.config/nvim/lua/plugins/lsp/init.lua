@@ -36,7 +36,6 @@ return {
             end,
         },
     },
-    event = { "BufReadPre" },
     config = function()
         -- LSP settings.
         local lsp = require("lspconfig")
@@ -110,12 +109,12 @@ return {
             },
         })
 
-        -- Grammarly
-        lsp.grammarly.setup({
-            init_options = {
-                clientId = "client_NsbE8hVFaZqeCbExsWktzG",
-            },
-        })
+        -- -- Grammarly
+        -- lsp.grammarly.setup({
+        --     init_options = {
+        --         clientId = "client_NsbE8hVFaZqeCbExsWktzG",
+        --     },
+        -- })
 
         -- Ruff lsp
         lsp.ruff_lsp.setup({})
@@ -229,6 +228,21 @@ return {
 
         -- Setup CMP
         require("plugins/lsp/cmp")
+
+        -- mouse hover stuff
+        -- vim.api.nvim_set_keymap(
+        --     "n",
+        --     "<LeftMouse>",
+        --     '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>',
+        --     { noremap = true, silent = true }
+        -- )
+        --
+        -- vim.api.nvim_set_keymap(
+        --     "n",
+        --     "<RightMouse>",
+        --     "<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>",
+        --     { noremap = true, silent = true }
+        -- )
 
         -- on attach
         vim.api.nvim_create_autocmd("LspAttach", {

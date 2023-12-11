@@ -25,7 +25,10 @@ local font =
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     default_program = { "wsl", "-d", "Arch", "--cd", "~" }
-    font = wezterm.font_with_fallback({ "Monaspace Neon", "IosevkaTerm NF" })
+    font = wezterm.font_with_fallback({
+        "Monaspace Neon",
+        "IosevkaTerm NF",
+    })
 end
 
 wezterm.on("toggle-opacity", function(window, _)
@@ -41,7 +44,13 @@ end)
 return {
     font = font,
     font_size = 14,
+    cursor_thickness = "2pt",
+    cursor_blink_rate = 600,
+    cursor_blink_ease_in = "Constant",
+    cursor_blink_ease_out = "Constant",
+    force_reverse_video_cursor = false,
     default_prog = default_program,
+    audible_bell = "Disabled",
     enable_tab_bar = true,
     use_fancy_tab_bar = false,
     tab_bar_at_bottom = true,

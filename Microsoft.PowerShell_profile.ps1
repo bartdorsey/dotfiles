@@ -49,6 +49,7 @@ Set-Alias which Get-Command
 Set-Alias vim nvim
 Set-Alias dsetup Build-Django-Project-Setup
 Set-Alias lg lazygit
+Set-Alias docker podman
 
 function Invoke-Exa {
 	exa --icons --git -F -h -G --group-directories-first $args

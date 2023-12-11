@@ -91,6 +91,7 @@ local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
 -- end
 
 -- Split
+--
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
@@ -191,3 +192,7 @@ vim.api.nvim_create_user_command("Q", function()
         vim.cmd.Alpha()
     end
 end, {})
+
+-- GuiCursor
+
+vim.opt.guicursor = "n-v-c-sm:block-blinkon1,i-ci-ve:ver20,r-cr-o:hor20"

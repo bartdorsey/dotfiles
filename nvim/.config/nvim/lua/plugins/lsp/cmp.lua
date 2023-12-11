@@ -5,12 +5,12 @@ local cmp = require("cmp")
 cmp.setup({
     snippet = {
         expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            require("luasnip").lsp_expand(args.body)
         end,
     },
     window = {
         completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered()
+        documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
         ["<CR>"] = cmp.mapping.confirm(),
@@ -32,16 +32,16 @@ cmp.setup({
         { name = "copilot", group_index = 2 },
         { name = "emoji" },
     }),
-    -- formatting = {
-    --     format = require("lspkind").cmp_format({
-    --         mode = "symbol_text",
-    --         maxwidth = 50,
-    --         ellipsis_char = "...",
-    --         symbol_map = {
-    --             Copilot = "",
-    --         },
-    --     }),
-    -- },
+    formatting = {
+        format = require("lspkind").cmp_format({
+            mode = "symbol_text",
+            maxwidth = 50,
+            ellipsis_char = "...",
+            symbol_map = {
+                Copilot = "",
+            },
+        }),
+    },
     -- completion = {
     --     completeopt = "menu,menuone,noinsert,noselect",
     -- },

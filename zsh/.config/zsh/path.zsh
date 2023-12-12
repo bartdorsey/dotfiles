@@ -49,3 +49,8 @@ if [ -d "$HOME/perl5" ]; then
     export PERL5LIB="$HOME/perl5/lib/perl5"
     export PATH="$HOME/perl5/bin:$PATH"
 fi
+
+# Wezterm Windows
+if [ -f "/mnt/c/Users/bart/scoop/apps/wezterm-nightly/current/wezterm.exe" ];then
+    export PATH="/mnt/c/Users/bart/scoop/apps/wezterm-nightly/current:$PATH"
+fi

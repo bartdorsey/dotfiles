@@ -27,6 +27,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local opts = {
+    ui = {
+        size = { width = 1, height = 1 },
+    },
     checker = {
         enabled = false,
         notify = true,

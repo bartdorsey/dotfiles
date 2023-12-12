@@ -139,6 +139,9 @@ return {
 
         lsp.yamlls.setup({
             yaml = {
+                schemaStore = {
+                    enable = true,
+                },
                 format = {
                     enable = true,
                 },

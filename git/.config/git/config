@@ -13,7 +13,6 @@
 	
 [core]
 	excludesFile = ~/.config/git/ignore
-	pager = bat
 
 [diff]
 	external = difft

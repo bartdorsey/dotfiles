@@ -94,9 +94,13 @@ if type python3 > /dev/null;then
 fi
 
 # Man pages in bat
-if type bat > /dev/null; then
-    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-    fpath=($HOME/.config/zsh/functions $fpath)
+if type nvim > /dev/null; then
+    export MANPAGER="nvim +Man!"
+fi
+
+# Git pager
+if type nvimpager > /dev/null; then
+    export PAGER=nvimpager
 fi
 
 # GIT

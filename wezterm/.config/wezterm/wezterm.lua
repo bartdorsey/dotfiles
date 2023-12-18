@@ -23,23 +23,16 @@ local default_program = { shell }
 local font =
     wezterm.font_with_fallback({ "Monaspace Neon", "IosevkaTerm Nerd Font" })
 
+local opacity = 1.0
+
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     default_program = { "wsl", "-d", "Arch", "--cd", "~" }
     font = wezterm.font_with_fallback({
         "Monaspace Neon",
         "IosevkaTerm NF",
     })
+    opacity = 0.80
 end
-
-wezterm.on("toggle-opacity", function(window, _)
-    local overrides = window:get_config_overrides() or {}
-    if not overrides.window_background_opacity then
-        overrides.window_background_opacity = 0.75
-    else
-        overrides.window_background_opacity = nil
-    end
-    window:set_config_overrides(overrides)
-end)
 
 return {
     font = font,
@@ -54,10 +47,12 @@ return {
     enable_tab_bar = true,
     use_fancy_tab_bar = false,
     tab_bar_at_bottom = true,
-    window_background_opacity = 1,
     warn_about_missing_glyphs = false,
     window_close_confirmation = "NeverPrompt",
+    window_background_opacity = opacity,
     macos_window_background_blur = 80,
+    win32_system_backdrop = "Tabbed",
+    adjust_window_size_when_changing_font_size = false,
     harfbuzz_features = nil,
     unix_domains = {
         {
@@ -69,11 +64,6 @@ return {
             key = "E",
             mods = "CTRL",
             action = wezterm.action.EmitEvent("toggle-ligature"),
-        },
-        {
-            key = "B",
-            mods = "CTRL",
-            action = wezterm.action.EmitEvent("toggle-opacity"),
         },
     },
 }

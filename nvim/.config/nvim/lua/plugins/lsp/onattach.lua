@@ -130,10 +130,26 @@ return function(args)
 
     local _border = "single"
 
-    vim.lsp.handlers["textDocument/hover"] =
-        vim.lsp.with(vim.lsp.handlers.hover, {
-            border = _border,
-        })
+    --- @param err? lsp.ResponseError
+    --- @param result any
+    --- @param ctx any
+    --- @param config? table
+    vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+        config = config or {}
+        config.border = _border
+        local current_buffer = vim.api.nvim_get_current_buf()
+        local float_buffer = vim.lsp.handlers.hover(err, result, ctx, config)
+
+        vim.keymap.set("n", "<Esc>", function()
+            if float_buffer == nil then
+                return "<Esc>"
+            end
+            vim.api.nvim_buf_delete(float_buffer, { force = true })
+            vim.keymap.del("n", "<Esc>", { buffer = current_buffer })
+
+            return "<Esc>"
+        end, { expr = true, buffer = current_buffer })
+    end
 
     vim.lsp.handlers["textDocument/signatureHelp"] =
         vim.lsp.with(vim.lsp.handlers.signature_help, {

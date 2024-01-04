@@ -14,9 +14,6 @@
 [core]
 	excludesFile = ~/.config/git/ignore
 
-[diff]
-	external = difft
-
 [alias]
 	co = checkout
 	st = status

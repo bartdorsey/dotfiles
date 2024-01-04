@@ -53,6 +53,10 @@ function zsh_configure_completion() {
     zstyle ':completion:*' file-list all
     zstyle ':completion:*' format '%F{yellow}-- %d --%f'
     zstyle ':completion:*' complete-options true
+    zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+    # partial completion suggestions
+    zstyle ':completion:*' list-suffixes
+    zstyle ':completion:*' expand prefix sufix
     zmodload zsh/complist
     compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
     _comp_options+=(globdots)

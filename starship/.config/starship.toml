@@ -1,8 +1,8 @@
 add_newline = true
 
 format = """\
-[╭╴](238) [$os](bold yellow)$env_var $all\
-[╰─](238) $shell$character"""
+ [╭╴](238) $os $container$all\
+ [╰─](238) $shell$character"""
 
 [character]
 success_symbol = "[ ](bold blue)"
@@ -11,9 +11,9 @@ vimcmd_symbol = "[ ](bold green)"
 vimcmd_visual_symbol = "[ ](bold green)"
 
 [hostname]
-ssh_only = false
+ssh_only = true
 style = 'blue'
-ssh_symbol = '  '
+ssh_symbol = ' '
 
 [shell]
 disabled = false
@@ -21,6 +21,8 @@ style = 'bold yellow'
 
 [os]
 disabled = false
+style = "bold blue"
+format = "[$symbol$name]($style)"
 
 [os.symbols]
 Arch = "[ ](bold blue)"
@@ -29,6 +31,8 @@ Ubuntu = "[ ](bold orange)"
 Debian = "[ ](bold red)"
 Windows = "[ ](bold blue)"
 Raspbian = "[ ](bold red)"
+Fedora = "[ ](bold blue)"
+Macos = "[ ](bold red)"
 
 [git_commit]
 #tag_symbol = " tag "
@@ -128,4 +132,8 @@ symbol = " "
 symbol = "🅢 "
 
 [container]
-disabled = true
+symbol = " "
+format = "[$symbol$name]($style)"
+disabled = false
+style = "bold yellow"
+

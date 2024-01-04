@@ -3,17 +3,17 @@ return {
         "tpope/vim-fugitive",
         event = "BufReadPre",
     },
-    {
-        "TimUntersberger/neogit",
-        dependencies = { "sindrets/diffview.nvim" },
-        config = function()
-            require("neogit").setup({
-                integrations = {
-                    diffview = true,
-                },
-            })
-        end,
-    },
+    -- {
+    --     "TimUntersberger/neogit",
+    --     dependencies = { "sindrets/diffview.nvim" },
+    --     config = function()
+    --         require("neogit").setup({
+    --             integrations = {
+    --                 diffview = true,
+    --             },
+    --         })
+    --     end,
+    -- },
     {
         "lewis6991/gitsigns.nvim",
         event = "BufReadPre",

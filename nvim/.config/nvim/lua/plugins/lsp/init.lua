@@ -137,6 +137,8 @@ return {
             },
         })
 
+        lsp.ansiblels.setup({})
+
         lsp.yamlls.setup({
             yaml = {
                 schemaStore = {

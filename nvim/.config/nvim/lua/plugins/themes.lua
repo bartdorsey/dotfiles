@@ -43,8 +43,27 @@ return {
                     lualine_c = { "diagnostics" },
                     lualine_x = {},
                     lualine_y = {
+                        {
+                            function()
+                                local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+                                if next(clients) == nil then
+                                    return ""
+                                end
+                                local initialized = {}
+                                for _, client in ipairs(clients) do
+                                    if client.initialized == true then
+                                        table.insert(initialized, client)
+                                    end
+                                end
+                                if #clients == #initialized then
+                                    return ""
+                                else
+                                    return ""
+                                end
+                            end,
+                            icon = "lsp",
+                        },
                         "filetype",
-                        "encoding",
                         "progress",
                     },
                     lualine_z = {

@@ -1,45 +1,45 @@
 return {
     -- DAP UI
     {
-        'rcarriga/nvim-dap-ui',
+        "rcarriga/nvim-dap-ui",
         keys = {
             {
-                '<leader>dbg',
+                "<leader>dbg",
                 function()
-                    require('dapui').toggle()
+                    require("dapui").toggle()
                 end,
-                desc = 'Debug'
-            }
+                desc = "Debug",
+            },
         },
         dependencies = {
-            'mfussenegger/nvim-dap'
+            "mfussenegger/nvim-dap",
         },
         config = function()
             -- DapUI Setup
-            local dapui = require('dapui')
+            local dapui = require("dapui")
 
-            local dap = require('dap')
+            local dap = require("dap")
             dapui.setup({
                 controls = {
                     element = "stacks",
-                    enabled = true
+                    enabled = true,
                 },
                 layouts = {
                     {
                         elements = {
                             {
                                 id = "scopes",
-                                size = 0.25
+                                size = 0.25,
                             },
                             {
                                 id = "stacks",
-                                size = 0.25
-                            }
+                                size = 0.25,
+                            },
                         },
                         position = "left",
-                        size = 40
-                    }
-                }
+                        size = 40,
+                    },
+                },
             })
 
             -- Cause dapui to automatically appear and disappear
@@ -52,6 +52,6 @@ return {
             dap.listeners.before.event_exited["dapui_config"] = function()
                 dapui.close()
             end
-        end
+        end,
     },
 }

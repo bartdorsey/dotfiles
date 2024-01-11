@@ -4,7 +4,7 @@ return {
     dependencies = {
         "windwp/nvim-ts-autotag",
         "nvim-treesitter/nvim-treesitter-textobjects",
-        "HiPhish/nvim-ts-rainbow2",
+        -- "HiPhish/nvim-ts-rainbow2",
     },
     build = ":TSUpdate",
     event = { "BufReadPre" },
@@ -20,11 +20,11 @@ return {
             },
             sync_install = false,
             auto_install = false,
-            rainbow = {
-                enable = true,
-                query = "rainbow-parens",
-                strategy = require("ts-rainbow.strategy.global"),
-            },
+            -- rainbow = {
+            --     enable = true,
+            --     query = "rainbow-parens",
+            --     strategy = require("ts-rainbow.strategy.global"),
+            -- },
             -- Add languages to be installed here that you want installed for treesitter
             ensure_installed = {
                 "astro",

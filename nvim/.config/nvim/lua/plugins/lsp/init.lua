@@ -2,22 +2,23 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         -- Autocompletion
-        { "hrsh7th/nvim-cmp" },
-        { "hrsh7th/cmp-buffer" },
-        { "hrsh7th/cmp-path" },
-        { "saadparwaiz1/cmp_luasnip" },
-        { "hrsh7th/cmp-nvim-lsp" },
-        { "hrsh7th/cmp-nvim-lua" },
-        { "onsails/lspkind-nvim" },
-        { "zbirenbaum/copilot-cmp" },
-        { "hrsh7th/cmp-emoji" },
+        { "hrsh7th/nvim-cmp" }, -- autocompletion plugin
+        { "hrsh7th/cmp-buffer" }, -- buffer words source for cmp
+        { "hrsh7th/cmp-path" }, -- path source for cmp
+        { "hrsh7th/cmp-omni" }, -- omnifunc source for cmp
+        { "hrsh7th/cmp-cmdline" }, -- cmdline completion for cmp
+        { "hrsh7th/cmp-emoji" }, -- emoji completions for cmp
+        { "hrsh7th/cmp-nvim-lsp" }, -- lsp completions for cmp
+        { "hrsh7th/cmp-nvim-lua" }, -- completions for neovim lua api
+        { "saadparwaiz1/cmp_luasnip" }, -- luasnip completions for cmp
+        { "onsails/lspkind-nvim" }, -- icons for completion menus
+        { "zbirenbaum/copilot-cmp" }, -- github copilot cmp completions
 
         -- Schema Store
         { "b0o/schemastore.nvim" },
 
         -- Snippets
         { "L3MON4D3/LuaSnip" },
-        { "rafamadriz/friendly-snippets" },
 
         -- Diagnostics
         { "ErichDonGubler/lsp_lines.nvim" },
@@ -26,8 +27,9 @@ return {
         { "creativenull/efmls-configs-nvim" },
 
         -- Rust tools
-        -- { "simrat39/rust-tools.nvim" },
+        { "simrat39/rust-tools.nvim" },
 
+        -- For developing neovim plugins and configs
         {
             "folke/neodev.nvim",
             ft = "lua",
@@ -79,24 +81,24 @@ return {
         -- Go
         lsp.gopls.setup({})
 
-        -- require("rust-tools").setup({
-        --     tools = {
-        --         inlay_hints = {
-        --             only_current_line = true,
-        --         },
-        --     },
-        -- })
-
         -- Perl
-        -- lsp.perlnavigator.setup({
-        --     perlimportsTidyEnabled = true,
-        --     perlimportsLineEnabled = true,
-        --     includePaths = { "./lib" },
-        -- })
+        lsp.perlnavigator.setup({
+            perlimportsTidyEnabled = true,
+            perlimportsLineEnabled = true,
+            includePaths = { "./lib" },
+        })
 
         lsp.perlls.setup({})
 
-        -- Rust analyzer
+        -- Rust
+        require("rust-tools").setup({
+            tools = {
+                inlay_hints = {
+                    only_current_line = true,
+                },
+            },
+        })
+
         lsp.rust_analyzer.setup({
             ["rust-analyzer"] = {
                 cargo = {
@@ -110,19 +112,20 @@ return {
         })
 
         -- -- Grammarly
-        -- lsp.grammarly.setup({
-        --     init_options = {
-        --         clientId = "client_NsbE8hVFaZqeCbExsWktzG",
-        --     },
-        -- })
-
-        -- Ruff lsp
-        lsp.ruff_lsp.setup({})
+        lsp.grammarly.setup({
+            init_options = {
+                clientId = "client_NsbE8hVFaZqeCbExsWktzG",
+            },
+        })
 
         -- Python
+        --- Ruff lsp
+        lsp.ruff_lsp.setup({})
+
+        --- Jedi
         lsp.jedi_language_server.setup({})
 
-        -- Pyright
+        --- Pyright
         lsp.pyright.setup({
             settings = {
                 python = {
@@ -137,8 +140,10 @@ return {
             },
         })
 
+        -- Ansible
         lsp.ansiblels.setup({})
 
+        -- YAML
         lsp.yamlls.setup({
             yaml = {
                 schemaStore = {
@@ -169,6 +174,7 @@ return {
                 },
             },
         })
+
         -- Bash
         lsp.bashls.setup({
             filetypes = { "sh", "zsh" },
@@ -189,6 +195,7 @@ return {
         lsp.html.setup({
             capabilities = capabilities,
         })
+
         -- ESLint
         lsp.eslint.setup({})
 
@@ -201,6 +208,7 @@ return {
         -- vimscript
         lsp.vimls.setup({})
 
+        -- EFM Linters
         local eslint = require("efmls-configs.linters.eslint")
         local prettier = require("efmls-configs.formatters.prettier")
         local stylua = require("efmls-configs.formatters.stylua")
@@ -209,7 +217,6 @@ return {
             lua = { stylua },
         }
 
-        -- efm
         local efmls_config = {
             filetypes = vim.tbl_keys(languages),
             settings = {
@@ -233,21 +240,6 @@ return {
 
         -- Setup CMP
         require("plugins/lsp/cmp")
-
-        -- mouse hover stuff
-        -- vim.api.nvim_set_keymap(
-        --     "n",
-        --     "<LeftMouse>",
-        --     '<LeftMouse><cmd>lua vim.lsp.buf.hover({border = "single"})<CR>',
-        --     { noremap = true, silent = true }
-        -- )
-        --
-        -- vim.api.nvim_set_keymap(
-        --     "n",
-        --     "<RightMouse>",
-        --     "<LeftMouse><cmd>lua vim.lsp.buf.definition()<CR>",
-        --     { noremap = true, silent = true }
-        -- )
 
         -- on attach
         vim.api.nvim_create_autocmd("LspAttach", {

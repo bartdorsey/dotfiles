@@ -20,12 +20,6 @@ return {
             },
             sync_install = false,
             auto_install = false,
-            -- rainbow = {
-            --     enable = true,
-            --     query = "rainbow-parens",
-            --     strategy = require("ts-rainbow.strategy.global"),
-            -- },
-            -- Add languages to be installed here that you want installed for treesitter
             ensure_installed = {
                 "astro",
                 "bash",
@@ -141,14 +135,6 @@ return {
             },
         })
 
-        -- Set highlight groups for nvim-ts-rainbow2 for catppuccin
-        -- vim.cmd("highlight TSRainbowRed guifg=#f38ba8")
-        -- vim.cmd("highlight TSRainbowYellow guifg=#f9e2af")
-        -- vim.cmd("highlight TSRainbowBlue guifg=#89b4fa")
-        -- vim.cmd("highlight TSRainbowOrange guifg=#fab387")
-        -- vim.cmd("highlight TSRainbowGreen guifg=#a6e3a1")
-        -- vim.cmd("highlight TSRainbowViolet guifg=#cba6f7")
-        -- vim.cmd("highlight TSRainbowCyan guifg=#94e2d5")
         local parser_config =
             require("nvim-treesitter.parsers").get_parser_configs()
         parser_config.gotmpl = {
@@ -159,5 +145,22 @@ return {
             filetype = "gotmpl",
             used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl" },
         }
+
+        -- Custom treesitter injections
+        vim.treesitter.query.set(
+            "python",
+            "injections",
+            [[ (call function:
+                    (attribute
+                        object: (identifier)
+                        attribute: (identifier) @method
+                            (#eq? @method "execute"))
+                    arguments:
+                    (argument_list
+                        (string
+                            (string_content) @injection.content
+                                (#set! injection.language "sql"))))
+            ]]
+        )
     end,
 }

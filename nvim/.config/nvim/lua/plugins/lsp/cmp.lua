@@ -3,15 +3,18 @@ local lsp = require("lspconfig")
 -- CMP
 local cmp = require("cmp")
 cmp.setup({
+    -- Snippets to load
     snippet = {
         expand = function(args)
             require("luasnip").lsp_expand(args.body)
         end,
     },
+    -- popup window config
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
+    -- Mappings for completion
     mapping = cmp.mapping.preset.insert({
         ["<CR>"] = cmp.mapping.confirm(),
         -- This makes Escape cancel the autocomplete AND go back to normal mode
@@ -24,6 +27,7 @@ cmp.setup({
             end
         end, { "i" }),
     }),
+    -- Sources for completion
     sources = cmp.config.sources({
         { name = "path" },
         { name = "nvim_lsp" },
@@ -31,7 +35,12 @@ cmp.setup({
         { name = "luasnip", keyword_length = 2 },
         { name = "copilot", group_index = 2 },
         { name = "emoji" },
+        {
+            name = "omni",
+            option = { disable_omnifuncs = { "v:lua.vim.lsp.omnifunc" } },
+        },
     }),
+    -- Formatting the completions in the menu (adds icons)
     formatting = {
         format = require("lspkind").cmp_format({
             mode = "symbol_text",
@@ -42,7 +51,22 @@ cmp.setup({
             },
         }),
     },
-    -- completion = {
-    --     completeopt = "menu,menuone,noinsert,noselect",
-    -- },
+})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ "/", "?" }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = "buffer" },
+    },
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = "path" },
+    }, {
+        { name = "cmdline" },
+    }),
 })

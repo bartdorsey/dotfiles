@@ -39,6 +39,7 @@ return {
         },
     },
     config = function()
+        local which = require("util").which
         -- LSP settings.
         local lsp = require("lspconfig")
 
@@ -48,68 +49,82 @@ return {
             true
 
         -- Emmet
-        lsp.emmet_ls.setup({
-            filetypes = {
-                "html",
-                "typescriptreact",
-                "javascriptreact",
-                "css",
-                "sass",
-                "scss",
-                "less",
-            },
-        })
+        if which("emmet-language-server") then
+            lsp.emmet_ls.setup({
+                filetypes = {
+                    "html",
+                    "typescriptreact",
+                    "javascriptreact",
+                    "css",
+                    "sass",
+                    "scss",
+                    "less",
+                },
+            })
+        end
 
         -- TypeScript
-        lsp.tsserver.setup({
-            filetypes = {
-                "typescript",
-                "typescriptreact",
-                "javascript",
-                "javascriptreact",
-            },
-        })
+        if which("typescript-language-server") then
+            lsp.tsserver.setup({
+                filetypes = {
+                    "typescript",
+                    "typescriptreact",
+                    "javascript",
+                    "javascriptreact",
+                },
+            })
+        end
 
         -- JSON
-        lsp.jsonls.setup({
-            json = {
-                schemas = require("schemastore").json.schemas(),
-                validate = { enable = true },
-            },
-        })
+        if which("vscode-json-language-server") then
+            lsp.jsonls.setup({
+                json = {
+                    schemas = require("schemastore").json.schemas(),
+                    validate = { enable = true },
+                },
+            })
+        end
 
         -- Go
-        lsp.gopls.setup({})
+        if which("gopls") then
+            lsp.gopls.setup({})
+        end
 
         -- Perl
-        lsp.perlnavigator.setup({
-            perlimportsTidyEnabled = true,
-            perlimportsLineEnabled = true,
-            includePaths = { "./lib" },
-        })
+        if which("perlnavigator") then
+            lsp.perlnavigator.setup({
+                perlimportsTidyEnabled = true,
+                perlimportsLineEnabled = true,
+                includePaths = { "./lib" },
+            })
+        end
 
         lsp.perlls.setup({})
 
         -- Rust
-        require("rust-tools").setup({
-            tools = {
-                inlay_hints = {
-                    only_current_line = true,
+        if which("rustc") then
+            require("rust-tools").setup({
+                tools = {
+                    inlay_hints = {
+                        only_current_line = true,
+                    },
                 },
-            },
-        })
+            })
+        end
 
-        lsp.rust_analyzer.setup({
-            ["rust-analyzer"] = {
-                cargo = {
-                    features = "all",
+        if which("rust-analyzer") then
+            lsp.rust_analyzer.setup({
+                ["rust-analyzer"] = {
+                    cargo = {
+                        features = "all",
+                    },
+                    checkOnSave = true,
+                    check = {
+                        command = "clippy",
+                    },
                 },
-                checkOnSave = true,
-                check = {
-                    command = "clippy",
-                },
-            },
-        })
+            })
+        end
 
         -- -- Grammarly
         lsp.grammarly.setup({
@@ -120,120 +135,152 @@ return {
 
         -- Python
         --- Ruff lsp
-        lsp.ruff_lsp.setup({})
+        if which("ruff-lsp") then
+            lsp.ruff_lsp.setup({})
+        end
 
         --- Jedi
-        lsp.jedi_language_server.setup({})
+        if which("jedi_language_server") then
+            lsp.jedi_language_server.setup({})
+        end
 
         --- Pyright
-        lsp.pyright.setup({
-            settings = {
-                python = {
-                    analysis = {
-                        typeCheckingMode = "basic",
-                        autoSearchPaths = true,
-                        diagnosticMode = "openFilesOnly",
-                        useLibraryCodeForTypes = true,
-                        reportMissingTypeStubs = true,
+        if which("pyright-langserver") then
+            lsp.pyright.setup({
+                settings = {
+                    python = {
+                        analysis = {
+                            typeCheckingMode = "basic",
+                            autoSearchPaths = true,
+                            diagnosticMode = "openFilesOnly",
+                            useLibraryCodeForTypes = true,
+                            reportMissingTypeStubs = true,
+                        },
                     },
                 },
-            },
-        })
+            })
+        end
 
         -- Ansible
-        lsp.ansiblels.setup({})
+        if which("ansible-language-server") then
+            lsp.ansiblels.setup({})
+        end
 
         -- YAML
-        lsp.yamlls.setup({
-            yaml = {
-                schemaStore = {
-                    enable = true,
+        if which("yaml-language-server") then
+            lsp.yamlls.setup({
+                yaml = {
+                    schemaStore = {
+                        enable = true,
+                    },
+                    format = {
+                        enable = true,
+                    },
+                    validate = true,
+                    hover = true,
+                    schemas = {
+                        ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
+                        ["schema.yml"] = "**/question.yml",
+                    },
                 },
-                format = {
-                    enable = true,
-                },
-                validate = true,
-                hover = true,
-                schemas = {
-                    ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
-                    ["schema.yml"] = "**/question.yml",
-                },
-            },
-        })
+            })
+        end
 
         -- Lua
-        lsp.lua_ls.setup({
-            settings = {
-                Lua = {
-                    completion = {
-                        callSnippet = "Replace",
-                    },
-                    workspace = {
-                        checkThirdParty = false,
+        if which("lua-language-server") then
+            lsp.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        completion = {
+                            callSnippet = "Replace",
+                        },
+                        workspace = {
+                            checkThirdParty = false,
+                        },
                     },
                 },
-            },
-        })
+            })
+        end
 
         -- Bash
-        lsp.bashls.setup({
-            filetypes = { "sh", "zsh" },
-        })
+        if which("bash-language-server") then
+            lsp.bashls.setup({
+                filetypes = { "sh", "zsh" },
+            })
+        end
 
         -- CSS
-        lsp.cssls.setup({
-            capabilities = capabilities,
-        })
+        if which("css-language-server") then
+            lsp.cssls.setup({
+                capabilities = capabilities,
+            })
+        end
 
         -- CSS Modules
-        lsp.cssmodules_ls.setup({})
+        if which("cssmodules-language-server") then
+            lsp.cssmodules_ls.setup({})
+        end
 
         -- Tailwind
-        lsp.tailwindcss.setup({})
+        if which("tailwindcss-language-server") then
+            lsp.tailwindcss.setup({})
+        end
 
         -- HTML
-        lsp.html.setup({
-            capabilities = capabilities,
-        })
+        if which("vscode-html-language-server") then
+            lsp.html.setup({
+                capabilities = capabilities,
+            })
+        end
 
         -- ESLint
-        lsp.eslint.setup({})
+        if which("vscode-eslint-language-server") then
+            lsp.eslint.setup({})
+        end
 
         -- Dockerfile
-        lsp.dockerls.setup({})
+        if which("docker-langserver") then
+            lsp.dockerls.setup({})
+        end
 
         -- Ocaml
-        lsp.ocamllsp.setup({})
+        if which("ocamllsp") then
+            lsp.ocamllsp.setup({})
+        end
 
         -- vimscript
-        lsp.vimls.setup({})
+        if which("vim-language-server") then
+            lsp.vimls.setup({})
+        end
 
         -- EFM Linters
-        local eslint = require("efmls-configs.linters.eslint")
-        local prettier = require("efmls-configs.formatters.prettier")
-        local stylua = require("efmls-configs.formatters.stylua")
-        local languages = {
-            typescript = { eslint, prettier },
-            lua = { stylua },
-        }
+        if which("efm-langserver") then
+            local eslint = require("efmls-configs.linters.eslint")
+            local prettier = require("efmls-configs.formatters.prettier")
+            local stylua = require("efmls-configs.formatters.stylua")
+            local languages = {
+                typescript = { eslint, prettier },
+                lua = { stylua },
+            }
 
-        local efmls_config = {
-            filetypes = vim.tbl_keys(languages),
-            settings = {
-                rootMarkers = { ".git/" },
-                languages = languages,
-            },
-            init_options = {
-                hover = true,
-                completion = true,
-                codeAction = true,
-                documentFormatting = true,
-                documentRangeFormatting = true,
-                publishDiagnostics = true,
-            },
-        }
+            local efmls_config = {
+                filetypes = vim.tbl_keys(languages),
+                settings = {
+                    rootMarkers = { ".git/" },
+                    languages = languages,
+                },
+                init_options = {
+                    hover = true,
+                    completion = true,
+                    codeAction = true,
+                    documentFormatting = true,
+                    documentRangeFormatting = true,
+                    publishDiagnostics = true,
+                },
+            }
 
-        lsp.efm.setup(vim.tbl_extend("force", efmls_config, {}))
+            lsp.efm.setup(vim.tbl_extend("force", efmls_config, {}))
+        end
 
         -- SQL
         lsp.sqlls.setup({})

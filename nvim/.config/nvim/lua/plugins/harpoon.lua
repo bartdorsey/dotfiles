@@ -1,67 +1,66 @@
 return {
-    'ThePrimeagen/harpoon',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    "ThePrimeagen/harpoon",
+    dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
         {
-            '<leader>ha',
+            "<leader>ha",
             function()
-                require('harpoon.mark').add_file()
-                require('notify')('harpooned file')
+                require("harpoon.mark").add_file()
             end,
-            desc = 'Harpoon Add'
+            desc = "Harpoon Add",
         },
         {
-            '<leader>hl',
+            "<leader>hl",
             function()
-                require('harpoon.ui').toggle_quick_menu()
+                require("harpoon.ui").toggle_quick_menu()
             end,
-            desc = 'Harpoon List'
+            desc = "Harpoon List",
         },
         {
-            '<leader>hn',
+            "<leader>hn",
             function()
-                require('harpoon.ui').nav_next()
+                require("harpoon.ui").nav_next()
             end,
-            desc = 'Harpoon Next'
+            desc = "Harpoon Next",
         },
         {
-            '<leader>hp',
+            "<leader>hp",
             function()
-                require('harpoon.ui').nav_prev()
+                require("harpoon.ui").nav_prev()
             end,
-            desc = 'Harpoon Previous'
+            desc = "Harpoon Previous",
         },
         {
-            '<leader>h1',
+            "<leader>h1",
             function()
-                require('harpoon.ui').nav_file(1)
+                require("harpoon.ui").nav_file(1)
             end,
-            desc = 'Harpoon 1'
+            desc = "Harpoon 1",
         },
         {
-            '<leader>h2',
+            "<leader>h2",
             function()
-                require('harpoon.ui').nav_file(2)
+                require("harpoon.ui").nav_file(2)
             end,
-            desc = 'Harpoon 2'
+            desc = "Harpoon 2",
         },
         {
-            '<leader>h3',
+            "<leader>h3",
             function()
-                require('harpoon.ui').nav_file(3)
+                require("harpoon.ui").nav_file(3)
             end,
-            desc = 'Harpoon 3'
+            desc = "Harpoon 3",
         },
         {
-            '<leader>h4',
+            "<leader>h4",
             function()
-                require('harpoon.ui').nav_file(4)
+                require("harpoon.ui").nav_file(4)
             end,
-            desc = 'Harpoon 4'
+            desc = "Harpoon 4",
         },
     },
     config = function()
-        require('harpoon').setup()
-        require('telescope').load_extension('harpoon')
-    end
+        require("harpoon").setup()
+        require("telescope").load_extension("harpoon")
+    end,
 }

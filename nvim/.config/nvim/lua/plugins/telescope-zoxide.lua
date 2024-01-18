@@ -2,7 +2,7 @@ return {
     "jvgrootveld/telescope-zoxide",
     keys = {
         {
-            "<leader>sz",
+            "<leader>fz",
             function()
                 require("telescope").extensions.zoxide.list({})
             end,

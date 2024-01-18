@@ -2,6 +2,7 @@ local lsp = require("lspconfig")
 
 -- CMP
 local cmp = require("cmp")
+
 cmp.setup({
     -- Snippets to load
     snippet = {
@@ -29,16 +30,16 @@ cmp.setup({
     }),
     -- Sources for completion
     sources = cmp.config.sources({
-        { name = "path" },
         { name = "nvim_lsp" },
-        { name = "buffer", keyword_length = 3 },
-        { name = "luasnip", keyword_length = 2 },
-        { name = "copilot", group_index = 2 },
-        { name = "emoji" },
+        { name = "path" },
         {
             name = "omni",
             option = { disable_omnifuncs = { "v:lua.vim.lsp.omnifunc" } },
         },
+        { name = "buffer" },
+        { name = "emoji" },
+        { name = "luasnip" },
+        -- { name = "copilot" },
     }),
     -- Formatting the completions in the menu (adds icons)
     formatting = {

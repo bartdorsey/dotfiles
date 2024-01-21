@@ -1,7 +1,7 @@
 # FZF Functions
 if type fzf > /dev/null;then
 
-    fzf_dir_list=("/usr/share/fzf/" "/usr/share/doc/fzf/examples")
+    fzf_dir_list=("/usr/share/fzf/" "/usr/share/doc/fzf/examples", "/opt/local/share/fzf/shell/")
 
     for dir in "${fzf_dir_list[@]}"; do
         if [[ -d "$dir" ]]; then

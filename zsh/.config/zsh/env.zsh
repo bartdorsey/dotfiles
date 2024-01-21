@@ -62,6 +62,9 @@ if type grc > /dev/null; then
     if [ -e /etc/grc.zsh ]; then
         source /etc/grc.zsh
     fi
+    if [ -e /opt/local/etc/grc.d/grc.zsh ]; then
+        source /opt/local/etc/grc.d/grc.zsh
+    fi
 fi
 
 # FZF Config
@@ -71,7 +74,7 @@ if type fzf > /dev/null; then
 fi
 
 # Prompt Title
-if type lsb_release > /dev/null;then
+if type lsb_release > /dev/null 2>&1;then
     if [[ $OSTYPE == "linux-gnu" ]]; then
         export PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
     fi

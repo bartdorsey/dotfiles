@@ -6,4 +6,3 @@ export XDG_STATE_HOME="$HOME/.local/state"
 ZDOTDIR=$HOME/.config/zsh
 skip_global_compinit=1
 source $ZDOTDIR/env.zsh
-. "/home/echo/.local/share/cargo/env"

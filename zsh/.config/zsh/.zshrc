@@ -53,8 +53,11 @@ zsh_config_run macchina.zsh
 # Keybinds for OSes like Arch
 zsh_config_run keybinds.zsh
 
-
-TERMINAL_TITLE="$USER@$(hostname -f):$(lsb_release -i -s)"
+if type lsb_release > /dev/null; then
+    TERMINAL_TITLE="$USER@$(hostname -f):$(lsb_release -i -s)"
+else
+    TERMINAL_TITLE="$USER@$(hostname -f)"
+fi
 
 # Set the terminal title with our distribution
 set_terminal_title() {

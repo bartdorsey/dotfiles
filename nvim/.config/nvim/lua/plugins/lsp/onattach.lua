@@ -140,15 +140,15 @@ return function(args)
         local current_buffer = vim.api.nvim_get_current_buf()
         local float_buffer = vim.lsp.handlers.hover(err, result, ctx, config)
 
-        vim.keymap.set("n", "<Esc>", function()
-            if float_buffer == nil then
-                return "<Esc>"
-            end
-            vim.api.nvim_buf_delete(float_buffer, { force = true })
-            vim.keymap.del("n", "<Esc>", { buffer = current_buffer })
-
-            return "<Esc>"
-        end, { expr = true, buffer = current_buffer })
+        -- vim.keymap.set("n", "<Esc>", function()
+        --     if float_buffer == nil then
+        --         return "<Esc>"
+        --     end
+        --     vim.api.nvim_buf_delete(float_buffer, { force = true })
+        --     vim.keymap.del("n", "<Esc>", { buffer = current_buffer })
+        --
+        --     return "<Esc>"
+        -- end, { expr = true, buffer = current_buffer })
     end
 
     vim.lsp.handlers["textDocument/signatureHelp"] =
@@ -163,4 +163,10 @@ return function(args)
         },
         virtual_lines = false,
     })
+
+    -- Enable inlay hints if it's available
+    --
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(args.buf, true)
+    end
 end

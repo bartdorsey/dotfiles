@@ -293,5 +293,27 @@ return {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = require("plugins/lsp/onattach"),
         })
+
+        vim.api.nvim_create_user_command("LspReport", function()
+            local servers = {}
+            local configs = require("lspconfig.configs")
+            for server, config in pairs(configs) do
+                if config.manager ~= nil then
+                    table.insert(servers, {
+                        name = server,
+                        capabilities = config.manager.config.capabilities,
+                    })
+                end
+            end
+            local buf = vim.api.nvim_create_buf(true, true)
+            vim.api.nvim_buf_set_lines(
+                buf,
+                0,
+                0,
+                true,
+                vim.split(vim.inspect(servers), "\n")
+            )
+            vim.api.nvim_set_current_buf(buf)
+        end, {})
     end,
 }

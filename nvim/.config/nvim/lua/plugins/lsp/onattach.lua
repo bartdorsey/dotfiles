@@ -165,8 +165,9 @@ return function(args)
     })
 
     -- Enable inlay hints if it's available
-    --
-    if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(args.buf, true)
+    if vim.lsp.inlay_hint then
+        if client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(args.buf, true)
+        end
     end
 end

@@ -1,9 +1,9 @@
 return {
     which = function(program)
-        local handle = io.popen("which " .. program .. " 2> /dev/null")
-        local result = handle:read("*a")
-        handle:close()
-
-        return result ~= ""
+        if vim.fn.executable(program) == 1 then
+            return true
+        else
+            return false
+        end
     end,
 }

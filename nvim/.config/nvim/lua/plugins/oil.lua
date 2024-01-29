@@ -5,6 +5,7 @@ return {
         require("oil").setup({
             default_file_explorer = true,
             skip_confim_for_simple_edits = true,
+            lsp_rename_autosave = true,
             keymaps = {
                 ["g?"] = "actions.show_help",
                 ["<CR>"] = "actions.select",
@@ -19,15 +20,19 @@ return {
                 ["`"] = "actions.cd",
                 ["~"] = "actions.tcd",
                 ["g."] = "actions.toggle_hidden",
-                ["<esc>"] = "actions.close"
+                ["<esc>"] = "actions.close",
             },
             columns = {
+                "permissions",
+                "size",
+                "mtime",
                 "icon",
             },
+            constrain_cursor = "name",
             float = {
                 padding = 4,
                 max_width = 80,
-                max_height = 25
+                max_height = 25,
             },
             view_options = {
                 show_hidden = true,
@@ -37,7 +42,7 @@ return {
         vim.keymap.set(
             "n",
             "-",
-            require("oil").open,
+            require("oil").open_float,
             { desc = "Open parent directory" }
         )
     end,

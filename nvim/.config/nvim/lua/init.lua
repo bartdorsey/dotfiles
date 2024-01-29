@@ -81,22 +81,35 @@ vim.opt.foldenable = true
 
 local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
 
--- if in_wsl then
---     vim.g.clipboard = {
---         name = "wsl clipboard",
---         copy = {
---             ["+"] = { "/mnt/c/windows/system32/clip.exe" },
---             ["*"] = { "/mnt/c/windows/system32/clip.exe" },
---         },
---         paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
---         cache_enabled = true,
---     }
--- end
-
 -- Split
---
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- Resizing windows
+vim.keymap.set(
+    "n",
+    "<A-h>",
+    "<cmd>vertical resize -2<CR>",
+    { desc = "Make vertical split smaller" }
+)
+vim.keymap.set(
+    "n",
+    "<A-l>",
+    "<cmd>vertical resize +2<CR>",
+    { desc = "Make vertical split larger" }
+)
+vim.keymap.set(
+    "n",
+    "<A-k>",
+    "<cmd>resize -2<CR>",
+    { desc = "Make horizontal split smaller" }
+)
+vim.keymap.set(
+    "n",
+    "<A-j>",
+    "<cmd>resize +2<CR>",
+    { desc = "Make horizontal split larger" }
+)
 
 vim.api.nvim_set_keymap(
     "n",
@@ -199,3 +212,19 @@ end, {})
 -- GuiCursor
 
 vim.opt.guicursor = "n-v-c-sm:block-blinkon1,i-ci-ve:ver20,r-cr-o:hor20"
+
+-- Configure vim short messages
+vim.o.shortmess = "ltToOCIFa"
+
+-- Toggle relative numbers based on mode
+vim.api.nvim_create_autocmd("InsertEnter", {
+    callback = function()
+        vim.opt.relativenumber = false
+    end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+    callback = function()
+        vim.opt.relativenumber = true
+    end,
+})

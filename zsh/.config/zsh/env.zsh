@@ -90,6 +90,13 @@ export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export PGHOST=postgres.home
 export PGUSER=postgres
 
+# Pyenv
+if type pyenv > /dev/null; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
+
 # Python
 if type python3 > /dev/null;then
     export SETUPTOOLS_USE_DISTUTILS=stdlib
@@ -124,4 +131,9 @@ fi
 # Bob
 if type bob > /dev/null; then
     export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
+fi
+
+# Prettierd
+if type prettierd > /dev/null; then
+    export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/prettierrc.json"
 fi

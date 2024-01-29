@@ -63,6 +63,11 @@ return {
             })
         end
 
+        -- JavaScript
+        if which("biome") then
+            lsp.biome.setup({})
+        end
+
         -- TypeScript
         if which("typescript-language-server") then
             lsp.tsserver.setup({

@@ -5,10 +5,11 @@ return {
             formatters_by_ft = {
                 lua = { "stylua" },
                 python = { "black" },
-                javascript = { "prettier" },
-                typescript = { "prettier " },
-                typescriptreact = { "prettier" },
-                javascriptreact = { "prettier" },
+                javascript = { "prettierd" },
+                typescript = { "prettierd " },
+                typescriptreact = { "prettierd" },
+                javascriptreact = { "prettierd" },
+                json = { "prettierd" },
             },
             format_on_save = {
                 -- These options will be passed to conform.format()

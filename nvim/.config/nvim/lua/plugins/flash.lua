@@ -16,14 +16,14 @@ return {
             },
         },
     },
-    keys = {
-        {
-            "S",
-            mode = { "n", "x", "o" },
-            function()
-                require("flash").treesitter_search()
-            end,
-            desc = "Flash Treesitter Select",
-        },
-    },
+    -- keys = {
+    --     {
+    --         "S",
+    --         mode = { "n", "x", "o" },
+    --         function()
+    --             require("flash").treesitter_search()
+    --         end,
+    --         desc = "Flash Treesitter Select",
+    --     },
+    -- },
 }

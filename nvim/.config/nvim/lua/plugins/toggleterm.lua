@@ -3,8 +3,11 @@ return {
     version = "*",
     config = function()
         require("toggleterm").setup({
-            direction = "vertical",
-            open_mapping = [[<c-\>]],
+            direction = "float",
+            float_opts = {
+                border = "curved",
+            },
+            open_mapping = [[<C-Space>]],
             size = function(term)
                 if term.direction == "horizontal" then
                     return 15

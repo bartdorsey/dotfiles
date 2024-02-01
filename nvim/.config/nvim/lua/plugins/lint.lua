@@ -5,10 +5,6 @@ return {
 
         local python_linters = {}
 
-        if which('mypy') then
-            table.insert(python_linters, 'mypy')
-        end
-
         if which('flake8') then
             table.insert(python_linters, 'flake8')
         end

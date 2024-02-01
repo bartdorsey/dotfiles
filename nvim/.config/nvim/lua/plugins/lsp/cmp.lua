@@ -39,6 +39,7 @@ cmp.setup({
         { name = "buffer" },
         { name = "emoji" },
         { name = "luasnip" },
+        { name = "orgmode" },
         -- { name = "copilot" },
     }),
     -- Formatting the completions in the menu (adds icons)

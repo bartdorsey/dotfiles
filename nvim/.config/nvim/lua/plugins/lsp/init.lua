@@ -37,6 +37,9 @@ return {
                 require("neodev").setup()
             end,
         },
+        {
+            "nvim-orgmode/orgmode",
+        },
     },
     config = function()
         local which = require("util").which
@@ -44,13 +47,13 @@ return {
         local lsp = require("lspconfig")
 
         -- Capabilities
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.textDocument.completion.completionItem.snippetSupport =
-            true
+        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        local capabilities = cmp_nvim_lsp.default_capabilities()
 
         -- Emmet
         if which("emmet-language-server") then
             lsp.emmet_ls.setup({
+                capabilities = capabilities,
                 filetypes = {
                     "html",
                     "typescriptreact",
@@ -65,12 +68,15 @@ return {
 
         -- JavaScript
         if which("biome") then
-            lsp.biome.setup({})
+            lsp.biome.setup({
+                capabilities = capabilities,
+            })
         end
 
         -- TypeScript
         if which("typescript-language-server") then
             lsp.tsserver.setup({
+                capabilities = capabilities,
                 filetypes = {
                     "typescript",
                     "typescriptreact",
@@ -83,6 +89,7 @@ return {
         -- JSON
         if which("vscode-json-language-server") then
             lsp.jsonls.setup({
+                capabilities = capabilities,
                 json = {
                     schemas = require("schemastore").json.schemas(),
                     validate = { enable = true },
@@ -92,12 +99,15 @@ return {
 
         -- Go
         if which("gopls") then
-            lsp.gopls.setup({})
+            lsp.gopls.setup({
+                capabilities = capabilities,
+            })
         end
 
         -- Perl
         if which("perlnavigator") then
             lsp.perlnavigator.setup({
+                capabilities = capabilities,
                 perlimportsTidyEnabled = true,
                 perlimportsLineEnabled = true,
                 includePaths = { "./lib" },
@@ -109,6 +119,7 @@ return {
         -- Rust
         if which("rustc") then
             require("rust-tools").setup({
+                capabilities = capabilities,
                 tools = {
                     inlay_hints = {
                         only_current_line = true,
@@ -119,6 +130,7 @@ return {
 
         if which("rust-analyzer") then
             lsp.rust_analyzer.setup({
+                capabilities = capabilities,
                 ["rust-analyzer"] = {
                     cargo = {
                         features = "all",
@@ -133,6 +145,7 @@ return {
 
         -- -- Grammarly
         lsp.grammarly.setup({
+            capabilities = capabilities,
             init_options = {
                 clientId = "client_NsbE8hVFaZqeCbExsWktzG",
             },
@@ -141,17 +154,22 @@ return {
         -- Python
         --- Ruff lsp
         if which("ruff-lsp") then
-            lsp.ruff_lsp.setup({})
+            lsp.ruff_lsp.setup({
+                capabilities = capabilities,
+            })
         end
 
         --- Jedi
         if which("jedi_language_server") then
-            lsp.jedi_language_server.setup({})
+            lsp.jedi_language_server.setup({
+                capabilities = capabilities,
+            })
         end
 
         --- Pyright
         if which("pyright-langserver") then
             lsp.pyright.setup({
+                capabilities = capabilities,
                 settings = {
                     python = {
                         analysis = {
@@ -168,12 +186,15 @@ return {
 
         -- Ansible
         if which("ansible-language-server") then
-            lsp.ansiblels.setup({})
+            lsp.ansiblels.setup({
+                capabilities = capabilities,
+            })
         end
 
         -- YAML
         if which("yaml-language-server") then
             lsp.yamlls.setup({
+                capabilities = capabilities,
                 yaml = {
                     schemaStore = {
                         enable = true,
@@ -194,6 +215,7 @@ return {
         -- Lua
         if which("lua-language-server") then
             lsp.lua_ls.setup({
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         completion = {
@@ -210,6 +232,7 @@ return {
         -- Bash
         if which("bash-language-server") then
             lsp.bashls.setup({
+                capabilities = capabilities,
                 filetypes = { "sh", "zsh" },
             })
         end
@@ -223,12 +246,16 @@ return {
 
         -- CSS Modules
         if which("cssmodules-language-server") then
-            lsp.cssmodules_ls.setup({})
+            lsp.cssmodules_ls.setup({
+                capabilities = capabilities,
+            })
         end
 
         -- Tailwind
         if which("tailwindcss-language-server") then
-            lsp.tailwindcss.setup({})
+            lsp.tailwindcss.setup({
+                capabilities = capabilities,
+            })
         end
 
         -- HTML
@@ -240,22 +267,30 @@ return {
 
         -- ESLint
         if which("vscode-eslint-language-server") then
-            lsp.eslint.setup({})
+            lsp.eslint.setup({
+                capabilities = capabilities,
+            })
         end
 
         -- Dockerfile
         if which("docker-langserver") then
-            lsp.dockerls.setup({})
+            lsp.dockerls.setup({
+                capabilities = capabilities,
+            })
         end
 
         -- Ocaml
         if which("ocamllsp") then
-            lsp.ocamllsp.setup({})
+            lsp.ocamllsp.setup({
+                capabilities = capabilities,
+            })
         end
 
         -- vimscript
         if which("vim-language-server") then
-            lsp.vimls.setup({})
+            lsp.vimls.setup({
+                capabilities = capabilities,
+            })
         end
 
         -- EFM Linters
@@ -269,6 +304,7 @@ return {
             }
 
             local efmls_config = {
+                capabilities = capabilities,
                 filetypes = vim.tbl_keys(languages),
                 settings = {
                     rootMarkers = { ".git/" },
@@ -288,7 +324,9 @@ return {
         end
 
         -- SQL
-        lsp.sqlls.setup({})
+        lsp.sqlls.setup({
+            capabilities = capabilities,
+        })
 
         -- Setup CMP
         require("plugins/lsp/cmp")

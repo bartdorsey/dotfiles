@@ -49,5 +49,11 @@ return {
             require("oil").open,
             { desc = "Open parent directory" }
         )
+        vim.keymap.set(
+            "n",
+            "_",
+            require("oil").open_float,
+            { desc = "Open parent directory in popup" }
+        )
     end,
 }

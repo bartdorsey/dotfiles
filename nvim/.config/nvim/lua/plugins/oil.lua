@@ -3,6 +3,10 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         require("oil").setup({
+            buf_options = {
+                buflisted = true,
+                bufhidden = "",
+            },
             default_file_explorer = true,
             skip_confim_for_simple_edits = true,
             lsp_rename_autosave = true,
@@ -42,7 +46,7 @@ return {
         vim.keymap.set(
             "n",
             "-",
-            require("oil").open_float,
+            require("oil").open,
             { desc = "Open parent directory" }
         )
     end,

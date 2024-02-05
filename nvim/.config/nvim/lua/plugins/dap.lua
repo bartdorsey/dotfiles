@@ -1,7 +1,7 @@
 return {
     -- DAP
     {
-        'mfussenegger/nvim-dap',
+        "mfussenegger/nvim-dap",
         dependencies = {
             -- "mxsdev/nvim-dap-vscode-js",
             -- {
@@ -15,44 +15,70 @@ return {
             --     end
             -- },
             {
-                'theHamsta/nvim-dap-virtual-text',
+                "theHamsta/nvim-dap-virtual-text",
                 dependencies = {
-                    'mfussenegger/nvim-dap',
+                    "mfussenegger/nvim-dap",
                 },
                 config = function()
                     -- Setup dap virtual text
-                    require('nvim-dap-virtual-text').setup({})
-                end
+                    require("nvim-dap-virtual-text").setup({})
+                end,
             },
         },
         keys = {
-            { '<leader>dc',  '<cmd>DapContinue<cr>',         desc = 'debug continue' },
-            { '<leader>dso', '<cmd>DapStepOver<cr>',         desc = 'debug step over' },
-            { '<leader>dsi', '<cmd>DapStepInto<cr>',         desc = 'debug step into' },
-            { '<leader>dsu', '<cmd>DapStepOut<cr>',          desc = 'debug step out' },
-            { '<leader>db',  '<cmd>DapToggleBreakpoint<cr>', desc = 'debug toggle breakpoint' },
+            {
+                "<leader>dc",
+                "<cmd>DapContinue<cr>",
+                desc = "debug continue",
+            },
+            {
+                "<leader>dso",
+                "<cmd>DapStepOver<cr>",
+                desc = "debug step over",
+            },
+            {
+                "<leader>dsi",
+                "<cmd>DapStepInto<cr>",
+                desc = "debug step into",
+            },
+            {
+                "<leader>dsu",
+                "<cmd>DapStepOut<cr>",
+                desc = "debug step out",
+            },
+            {
+                "<leader>db",
+                "<cmd>DapToggleBreakpoint<cr>",
+                desc = "debug toggle breakpoint",
+            },
         },
         config = function()
-            local dap = require('dap')
+            local dap = require("dap")
 
             -- Rust Configuration
             dap.adapters.lldb = {
-                type = 'executable',
-                command = '/usr/bin/lldb-vscode-14', -- adjust as needed, must be absolute path
-                name = 'lldb'
+                type = "executable",
+                command = "/usr/sbin/lldb-vscode", -- adjust as needed, must be absolute path
+                name = "lldb",
             }
 
-            dap.configurations.rust = { {
-                name = 'Launch',
-                type = 'lldb',
-                request = 'launch',
-                program = function()
-                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug', 'file')
-                end,
-                cwd = '${workspaceFolder}',
-                stopOnEntry = false,
-                args = {},
-            } };
+            dap.configurations.rust = {
+                {
+                    name = "Launch",
+                    type = "lldb",
+                    request = "launch",
+                    program = function()
+                        return vim.fn.input(
+                            "Path to executable: ",
+                            vim.fn.getcwd() .. "/target/debug",
+                            "file"
+                        )
+                    end,
+                    cwd = "${workspaceFolder}",
+                    stopOnEntry = false,
+                    args = {},
+                },
+            }
 
             -- configure debugging for typescript and javascript
             for _, language in ipairs({ "typescript", "javascript" }) do
@@ -68,12 +94,12 @@ return {
                         type = "pwa-node",
                         request = "attach",
                         name = "Attach",
-                        processId = require 'dap.utils'.pick_process,
+                        processId = require("dap.utils").pick_process,
                         cwd = "${workspaceFolder}",
-                    }
+                    },
                 }
             end
-        end
+        end,
     },
     -- DAP Virtual Text
 }

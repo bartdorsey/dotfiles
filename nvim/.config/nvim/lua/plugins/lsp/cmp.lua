@@ -4,19 +4,31 @@ local lsp = require("lspconfig")
 local cmp = require("cmp")
 
 cmp.setup({
+    -- completion
+    completion = {
+        keyword_length = 1,
+    },
+
     -- Snippets to load
     snippet = {
         expand = function(args)
             require("luasnip").lsp_expand(args.body)
         end,
     },
+
     -- popup window config
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
-    -- Mappings for completion
     mapping = cmp.mapping.preset.insert({
+        ["<Tab>"] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end,
         ["<CR>"] = cmp.mapping.confirm(),
         -- This makes Escape cancel the autocomplete AND go back to normal mode
         ["<Esc>"] = cmp.mapping(function(fallback)
@@ -40,7 +52,7 @@ cmp.setup({
         { name = "emoji" },
         { name = "luasnip" },
         { name = "orgmode" },
-        -- { name = "copilot" },
+        { name = "copilot" },
     }),
     -- Formatting the completions in the menu (adds icons)
     formatting = {

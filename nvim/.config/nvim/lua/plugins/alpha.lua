@@ -57,11 +57,12 @@ return {
     config = function()
         local alpha = require("alpha")
         local theta = require("alpha.themes.theta")
+        local startify = require("alpha.themes.startify")
         local dashboard = require("alpha.themes.dashboard")
         local art = { neovim, sharp, aot, catppuccin }
         math.randomseed(os.time())
         local logo = art[math.random(#art)]
-        theta.header.val = logo
-        alpha.setup(theta.config)
+        startify.section.header.val = logo
+        alpha.setup(startify.config)
     end,
 }

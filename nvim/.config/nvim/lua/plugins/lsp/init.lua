@@ -2,17 +2,17 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         -- Autocompletion
-        { "hrsh7th/nvim-cmp" }, -- autocompletion plugin
-        { "hrsh7th/cmp-buffer" }, -- buffer words source for cmp
-        { "hrsh7th/cmp-path" }, -- path source for cmp
-        { "hrsh7th/cmp-omni" }, -- omnifunc source for cmp
-        { "hrsh7th/cmp-cmdline" }, -- cmdline completion for cmp
-        { "hrsh7th/cmp-emoji" }, -- emoji completions for cmp
-        { "hrsh7th/cmp-nvim-lsp" }, -- lsp completions for cmp
-        { "hrsh7th/cmp-nvim-lua" }, -- completions for neovim lua api
+        { "hrsh7th/nvim-cmp" },         -- autocompletion plugin
+        { "hrsh7th/cmp-buffer" },       -- buffer words source for cmp
+        { "hrsh7th/cmp-path" },         -- path source for cmp
+        { "hrsh7th/cmp-omni" },         -- omnifunc source for cmp
+        { "hrsh7th/cmp-cmdline" },      -- cmdline completion for cmp
+        { "hrsh7th/cmp-emoji" },        -- emoji completions for cmp
+        { "hrsh7th/cmp-nvim-lsp" },     -- lsp completions for cmp
+        { "hrsh7th/cmp-nvim-lua" },     -- completions for neovim lua api
         { "saadparwaiz1/cmp_luasnip" }, -- luasnip completions for cmp
-        { "onsails/lspkind-nvim" }, -- icons for completion menus
-        { "zbirenbaum/copilot-cmp" }, -- github copilot cmp completions
+        { "onsails/lspkind-nvim" },     -- icons for completion menus
+        { "zbirenbaum/copilot-cmp" },   -- github copilot cmp completions
 
         -- Schema Store
         { "b0o/schemastore.nvim" },

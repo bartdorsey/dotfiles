@@ -73,6 +73,10 @@ vim.opt.listchars = {
     trail = "·",
 }
 
+-- Concealing (for Obsidian plugin)
+vim.opt.conceallevel = 1
+
+-- Folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
@@ -159,7 +163,6 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<PageDown>", "<C-d>zz")
 vim.keymap.set("n", "<PageUp>", "<C-u>zz")
--- For search next and prev
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
@@ -197,19 +200,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- When closing the last window, load alpha back up
--- vim.api.nvim_create_user_command("Q", function()
---     local multiple_windows, _ =
---         pcall(vim.api.nvim_win_close, vim.fn.win_getid(), false)
---
---     if multiple_windows then
---         vim.cmd.bd()
---     elseif vim.o.ft == "alpha" then
---         vim.cmd.quitall()
---     else
---         vim.cmd.bd()
---         vim.cmd.Alpha()
---     end
--- end, {})
+vim.api.nvim_create_user_command("Q", function()
+    local multiple_windows, _ =
+        pcall(vim.api.nvim_win_close, vim.fn.win_getid(), false)
+
+    if multiple_windows then
+        vim.cmd.bd()
+    elseif vim.o.ft == "alpha" then
+        vim.cmd.quitall()
+    else
+        vim.cmd.bd()
+        vim.cmd.Alpha()
+    end
+end, {})
 
 -- GuiCursor
 

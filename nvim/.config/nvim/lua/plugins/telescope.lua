@@ -12,6 +12,15 @@ local function open_file_browser()
     require("telescope").extensions.file_browser.file_browser()
 end
 
+local function open_command()
+    local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
+    if in_wsl then
+        return "wsl-open"
+    else
+        return "xdg-open"
+    end
+end
+
 return {
     {
         "nvim-telescope/telescope.nvim",
@@ -28,6 +37,15 @@ return {
             },
             {
                 "nvim-telescope/telescope-ui-select.nvim",
+            },
+            {
+                "dhruvmanila/telescope-bookmarks.nvim",
+                dependencies = {
+                    "tami5/sqlite.lua",
+                },
+            },
+            {
+                "cljoly/telescope-repo.nvim",
             },
         },
         cmd = { "Telescope" },
@@ -92,6 +110,11 @@ return {
                 "<cmd>Telescope colorscheme<cr>",
                 desc = "Search Colorschemes",
             },
+            {
+                "<leader>fp",
+                "<cmd>Telescope repo list<cr>",
+                desc = "Find Git Repos",
+            },
         },
         config = function()
             local actions = require("telescope.actions")
@@ -155,10 +178,16 @@ return {
                             vim.api.nvim_put({ emoji.value }, "c", false, true)
                         end,
                     },
+                    bookmarks = {
+                        selected_browser = "buku",
+                        url_open_command = open_command(),
+                    },
                 },
             })
             require("telescope").load_extension("ui-select")
             require("telescope").load_extension("messages")
+            require("telescope").load_extension("bookmarks")
+            require("telescope").load_extension("repo")
         end,
     },
     {

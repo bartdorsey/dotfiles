@@ -1,24 +1,4 @@
-function cd() {
-    builtin cd "$@"
-
-    # if [[ -v WSL_DISTRO_NAME ]]; then
-    #     export WSL_INTEROP=
-    #     for socket in /run/WSL/*; do
-    #         if ss -elx | grep -q "$socket"; then
-    #             export WSL_INTEROP=$socket
-    #         else
-    #             rm -v $socket
-    #         fi
-    #     done
-    #
-    #     if [[ -z $WSL_INTEROP ]]; then
-    #         echo -e "\033[31mNo working WSL_INTEROP socket found !\033[0m"
-    #     fi
-    # fi
-    venv
-}
-
-function venv() {
+function _activate_venv() {
     if [[ -z "$VIRTUAL_ENV" ]] ; then
         ## If env folder is found then activate the vitualenv
         if [[ -d ./.venv ]] ; then
@@ -36,6 +16,16 @@ function venv() {
         fi
     fi
 }
+
+typeset -ag precmd_functions;
+if [[ -z "${precmd_functions[(r)_activate_venv]+1}" ]]; then
+    precmd_functions=( _activate_venv ${precmd_functions[@]} )
+fi
+
+typeset -ag cdpwd_functions;
+if [[ -z "${cdpwd_functions[(r)_activate_venv]+1}" ]]; then
+    cdpwd_functions=( _activate_venv ${cdpwd_functions[@]} )
+fi
 
 function zsh_config_run(){
     zsh_config_run_file="$1"

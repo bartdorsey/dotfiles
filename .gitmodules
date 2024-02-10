@@ -24,4 +24,5 @@
 	url = https://github.com/marlonrichert/zsh-autocomplete.git
 [submodule "nvim/.config/nvim/local/quickclip.nvim"]
 	path = nvim/.config/nvim/local/quickclip.nvim
-	url = git@github.com:bartdorsey/quickclip.nvim.git
+	url = https://github.com/bartdorsey/quickclip.nvim.git
+

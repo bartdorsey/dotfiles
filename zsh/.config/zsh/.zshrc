@@ -58,7 +58,7 @@ if type lsb_release > /dev/null; then
 else
     TERMINAL_TITLE="$USER@$(hostname -f)"
 fi
-
+#
 # Set the terminal title with our distribution
 set_terminal_title() {
     printf "\e]0;$TERMINAL_TITLE\a" 
@@ -66,14 +66,6 @@ set_terminal_title() {
 
 autoload -U add-zsh-hook
 add-zsh-hook precmd set_terminal_title
-
-# Function to set the terminal title with the command being executed
-preexec_set_terminal_title() {
-    local cmd=$1; print -Pn "\e]0;$cmd ● $TERMINAL_TITLE\a"
-}
-
-add-zsh-hook preexec preexec_set_terminal_title
-
 
 # VSCode Integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

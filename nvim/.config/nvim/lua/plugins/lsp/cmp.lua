@@ -43,16 +43,17 @@ cmp.setup({
     -- Sources for completion
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
+        { name = "orgmode" },
         { name = "path" },
+        { name = "luasnip" },
         {
             name = "omni",
             option = { disable_omnifuncs = { "v:lua.vim.lsp.omnifunc" } },
         },
-        { name = "buffer" },
         { name = "emoji" },
-        { name = "luasnip" },
-        { name = "orgmode" },
+    }, {
         { name = "copilot" },
+        { name = "buffer" },
     }),
     -- Formatting the completions in the menu (adds icons)
     formatting = {
@@ -66,7 +67,6 @@ cmp.setup({
         }),
     },
 })
-
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ "/", "?" }, {
     mapping = cmp.mapping.preset.cmdline(),

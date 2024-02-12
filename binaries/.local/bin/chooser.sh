@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Check for WSL and use wsl-open
+if [ -n "$WSL_DISTRO_NAME" ]; then
+    wsl-open $1;
+    exit;
+fi
+
 URL="$1"
 
 FIREFOX="  Firefox"

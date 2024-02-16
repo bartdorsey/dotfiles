@@ -244,3 +244,12 @@ vim.api.nvim_create_user_command("Plugins", function()
     vim.cmd("cd ~/.dotfiles/nvim/.config/nvim/lua/plugins")
     vim.cmd("Oil")
 end, {})
+
+-- Better terminal defaults
+vim.api.nvim_create_autocmd("TermOpen", {
+    callback = function()
+        vim.wo.number = false
+        vim.wo.relativenumber = false
+        vim.cmd.startinsert()
+    end,
+})

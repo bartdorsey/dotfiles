@@ -76,6 +76,9 @@ augroup VCenterCursor
         \ let &scrolloff=winheight(win_getid())/2
 augroup END
 
+" sane terminal keymap to move back to normal mode
+tnoremap <c-\> <c-\><c-n>
+
 " Run neovim config if we are in neovim
 if has('nvim')
     source ~/.config/nvim/init.vim

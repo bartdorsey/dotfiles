@@ -23,7 +23,7 @@ local default_program = { shell }
 local font =
     wezterm.font_with_fallback({ "Monaspace Neon", "IosevkaTerm Nerd Font" })
 
-local opacity = 1.0
+local opacity = 0.8
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     default_program = { "wsl", "-d", "Arch", "--cd", "~" }
@@ -31,12 +31,13 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         "Monaspace Neon",
         "IosevkaTerm NF",
     })
-    opacity = 0.80
+    opacity = 0.90
 end
 
 return {
     font = font,
     font_size = 14,
+    max_fps = 170,
     cursor_thickness = "2pt",
     cursor_blink_rate = 600,
     cursor_blink_ease_in = "Constant",
@@ -51,9 +52,14 @@ return {
     window_close_confirmation = "NeverPrompt",
     window_background_opacity = opacity,
     macos_window_background_blur = 80,
-    win32_system_backdrop = "Tabbed",
+    win32_system_backdrop = "Acrylic",
     adjust_window_size_when_changing_font_size = false,
+    allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
     harfbuzz_features = nil,
+    command_palette_bg_color = "#000000",
+    command_palette_fg_color = "#FFFFFF",
+    command_palette_font_size = 16.0,
+    command_palette_rows = 1,
     unix_domains = {
         {
             name = "unix",

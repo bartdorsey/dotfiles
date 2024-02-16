@@ -31,3 +31,11 @@ fi
 
 # gitignore
 function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
+
+# Buku search
+if type buku > /dev/null; then
+    function bs() {
+        xdg-open $(buku -p -f 40 | fzf -e | cut -f1)
+    }
+fi
+

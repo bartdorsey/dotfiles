@@ -1,5 +1,6 @@
 return {
     "otavioschwanck/arrow.nvim",
+    lazy = false,
     config = function()
         require("arrow").setup({
             always_show_path = true,

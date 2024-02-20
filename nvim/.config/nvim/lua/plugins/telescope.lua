@@ -24,7 +24,7 @@ end
 return {
     {
         "nvim-telescope/telescope.nvim",
-        branch = "0.1.x",
+        tag = "0.1.5",
         dependencies = {
             "nvim-lua/plenary.nvim",
             {
@@ -121,7 +121,6 @@ return {
             require("telescope").setup({
                 defaults = {
                     layout_strategy = "flex",
-                    path_display = "shorten",
                     color_devicons = true,
                     dynamic_preview_title = true,
                     border = true,

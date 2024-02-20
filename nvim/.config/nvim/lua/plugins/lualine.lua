@@ -5,6 +5,9 @@ return {
             "rose-pine/neovim",
         },
         config = function()
+            -- Turn off built in showmode
+            vim.opt.showmode = false
+
             local colors = require("rose-pine.palette")
 
             -- rainbow delimiters

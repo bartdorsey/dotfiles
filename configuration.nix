@@ -108,7 +108,7 @@
       firefox
       neovim
       git
-      python3
+      (python310.withPackages (ps: with ps; [pip]))
       nodejs_20
       wezterm
       libsForQt5.bismuth

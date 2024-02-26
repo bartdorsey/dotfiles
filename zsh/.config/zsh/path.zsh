@@ -30,8 +30,10 @@ if type go > /dev/null; then
 fi
 
 # Bob
-if [ -d "$HOME/.local/share/bob/nvim-bin" ];then
-    export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
+if type bob > /dev/null; then
+    if [ -d "$HOME/.local/share/bob/nvim-bin" ];then
+        export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
+    fi
 fi
 
 # Local bin

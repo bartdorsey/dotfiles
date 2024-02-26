@@ -22,6 +22,14 @@
     };
   };
 
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  '';
+  security.polkit.enable = true;
+
   networking.hostName = "nzxt"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -113,6 +121,16 @@
       goxlr-utility
       slack
       zoom-us
+      ripgrep
+      fzf
+      stow
+      zoxide
+      nixd
+      discord
+      obs-studio
+      google-chrome
+      vscode
+      chromium
     ];
   };
   users.groups.echo = {

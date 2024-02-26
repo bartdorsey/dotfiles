@@ -45,7 +45,7 @@ zsh_config_run path.zsh
 zsh_config_run zsh-plugins.sh
 
 # Prompt
-zsh_config_run starship.zsh
+zsh_config_run prompt.zsh
 
 # MOTD
 zsh_config_run fetch.zsh

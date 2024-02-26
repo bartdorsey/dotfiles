@@ -19,18 +19,36 @@ return {
     },
     config = function()
         require("noice").setup({
+            cmdline = {
+                view = "cmdline",
+                format = {
+                    cmdline = { icon = ":" },
+                },
+            },
+            redirect = {
+                view = "mini",
+            },
+            commands = {
+                errors = {
+                    view = "mini",
+                },
+            },
+            messages = {
+                view = "mini",
+                view_error = "mini",
+                view_warn = "mini",
+            },
+            message = {
+                view = "mini",
+            },
+            hover = {
+                enabled = true,
+            },
             lsp = {
-                hover = {
-                    enabled = false,
-                },
-                signature = {
-                    enabled = false,
-                },
-                override = {
-                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                    ["vim.lsp.util.stylize_markdown"] = true,
-                    ["cmp.entry.get_documentation"] = true,
-                },
+                view = "mini",
+            },
+            notify = {
+                view = "mini",
             },
             presets = {
                 bottom_search = true,
@@ -38,16 +56,6 @@ return {
                 lsp_doc_border = true,
             },
             views = {
-                cmdline_popup = {
-                    position = {
-                        row = 5,
-                        col = "50%",
-                    },
-                    size = {
-                        width = 60,
-                        height = "auto",
-                    },
-                },
                 popupmenu = {
                     relative = "editor",
                     position = {

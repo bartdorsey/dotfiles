@@ -11,6 +11,7 @@ return {
                 javascriptreact = { "prettierd" },
                 json = { "prettierd" },
                 markdown = { "prettierd" },
+                ocaml = { "ocamlformat" },
             },
             format_on_save = {
                 -- These options will be passed to conform.format()

@@ -10,8 +10,13 @@ return {
         },
         {
             "<leader>ot",
+            "<cmd>ObsidianTags<cr>",
+            desc = "Obsidian Tag Search",
+        },
+        {
+            "<leader>od",
             "<cmd>ObsidianToday<cr>",
-            desc = "Obsidian Today",
+            desc = "Obsidian Daily Note",
         },
         {
             "<leader>on",

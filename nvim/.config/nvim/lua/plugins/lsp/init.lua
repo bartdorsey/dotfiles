@@ -66,6 +66,13 @@ return {
             })
         end
 
+        -- nixd
+        if which("nixd") then
+            lsp.nixd.setup({
+                capabilities = capabilities
+            })
+        end
+
         -- JavaScript
         if which("biome") then
             lsp.biome.setup({

@@ -1,7 +1,11 @@
 # FZF Functions
 if type fzf > /dev/null;then
 
-    fzf_dir_list=("/usr/share/fzf/" "/usr/share/doc/fzf/examples", "/opt/local/share/fzf/shell/")
+    if type fzf-share > /dev/null; then
+        fzf_dir_list=$(fzf-share)
+    else
+        fzf_dir_list=("/usr/share/fzf/" "/usr/share/doc/fzf/examples", "/opt/local/share/fzf/shell/")
+    fi
 
     for dir in "${fzf_dir_list[@]}"; do
         if [[ -d "$dir" ]]; then

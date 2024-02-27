@@ -50,6 +50,7 @@
        ollama
        corepack_20
        rustup
+       stdenv.cc.cc
     ];
   }; 
 
@@ -66,6 +67,11 @@
     wget
     zsh
     neovim
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+
   ];
 
   programs.gnupg.agent = {

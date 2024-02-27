@@ -103,7 +103,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Bart Dorsey";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
       neovim
@@ -112,6 +112,8 @@
       nodejs_20
       wezterm
       libsForQt5.bismuth
+      libsForQt5.lightly
+      libsForQt5.xdg-desktop-portal-kde
       starship
       lazygit
       monaspace
@@ -130,7 +132,10 @@
       obs-studio
       google-chrome
       vscode
+      docker
+      docker-compose
       chromium
+      flameshot
     ];
   };
   users.groups.echo = {
@@ -181,4 +186,5 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
+  virtualisation.docker.enable = true;
 }

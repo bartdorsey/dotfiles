@@ -43,6 +43,12 @@
        fd
        fastfetch
        htop
+       btop
+       dust
+       lsd
+       grc
+       ollama
+       corepack_20
     ];
   }; 
 

@@ -49,6 +49,7 @@
        grc
        ollama
        corepack_20
+       rustup
     ];
   }; 
 

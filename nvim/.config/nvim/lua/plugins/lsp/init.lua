@@ -2,17 +2,17 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         -- Autocompletion
-        { "hrsh7th/nvim-cmp" },         -- autocompletion plugin
-        { "hrsh7th/cmp-buffer" },       -- buffer words source for cmp
-        { "hrsh7th/cmp-path" },         -- path source for cmp
-        { "hrsh7th/cmp-omni" },         -- omnifunc source for cmp
-        { "hrsh7th/cmp-cmdline" },      -- cmdline completion for cmp
-        { "hrsh7th/cmp-emoji" },        -- emoji completions for cmp
-        { "hrsh7th/cmp-nvim-lsp" },     -- lsp completions for cmp
-        { "hrsh7th/cmp-nvim-lua" },     -- completions for neovim lua api
+        { "hrsh7th/nvim-cmp" }, -- autocompletion plugin
+        { "hrsh7th/cmp-buffer" }, -- buffer words source for cmp
+        { "hrsh7th/cmp-path" }, -- path source for cmp
+        { "hrsh7th/cmp-omni" }, -- omnifunc source for cmp
+        { "hrsh7th/cmp-cmdline" }, -- cmdline completion for cmp
+        { "hrsh7th/cmp-emoji" }, -- emoji completions for cmp
+        { "hrsh7th/cmp-nvim-lsp" }, -- lsp completions for cmp
+        { "hrsh7th/cmp-nvim-lua" }, -- completions for neovim lua api
         { "saadparwaiz1/cmp_luasnip" }, -- luasnip completions for cmp
-        { "onsails/lspkind-nvim" },     -- icons for completion menus
-        { "zbirenbaum/copilot-cmp" },   -- github copilot cmp completions
+        { "onsails/lspkind-nvim" }, -- icons for completion menus
+        { "zbirenbaum/copilot-cmp" }, -- github copilot cmp completions
 
         -- Schema Store
         { "b0o/schemastore.nvim" },
@@ -69,7 +69,7 @@ return {
         -- nixd
         if which("nixd") then
             lsp.nixd.setup({
-                capabilities = capabilities
+                capabilities = capabilities,
             })
         end
 
@@ -330,10 +330,10 @@ return {
             lsp.efm.setup(vim.tbl_extend("force", efmls_config, {}))
         end
 
-        -- SQL
-        lsp.sqlls.setup({
-            capabilities = capabilities,
-        })
+        -- -- SQL
+        -- lsp.sqlls.setup({
+        --     capabilities = capabilities,
+        -- })
 
         -- Setup CMP
         require("plugins/lsp/cmp")
@@ -344,6 +344,17 @@ return {
             callback = require("plugins/lsp/onattach"),
         })
 
+        -- Diagnostic signs
+        vim.diagnostic.config({
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = "",
+                    [vim.diagnostic.severity.WARN] = "",
+                },
+            },
+        })
+
+        -- LspReport
         vim.api.nvim_create_user_command("LspReport", function()
             local servers = {}
             local configs = require("lspconfig.configs")

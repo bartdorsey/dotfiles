@@ -1,5 +1,3 @@
-local lsp = require("lspconfig")
-
 -- CMP
 local cmp = require("cmp")
 

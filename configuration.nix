@@ -19,6 +19,7 @@
       efiSupport = true;
       enable = true;
       useOSProber = true;
+      default = "saved";
     };
   };
 
@@ -106,36 +107,52 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
-      neovim
-      git
-      (python310.withPackages (ps: with ps; [pip]))
-      nodejs_20
-      wezterm
-      libsForQt5.bismuth
       libsForQt5.lightly
       libsForQt5.xdg-desktop-portal-kde
-      starship
-      lazygit
-      monaspace
+      libsForQt5.bismuth
       _1password-gui
       _1password
-      pass
-      goxlr-utility
+      chromium
+      flameshot
+      obs-studio
+      discord
       slack
+      google-chrome
+      vscode
       zoom-us
+      wezterm
+      monaspace
+      goxlr-utility
+      vim
+      neovim
+      git
+      nodejs_20
+      (python312.withPackages (ps: with ps; [pip flake8 black pipx]))
+      starship
+      lazygit
+      pass
       ripgrep
       fzf
       stow
       zoxide
       nixd
-      discord
-      obs-studio
-      google-chrome
-      vscode
+      fd
+      fastfetch
+      htop
+      btop
+      dust
+      lsd
+      grc
+      ollama
+      corepack_20
+      rustup
+      stdenv.cc.cc
+      pyright
+      ruff
+      ruff-lsp
+      pass
       docker
       docker-compose
-      chromium
-      flameshot
     ];
   };
   users.groups.echo = {
@@ -165,6 +182,12 @@
   };
   programs.zsh = {
     enable = true;
+  };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
   };
 
   # List services that you want to enable:

@@ -31,7 +31,7 @@
        neovim
        git
        nodejs_20
-       (python310.withPackages (ps: with ps; [pip]))
+       (python312.withPackages (ps: with ps; [pip flake8 black pipx]))
        starship
        lazygit
        pass
@@ -51,6 +51,9 @@
        corepack_20
        rustup
        stdenv.cc.cc
+       pyright
+       ruff
+       ruff-lsp
     ];
   }; 
 

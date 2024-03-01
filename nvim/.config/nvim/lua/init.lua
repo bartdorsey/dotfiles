@@ -181,6 +181,11 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Captial Q is the worst place in the universe
 vim.keymap.set("n", "Q", "<nop>")
 
+-- I accidentally hit u all the time
+-- So we'll unmap it and make it Control-U instead
+vim.keymap.set("n", "u", "<nop>")
+vim.keymap.set("n", "<C-u>", "u")
+
 -- q: is too close to :q for my tastes, and I never use it.
 vim.keymap.set("n", "q:", "<nop>")
 
@@ -253,3 +258,32 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.cmd.startinsert()
     end,
 })
+
+-- quickfix diagnostics
+
+-- local function open_quickfix_list()
+--     local current_win = vim.api.nvim_get_current_win()
+--     vim.cmd("copen")
+--     vim.api.nvim_set_current_win(current_win)
+-- end
+--
+-- vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
+--     callback = function()
+--         vim.diagnostic.setqflist({ open = false })
+--         open_quickfix_list()
+--     end,
+-- })
+--
+-- vim.keymap.set(
+--     "n",
+--     "<leader>qf",
+--     open_quickfix_list,
+--     { desc = "Open quickfix list" }
+-- )
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "qf",
+--     callback = function()
+--         vim.api.nvim_win_set_height(0, 4)
+--     end,
+-- })

@@ -1,19 +1,19 @@
 return {
     {
-        "tpope/vim-fugitive",
-        event = "BufReadPre",
+        "TimUntersberger/neogit",
+        dependencies = {
+            "sindrets/diffview.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+        config = function()
+            require("neogit").setup({
+                integrations = {
+                    diffview = true,
+                },
+            })
+        end,
     },
-    -- {
-    --     "TimUntersberger/neogit",
-    --     dependencies = { "sindrets/diffview.nvim" },
-    --     config = function()
-    --         require("neogit").setup({
-    --             integrations = {
-    --                 diffview = true,
-    --             },
-    --         })
-    --     end,
-    -- },
     {
         "lewis6991/gitsigns.nvim",
         event = "BufReadPre",
@@ -21,10 +21,10 @@ return {
             require("gitsigns").setup({
                 signs = {
                     add = { text = "+" },
-                    change = { text = "" },
-                    delete = { text = "-" },
-                    topdelete = { text = "-" },
-                    changedelete = { text = "" },
+                    change = { text = "~" },
+                    delete = { text = "_" },
+                    topdelete = { text = "‾" },
+                    changedelete = { text = "~" },
                 },
             })
         end,

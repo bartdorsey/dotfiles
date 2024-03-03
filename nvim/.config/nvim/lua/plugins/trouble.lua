@@ -43,6 +43,9 @@ return {
     lazy = false,
     config = function()
         require("trouble").setup({
+            mode = "document_diagnostics",
+            padding = false,
+            group = false,
             auto_open = true,
             auto_close = true,
         })

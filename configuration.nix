@@ -67,8 +67,22 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+  };
+
   services.xserver.desktopManager.plasma5.enable = true;
+
+  services.xserver.windowManager.awesome = {
+    enable = true;
+  };
+
+  # Enable gdm
+  # services.xserver.displayManager.gdm = {
+  #   enable = true;
+  #   debug = true;
+  #   wayland = true;
+  # };    
 
   # Configure keymap in X11
   services.xserver = {
@@ -153,6 +167,8 @@
       pass
       docker
       docker-compose
+      xorg.xcursorthemes
+      wofi
     ];
   };
   users.groups.echo = {
@@ -173,6 +189,8 @@
     neovim
   ];
 
+  environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -189,6 +207,10 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+
+  programs.hyprland.enable = true;
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # List services that you want to enable:
 

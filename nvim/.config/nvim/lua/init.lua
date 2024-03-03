@@ -47,7 +47,7 @@ require("lazy").setup("plugins", opts)
 
 -- Post plugin configurations
 if vim.g.neovide then
-    vim.o.guifont = "Iosevka NF"
+    vim.o.guifont = "Monaspace Argon"
     vim.g.neovide_background_color = "#1e1e2e"
     vim.g.neovide_refresh_rate = 60
     vim.g.neovide_refresh_rate_idle = 60

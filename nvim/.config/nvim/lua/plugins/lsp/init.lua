@@ -245,7 +245,7 @@ return {
         end
 
         -- CSS
-        if which("css-language-server") then
+        if which("vscode-css-language-server") then
             lsp.cssls.setup({
                 capabilities = capabilities,
             })

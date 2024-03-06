@@ -181,6 +181,15 @@ return {
                         selected_browser = "buku",
                         url_open_command = open_command(),
                     },
+                    repo = {
+                        list = {
+                            search_dirs = {
+                                "~/github",
+                                "~/gitlab",
+                                "~/projects",
+                            },
+                        },
+                    },
                 },
             })
             require("telescope").load_extension("ui-select")

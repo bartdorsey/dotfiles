@@ -48,14 +48,18 @@ require("lazy").setup("plugins", opts)
 -- Post plugin configurations
 if vim.g.neovide then
     vim.o.guifont = "Monaspace Argon"
-    vim.g.neovide_background_color = "#1e1e2e"
-    vim.g.neovide_refresh_rate = 60
+    vim.g.neovide_refresh_rate = 170
     vim.g.neovide_refresh_rate_idle = 60
     vim.g.neovide_remember_window_size = true
     vim.g.neovide_confirm_quit = false
     vim.g.neovide_floating_opacity = 1.0
     vim.g.neovide_hide_mouse_when_typing = true
-    vim.g.neovide_cursor_animate_command_line = false
+    vim.g.neovide_cursor_animate_command_line = true
+    vim.g.neovide_cursor_trail_size = 0.1
+    vim.g.neovide_cursor_animation_length = 0.1
+    vim.g.neovide_scroll_animation_length = 0.1
+    vim.g.neovide_cursor_vfx_mode = "ripple"
+    vim.cmd("cd ~")
 end
 
 -- Swap and undo

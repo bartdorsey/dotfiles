@@ -7,7 +7,7 @@ return {
             float_opts = {
                 border = "curved",
             },
-            open_mapping = [[<C-Space>]],
+            open_mapping = [[<C-t>]],
             size = function(term)
                 if term.direction == "horizontal" then
                     return 15
@@ -16,7 +16,6 @@ return {
                 end
             end,
         })
-
         function _G.set_terminal_keymaps()
             local opts = { buffer = 0 }
             vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)

@@ -27,6 +27,7 @@ cmp.setup({
                 fallback()
             end
         end,
+        ["<C-Space>"] = cmp.mapping.complete(),
         ["<CR>"] = cmp.mapping.confirm(),
         -- This makes Escape cancel the autocomplete AND go back to normal mode
         ["<Esc>"] = cmp.mapping(function(fallback)

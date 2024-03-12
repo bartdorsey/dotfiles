@@ -21,7 +21,7 @@ return {
         { "L3MON4D3/LuaSnip" },
 
         -- Diagnostics
-        { "ErichDonGubler/lsp_lines.nvim" },
+        { "jmsegrev/lsp_lines.nvim" },
 
         -- EFM Configs
         { "creativenull/efmls-configs-nvim" },
@@ -111,6 +111,10 @@ return {
             })
         end
 
+        if which("gleam") then
+            lsp.gleam.setup({})
+        end
+
         -- Perl
         if which("perlnavigator") then
             lsp.perlnavigator.setup({
@@ -180,11 +184,11 @@ return {
                 settings = {
                     python = {
                         analysis = {
-                            typeCheckingMode = "basic",
+                            typeCheckingMode = "strict",
                             autoSearchPaths = true,
-                            diagnosticMode = "openFilesOnly",
+                            diagnosticMode = "workspace",
                             useLibraryCodeForTypes = true,
-                            reportMissingTypeStubs = true,
+                            reportMissingTypeStubs = false,
                         },
                     },
                 },

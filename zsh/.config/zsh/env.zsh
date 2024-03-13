@@ -137,3 +137,8 @@ fi
 if type prettierd > /dev/null; then
     export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/prettierrc.json"
 fi
+
+# Set wezterm TERM var
+if [[ "$TERM_PROGRAM" -eq "WezTerm" ]]; then
+    export TERM="wezterm"
+fi

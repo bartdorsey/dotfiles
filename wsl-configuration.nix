@@ -33,6 +33,7 @@
        nodejs_20
        (python312.withPackages (ps: with ps; [pip flake8 black pipx]))
        starship
+       oh-my-posh
        lazygit
        pass
        ripgrep
@@ -54,6 +55,7 @@
        pyright
        ruff
        ruff-lsp
+       tmux
     ];
   }; 
 

@@ -1,6 +1,11 @@
 # Profiler
 zmodload zsh/zprof
 
+# Run .profile if it exists
+if [ -e "$HOME/.profile" ]; then
+    source "$HOME/.profile"
+fi
+
 # Vi mode
 bindkey -v
 
@@ -69,3 +74,12 @@ add-zsh-hook precmd set_terminal_title
 
 # VSCode Integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+autoload -Uz add-zsh-hook
+
+function reset_broken_terminal () {
+	printf '%b' '\e[0m\e(B\e)0\017\e[?5l\e7\e[0;0r\e8'
+}
+
+add-zsh-hook -Uz precmd reset_broken_terminal
+

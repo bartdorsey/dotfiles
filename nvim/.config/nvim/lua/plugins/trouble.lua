@@ -46,8 +46,8 @@ return {
             mode = "document_diagnostics",
             padding = false,
             group = false,
-            auto_open = true,
-            auto_close = true,
+            auto_open = false,
+            auto_close = false,
         })
     end,
 }

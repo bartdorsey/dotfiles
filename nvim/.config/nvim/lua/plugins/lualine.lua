@@ -125,7 +125,13 @@ return {
                 tabline = {},
                 winbar = {},
                 inactive_winbar = {},
-                extensions = {},
+                extensions = {
+                    "quickfix",
+                    "lazy",
+                    "oil",
+                    "trouble",
+                    "man",
+                },
             })
         end,
     },

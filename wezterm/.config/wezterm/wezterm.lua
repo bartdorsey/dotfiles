@@ -35,6 +35,9 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 end
 
 return {
+    set_environment_variables = {
+        TERM = "wezterm",
+    },
     font = font,
     font_size = 12,
     max_fps = 170,
@@ -43,6 +46,8 @@ return {
     cursor_blink_ease_in = "Constant",
     cursor_blink_ease_out = "Constant",
     force_reverse_video_cursor = false,
+    initial_rows = 35,
+    initial_cols = 100,
     default_prog = default_program,
     audible_bell = "Disabled",
     enable_tab_bar = true,

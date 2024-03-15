@@ -185,7 +185,7 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Captial Q is the worst place in the universe
 vim.keymap.set("n", "Q", "<nop>")
 
--- I accidentally hit u all the time
+-- I accidentally hit u for undo all the time
 -- So we'll unmap it and make it Control-U instead
 vim.keymap.set("n", "u", "<nop>")
 vim.keymap.set("n", "<C-u>", "u")
@@ -250,8 +250,8 @@ end, {})
 
 -- sets working dir to plugins dir and opens Oil
 vim.api.nvim_create_user_command("Plugins", function()
-    vim.cmd("cd ~/.dotfiles/nvim/.config/nvim/lua/plugins")
-    vim.cmd("Oil")
+    vim.cmd("cd ~/.dotfiles/nvim/.config/nvim")
+    vim.cmd("Oil ~/.dotfiles/nvim/.config/nvim/lua/plugins")
 end, {})
 
 -- Better terminal defaults
@@ -291,3 +291,4 @@ vim.api.nvim_create_autocmd("TermOpen", {
 --         vim.api.nvim_win_set_height(0, 4)
 --     end,
 -- })
+--

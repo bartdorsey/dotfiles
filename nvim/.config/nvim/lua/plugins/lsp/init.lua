@@ -23,9 +23,6 @@ return {
         -- Diagnostics
         { "jmsegrev/lsp_lines.nvim" },
 
-        -- EFM Configs
-        { "creativenull/efmls-configs-nvim" },
-
         -- Rust tools
         { "simrat39/rust-tools.nvim" },
 
@@ -302,36 +299,6 @@ return {
             lsp.vimls.setup({
                 capabilities = capabilities,
             })
-        end
-
-        -- EFM Linters
-        if which("efm-langserver") then
-            local eslint = require("efmls-configs.linters.eslint")
-            local prettier = require("efmls-configs.formatters.prettier")
-            local stylua = require("efmls-configs.formatters.stylua")
-            local languages = {
-                typescript = { eslint, prettier },
-                lua = { stylua },
-            }
-
-            local efmls_config = {
-                capabilities = capabilities,
-                filetypes = vim.tbl_keys(languages),
-                settings = {
-                    rootMarkers = { ".git/" },
-                    languages = languages,
-                },
-                init_options = {
-                    hover = true,
-                    completion = true,
-                    codeAction = true,
-                    documentFormatting = true,
-                    documentRangeFormatting = true,
-                    publishDiagnostics = true,
-                },
-            }
-
-            lsp.efm.setup(vim.tbl_extend("force", efmls_config, {}))
         end
 
         -- -- SQL

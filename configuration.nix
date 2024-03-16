@@ -169,6 +169,7 @@
       docker-compose
       xorg.xcursorthemes
       wofi
+      tmux
     ];
   };
   users.groups.echo = {

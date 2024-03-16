@@ -8,14 +8,13 @@
     nixoswsl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixoswsl, ... }@attrs : 
+  outputs = { self, nixpkgs, nixoswsl, ... }: 
     let 
       lib = nixpkgs.lib;
     in {
     nixosConfigurations = {
       nzxt = lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = attrs;
         modules = [ ./configuration.nix ];
       };
       nzxt-wsl = lib.nixosSystem {

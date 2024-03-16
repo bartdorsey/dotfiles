@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, nixpkgs, ... }:
 
 {
   imports =
@@ -71,7 +71,7 @@
     enable = true;
   };
 
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
 
   services.xserver.windowManager.awesome = {
     enable = true;

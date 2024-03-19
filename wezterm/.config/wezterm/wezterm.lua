@@ -34,6 +34,12 @@ return {
     set_environment_variables = {
         TERM = "wezterm",
     },
+    window_padding = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0,
+    },
     font_size = 12,
     max_fps = 170,
     cursor_thickness = "2pt",

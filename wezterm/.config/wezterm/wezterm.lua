@@ -27,10 +27,6 @@ local opacity = 0.8
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     default_program = { "wsl", "-d", "Arch", "--cd", "~" }
-    font = wezterm.font_with_fallback({
-        "Monaspace Neon",
-        "IosevkaTerm NF",
-    })
     opacity = 0.90
 end
 
@@ -38,7 +34,6 @@ return {
     set_environment_variables = {
         TERM = "wezterm",
     },
-    font = font,
     font_size = 12,
     max_fps = 170,
     cursor_thickness = "2pt",

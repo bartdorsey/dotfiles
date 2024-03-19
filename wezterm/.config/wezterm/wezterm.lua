@@ -38,7 +38,7 @@ return {
         top = 0,
         bottom = 0,
     },
-    font_size = 12,
+    font_size = 14,
     max_fps = 170,
     cursor_thickness = "2pt",
     cursor_blink_rate = 600,

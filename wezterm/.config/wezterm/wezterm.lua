@@ -20,8 +20,6 @@ end)
 
 local shell = os.getenv("SHELL")
 local default_program = { shell }
-local font =
-    wezterm.font_with_fallback({ "Monaspace Neon", "IosevkaTerm Nerd Font" })
 
 local opacity = 0.8
 

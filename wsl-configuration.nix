@@ -5,7 +5,7 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -26,12 +26,14 @@
     isNormalUser = true;
     description = "Bart Dorsey";
     extraGroups = ["networkmanager"  "wheel" "docker"];
-    packages = with pkgs; [
+    packages = (with pkgs-unstable; [
+        neovim
+        dust
+    ]) ++ (with pkgs; [
        vim
-       neovim
        git
        nodejs_20
-       (python312.withPackages (ps: with ps; [pip flake8 black pipx]))
+       (python311.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
        starship
        oh-my-posh
        lazygit
@@ -45,7 +47,6 @@
        fastfetch
        htop
        btop
-       dust
        lsd
        grc
        ollama
@@ -56,7 +57,8 @@
        ruff
        ruff-lsp
        tmux
-    ];
+       gh
+    ]);
   }; 
 
   users.groups.echo = {
@@ -66,6 +68,9 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "nix-2.16.2"
+  ];
 
   environment.systemPackages = with pkgs; [
     vim

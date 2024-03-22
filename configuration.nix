@@ -77,13 +77,6 @@
     enable = true;
   };
 
-  # Enable gdm
-  # services.xserver.displayManager.gdm = {
-  #   enable = true;
-  #   debug = true;
-  #   wayland = true;
-  # };    
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -121,6 +114,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
+      vivaldi
       libsForQt5.lightly
       libsForQt5.xdg-desktop-portal-kde
       libsForQt5.bismuth
@@ -132,6 +126,8 @@
       discord
       slack
       google-chrome
+      gnome.gnome-tweaks
+      gnomeExtensions.dash-to-panel
       vscode
       zoom-us
       wezterm
@@ -180,6 +176,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "nix-2.16.2"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -202,6 +201,8 @@
   programs.zsh = {
     enable = true;
   };
+
+  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
 
   programs.steam = {
     enable = true;

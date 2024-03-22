@@ -38,7 +38,10 @@ autoload zmv
 zsh_configure_completion
 
 # Run compinit
-compinit
+if [[ ! -d "$XDG_CACHE_HOME"/zsh ]]; then
+    mkdir "$XDG_CACHE_HOME/zsh"
+fi
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
 # Stop Ctrl-S freezing the terminal
 stty stop undef

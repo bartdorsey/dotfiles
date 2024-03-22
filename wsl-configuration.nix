@@ -35,7 +35,6 @@
        git
        nodejs_20
        starship
-       oh-my-posh
        lazygit
        pass
        ripgrep
@@ -76,7 +75,6 @@
     vim
     wget
     zsh
-    neovim
   ];
 
   programs.nix-ld.enable = true;
@@ -91,6 +89,9 @@
 
 
   programs.zsh = {
+    syntaxHighlighting.enable = true;
+    autosuggestions.enable = true;
+    enableLsColors = true;
     enable = true;
   };
 

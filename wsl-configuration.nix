@@ -27,13 +27,13 @@
     description = "Bart Dorsey";
     extraGroups = ["networkmanager"  "wheel" "docker"];
     packages = (with pkgs-unstable; [
-        neovim
         dust
+       (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
     ]) ++ (with pkgs; [
        vim
+       neovim
        git
        nodejs_20
-       (python311.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
        starship
        oh-my-posh
        lazygit

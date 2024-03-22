@@ -57,6 +57,7 @@
        ruff-lsp
        tmux
        gh
+       clang
     ]);
   }; 
 

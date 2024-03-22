@@ -39,3 +39,7 @@ if type buku > /dev/null; then
     }
 fi
 
+# gh copilot
+if type gh > /dev/null; then
+    eval "$(gh copilot alias -- zsh)"
+fi

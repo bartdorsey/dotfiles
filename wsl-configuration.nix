@@ -28,9 +28,9 @@
     extraGroups = ["networkmanager"  "wheel" "docker"];
     packages = (with pkgs-unstable; [
         dust
-       (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
     ]) ++ (with pkgs; [
        vim
+       (python311.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
        neovim
        git
        nodejs_20

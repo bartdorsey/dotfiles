@@ -4,7 +4,6 @@ return {
     dependencies = {
         "windwp/nvim-ts-autotag",
     },
-    build = ":TSUpdate",
     event = { "BufReadPre" },
     config = function()
         -- [[ Configure Treesitter ]]

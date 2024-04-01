@@ -17,7 +17,7 @@ return {
             autotag = {
                 enable = true,
             },
-            sync_install = false,
+            sync_install = true,
             auto_install = false,
             ensure_installed = {
                 "astro",

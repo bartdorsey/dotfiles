@@ -39,12 +39,6 @@ return {
                 "nvim-telescope/telescope-ui-select.nvim",
             },
             {
-                "dhruvmanila/telescope-bookmarks.nvim",
-                dependencies = {
-                    "tami5/sqlite.lua",
-                },
-            },
-            {
                 "cljoly/telescope-repo.nvim",
             },
         },
@@ -177,10 +171,6 @@ return {
                             vim.api.nvim_put({ emoji.value }, "c", false, true)
                         end,
                     },
-                    bookmarks = {
-                        selected_browser = "buku",
-                        url_open_command = open_command(),
-                    },
                     repo = {
                         list = {
                             search_dirs = {
@@ -194,8 +184,8 @@ return {
             })
             require("telescope").load_extension("ui-select")
             require("telescope").load_extension("messages")
-            require("telescope").load_extension("bookmarks")
             require("telescope").load_extension("repo")
+            require("telescope").load_extension("bookmarks")
         end,
     },
     {

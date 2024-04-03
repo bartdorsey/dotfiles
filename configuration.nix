@@ -235,6 +235,8 @@
 
   virtualisation.docker.enable = true;
 
+  documentation.man.generateCaches = true;
+
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
 }

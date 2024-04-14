@@ -41,4 +41,12 @@ if type fzf > /dev/null;then
         repo=$(find_git_repos)||return
         code $repo
     }
+
+    function fzf_man {
+        man -k . | fzf --preview 'man {}' | awk '{print $1}' | xargs -r man
+    }
+
+    function f() {
+
+    }
 fi

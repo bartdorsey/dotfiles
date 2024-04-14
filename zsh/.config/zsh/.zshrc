@@ -49,6 +49,11 @@ stty stop undef
 # Path
 zsh_config_run path.zsh
 
+# find the command on arch
+if [ -e /usr/share/doc/find-the-command/ftc.zsh ]; then
+    source /usr/share/doc/find-the-command/ftc.zsh
+fi
+
 # Plugins
 zsh_config_run zsh-plugins.sh
 

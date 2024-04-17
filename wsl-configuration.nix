@@ -33,6 +33,7 @@
        (python311.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
        neovim
        git
+       git-lfs
        nodejs_20
        starship
        lazygit

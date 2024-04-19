@@ -28,6 +28,9 @@
     extraGroups = ["networkmanager"  "wheel" "docker"];
     packages = (with pkgs-unstable; [
         dust
+        nh
+        nix-output-monitor
+        nvd
     ]) ++ (with pkgs; [
        vim
        (python311.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
@@ -83,6 +86,13 @@
   programs.nix-ld.libraries = with pkgs; [
 
   ];
+
+  # programs.nh = {
+  #   enable = true;
+  #   clean.enable = true;
+  #   clean.extraArgs = "--keep-since 4d --keep 3";
+  #   flake = "/home/echo/.dotfiles/";
+  # };
 
   programs.gnupg.agent = {
     enable = true;

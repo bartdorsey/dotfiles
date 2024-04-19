@@ -1,4 +1,8 @@
 #!/bin/sh
 git submodule init
 git submodule update
-stow -R */
+for i in */; do
+    if [[ $i != "metadata/" ]]; then
+        stow -v -R "$i";
+    fi
+done

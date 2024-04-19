@@ -70,7 +70,7 @@ Invoke-Expression (&scoop-search --hook)
 # Dotfiles
 $DotFilesPath = Join-Path $HOME '.dotfiles'
 
-$DotFilesAutodetect = $false
+$DotFilesAutodetect = $true
 
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.

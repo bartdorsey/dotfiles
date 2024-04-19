@@ -1,8 +1,12 @@
 #!/bin/sh
 git submodule init
 git submodule update
+
+ignore_directories=("metadata/" "firefox/")
+
 for i in */; do
-    if [[ $i != "metadata/" ]]; then
-        stow -v -R "$i";
+    if [[ " ${ignore_directories[@]} " =~ " $i " ]]; then
+        continue
     fi
+    stow -v -R "$i";
 done

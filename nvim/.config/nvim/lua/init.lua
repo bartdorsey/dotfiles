@@ -162,13 +162,11 @@ vim.keymap.set(
     { desc = "Remap escape to 'j' key twice for ergonomics - Insert mod" }
 )
 
--- Cursor in middle
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<PageDown>", "<C-d>zz")
-vim.keymap.set("n", "<PageUp>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+-- TIP: Disable arrow keys in normal mode
+vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Paste over without losing what's in your clipboard
 vim.keymap.set("x", "<leader>P", '"_dP')
@@ -184,11 +182,6 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- Captial Q is the worst place in the universe
 vim.keymap.set("n", "Q", "<nop>")
-
--- I accidentally hit u for undo all the time
--- So we'll unmap it and make it Control-U instead
-vim.keymap.set("n", "u", "<nop>")
-vim.keymap.set("n", "<C-u>", "u")
 
 -- q: is too close to :q for my tastes, and I never use it.
 vim.keymap.set("n", "q:", "<nop>")

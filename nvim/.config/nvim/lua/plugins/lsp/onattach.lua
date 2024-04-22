@@ -1,7 +1,8 @@
 return function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    -- Disable LSP Semantic Highlighting
-    client.server_capabilities.semanticTokensProvider = nil
+    if client == nil then
+        return
+    end
 
     vim.keymap.set(
         "n",
@@ -113,6 +114,9 @@ return function(args)
 
     vim.keymap.set("", "<leader>dt", function()
         local config = vim.diagnostic.config()
+        if config == nil then
+            return
+        end
         if config.virtual_text then
             vim.diagnostic.config({
                 virtual_text = false,
@@ -166,8 +170,8 @@ return function(args)
 
     -- Enable inlay hints if it's available
     if vim.lsp.inlay_hint then
-        if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(args.buf, true)
+        if client ~= nil and client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(true)
         end
     end
 end

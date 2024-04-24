@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 
 {
   imports =
@@ -112,61 +112,64 @@
     isNormalUser = true;
     description = "Bart Dorsey";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-      firefox
-      vivaldi
-      libsForQt5.lightly
-      libsForQt5.xdg-desktop-portal-kde
-      libsForQt5.bismuth
-      _1password-gui
-      _1password
-      chromium
-      flameshot
-      obs-studio
-      discord
-      slack
-      google-chrome
-      gnome.gnome-tweaks
-      gnomeExtensions.dash-to-panel
-      vscode
-      zoom-us
-      wezterm
-      monaspace
-      goxlr-utility
-      vim
-      neovim
-      git
-      nodejs_20
-      (python312.withPackages (ps: with ps; [pip flake8 black pipx]))
-      starship
-      lazygit
-      pass
-      ripgrep
-      fzf
-      stow
-      zoxide
-      nixd
-      fd
-      fastfetch
-      htop
-      btop
-      dust
-      lsd
-      grc
-      ollama
-      corepack_20
-      rustup
-      stdenv.cc.cc
-      pyright
-      ruff
-      ruff-lsp
-      pass
-      docker
-      docker-compose
-      xorg.xcursorthemes
-      wofi
-      tmux
-    ];
+    packages = (with pkgs-unstable; [
+        dust
+        nh
+        nix-output-monitor
+        nvd
+    ]) ++ (with pkgs; [
+       vim
+       (python311.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
+       neovim
+       git
+       git-lfs
+       nodejs_20
+       starship
+       lazygit
+       pass
+       ripgrep
+       fzf
+       stow
+       zoxide
+       nixd
+       fd
+       fastfetch
+       htop
+       btop
+       lsd
+       grc
+       ollama
+       corepack_20
+       rustup
+       stdenv.cc.cc
+       pyright
+       ruff
+       ruff-lsp
+       tmux
+       gh
+       clang
+       firefox
+       vivaldi
+       libsForQt5.lightly
+       libsForQt5.xdg-desktop-portal-kde
+       libsForQt5.bismuth
+       _1password-gui
+       _1password
+       chromium
+       flameshot
+       obs-studio
+       discord
+       slack
+       google-chrome
+       gnome.gnome-tweaks
+       gnomeExtensions.dash-to-panel
+       vscode
+       zoom-us
+       wezterm
+       kitty
+       monaspace
+       goxlr-utility
+    ]);
   };
   users.groups.echo = {
     name = "echo";
@@ -179,6 +182,14 @@
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
   ];
+
+  # Vivaldi stuff
+  nixpkgs.config = {
+    vivaldi = {
+      proprietaryCodecs = true;
+      enableWideView = true;
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

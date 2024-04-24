@@ -23,11 +23,12 @@
     nixosConfigurations = {
       nzxt = lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit pkgs-unstable; };
         modules = [ ./configuration.nix ];
       };
       nzxt-wsl = lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit pkgs-unstable; inherit pkgs; };
+        specialArgs = { inherit pkgs-unstable; };
         modules = [ nixoswsl.nixosModules.wsl ./wsl-configuration.nix ];
       };
     };

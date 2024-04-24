@@ -200,11 +200,12 @@ plugins {
 //   - true (default)
 //   - false
 //
-// pane_frames false
+pane_frames false
 
 ui {
   pane_frames {
     rounded_corners true
+    hide_session_name true
   }
 }
 
@@ -359,3 +360,4 @@ default_layout "default"
 // The folder in which Zellij will look for themes
 //
 // theme_dir "/path/to/my/theme_dir"
+

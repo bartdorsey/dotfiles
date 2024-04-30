@@ -9,6 +9,11 @@ fi
 # Vi mode
 bindkey -v
 
+# Set up run-help and alias to help
+autoload -Uz run-help run-help-git run-help-ip run-help-openssl run-help-p4 run-help-sudo run-help-svk run-help-svn
+(( ${+aliases[run-help]} )) && unalias run-help
+alias help=run-help
+
 # Base 16
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -90,4 +95,5 @@ function reset_broken_terminal () {
 }
 
 add-zsh-hook -Uz precmd reset_broken_terminal
+
 

@@ -38,6 +38,7 @@ function zsh_config_run(){
 function zsh_configure_completion() {
     # Configure completion for zsh
     autoload -U compinit
+    autoload -U bashcompinit
     zstyle ':completion:*' menu select
     zstyle ':completion:*' verbose yes
     zstyle ':completion:*' file-list all

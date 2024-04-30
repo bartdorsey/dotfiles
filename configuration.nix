@@ -72,6 +72,8 @@
   };
 
   services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.cinnamon.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
 
   services.xserver.windowManager.awesome = {
     enable = true;
@@ -113,6 +115,7 @@
     description = "Bart Dorsey";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = (with pkgs-unstable; [
+        zoom-us
         dust
         nh
         nix-output-monitor
@@ -126,6 +129,7 @@
        nodejs_20
        starship
        lazygit
+       lazydocker
        pass
        ripgrep
        fzf
@@ -152,7 +156,6 @@
        vivaldi
        libsForQt5.lightly
        libsForQt5.xdg-desktop-portal-kde
-       libsForQt5.bismuth
        _1password-gui
        _1password
        chromium
@@ -164,7 +167,6 @@
        gnome.gnome-tweaks
        gnomeExtensions.dash-to-panel
        vscode
-       zoom-us
        wezterm
        kitty
        monaspace

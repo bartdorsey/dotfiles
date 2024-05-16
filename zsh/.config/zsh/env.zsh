@@ -1,6 +1,12 @@
 # History
 HISTSIZE=10000
-SAVEHIST=10000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_save_no_dups
+setopt hist_find_no_dups
 
 # Hack to make colors work again in new groff
 export GROFF_NO_SGR=1
@@ -116,7 +122,7 @@ export PGUSER=postgres
 # Pyenv
 if type pyenv > /dev/null; then
     export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
 fi
 
@@ -145,7 +151,7 @@ export NB_DIR="$XDG_DATA_HOME/nb"
 
 # Python
 if type python3 > /dev/null;then
-    export SETUPTOOLS_USE_DISTUTILS=stdlib
+    # export SETUPTOOLS_USE_DISTUTILS=stdlib
     export PIPENV_VENV_IN_PROJECT=1
 fi
 
@@ -159,9 +165,6 @@ export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 
 # PostgreSQL
 export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
-
-# pyenv
-export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
 
 # RBENV
 export RBENV_ROOT="$XDG_DATA_HOME"/rbenv

@@ -44,7 +44,7 @@ if type python3 > /dev/null;then
     # Completions
 
     zstyle :plugin:zsh-completion-generator programs \
-        exa \
+        lsd \
         bat \
         cargo \
         rustup \

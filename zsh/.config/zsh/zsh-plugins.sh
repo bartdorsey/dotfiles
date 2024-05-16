@@ -23,6 +23,9 @@ run_plugin fast-syntax-highlighting fast-syntax-highlighting.plugin.zsh
 # History Substring Search
 run_plugin zsh-history-substring-search zsh-history-substring-search.zsh
 
+# Fzf Tab completions
+run_plugin fzf-tab fzf-tab.plugin.zsh
+
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey "$terminfo[kcuu1]" history-substring-search-up

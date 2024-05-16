@@ -21,3 +21,9 @@
 	br = branch
 [pull]
 	rebase = true
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto

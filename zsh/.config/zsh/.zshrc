@@ -1,4 +1,4 @@
-# Profiler
+
 zmodload zsh/zprof
 
 # Run .profile if it exists
@@ -14,14 +14,7 @@ autoload -Uz run-help run-help-git run-help-ip run-help-openssl run-help-p4 run-
 (( ${+aliases[run-help]} )) && unalias run-help
 alias help=run-help
 
-# Base 16
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-    source "$BASE16_SHELL/profile_helper.sh"
 
-base16_rose-pine
 
 # Skip global compinit initialization in Ubuntu
 skip_global_compinit=1
@@ -96,4 +89,7 @@ function reset_broken_terminal () {
 
 add-zsh-hook -Uz precmd reset_broken_terminal
 
-
+# Tinty setup
+if type tinty > /dev/null; then
+    tinty init
+fi

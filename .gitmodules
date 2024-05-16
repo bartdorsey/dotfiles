@@ -16,9 +16,6 @@
 [submodule "zsh/.config/zsh/plugins/zsh-completion-generator"]
 	path = zsh/.config/zsh/plugins/zsh-completion-generator
 	url = https://github.com/RobSis/zsh-completion-generator.git
-[submodule "base16-shell/.config/base16-shell"]
-	path = base16-shell/.config/base16-shell
-	url = https://github.com/tinted-theming/base16-shell.git
 [submodule "zsh/.config/zsh/plugins/zsh-autocomplete"]
 	path = zsh/.config/zsh/plugins/zsh-autocomplete
 	url = https://github.com/marlonrichert/zsh-autocomplete.git

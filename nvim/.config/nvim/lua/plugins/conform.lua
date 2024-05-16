@@ -12,6 +12,8 @@ return {
                 json = { "prettierd" },
                 -- markdown = { "prettierd" },
                 ocaml = { "ocamlformat" },
+                html = { "prettierd " },
+                htmldjango = { "djlint" },
             },
             format_on_save = {
                 -- These options will be passed to conform.format()

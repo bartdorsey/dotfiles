@@ -38,12 +38,13 @@ function zsh_config_run(){
 function zsh_configure_completion() {
     # Configure completion for zsh
     autoload -U compinit
-    zstyle ':completion:*' menu select
+    zstyle ':completion:*' menu no
     zstyle ':completion:*' verbose yes
-    zstyle ':completion:*' file-list all
     zstyle ':completion:*' list-dirs-first
     zstyle ':completion:*' list-grouped
-    zstyle ':completion:*:default' list-colors "${(s.:.)LS_COLORS}"
+    zstyle ':completion:*:descriptions' format '[%d]'
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --icon always $realpath'
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
     #zstyle ':completion:*' format '%F{yellow}-- %d --%f'
     zstyle ':completion:*' complete-options true
     zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'

@@ -4,4 +4,5 @@ if type zoxide > /dev/null; then
     # Initialize zoxide
     eval "$(zoxide init --cmd cd zsh)"
     alias j=z
+    alias z=cd
 fi

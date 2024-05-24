@@ -4,7 +4,7 @@ if type git > /dev/null; then
 fi
 
 # Misc
-alias ll=ls -al
+alias ll="ls -al"
 
 # Color Grep
 alias grep="grep --color=auto"

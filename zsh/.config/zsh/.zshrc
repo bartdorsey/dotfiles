@@ -93,3 +93,7 @@ add-zsh-hook -Uz precmd reset_broken_terminal
 if type tinty > /dev/null; then
     tinty init
 fi
+
+if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
+    source /usr/share/doc/pkgfile/command-not-found.zsh
+fi

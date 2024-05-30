@@ -52,7 +52,7 @@ Set-Alias lg lazygit
 Set-Alias docker podman
 
 function Invoke-Exa {
-	exa --icons --git -F -h -G --group-directories-first $args
+	eza --icons --git -F -h -G --group-directories-first $args
 }
 Set-Alias ls Invoke-Exa
 

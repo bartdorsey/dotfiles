@@ -218,3 +218,7 @@ if type prettierd > /dev/null; then
     export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/prettierrc.json"
 fi
 
+# Make
+if [ -f /proc/cpuinfo ]; then
+    export MAKEFLAGS="-j $(grep -c ^processor /proc/cpuinfo)"
+fi

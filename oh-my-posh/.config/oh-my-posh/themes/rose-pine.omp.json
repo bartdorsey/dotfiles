@@ -38,7 +38,7 @@
     },
     "transient_prompt": {
         "foreground": "p:time",
-        "template": "{{ now | date \"15:04:05\" }} {{ if gt .Code 0 }}<p:false>\u276f</>{{ else }}<p:true>\u276f</>{{ end }} "
+        "template": "{{ now | date \"3:04:05 PM\" }} {{ if gt .Code 0 }}<p:false>\u276f</>{{ else }}<p:true>\u276f</>{{ end }} "
     },
     "blocks": [
         {
@@ -94,12 +94,6 @@
                     }
                 },
                 {
-                    "type": "docker",
-                    "style": "plain",
-                    "foreground": "p:docker",
-                    "template": "\uf308 {{ .Context }} "
-                },
-                {
                     "type": "go",
                     "style": "plain",
                     "foreground": "p:go",
@@ -127,9 +121,10 @@
                     "type": "python",
                     "style": "plain",
                     "foreground": "p:python",
-                    "template": "\ue73c {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
+                    "template": "\ue73c {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} {{ if .Venv }}{{ .Venv }}{{end}} ",
                     "properties": {
-                        "display_default": false,
+                        "display_default": true,
+                        "folder_name_fallback": false,
                         "display_mode": "context"
                     }
                 },
@@ -164,7 +159,7 @@
                     "foreground_templates": [
                         "{{ if gt .Code 0 }}p:false{{ end }}"
                     ],
-                    "template": "\u276f ",
+                    "template": "   ",
                     "properties": {
                         "always_enabled": true
                     }

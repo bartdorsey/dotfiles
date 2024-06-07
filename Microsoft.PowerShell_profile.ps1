@@ -49,12 +49,12 @@ Set-Alias which Get-Command
 Set-Alias vim nvim
 Set-Alias dsetup Build-Django-Project-Setup
 Set-Alias lg lazygit
-Set-Alias docker podman
+#Set-Alias docker podman
 
 function Invoke-Exa {
 	eza --icons --git -F -h -G --group-directories-first $args
 }
-Set-Alias ls Invoke-Exa
+# Set-Alias ls Invoke-Exa
 
 Import-Module Terminal-Icons
 
@@ -62,8 +62,9 @@ Invoke-Expression (& { $hook = if ($PSVersionTable.PSVersion.Major -ge 6) { 'pwd
 
 macchina
 
-fnm env --use-on-cd | Out-String | Invoke-Expression
-Invoke-Expression (&starship init powershell)
+fnm env --use-on-cd --shell power-shell | Out-String | Invoke-Expression
+#Invoke-Expression (&starship init powershell)
+oh-my-posh init pwsh | Invoke-Expression
 Import-Module scoop-completion
 Invoke-Expression (&scoop-search --hook)
 

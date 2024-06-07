@@ -1,19 +1,16 @@
-configuration {
-        modi: "drun,ssh,calc";
-        icon-theme: "Oranchelo";
-        show-icons: true;
-        font: "Iosevka Nerd Font 14";
-        sidebar-mode: true;
-        location: 0;
-        terminal: "kitty";
-        drun-display-format: "{icon} {name}";
-        disable-history: false;
-        hide-scollbar: true;
-        display-drun: "   Apps ";
-        display-run: "   Run ";
-        display-window: "   Window";
-        display-Network: " 󰤨  Network";
-        display-ssh: "   SSH";
-        display-calc: "  Calc";
-    }
-@theme "./themes/catppuccin/mocha.rasi"
+configuration{
+    modi: "run,window,combi";
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-combi: " 🖥️  All ";
+    display-run: " 🏃  Run ";
+    display-window: " 🪟  Window";
+    sidebar-mode: true;
+}
+
+@theme "catppuccin-mocha"

@@ -9,4 +9,4 @@ New-Link $HOME/.dotfiles/lazygit/.config/lazygit $HOME/.config/lazygit
 New-Link $HOME/.dotfiles/helix/.config/helix $env:APPDATA/helix
 New-Link $HOME/.dotfiles/firefox/user.js $HOME/scoop/persist/firefox/profile/user.js
 New-Link $HOME/.dotfiles/wezterm/.config/wezterm/wezterm.lua $HOME/.wezterm.lua
-
+New-Link $HOME/.dotfiles/oh-my-posh/.config/oh-my-posh $HOME/.config/oh-my-posh

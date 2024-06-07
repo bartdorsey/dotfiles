@@ -159,7 +159,7 @@
                     "foreground_templates": [
                         "{{ if gt .Code 0 }}p:false{{ end }}"
                     ],
-                    "template": "   ",
+                    "template": " \u276f ",
                     "properties": {
                         "always_enabled": true
                     }

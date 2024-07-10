@@ -1,3 +1,9 @@
+# local bin
+
+if [ -d /usr/local/bin ]; then
+    export PATH="/usr/local/bin:$PATH"
+fi
+
 # Rust
 if [ -d "$CARGO_HOME/bin" ];then
     export PATH=$CARGO_HOME/bin:$PATH:

@@ -6,7 +6,7 @@ return {
         local wk = require("which-key")
 
         wk.setup({
-            window = {
+            win = {
                 border = "none",
                 position = "bottom",
                 winblend = 0,

@@ -4,9 +4,6 @@
 [submodule "zsh/.config/zsh/plugins/zsh-autosuggestions"]
 	path = zsh/.config/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "zsh/.config/zsh/plugins/zsh-history-substring-search"]
-	path = zsh/.config/zsh/plugins/zsh-history-substring-search
-	url = https://github.com/zsh-users/zsh-history-substring-search.git
 [submodule "zsh/.config/zsh/plugins/zsh-completions"]
 	path = zsh/.config/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git

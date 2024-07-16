@@ -63,8 +63,8 @@ Invoke-Expression (& { $hook = if ($PSVersionTable.PSVersion.Major -ge 6) { 'pwd
 macchina
 
 fnm env --use-on-cd --shell power-shell | Out-String | Invoke-Expression
-#Invoke-Expression (&starship init powershell)
-oh-my-posh init pwsh --config $env:USERPROFILE/.config/oh-my-posh/themes/rose-pine.omp.json | Invoke-Expression
+Invoke-Expression (&starship init powershell)
+#oh-my-posh init pwsh --config $env:USERPROFILE/.config/oh-my-posh/themes/rose-pine.omp.json | Invoke-Expression
 Import-Module scoop-completion
 Invoke-Expression (&scoop-search --hook)
 

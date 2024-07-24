@@ -60,7 +60,7 @@ Import-Module Terminal-Icons
 
 Invoke-Expression (& { $hook = if ($PSVersionTable.PSVersion.Major -ge 6) { 'pwd' } else { 'prompt' } (zoxide init powershell --hook $hook | Out-String) })
 
-macchina
+fastfetch --disk-show-external false
 
 fnm env --use-on-cd --shell power-shell | Out-String | Invoke-Expression
 Invoke-Expression (&starship init powershell)

@@ -2,7 +2,7 @@ add_newline = true
 
 format = """\
  [╭╴](238) $os $container$all\
- [╰─](238) $shell$character"""
+ [╰─](238) $shell$direnv$character"""
 
 [character]
 success_symbol = "[ ](bold blue)"
@@ -18,6 +18,9 @@ ssh_symbol = ' '
 [shell]
 disabled = false
 style = 'bold yellow'
+zsh_indicator =  ' '
+bash_indicator = ' '
+pwsh_indicator = ' '
 
 [os]
 disabled = false
@@ -136,4 +139,16 @@ symbol = " "
 format = "[$symbol$name]($style)"
 disabled = false
 style = "bold yellow"
+
+[direnv]
+disabled = false
+format = '[$loaded$allowed $rc_path]($style) '
+detect_files = ['.envrc', '.env']
+symbol = ''
+style = 'bold green'
+allowed_msg = ''
+not_allowed_msg = ' '
+loaded_msg = ' '
+unloaded_msg = ''
+denied_msg = ' '
 

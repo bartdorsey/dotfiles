@@ -20,7 +20,7 @@ disabled = false
 style = 'bold yellow'
 zsh_indicator =  ' '
 bash_indicator = ' '
-pwsh_indicator = '  '
+pwsh_indicator = ' '
 
 [os]
 disabled = false

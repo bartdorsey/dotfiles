@@ -11,6 +11,23 @@ function run_script {
     source "${BASE_SCRIPT_PATH}/${1}"
 }
 
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
+
+# Fzf Tab completions
+run_plugin fzf-tab fzf-tab.plugin.zsh
+
 # My custom vi plugin
 run_plugin zsh-better-vi zsh-better-vi.zsh
 
@@ -20,8 +37,6 @@ run_plugin zsh-autosuggestions zsh-autosuggestions.zsh
 # Fast syntax highlighting
 run_plugin fast-syntax-highlighting fast-syntax-highlighting.plugin.zsh
 
-# Fzf Tab completions
-run_plugin fzf-tab fzf-tab.plugin.zsh
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down

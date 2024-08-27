@@ -1,7 +1,11 @@
 # local bin
-
 if [ -d /usr/local/bin ]; then
     export PATH="/usr/local/bin:$PATH"
+fi
+
+# Docker Desktop
+if [ -d "$HOME/.docker/bin" ]; then
+    export PATH="$HOME/.docker/bin:$PATH"
 fi
 
 # Rust

@@ -1,5 +1,4 @@
-
-zmodload zsh/zprof
+#zmodload zsh/zprof
 
 # Run .profile if it exists
 if [ -e "$HOME/.profile" ]; then
@@ -13,8 +12,6 @@ bindkey -v
 autoload -Uz run-help run-help-git run-help-ip run-help-openssl run-help-p4 run-help-sudo run-help-svk run-help-svn
 (( ${+aliases[run-help]} )) && unalias run-help
 alias help=run-help
-
-
 
 # Skip global compinit initialization in Ubuntu
 skip_global_compinit=1

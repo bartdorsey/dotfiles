@@ -25,8 +25,18 @@ if type lazygit > /dev/null;then
     alias lg=lazygit
 fi
 
+# lazydocker
+if type lazydocker > /dev/null; then
+    alias lzd=lazydocker
+fi
+
+
 if type xdg-open > /dev/null; then
     alias open=xdg-open
+fi
+
+if type wsl-open > /dev/null; then
+    alias open=wsl-open
 fi
 
 # gitignore

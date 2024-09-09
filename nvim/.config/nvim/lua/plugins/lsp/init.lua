@@ -181,7 +181,7 @@ return {
                 settings = {
                     python = {
                         analysis = {
-                            typeCheckingMode = "strict",
+                            typeCheckingMode = "basic",
                             autoSearchPaths = true,
                             diagnosticMode = "workspace",
                             useLibraryCodeForTypes = true,

@@ -26,6 +26,11 @@ return {
         -- Rust tools
         { "simrat39/rust-tools.nvim" },
 
+        -- Mason
+        {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+        },
         -- For developing neovim plugins and configs
         {
             "folke/neodev.nvim",
@@ -39,6 +44,31 @@ return {
         },
     },
     config = function()
+        -- Setup Mason
+        require("mason").setup()
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "ts_ls",
+                "pyright",
+                "lua_ls",
+                "jsonls",
+                "eslint",
+                "ocamllsp",
+                "cssls",
+                "gopls",
+                "emmet_language_server",
+                "rust_analyzer",
+                "perlnavigator",
+                "yamlls",
+                "ansiblels",
+                "tailwindcss",
+                "bashls",
+                "cssmodules_ls",
+                "vimls",
+                "ruff_lsp",
+            },
+        })
+
         local which = require("util").which
         -- LSP settings.
         local lsp = require("lspconfig")
@@ -79,7 +109,7 @@ return {
 
         -- TypeScript
         if which("typescript-language-server") then
-            lsp.tsserver.setup({
+            lsp.ts_ls.setup({
                 capabilities = capabilities,
                 filetypes = {
                     "typescript",
@@ -150,14 +180,6 @@ return {
                 },
             })
         end
-
-        -- -- Grammarly
-        lsp.grammarly.setup({
-            capabilities = capabilities,
-            init_options = {
-                clientId = "client_NsbE8hVFaZqeCbExsWktzG",
-            },
-        })
 
         -- Python
         --- Ruff lsp

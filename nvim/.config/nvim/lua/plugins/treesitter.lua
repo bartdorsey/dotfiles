@@ -2,6 +2,7 @@ return {
     -- Highlight, edit, and navigate code
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
+        "j-hui/fidget.nvim",
         "windwp/nvim-ts-autotag",
     },
     event = { "BufReadPre" },
@@ -9,6 +10,16 @@ return {
         -- [[ Configure Treesitter ]]
         -- See `:help nvim-treesitter`
         --
+        -- Override print so messages go to vim.notify
+        print = function(...)
+            local print_safe_args = {}
+            local _ = { ... }
+            for i = 1, #_ do
+                table.insert(print_safe_args, tostring(_[i]))
+            end
+            vim.notify(table.concat(print_safe_args, " "), "info")
+        end
+
         require("nvim-treesitter.install").prefer_git = false
         require("nvim-treesitter.configs").setup({
             modules = {},
@@ -16,77 +27,11 @@ return {
             autotag = {
                 enable = true,
             },
-            sync_install = true,
+            sync_install = false,
             auto_install = true,
             highlight = { enable = true },
             indent = { enable = true },
         })
-
-        local ensure_installed = {
-            "astro",
-            "bash",
-            "c",
-            "cmake",
-            "comment",
-            "cpp",
-            "css",
-            "diff",
-            "dockerfile",
-            "gitattributes",
-            "git_config",
-            "git_rebase",
-            "gitignore",
-            "graphql",
-            "go",
-            "haskell",
-            "html",
-            "htmldjango",
-            "http",
-            "java",
-            "javascript",
-            "jsdoc",
-            "json",
-            "jsonc",
-            "kdl",
-            "latex",
-            "lua",
-            "luadoc",
-            "llvm",
-            "make",
-            "markdown",
-            "markdown_inline",
-            "nix",
-            "ocaml",
-            "ocaml_interface",
-            "perl",
-            "php",
-            "phpdoc",
-            "prisma",
-            "python",
-            "rasi",
-            "ruby",
-            "rust",
-            "scss",
-            "sql",
-            "svelte",
-            "toml",
-            "tsx",
-            "typescript",
-            "twig",
-            "vim",
-            "vimdoc",
-            "vue",
-            "yaml",
-            "zig",
-        }
-
-        vim.api.nvim_create_user_command("TSCustomInstall",
-            function()
-                for _, t in ipairs(ensure_installed) do
-                    vim.cmd('TSInstallSync! ' .. t)
-                end
-            end, {}
-        )
 
         local parser_config =
             require("nvim-treesitter.parsers").get_parser_configs()
@@ -100,10 +45,14 @@ return {
         }
 
         -- Custom treesitter injections
-        vim.treesitter.query.set(
-            "python",
-            "injections",
-            [[ (call function:
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "TSModuleInstalled",
+            callback = function(args)
+                if args.data == "python" then
+                    vim.treesitter.query.set(
+                        "python",
+                        "injections",
+                        [[ (call function:
                     (attribute
                         object: (identifier)
                         attribute: (identifier) @method
@@ -113,7 +62,10 @@ return {
                         (string
                             (string_content) @injection.content
                                 (#set! injection.language "sql"))))
-            ]]
-        )
+                    ]]
+                    )
+                end
+            end,
+        })
     end,
 }

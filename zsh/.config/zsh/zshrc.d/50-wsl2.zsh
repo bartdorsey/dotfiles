@@ -36,5 +36,11 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     alias pwsh='/mnt/c/Program\ Files/PowerShell/7/pwsh.exe'
     alias code="/mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
 
+    if [ -d "/mnt/c/Users/bart/AppData/Local/Programs/cursor" ]; then 
+        function cursor {
+            DONT_PROMPT_WSL_INSTALL=1 /mnt/c/Users/bart/AppData/Local/Programs/cursor/Cursor.exe --remote wsl+default $1
+        }
+    fi
+
     notify-send() { wsl-notify-send.exe --category $WSL_DISTRO_NAME "${@}"; }
 fi

@@ -10,15 +10,6 @@ return {
         -- [[ Configure Treesitter ]]
         -- See `:help nvim-treesitter`
         --
-        -- Override print so messages go to vim.notify
-        print = function(...)
-            local print_safe_args = {}
-            local _ = { ... }
-            for i = 1, #_ do
-                table.insert(print_safe_args, tostring(_[i]))
-            end
-            vim.notify(table.concat(print_safe_args, " "), "info")
-        end
 
         require("nvim-treesitter.install").prefer_git = false
         require("nvim-treesitter.configs").setup({

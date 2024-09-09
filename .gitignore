@@ -8,6 +8,5 @@ zsh/.config/zsh/secrets.zsh
 aerc/.config/aerc/accounts.conf
 tmux/.config/tmux/plugins
 *.log
-nvim/.config/nvim/lazy-lock.json
 binaries/.local/bin/*
 aerc/.config/aerc/accounts.conf

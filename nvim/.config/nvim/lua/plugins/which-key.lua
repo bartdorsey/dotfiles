@@ -1,19 +1,17 @@
 return {
     "folke/which-key.nvim",
+    dependencies = {
+        "echasnovski/mini.icons",
+        "nvim-tree/nvim-web-devicons",
+    },
     config = function()
         vim.o.timeout = true
         vim.o.timeoutlen = 300
         local wk = require("which-key")
 
         wk.setup({
-            win = {
-                border = "none",
-                position = "bottom",
-                winblend = 0,
-            },
-            layout = {
-                align = "center",
-            },
+            preset = "modern",
+            notify = true,
         })
     end,
 }

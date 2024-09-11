@@ -382,4 +382,6 @@ if vim.fn.hostname() == "NZXT" then
             end, {})
         end,
     }
+else
+    return {}
 end

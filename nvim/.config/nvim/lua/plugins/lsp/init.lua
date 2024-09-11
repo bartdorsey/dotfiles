@@ -30,6 +30,7 @@ return {
         {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
         },
         -- For developing neovim plugins and configs
         {
@@ -66,6 +67,15 @@ return {
                 "cssmodules_ls",
                 "vimls",
                 "ruff_lsp",
+            },
+        })
+        require("mason-tool-installer").setup({
+            ensure_installed = {
+                "prettierd",
+                "ocamlformat",
+                "djlint",
+                "stylua",
+                "black",
             },
         })
 

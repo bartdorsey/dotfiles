@@ -1,383 +1,385 @@
-return {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-        -- Autocompletion
-        { "hrsh7th/nvim-cmp" }, -- autocompletion plugin
-        { "hrsh7th/cmp-buffer" }, -- buffer words source for cmp
-        { "hrsh7th/cmp-path" }, -- path source for cmp
-        { "hrsh7th/cmp-omni" }, -- omnifunc source for cmp
-        { "hrsh7th/cmp-cmdline" }, -- cmdline completion for cmp
-        { "hrsh7th/cmp-emoji" }, -- emoji completions for cmp
-        { "hrsh7th/cmp-nvim-lsp" }, -- lsp completions for cmp
-        { "hrsh7th/cmp-nvim-lua" }, -- completions for neovim lua api
-        { "saadparwaiz1/cmp_luasnip" }, -- luasnip completions for cmp
-        { "onsails/lspkind-nvim" }, -- icons for completion menus
-        { "zbirenbaum/copilot-cmp" }, -- github copilot cmp completions
+if vim.fn.hostname() == "NZXT" then
+    return {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            -- Autocompletion
+            { "hrsh7th/nvim-cmp" }, -- autocompletion plugin
+            { "hrsh7th/cmp-buffer" }, -- buffer words source for cmp
+            { "hrsh7th/cmp-path" }, -- path source for cmp
+            { "hrsh7th/cmp-omni" }, -- omnifunc source for cmp
+            { "hrsh7th/cmp-cmdline" }, -- cmdline completion for cmp
+            { "hrsh7th/cmp-emoji" }, -- emoji completions for cmp
+            { "hrsh7th/cmp-nvim-lsp" }, -- lsp completions for cmp
+            { "hrsh7th/cmp-nvim-lua" }, -- completions for neovim lua api
+            { "saadparwaiz1/cmp_luasnip" }, -- luasnip completions for cmp
+            { "onsails/lspkind-nvim" }, -- icons for completion menus
+            { "zbirenbaum/copilot-cmp" }, -- github copilot cmp completions
 
-        -- Schema Store
-        { "b0o/schemastore.nvim" },
+            -- Schema Store
+            { "b0o/schemastore.nvim" },
 
-        -- Snippets
-        { "L3MON4D3/LuaSnip" },
+            -- Snippets
+            { "L3MON4D3/LuaSnip" },
 
-        -- Diagnostics
-        { "jmsegrev/lsp_lines.nvim" },
+            -- Diagnostics
+            { "jmsegrev/lsp_lines.nvim" },
 
-        -- Rust tools
-        { "simrat39/rust-tools.nvim" },
+            -- Rust tools
+            { "simrat39/rust-tools.nvim" },
 
-        -- Mason
-        {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "WhoIsSethDaniel/mason-tool-installer.nvim",
-        },
-        -- For developing neovim plugins and configs
-        {
-            "folke/neodev.nvim",
-            ft = "lua",
-            config = function()
-                require("neodev").setup()
-            end,
-        },
-        {
-            "nvim-orgmode/orgmode",
-        },
-    },
-    config = function()
-        -- Setup Mason
-        require("mason").setup()
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "ts_ls",
-                "pyright",
-                "lua_ls",
-                "jsonls",
-                "eslint",
-                "ocamllsp",
-                "cssls",
-                "gopls",
-                "emmet_language_server",
-                "rust_analyzer",
-                "perlnavigator",
-                "yamlls",
-                "ansiblels",
-                "tailwindcss",
-                "bashls",
-                "cssmodules_ls",
-                "vimls",
-                "ruff_lsp",
+            -- Mason
+            {
+                "williamboman/mason.nvim",
+                "williamboman/mason-lspconfig.nvim",
+                "WhoIsSethDaniel/mason-tool-installer.nvim",
             },
-        })
-        require("mason-tool-installer").setup({
-            ensure_installed = {
-                "prettierd",
-                "ocamlformat",
-                "djlint",
-                "stylua",
-                "black",
+            -- For developing neovim plugins and configs
+            {
+                "folke/neodev.nvim",
+                ft = "lua",
+                config = function()
+                    require("neodev").setup()
+                end,
             },
-        })
-
-        local which = require("util").which
-        -- LSP settings.
-        local lsp = require("lspconfig")
-
-        -- Capabilities
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
-        local capabilities = cmp_nvim_lsp.default_capabilities()
-
-        -- Emmet
-        if which("emmet-language-server") then
-            lsp.emmet_ls.setup({
-                capabilities = capabilities,
-                filetypes = {
-                    "html",
-                    "typescriptreact",
-                    "javascriptreact",
-                    "css",
-                    "sass",
-                    "scss",
-                    "less",
-                },
-            })
-        end
-
-        -- nixd
-        if which("nixd") then
-            lsp.nixd.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- JavaScript
-        if which("biome") then
-            lsp.biome.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- TypeScript
-        if which("typescript-language-server") then
-            lsp.ts_ls.setup({
-                capabilities = capabilities,
-                filetypes = {
-                    "typescript",
-                    "typescriptreact",
-                    "javascript",
-                    "javascriptreact",
-                },
-            })
-        end
-
-        -- JSON
-        if which("vscode-json-language-server") then
-            lsp.jsonls.setup({
-                capabilities = capabilities,
-                json = {
-                    schemas = require("schemastore").json.schemas(),
-                    validate = { enable = true },
-                },
-            })
-        end
-
-        -- Go
-        if which("gopls") then
-            lsp.gopls.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        if which("gleam") then
-            lsp.gleam.setup({})
-        end
-
-        -- Perl
-        if which("perlnavigator") then
-            lsp.perlnavigator.setup({
-                capabilities = capabilities,
-                perlimportsTidyEnabled = true,
-                perlimportsLineEnabled = true,
-                includePaths = { "./lib" },
-            })
-        end
-
-        lsp.perlls.setup({})
-
-        -- Rust
-        if which("rustc") then
-            require("rust-tools").setup({
-                capabilities = capabilities,
-                tools = {
-                    inlay_hints = {
-                        only_current_line = true,
-                    },
-                },
-            })
-        end
-
-        if which("rust-analyzer") then
-            lsp.rust_analyzer.setup({
-                capabilities = capabilities,
-                ["rust-analyzer"] = {
-                    cargo = {
-                        features = "all",
-                    },
-                    checkOnSave = true,
-                    check = {
-                        command = "clippy",
-                    },
-                },
-            })
-        end
-
-        -- Python
-        --- Ruff lsp
-        if which("ruff-lsp") then
-            lsp.ruff_lsp.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        --- Jedi
-        if which("jedi_language_server") then
-            lsp.jedi_language_server.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        --- Pyright
-        if which("pyright-langserver") then
-            lsp.pyright.setup({
-                capabilities = capabilities,
-                settings = {
-                    python = {
-                        analysis = {
-                            typeCheckingMode = "basic",
-                            autoSearchPaths = true,
-                            diagnosticMode = "workspace",
-                            useLibraryCodeForTypes = true,
-                            reportMissingTypeStubs = false,
-                        },
-                    },
-                },
-            })
-        end
-
-        -- Ansible
-        if which("ansible-language-server") then
-            lsp.ansiblels.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- YAML
-        if which("yaml-language-server") then
-            lsp.yamlls.setup({
-                capabilities = capabilities,
-                yaml = {
-                    schemaStore = {
-                        enable = true,
-                    },
-                    format = {
-                        enable = true,
-                    },
-                    validate = true,
-                    hover = true,
-                    schemas = {
-                        ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
-                        ["schema.yml"] = "**/question.yml",
-                    },
-                },
-            })
-        end
-
-        -- Lua
-        if which("lua-language-server") then
-            lsp.lua_ls.setup({
-                capabilities = capabilities,
-                settings = {
-                    Lua = {
-                        completion = {
-                            callSnippet = "Replace",
-                        },
-                        workspace = {
-                            checkThirdParty = false,
-                        },
-                    },
-                },
-            })
-        end
-
-        -- Bash
-        if which("bash-language-server") then
-            lsp.bashls.setup({
-                capabilities = capabilities,
-                filetypes = { "sh", "zsh" },
-            })
-        end
-
-        -- CSS
-        if which("vscode-css-language-server") then
-            lsp.cssls.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- CSS Modules
-        if which("cssmodules-language-server") then
-            lsp.cssmodules_ls.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- Tailwind
-        if which("tailwindcss-language-server") then
-            lsp.tailwindcss.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- HTML
-        if which("vscode-html-language-server") then
-            lsp.html.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- ESLint
-        if which("vscode-eslint-language-server") then
-            lsp.eslint.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- Dockerfile
-        if which("docker-langserver") then
-            lsp.dockerls.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- Ocaml
-        if which("ocamllsp") then
-            lsp.ocamllsp.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- vimscript
-        if which("vim-language-server") then
-            lsp.vimls.setup({
-                capabilities = capabilities,
-            })
-        end
-
-        -- -- SQL
-        -- lsp.sqlls.setup({
-        --     capabilities = capabilities,
-        -- })
-
-        -- Setup CMP
-        require("plugins/lsp/cmp")
-
-        -- on attach
-        vim.api.nvim_create_autocmd("LspAttach", {
-            group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-            callback = require("plugins/lsp/onattach"),
-        })
-
-        -- Diagnostic signs
-        vim.diagnostic.config({
-            signs = {
-                text = {
-                    [vim.diagnostic.severity.ERROR] = "",
-                    [vim.diagnostic.severity.WARN] = "",
-                },
+            {
+                "nvim-orgmode/orgmode",
             },
-        })
+        },
+        config = function()
+            -- Setup Mason
+            require("mason").setup()
+            require("mason-lspconfig").setup({
+                ensure_installed = {
+                    "ts_ls",
+                    "pyright",
+                    "lua_ls",
+                    "jsonls",
+                    "eslint",
+                    "ocamllsp",
+                    "cssls",
+                    "gopls",
+                    "emmet_language_server",
+                    "rust_analyzer",
+                    "perlnavigator",
+                    "yamlls",
+                    "ansiblels",
+                    "tailwindcss",
+                    "bashls",
+                    "cssmodules_ls",
+                    "vimls",
+                    "ruff_lsp",
+                },
+            })
+            require("mason-tool-installer").setup({
+                ensure_installed = {
+                    "prettierd",
+                    "ocamlformat",
+                    "djlint",
+                    "stylua",
+                    "black",
+                },
+            })
 
-        -- LspReport
-        vim.api.nvim_create_user_command("LspReport", function()
-            local servers = {}
-            local configs = require("lspconfig.configs")
-            for server, config in pairs(configs) do
-                if config.manager ~= nil then
-                    table.insert(servers, {
-                        name = server,
-                        capabilities = config.manager.config.capabilities,
-                    })
-                end
+            local which = require("util").which
+            -- LSP settings.
+            local lsp = require("lspconfig")
+
+            -- Capabilities
+            local cmp_nvim_lsp = require("cmp_nvim_lsp")
+            local capabilities = cmp_nvim_lsp.default_capabilities()
+
+            -- Emmet
+            if which("emmet-language-server") then
+                lsp.emmet_ls.setup({
+                    capabilities = capabilities,
+                    filetypes = {
+                        "html",
+                        "typescriptreact",
+                        "javascriptreact",
+                        "css",
+                        "sass",
+                        "scss",
+                        "less",
+                    },
+                })
             end
-            local buf = vim.api.nvim_create_buf(true, true)
-            vim.api.nvim_buf_set_lines(
-                buf,
-                0,
-                0,
-                true,
-                vim.split(vim.inspect(servers), "\n")
-            )
-            vim.api.nvim_set_current_buf(buf)
-        end, {})
-    end,
-}
+
+            -- nixd
+            if which("nixd") then
+                lsp.nixd.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- JavaScript
+            if which("biome") then
+                lsp.biome.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- TypeScript
+            if which("typescript-language-server") then
+                lsp.ts_ls.setup({
+                    capabilities = capabilities,
+                    filetypes = {
+                        "typescript",
+                        "typescriptreact",
+                        "javascript",
+                        "javascriptreact",
+                    },
+                })
+            end
+
+            -- JSON
+            if which("vscode-json-language-server") then
+                lsp.jsonls.setup({
+                    capabilities = capabilities,
+                    json = {
+                        schemas = require("schemastore").json.schemas(),
+                        validate = { enable = true },
+                    },
+                })
+            end
+
+            -- Go
+            if which("gopls") then
+                lsp.gopls.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            if which("gleam") then
+                lsp.gleam.setup({})
+            end
+
+            -- Perl
+            if which("perlnavigator") then
+                lsp.perlnavigator.setup({
+                    capabilities = capabilities,
+                    perlimportsTidyEnabled = true,
+                    perlimportsLineEnabled = true,
+                    includePaths = { "./lib" },
+                })
+            end
+
+            lsp.perlls.setup({})
+
+            -- Rust
+            if which("rustc") then
+                require("rust-tools").setup({
+                    capabilities = capabilities,
+                    tools = {
+                        inlay_hints = {
+                            only_current_line = true,
+                        },
+                    },
+                })
+            end
+
+            if which("rust-analyzer") then
+                lsp.rust_analyzer.setup({
+                    capabilities = capabilities,
+                    ["rust-analyzer"] = {
+                        cargo = {
+                            features = "all",
+                        },
+                        checkOnSave = true,
+                        check = {
+                            command = "clippy",
+                        },
+                    },
+                })
+            end
+
+            -- Python
+            --- Ruff lsp
+            if which("ruff-lsp") then
+                lsp.ruff_lsp.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            --- Jedi
+            if which("jedi_language_server") then
+                lsp.jedi_language_server.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            --- Pyright
+            if which("pyright-langserver") then
+                lsp.pyright.setup({
+                    capabilities = capabilities,
+                    settings = {
+                        python = {
+                            analysis = {
+                                typeCheckingMode = "basic",
+                                autoSearchPaths = true,
+                                diagnosticMode = "workspace",
+                                useLibraryCodeForTypes = true,
+                                reportMissingTypeStubs = false,
+                            },
+                        },
+                    },
+                })
+            end
+
+            -- Ansible
+            if which("ansible-language-server") then
+                lsp.ansiblels.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- YAML
+            if which("yaml-language-server") then
+                lsp.yamlls.setup({
+                    capabilities = capabilities,
+                    yaml = {
+                        schemaStore = {
+                            enable = true,
+                        },
+                        format = {
+                            enable = true,
+                        },
+                        validate = true,
+                        hover = true,
+                        schemas = {
+                            ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
+                            ["schema.yml"] = "**/question.yml",
+                        },
+                    },
+                })
+            end
+
+            -- Lua
+            if which("lua-language-server") then
+                lsp.lua_ls.setup({
+                    capabilities = capabilities,
+                    settings = {
+                        Lua = {
+                            completion = {
+                                callSnippet = "Replace",
+                            },
+                            workspace = {
+                                checkThirdParty = false,
+                            },
+                        },
+                    },
+                })
+            end
+
+            -- Bash
+            if which("bash-language-server") then
+                lsp.bashls.setup({
+                    capabilities = capabilities,
+                    filetypes = { "sh", "zsh" },
+                })
+            end
+
+            -- CSS
+            if which("vscode-css-language-server") then
+                lsp.cssls.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- CSS Modules
+            if which("cssmodules-language-server") then
+                lsp.cssmodules_ls.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- Tailwind
+            if which("tailwindcss-language-server") then
+                lsp.tailwindcss.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- HTML
+            if which("vscode-html-language-server") then
+                lsp.html.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- ESLint
+            if which("vscode-eslint-language-server") then
+                lsp.eslint.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- Dockerfile
+            if which("docker-langserver") then
+                lsp.dockerls.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- Ocaml
+            if which("ocamllsp") then
+                lsp.ocamllsp.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- vimscript
+            if which("vim-language-server") then
+                lsp.vimls.setup({
+                    capabilities = capabilities,
+                })
+            end
+
+            -- -- SQL
+            -- lsp.sqlls.setup({
+            --     capabilities = capabilities,
+            -- })
+
+            -- Setup CMP
+            require("plugins/lsp/cmp")
+
+            -- on attach
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+                callback = require("plugins/lsp/onattach"),
+            })
+
+            -- Diagnostic signs
+            vim.diagnostic.config({
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = "",
+                        [vim.diagnostic.severity.WARN] = "",
+                    },
+                },
+            })
+
+            -- LspReport
+            vim.api.nvim_create_user_command("LspReport", function()
+                local servers = {}
+                local configs = require("lspconfig.configs")
+                for server, config in pairs(configs) do
+                    if config.manager ~= nil then
+                        table.insert(servers, {
+                            name = server,
+                            capabilities = config.manager.config.capabilities,
+                        })
+                    end
+                end
+                local buf = vim.api.nvim_create_buf(true, true)
+                vim.api.nvim_buf_set_lines(
+                    buf,
+                    0,
+                    0,
+                    true,
+                    vim.split(vim.inspect(servers), "\n")
+                )
+                vim.api.nvim_set_current_buf(buf)
+            end, {})
+        end,
+    }
+end

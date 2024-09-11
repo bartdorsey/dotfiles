@@ -1,4 +1,18 @@
-if vim.fn.hostname() == "NZXT" then
+local dev_hosts = {
+    "NZXT",
+    "dev",
+}
+
+function table_contains(tbl, value)
+    for _, v in pairs(tbl) do
+        if v == value then
+            return true
+        end
+    end
+    return false
+end
+
+if table_contains(dev_hosts, vim.fn.hostname()) then
     return {
         "neovim/nvim-lspconfig",
         dependencies = {

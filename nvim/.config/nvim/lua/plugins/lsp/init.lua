@@ -1,5 +1,6 @@
 local dev_hosts = {
     "NZXT",
+    "nzxt",
     "dev",
 }
 

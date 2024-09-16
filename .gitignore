@@ -10,3 +10,4 @@ tmux/.config/tmux/plugins
 *.log
 binaries/.local/bin/*
 aerc/.config/aerc/accounts.conf
+*.token

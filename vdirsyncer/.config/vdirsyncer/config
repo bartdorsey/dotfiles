@@ -1,0 +1,40 @@
+[general]
+status_path = "~/.local/share/vdirsyncer/status/"
+
+[pair galvanize_to_local]
+a = "galvanize"
+b = "local_google"
+collections = ["from a", "from b"]
+metadata = ["color", "displayname", "description", "order"]
+conflict_resolution = "a wins"
+
+[pair icloud_to_local]
+a = "icloud"
+b = "local_icloud"
+collections = ["from a", "from b"]
+metadata = ["color", "displayname", "description", "order"]
+conflict_resolution = "a wins"
+
+[storage galvanize]
+type = "google_calendar"
+token_file = "~/.config/vdirsyncer/google.token"
+client_id.fetch = ["command", "pass", "gcal_client_id"]
+client_secret.fetch = ["command", "pass", "gcal_secret_id"]
+read_only = true
+
+[storage local_google]
+type = "filesystem"
+path = "~/.calendar/google"
+fileext = ".ics"
+
+[storage local_icloud]
+type = "filesystem"
+path = "~/.calendar/icloud"
+fileext = ".ics"
+
+[storage icloud]
+type = "caldav"
+url = "https://caldav.icloud.com/"
+username = "bart@bartdorsey.com"
+password.fetch = ["command", "pass", "icloud"]
+

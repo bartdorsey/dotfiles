@@ -1,0 +1,38 @@
+[calendars]
+
+[[google]]
+path = /home/echo/.calendar/google/bart.dorsey@galvanize.com/
+type = calendar
+
+[[google2]]
+path = /home/echo/.calendar/google/c_sl7t85mkt7jvm8hkm0l4nmb22c@group.calendar.google.com/
+type = calendar
+
+[[google3]]
+path = /home/echo/.calendar/google/cln2stbjc4hmgrrcd5i62ua0ctp6utbg5pr2sor1dhimsp31e8n6errfctm6abj3dtmg@virtual/
+type = calendar
+
+[[google4]]
+path = /home/echo/.calendar/google/c5i68sj5edpm4rrfdchm6rreehgm6t3j81jn4rrle0n7cbj3c5m6arj4c5p2sprfdtjmop9ecdnmq@virtual/
+type = calendar
+
+[[icloud_home]]
+path = /home/echo/.calendar/icloud/home/
+type = calendar
+
+[[icloud2]]
+path = /home/echo/.calendar/icloud/08ceeacc5e4873198175fbb1f802d769f3712c2b3179573c48141fd0371a8f8b/
+type = calendar
+
+[locale]
+timeformat = %I:%M %p
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %I:%M %p
+longdatetimeformat = %Y-%m-%d %I:%M %p
+
+[default]
+default_calendar = google
+highlight_event_days = true
+
+

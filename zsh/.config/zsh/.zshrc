@@ -1,5 +1,32 @@
 #zmodload zsh/zprof
 
+# --- Setup a sane default prompt ---
+
+# Load vcs_info
+autoload -Uz vcs_info
+
+# Hook vcs_info into the precmd (executed before every prompt)
+precmd() { vcs_info }
+
+# Enable vcs_info for git
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' formats "%F{cyan}(%s) %b%f %u %c "
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '%F{green}(staged)%f'
+zstyle ':vcs_info:*' unstagedstr '%F{red}(modified)%f'
+
+# Customize the format for git info
+
+# Ensure the prompt is re-evaluated
+setopt prompt_subst
+
+# Update your prompt to include the vcs_info message
+PS1='${vcs_info_msg_0_}
+%F{green}%/%f
+%F{yellow}%#%f '
+
+# --- End prompt setup ---
+
 # Run .profile if it exists
 if [ -e "$HOME/.profile" ]; then
     source "$HOME/.profile"

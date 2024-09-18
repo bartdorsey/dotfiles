@@ -21,16 +21,26 @@
       config.allowUnfree = true;
       inherit system;
     };
+    pkgs = import nixpkgs {
+      config.allowUnfree = true;
+      inherit system;
+    };
   in {
     nixosConfigurations = {
       nzxt = lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit pkgs-unstable;};
+        specialArgs = {
+          inherit pkgs;
+          inherit pkgs-unstable;
+        };
         modules = [./configuration.nix];
       };
       nzxt-wsl = lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit pkgs-unstable;};
+        specialArgs = {
+          inherit pkgs;
+          inherit pkgs-unstable;
+        };
         modules = [nixoswsl.nixosModules.wsl ./wsl-configuration.nix];
       };
     };

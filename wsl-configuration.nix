@@ -35,6 +35,7 @@
         nix-output-monitor
         nvd
         neovim
+        opam
       ])
       ++ (with pkgs; [
         vim

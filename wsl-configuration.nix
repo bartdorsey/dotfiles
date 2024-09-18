@@ -5,7 +5,8 @@
 # https://github.com/nix-community/NixOS-WSL
 {
   pkgs,
-  pkgs-unstable,
+  userPackages,
+  systemPackages,
   ...
 }: {
   imports = [
@@ -28,48 +29,7 @@
     isNormalUser = true;
     description = "Bart Dorsey";
     extraGroups = ["networkmanager" "wheel" "docker"];
-    packages =
-      (with pkgs-unstable; [
-        dust
-        nh
-        nix-output-monitor
-        nvd
-        neovim
-        opam
-      ])
-      ++ (with pkgs; [
-        vim
-        (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
-        git
-        git-lfs
-        nodejs_22
-        starship
-        lazygit
-        pass
-        ripgrep
-        fzf
-        stow
-        zoxide
-        nixd
-        fd
-        fastfetch
-        htop
-        btop
-        lsd
-        grc
-        corepack_20
-        rustup
-        stdenv.cc.cc
-        pyright
-        ruff
-        ruff-lsp
-        tmux
-        gh
-        clang
-        alejandra
-        lazydocker
-        khal
-      ]);
+    packages = userPackages;
   };
 
   users.groups.echo = {
@@ -83,11 +43,7 @@
     "nix-2.16.2"
   ];
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    zsh
-  ];
+  environment.systemPackages = systemPackages;
 
   programs.nix-ld = {
     enable = true;

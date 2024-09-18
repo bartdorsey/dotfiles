@@ -5,6 +5,8 @@
   config,
   pkgs,
   pkgs-unstable,
+  userPackages,
+  systemPackages,
   ...
 }: {
   imports = [
@@ -117,7 +119,8 @@
     description = "Bart Dorsey";
     extraGroups = ["networkmanager" "wheel" "docker"];
     packages =
-      (with pkgs-unstable; [
+      userPackages
+      ++ (with pkgs-unstable; [
         zoom-us
         dust
         nh
@@ -125,37 +128,6 @@
         nvd
       ])
       ++ (with pkgs; [
-        vim
-        (python311.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
-        neovim
-        git
-        git-lfs
-        nodejs_20
-        starship
-        lazygit
-        lazydocker
-        pass
-        ripgrep
-        fzf
-        stow
-        zoxide
-        nixd
-        fd
-        fastfetch
-        htop
-        btop
-        lsd
-        grc
-        ollama
-        corepack_20
-        rustup
-        stdenv.cc.cc
-        pyright
-        ruff
-        ruff-lsp
-        tmux
-        gh
-        clang
         firefox
         vivaldi
         libsForQt5.lightly
@@ -199,12 +171,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    zsh
-    neovim
-  ];
+  environment.systemPackages = systemPackages;
 
   environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
 

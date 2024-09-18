@@ -2,6 +2,7 @@ local dev_hosts = {
     "NZXT",
     "nzxt",
     "dev",
+    "nzxt-wsl"
 }
 
 function table_contains(tbl, value)

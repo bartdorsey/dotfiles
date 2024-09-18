@@ -1,21 +1,24 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, lib, pkgs, pkgs-unstable, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader = {
     efi.canTouchEfiVariables = true;
 
     grub = {
-      devices = [ "nodev" ];
+      devices = ["nodev"];
       efiSupport = true;
       enable = true;
       useOSProber = true;
@@ -113,65 +116,67 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Bart Dorsey";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = (with pkgs-unstable; [
+    extraGroups = ["networkmanager" "wheel" "docker"];
+    packages =
+      (with pkgs-unstable; [
         zoom-us
         dust
         nh
         nix-output-monitor
         nvd
-    ]) ++ (with pkgs; [
-       vim
-       (python311.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
-       neovim
-       git
-       git-lfs
-       nodejs_20
-       starship
-       lazygit
-       lazydocker
-       pass
-       ripgrep
-       fzf
-       stow
-       zoxide
-       nixd
-       fd
-       fastfetch
-       htop
-       btop
-       lsd
-       grc
-       ollama
-       corepack_20
-       rustup
-       stdenv.cc.cc
-       pyright
-       ruff
-       ruff-lsp
-       tmux
-       gh
-       clang
-       firefox
-       vivaldi
-       libsForQt5.lightly
-       libsForQt5.xdg-desktop-portal-kde
-       _1password-gui
-       _1password
-       chromium
-       flameshot
-       obs-studio
-       discord
-       slack
-       google-chrome
-       gnome.gnome-tweaks
-       gnomeExtensions.dash-to-panel
-       vscode
-       wezterm
-       kitty
-       monaspace
-       goxlr-utility
-    ]);
+      ])
+      ++ (with pkgs; [
+        vim
+        (python311.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython]))
+        neovim
+        git
+        git-lfs
+        nodejs_20
+        starship
+        lazygit
+        lazydocker
+        pass
+        ripgrep
+        fzf
+        stow
+        zoxide
+        nixd
+        fd
+        fastfetch
+        htop
+        btop
+        lsd
+        grc
+        ollama
+        corepack_20
+        rustup
+        stdenv.cc.cc
+        pyright
+        ruff
+        ruff-lsp
+        tmux
+        gh
+        clang
+        firefox
+        vivaldi
+        libsForQt5.lightly
+        libsForQt5.xdg-desktop-portal-kde
+        _1password-gui
+        _1password
+        chromium
+        flameshot
+        obs-studio
+        discord
+        slack
+        google-chrome
+        gnome.gnome-tweaks
+        gnomeExtensions.dash-to-panel
+        vscode
+        wezterm
+        kitty
+        monaspace
+        goxlr-utility
+      ]);
   };
   users.groups.echo = {
     name = "echo";

@@ -14,6 +14,7 @@ return {
                 ocaml = { "ocamlformat" },
                 html = { "prettierd " },
                 htmldjango = { "djlint" },
+                nix = { "alejandra" },
             },
             format_on_save = {
                 -- These options will be passed to conform.format()

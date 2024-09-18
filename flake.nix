@@ -10,7 +10,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     nixoswsl,
     nixpkgs-unstable,
@@ -18,9 +17,6 @@
   }: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-    };
     pkgs-unstable = import nixpkgs-unstable {
       config.allowUnfree = true;
       inherit system;

@@ -4,7 +4,7 @@ local cmp = require("cmp")
 cmp.setup({
     -- completion
     completion = {
-        keyword_length = 2,
+        keyword_length = 1,
     },
 
     -- Snippets to load
@@ -42,6 +42,7 @@ cmp.setup({
     -- Sources for completion
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
+        { name = "nvim_lsp_signature_help" },
         { name = "orgmode" },
         { name = "path" },
         { name = "luasnip" },

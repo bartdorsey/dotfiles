@@ -161,16 +161,6 @@ return {
                     },
                 },
                 extensions = {
-                    glyph = {
-                        action = function(glyph)
-                            vim.api.nvim_put({ glyph.value }, "c", false, true)
-                        end,
-                    },
-                    emoji = {
-                        action = function(emoji)
-                            vim.api.nvim_put({ emoji.value }, "c", false, true)
-                        end,
-                    },
                     repo = {
                         list = {
                             search_dirs = {
@@ -186,28 +176,6 @@ return {
             require("telescope").load_extension("messages")
             require("telescope").load_extension("repo")
             require("telescope").load_extension("bookmarks")
-        end,
-    },
-    {
-        "ghassan0/telescope-glyph.nvim",
-        keys = {
-            {
-                "<leader>fn",
-                "<cmd>Telescope glyph<cr>",
-                desc = "Search Nerd Font Glyphs",
-            },
-        },
-        config = function()
-            pcall(require("telescope").load_extension, "glyph")
-        end,
-    },
-    {
-        "xiyaowong/telescope-emoji.nvim",
-        keys = {
-            { "<leader>fe", "<cmd>Telescope emoji<cr>", desc = "Search Emoji" },
-        },
-        config = function()
-            pcall(require("telescope").load_extension, "emoji")
         end,
     },
     {

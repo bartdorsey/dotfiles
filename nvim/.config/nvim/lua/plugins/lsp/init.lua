@@ -25,6 +25,7 @@ if table_contains(dev_hosts, vim.fn.hostname()) then
             { "hrsh7th/cmp-omni" }, -- omnifunc source for cmp
             { "hrsh7th/cmp-cmdline" }, -- cmdline completion for cmp
             { "hrsh7th/cmp-emoji" }, -- emoji completions for cmp
+            { "chrisgrieser/cmp-nerdfont" }, -- nerdfont completions
             { "hrsh7th/cmp-nvim-lsp" }, -- lsp completions for cmp
             { "hrsh7th/cmp-nvim-lsp-signature-help" }, -- lsp function signatures
             { "hrsh7th/cmp-nvim-lua" }, -- completions for neovim lua api
@@ -105,7 +106,7 @@ if table_contains(dev_hosts, vim.fn.hostname()) then
 
             -- Emmet
             if which("emmet-language-server") then
-                lsp.emmet_ls.setup({
+                lsp.emmet_language_server.setup({
                     capabilities = capabilities,
                     filetypes = {
                         "html",

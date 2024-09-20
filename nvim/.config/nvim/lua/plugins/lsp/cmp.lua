@@ -51,6 +51,7 @@ cmp.setup({
             option = { disable_omnifuncs = { "v:lua.vim.lsp.omnifunc" } },
         },
         { name = "emoji" },
+        { name = "nerdfont" },
     }, {
         { name = "copilot" },
         { name = "buffer" },
@@ -58,8 +59,9 @@ cmp.setup({
     -- Formatting the completions in the menu (adds icons)
     formatting = {
         format = require("lspkind").cmp_format({
-            mode = "symbol_text",
+            mode = "text_symbol",
             maxwidth = 50,
+            show_labelDetails = true,
             ellipsis_char = "...",
             symbol_map = {
                 Copilot = "",

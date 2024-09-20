@@ -26,6 +26,7 @@ if table_contains(dev_hosts, vim.fn.hostname()) then
             { "hrsh7th/cmp-cmdline" }, -- cmdline completion for cmp
             { "hrsh7th/cmp-emoji" }, -- emoji completions for cmp
             { "hrsh7th/cmp-nvim-lsp" }, -- lsp completions for cmp
+            { "hrsh7th/cmp-nvim-lsp-signature-help" }, -- lsp function signatures
             { "hrsh7th/cmp-nvim-lua" }, -- completions for neovim lua api
             { "saadparwaiz1/cmp_luasnip" }, -- luasnip completions for cmp
             { "onsails/lspkind-nvim" }, -- icons for completion menus
@@ -114,6 +115,9 @@ if table_contains(dev_hosts, vim.fn.hostname()) then
                         "sass",
                         "scss",
                         "less",
+                    },
+                    init_options = {
+                        showSuggestionsAsSnippets = true,
                     },
                 })
             end

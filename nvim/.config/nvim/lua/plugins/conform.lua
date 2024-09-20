@@ -10,7 +10,7 @@ return {
                 typescriptreact = { "prettierd" },
                 javascriptreact = { "prettierd" },
                 json = { "prettierd" },
-                -- markdown = { "prettierd" },
+                markdown = { "prettierd" },
                 ocaml = { "ocamlformat" },
                 html = { "prettierd " },
                 htmldjango = { "djlint" },

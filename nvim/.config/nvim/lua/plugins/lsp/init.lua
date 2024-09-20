@@ -2,7 +2,7 @@ local dev_hosts = {
     "NZXT",
     "nzxt",
     "dev",
-    "nzxt-wsl"
+    "nzxt-wsl",
 }
 
 function table_contains(tbl, value)
@@ -83,7 +83,6 @@ if table_contains(dev_hosts, vim.fn.hostname()) then
                     "bashls",
                     "cssmodules_ls",
                     "vimls",
-                    "ruff_lsp",
                 },
             })
             require("mason-tool-installer").setup({
@@ -92,7 +91,6 @@ if table_contains(dev_hosts, vim.fn.hostname()) then
                     "ocamlformat",
                     "djlint",
                     "stylua",
-                    "black",
                 },
             })
 
@@ -210,11 +208,11 @@ if table_contains(dev_hosts, vim.fn.hostname()) then
 
             -- Python
             --- Ruff lsp
-            if which("ruff-lsp") then
-                lsp.ruff_lsp.setup({
-                    capabilities = capabilities,
-                })
-            end
+            -- if which("ruff-lsp") then
+            --     lsp.ruff_lsp.setup({
+            --         capabilities = capabilities,
+            --     })
+            -- end
 
             --- Jedi
             if which("jedi_language_server") then

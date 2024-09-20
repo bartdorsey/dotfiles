@@ -3,6 +3,7 @@ local dev_hosts = {
     "nzxt",
     "dev",
     "nzxt-wsl",
+    "mac.home"
 }
 
 function table_contains(tbl, value)

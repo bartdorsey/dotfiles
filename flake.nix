@@ -74,6 +74,8 @@
       alejandra
       lazydocker
       khal
+      sesh
+      gum
     ];
 
     userPackages = unstableUserPackages ++ stableUserPackages;

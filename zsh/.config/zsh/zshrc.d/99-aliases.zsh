@@ -53,3 +53,24 @@ fi
 if type gh > /dev/null; then
     eval "$(gh copilot alias -- zsh)"
 fi
+
+# sesh
+if type sesh > /dev/null; then
+
+    function sesh-sessions() {
+      {
+        exec </dev/tty
+        exec <&1
+        local session
+        session=$(sesh list -i | gum filter --limit 1 --placeholder 'Pick a sesh' --prompt='⚡')
+        # session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+        [[ -z "$session" ]] && return
+        sesh connect $session
+      }
+    }
+
+    zle -N sesh-sessions
+    bindkey -M emacs '\es' sesh-sessions
+    bindkey -M vicmd '\es' sesh-sessions
+    bindkey -M viins '\es' sesh-sessions
+fi

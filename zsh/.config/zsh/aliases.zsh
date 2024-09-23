@@ -74,3 +74,18 @@ if type sesh > /dev/null; then
     bindkey -M vicmd '\es' sesh-sessions
     bindkey -M viins '\es' sesh-sessions
 fi
+
+# wget
+if type wget > /dev/null; then
+    alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+fi
+
+# irssi
+if type irssi > /dev/null; then
+    alias irssi=irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$XDG_DATA_HOME"/irssi
+fi
+
+# nvidia-settings
+if type nvidia-settings > /dev/null; then
+    alias nvidia-settings=nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings
+fi

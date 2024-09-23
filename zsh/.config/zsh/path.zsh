@@ -13,11 +13,6 @@ if [ -d "$CARGO_HOME/bin" ];then
     export PATH=$CARGO_HOME/bin:$PATH:
 fi
 
-# t script
-if [ -d $HOME/.tmux/plugins/t-smart-tmux-session-manager ];then
-    export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
-fi
-
 # Haskell
 if [ -d $HOME/.ghcup ];then
     export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
@@ -126,4 +121,19 @@ if type op > /dev/null; then
    function 1p {
       op item get $(op item list | fzf | cut -f 1 -d " ")
    }
+fi
+
+# GRC
+if type grc > /dev/null; then
+    if [ -e /etc/grc.zsh ]; then
+        source /etc/grc.zsh
+    fi
+    if [ -e /opt/local/etc/grc.d/grc.zsh ]; then
+        source /opt/local/etc/grc.d/grc.zsh
+    fi
+fi
+
+# direnv
+if type direnv > /dev/null; then
+    eval "$(direnv hook zsh)"
 fi

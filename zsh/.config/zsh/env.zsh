@@ -11,12 +11,15 @@ setopt hist_find_no_dups
 # Hack to make colors work again in new groff
 export GROFF_NO_SGR=1
 
+# Making the zsh directory if it doesn't exist already
 if [ ! -d $XDG_STATE_HOME/zsh ];then
     mkdir -p $XDG_STATE_HOME/zsh
 fi
 
-export BROWSER="xdg-open"
+# Set the default browser
+export BROWSER="open"
 
+# Set zsh's history file
 HISTFILE=$XDG_STATE_HOME/zsh/history
 
 # MacPorts
@@ -28,7 +31,7 @@ fi
 # Ansible
 export ANSIBLE_HOME="$XDG_DATA_HOME"/ansible
 
-# Cabal
+# Cabal Haskell
 export CABAL_CONFIG="$XDG_CONFIG_HOME"/cabal/config
 export CABAL_DIR="$XDG_DATA_HOME"/cabal
 
@@ -83,30 +86,10 @@ export OPAMROOT="${XDG_DATA_HOME}/opam"
 # Pass
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 
-# wget
-alias wget="wget --hsts-file="${XDG_CACHE_HOME}/wget-hsts""
-
-# GRC
-if type grc > /dev/null; then
-    if [ -e /etc/grc.zsh ]; then
-        source /etc/grc.zsh
-    fi
-    if [ -e /opt/local/etc/grc.d/grc.zsh ]; then
-        source /opt/local/etc/grc.d/grc.zsh
-    fi
-fi
-
 # FZF Config
 if type fzf > /dev/null; then
     export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
     export FZF_DEFAULT_OPTS='--no-height'
-fi
-
-# Prompt Title
-if type lsb_release > /dev/null 2>&1;then
-    if [[ $OSTYPE == "linux-gnu" ]]; then
-        export PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
-    fi
 fi
 
 # Default editor
@@ -129,11 +112,6 @@ fi
 # iPython
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 
-# irssi
-if type irssi > /dev/null; then
-    alias irssi=irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$XDG_DATA_HOME"/irssi
-fi
-
 # Jupyter
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 
@@ -155,11 +133,6 @@ if type python3 > /dev/null;then
     export PIPENV_VENV_IN_PROJECT=1
 fi
 
-# nvidia-settings
-if type nvidia-settings > /dev/null; then
-    alias nvidia-settings=nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings
-fi
-
 # PGPass
 export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 
@@ -174,11 +147,6 @@ export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 
 # w3m
 export W3M_DIR="$XDG_DATA_HOME"/w3m
-
-# wget
-if type wget > /dev/null; then
-    alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
-fi
 
 # wine
 export WINEPREFIX="$XDG_DATA_HOME"/wine
@@ -221,9 +189,4 @@ fi
 # Make
 if [ -f /proc/cpuinfo ]; then
     export MAKEFLAGS="-j $(grep -c ^processor /proc/cpuinfo)"
-fi
-
-# direnv
-if type direnv > /dev/null; then
-    eval "$(direnv hook zsh)"
 fi

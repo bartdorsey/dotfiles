@@ -1,4 +1,4 @@
-#zmodload zsh/zprof
+zmodload zsh/zprof
 
 # --- Setup a sane default prompt ---
 
@@ -70,28 +70,32 @@ compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 stty stop undef
 
 # Path
-zsh_config_run path.zsh
+source $ZDOTDIR/path.zsh
 
 # Plugins
-zsh_config_run zsh-plugins.zsh
+source $ZDOTDIR/zsh-plugins.zsh
 
 # Aliases
-zsh_config_run aliases.zsh
+source $ZDOTDIR/aliases.zsh
 
 # Prompt
-zsh_config_run prompt.zsh
-
-# MOTD
-zsh_config_run fetch.zsh
+source $ZDOTDIR/prompt.zsh
 
 # Keybinds for OSes like Arch
-zsh_config_run keybinds.zsh
+source $ZDOTDIR/keybinds.zsh
 
 # SSH Agent
-zsh_config_run ssh-agent.zsh
+source $ZDOTDIR/ssh-agent.zsh
 
 # WSL
-zsh_config_run wsl.zsh
+source $ZDOTDIR/wsl.zsh
+
+# Prompt Title
+if type lsb_release > /dev/null 2>&1;then
+    if [[ $OSTYPE == "linux-gnu" ]]; then
+        export PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
+    fi
+fi
 
 # Set the terminal title with our distribution
 if type lsb_release > /dev/null; then
@@ -127,3 +131,6 @@ fi
 if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
     source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
+
+# MOTD
+source $ZDOTDIR/fetch.zsh

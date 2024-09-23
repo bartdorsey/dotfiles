@@ -67,7 +67,3 @@ if type python3 > /dev/null;then
         rg \
         fd
 fi
-
-for script in $ZDOTDIR/zshrc.d/*.zsh;
-do run_script "$(basename "$script")"
-done;

@@ -62,7 +62,7 @@ if type sesh > /dev/null; then
         exec </dev/tty
         exec <&1
         local session
-        session=$(sesh list -i | gum filter --limit 1 --placeholder 'Pick a sesh' --prompt='⚡')
+        session=$(sesh list -i -c -t -z | gum filter --width=80 --reverse --height=10 --limit 1 --placeholder 'Pick a sesh' --prompt='⚡')
         # session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
         [[ -z "$session" ]] && return
         sesh connect $session

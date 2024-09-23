@@ -222,3 +222,8 @@ fi
 if [ -f /proc/cpuinfo ]; then
     export MAKEFLAGS="-j $(grep -c ^processor /proc/cpuinfo)"
 fi
+
+# direnv
+if type direnv > /dev/null; then
+    eval "$(direnv hook zsh)"
+fi

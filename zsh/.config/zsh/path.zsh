@@ -66,3 +66,64 @@ fi
 if [ -f "/mnt/c/Users/bart/scoop/apps/wezterm-nightly/current/wezterm.exe" ];then
     export PATH="/mnt/c/Users/bart/scoop/apps/wezterm-nightly/current:$PATH"
 fi
+
+# Nodejs
+if type fnm > /dev/null; then
+    eval "$(fnm env --shell=zsh --use-on-cd)"
+    if ! type node > /dev/null; then
+        fnm install --lts
+    fi
+fi
+
+# Ocaml
+[[ ! -r $HOME/.local/share/opam/opam-init/init.zsh ]] || source $HOME/.local/share/opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# pnpm
+if type pnpm > /dev/null;then
+    export PNPM_HOME="$HOME/.local/share/pnpm"
+    export PATH="$PNPM_HOME:$PATH"
+fi
+
+# Python
+if type pip3 > /dev/null; then
+    eval "`pip3 completion --zsh`"
+fi
+
+if type python3 > /dev/null; then
+    # Python Virtual Environment stuff
+    alias python=python3
+    alias pip=pip3
+    alias venv="python -m venv .venv && source .venv/bin/activate"
+    alias activate="source .venv/bin/activate"
+fi
+
+# Ruby
+if type rbenv > /dev/null; then
+   eval "$(rbenv init - zsh)"
+fi
+
+# Zoxide
+if type zoxide > /dev/null; then
+    # Set exlude dirs for zoxide
+    export _ZO_EXCLUDE_DIRS="$HOME/.cache/*"
+    # Initialize zoxide
+    eval "$(zoxide init --cmd cd zsh)"
+    alias j=z
+    alias z=cd
+fi
+
+# nvim
+alias vi=$(which vim)
+
+if type nvim > /dev/null;then
+    alias vim=$(which nvim)
+    alias nvchad="VIMINIT= NVIM_APPNAME=nvchad nvim"
+    alias butts="VIMINIT= NVIM_APPNAME=alphakeks nvim"
+fi
+
+# 1Password
+if type op > /dev/null; then
+   function 1p {
+      op item get $(op item list | fzf | cut -f 1 -d " ")
+   }
+fi

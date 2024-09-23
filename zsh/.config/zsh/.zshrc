@@ -42,8 +42,9 @@ alias help=run-help
 
 # Skip global compinit initialization in Ubuntu
 skip_global_compinit=1
+
 # Load zsh functions
-source $ZDOTDIR/zsh-functions.sh
+source $ZDOTDIR/zsh-functions.zsh
 
 # Configure colors for zsh
 autoload -U colors && colors
@@ -71,13 +72,11 @@ stty stop undef
 # Path
 zsh_config_run path.zsh
 
-# find the command on arch
-if [ -e /usr/share/doc/find-the-command/ftc.zsh ]; then
-    source /usr/share/doc/find-the-command/ftc.zsh
-fi
-
 # Plugins
-zsh_config_run zsh-plugins.sh
+zsh_config_run zsh-plugins.zsh
+
+# Aliases
+zsh_config_run aliases.zsh
 
 # Prompt
 zsh_config_run prompt.zsh
@@ -88,13 +87,19 @@ zsh_config_run fetch.zsh
 # Keybinds for OSes like Arch
 zsh_config_run keybinds.zsh
 
+# SSH Agent
+zsh_config_run ssh-agent.zsh
+
+# WSL
+zsh_config_run wsl.zsh
+
+# Set the terminal title with our distribution
 if type lsb_release > /dev/null; then
     TERMINAL_TITLE="$USER@$(hostname -f):$(lsb_release -i -s)"
 else
     TERMINAL_TITLE="$USER@$(hostname -f)"
 fi
-#
-# Set the terminal title with our distribution
+
 set_terminal_title() {
     printf "\e]0;$TERMINAL_TITLE\a" 
 }
@@ -118,6 +123,7 @@ if type tinty > /dev/null; then
     tinty init
 fi
 
+# Setup pkgfile's command not found
 if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
     source /usr/share/doc/pkgfile/command-not-found.zsh
 fi

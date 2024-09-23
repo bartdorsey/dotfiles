@@ -21,3 +21,8 @@ name = " tmux config"
 path = "~/.dotfiles/tmux/.config/tmux"
 startup_command = "nvim ~/.dotfiles/tmux/.config/tmux/tmux.conf"
 
+[[session]]
+name = " sesh config"
+path = "~/.dotfiles/sesh/.config/sesh"
+startup_command = "nvim ~/.dotfiles/sesh/.config/sesh/sesh.toml"
+

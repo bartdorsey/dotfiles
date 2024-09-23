@@ -57,14 +57,35 @@ fi
 # Configure zmv
 autoload zmv
 
-# Configure completion for zsh
-zsh_configure_completion
-
-# Run compinit
+# Setting zsh's cache
 if [[ ! -d "$XDG_CACHE_HOME"/zsh ]]; then
     mkdir "$XDG_CACHE_HOME/zsh"
 fi
+
+# Configure completion for zsh
+autoload -U compinit
+zstyle ':completion:*' menu no
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' list-dirs-first
+zstyle ':completion:*' list-grouped
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --icon always $realpath'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+#zstyle ':completion:*' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*' complete-options true
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+# partial completion suggestions
+zstyle ':completion:*' list-suffixes
+zstyle ':completion:*' expand prefix sufix
+zmodload zsh/complist
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+_comp_options+=(globdots)
+unsetopt listambiguous
+setopt AUTO_LIST
+LISTMAX=-1
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Stop Ctrl-S freezing the terminal
 stty stop undef

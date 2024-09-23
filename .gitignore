@@ -11,3 +11,4 @@ tmux/.config/tmux/plugins
 binaries/.local/bin/*
 aerc/.config/aerc/accounts.conf
 *.token
+*.zwc

@@ -71,7 +71,7 @@ if type fnm > /dev/null; then
 fi
 
 # Ocaml
-[[ ! -r $HOME/.local/share/opam/opam-init/init.zsh ]] || source $HOME/.local/share/opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+# [[ ! -r $HOME/.local/share/opam/opam-init/init.zsh ]] || source $HOME/.local/share/opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # pnpm
 if type pnpm > /dev/null;then
@@ -123,14 +123,14 @@ if type op > /dev/null; then
    }
 fi
 
+# GRC-RS
+#if type grc-rs > /dev/null; then
+#    eval $(grc-rs --aliases)
+#fi
+
 # GRC
 if type grc > /dev/null; then
-    if [ -e /etc/grc.zsh ]; then
-        source /etc/grc.zsh
-    fi
-    if [ -e /opt/local/etc/grc.d/grc.zsh ]; then
-        source /opt/local/etc/grc.d/grc.zsh
-    fi
+    source $ZDOTDIR/grc.zsh
 fi
 
 # direnv

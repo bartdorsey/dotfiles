@@ -57,7 +57,6 @@ if os.getenv("DEVMODE") then
                     "lua_ls",
                     "jsonls",
                     "eslint",
-                    "ocamllsp",
                     "cssls",
                     "gopls",
                     "emmet_language_server",
@@ -74,7 +73,6 @@ if os.getenv("DEVMODE") then
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     "prettierd",
-                    "ocamlformat",
                     "djlint",
                     "stylua",
                 },

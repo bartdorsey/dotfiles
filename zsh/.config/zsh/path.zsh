@@ -3,6 +3,12 @@ if [ -d /usr/local/bin ]; then
     export PATH="/usr/local/bin:$PATH"
 fi
 
+# Linux brew
+if [ -d /home/linuxbrew ]; then
+    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/echo/.zshrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # Docker Desktop
 if [ -d "$HOME/.docker/bin" ]; then
     export PATH="$HOME/.docker/bin:$PATH"

@@ -93,6 +93,11 @@ stty stop undef
 # Path
 source $ZDOTDIR/path.zsh
 
+# Devtools
+if [[ $DEVMODE ]]; then
+    source $ZDOTDIR/devtools.zsh
+fi
+
 # Plugins
 source $ZDOTDIR/zsh-plugins.zsh
 

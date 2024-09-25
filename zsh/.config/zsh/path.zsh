@@ -5,7 +5,6 @@ fi
 
 # Linux brew
 if [ -d /home/linuxbrew ]; then
-    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/echo/.zshrc
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 

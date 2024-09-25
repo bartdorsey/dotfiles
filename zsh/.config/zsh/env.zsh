@@ -190,3 +190,11 @@ fi
 if [ -f /proc/cpuinfo ]; then
     export MAKEFLAGS="-j $(grep -c ^processor /proc/cpuinfo)"
 fi
+
+# Dev mode
+# This sets up an environment variable called DEVMODE
+# My nvim config pays attention to this to decide what plugins to load
+# touch ~/.config/devmode to enable on a box
+if [ -f ~/.config/devmode ]; then
+    export DEVMODE=1
+fi

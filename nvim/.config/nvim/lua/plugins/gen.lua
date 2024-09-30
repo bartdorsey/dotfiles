@@ -5,7 +5,10 @@ return {
             display_mode = "split",
             show_prompt = true,
             show_model = true,
-            model = "codellama",
+            model = "llama3.2:1b",
+            host = "nzxt.home",
+            port = "11434",
+            debug = true,
         })
     end,
 }

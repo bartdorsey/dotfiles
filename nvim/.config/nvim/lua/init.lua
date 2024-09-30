@@ -12,38 +12,52 @@ vim.cmd("set title")
 
 vim.opt.termguicolors = true
 -- Plugins
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({
         "git",
         "clone",
         "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
+        "--branch=stable",
+        lazyrepo,
         lazypath,
     })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out, "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 
 vim.opt.rtp:prepend(lazypath)
 
-local opts = {
-    ui = {
-        size = { width = 1, height = 1 },
+require("lazy").setup({
+    defaults = {
+        cond = vim.g.vscode == nil
     },
+    spec = {
+        { import = "plugins" },
+    },
+    ui = {},
     checker = {
-        enabled = false,
+        enabled = true,
         notify = true,
     },
     change_detection = {
         enabled = true,
-        notify = false,
+        notify = true,
     },
     install = {
         missing = true,
+        colorscheme = { "dawn" },
     },
-}
-
-require("lazy").setup("plugins", opts)
+})
 
 -- Post plugin configurations
 if vim.g.neovide then
@@ -86,7 +100,7 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
 
-local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
+-- local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
 
 -- Split
 vim.opt.splitbelow = true

@@ -1,4 +1,5 @@
 return {
+    cond = true,
     "LunarVim/bigfile.nvim",
     event = "BufReadPre",
     opts = {

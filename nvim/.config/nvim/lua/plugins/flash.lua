@@ -1,4 +1,5 @@
 return {
+    cond = true,
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {

@@ -4,6 +4,7 @@ local function fuzzily_search()
         require("telescope.themes").get_dropdown({
             winblend = 10,
             previewer = false,
+            flip_columns = nil,
         })
     )
 end
@@ -12,14 +13,14 @@ local function open_file_browser()
     require("telescope").extensions.file_browser.file_browser()
 end
 
-local function open_command()
-    local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
-    if in_wsl then
-        return "wsl-open"
-    else
-        return "xdg-open"
-    end
-end
+-- local function open_command()
+--     local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
+--     if in_wsl then
+--         return "wsl-open"
+--     else
+--         return "xdg-open"
+--     end
+-- end
 
 return {
     {
@@ -51,12 +52,12 @@ return {
             },
             {
                 "<leader><space>",
-                "<cmd>Telescope buffers<cr>",
+                "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
                 desc = "Find existing buffers",
             },
             {
                 "<leader>ff",
-                "<cmd>Telescope find_files<cr>",
+                "<cmd>Telescope find_files sort_mru=true sort_lastused=true<cr>",
                 desc = "Search Files",
             },
             {
@@ -85,7 +86,7 @@ return {
                 desc = "Search Diagnostics",
             },
             {
-                "<leader>f:",
+                "<leader>:",
                 "<cmd>Telescope commands<cr>",
                 desc = "Command Pallete",
             },
@@ -109,6 +110,11 @@ return {
                 "<cmd>Telescope repo list<cr>",
                 desc = "Find Git Repos",
             },
+            {
+                "<leader>fs",
+                "<cmd>Telescope lsp_workspace_symbols<cr>",
+                desc = "Find Symbols in Workspace",
+            },
         },
         config = function()
             local actions = require("telescope.actions")
@@ -118,10 +124,13 @@ return {
                     color_devicons = true,
                     dynamic_preview_title = true,
                     border = true,
+                    theme = "ivy",
                     sorting_strategy = "descending",
                     layout_config = {
+                        flex = {
+                            flip_columns = 120,
+                        },
                         prompt_position = "bottom",
-                        flip_columns = 160,
                         height = {
                             padding = 0,
                         },
@@ -139,6 +148,8 @@ return {
                     },
                     file_ignore_patterns = {
                         "^.git/",
+                        "^node_modules/",
+                        "^.venv/",
                     },
                     mappings = {
                         i = {

@@ -19,6 +19,11 @@ if [ -d "$HOME/.bun" ]; then
     export PATH="$BUN_INSTALL/bin:$PATH"
 fi
 
+# Deno
+if [ -f "$HOME/.deno" ]; then
+    . "/home/echo/.deno/env"
+fi
+
 # GO
 if type go > /dev/null; then
     export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"

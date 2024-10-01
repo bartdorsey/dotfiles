@@ -18,15 +18,15 @@ function _activate_venv() {
     fi
 }
 
-typeset -ag precmd_functions;
-if [[ -z "${precmd_functions[(r)_activate_venv]+1}" ]]; then
-    precmd_functions=( _activate_venv ${precmd_functions[@]} )
-fi
-
-typeset -ag cdpwd_functions;
-if [[ -z "${cdpwd_functions[(r)_activate_venv]+1}" ]]; then
-    cdpwd_functions=( _activate_venv ${cdpwd_functions[@]} )
-fi
+# typeset -ag precmd_functions;
+# if [[ -z "${precmd_functions[(r)_activate_venv]+1}" ]]; then
+#     precmd_functions=( _activate_venv ${precmd_functions[@]} )
+# fi
+#
+# typeset -ag cdpwd_functions;
+# if [[ -z "${cdpwd_functions[(r)_activate_venv]+1}" ]]; then
+#     cdpwd_functions=( _activate_venv ${cdpwd_functions[@]} )
+# fi
 
 # Install AUR packages
 aurinstall() {

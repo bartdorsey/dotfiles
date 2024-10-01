@@ -29,6 +29,8 @@ if os.getenv("DEVMODE") then
             -- Rust tools
             { "simrat39/rust-tools.nvim" },
 
+            -- Python tools
+            { "neolooong/whichpy.nvim" },
             -- Mason
             {
                 "williamboman/mason.nvim",
@@ -53,7 +55,6 @@ if os.getenv("DEVMODE") then
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "ts_ls",
-                    "pyright",
                     "lua_ls",
                     "jsonls",
                     "eslint",
@@ -64,6 +65,7 @@ if os.getenv("DEVMODE") then
                     "perlnavigator",
                     "yamlls",
                     "ansiblels",
+                    "pyright",
                     "tailwindcss",
                     "bashls",
                     "cssmodules_ls",
@@ -195,11 +197,16 @@ if os.getenv("DEVMODE") then
 
             -- Python
             --- Ruff lsp
-            -- if which("ruff-lsp") then
-            --     lsp.ruff_lsp.setup({
-            --         capabilities = capabilities,
-            --     })
-            -- end
+            if which("ruff") then
+                lsp.ruff.setup({
+                    capabilities = capabilities,
+                    init_options = {
+                        settings = {
+                            lineLength = 80,
+                        },
+                    },
+                })
+            end
 
             --- Jedi
             if which("jedi_language_server") then
@@ -208,9 +215,15 @@ if os.getenv("DEVMODE") then
                 })
             end
 
-            --- Pyright
+            -- Pyright
             if which("pyright-langserver") then
                 lsp.pyright.setup({
+                    on_init = function(client)
+                        client.settings.python.pythonPath =
+                            require("whichpy.lsp").find_python_path(
+                                client.config.root_dir
+                            )
+                    end,
                     capabilities = capabilities,
                     settings = {
                         python = {
@@ -223,6 +236,13 @@ if os.getenv("DEVMODE") then
                             },
                         },
                     },
+                })
+            end
+
+            -- pyre
+            if which("pyre") then
+                lsp.pyre.setup({
+                    capabilities = capabilities,
                 })
             end
 

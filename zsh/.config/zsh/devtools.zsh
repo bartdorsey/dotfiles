@@ -1,3 +1,8 @@
+# Mise
+if type mise > /dev/null; then
+    eval "$(mise activate zsh)"
+fi
+
 # Docker Desktop
 if [ -d "$HOME/.docker/bin" ]; then
     export PATH="$HOME/.docker/bin:$PATH"

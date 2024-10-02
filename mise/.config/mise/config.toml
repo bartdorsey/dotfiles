@@ -1,0 +1,6 @@
+[tools]
+go = "latest"
+python = ["3.10", "latest"]
+node = ["lts", "latest"]
+bun = "latest"
+deno = "latest"

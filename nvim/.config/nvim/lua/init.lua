@@ -39,7 +39,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     defaults = {
-        cond = vim.g.vscode == nil
+        cond = vim.g.vscode == nil,
     },
     spec = {
         { import = "plugins" },
@@ -92,7 +92,7 @@ vim.opt.listchars = {
 }
 
 -- Concealing (for Obsidian plugin)
-vim.opt.conceallevel = 1
+-- vim.opt.conceallevel = 1
 
 -- Folding
 vim.opt.foldmethod = "expr"
@@ -270,32 +270,4 @@ vim.api.nvim_create_autocmd("TermOpen", {
     end,
 })
 
--- quickfix diagnostics
-
--- local function open_quickfix_list()
---     local current_win = vim.api.nvim_get_current_win()
---     vim.cmd("copen")
---     vim.api.nvim_set_current_win(current_win)
--- end
---
--- vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
---     callback = function()
---         vim.diagnostic.setqflist({ open = false })
---         open_quickfix_list()
---     end,
--- })
---
--- vim.keymap.set(
---     "n",
---     "<leader>qf",
---     open_quickfix_list,
---     { desc = "Open quickfix list" }
--- )
---
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "qf",
---     callback = function()
---         vim.api.nvim_win_set_height(0, 4)
---     end,
--- })
---
+require("quickfix")

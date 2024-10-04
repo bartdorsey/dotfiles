@@ -11,7 +11,7 @@ if os.getenv("DEVMODE") then
                     typescriptreact = { "prettierd" },
                     javascriptreact = { "prettierd" },
                     json = { "prettierd" },
-                    markdown = { "prettierd" },
+                    markdown = { "markdownlint" },
                     ocaml = { "ocamlformat" },
                     html = { "prettierd " },
                     htmldjango = { "djlint" },

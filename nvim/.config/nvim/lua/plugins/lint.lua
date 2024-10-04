@@ -5,6 +5,7 @@ if os.getenv("DEVMODE") then
             local which = require("util").which
 
             local python_linters = {}
+            local markdown_linters = {}
 
             if which("ruff") then
                 table.insert(python_linters, "ruff")
@@ -17,9 +18,15 @@ if os.getenv("DEVMODE") then
             if which("flake8") then
                 table.insert(python_linters, "flake8")
             end
+
+            if which("markdownlint") then
+                table.insert(markdown_linters, "markdownlint")
+            end
+
             -- print out the linters
             require("lint").linters_by_ft = {
                 python = python_linters,
+                markdown = markdown_linters,
             }
 
             vim.api.nvim_create_autocmd(

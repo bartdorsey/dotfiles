@@ -5,10 +5,14 @@ vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
     end,
 })
 
-vim.keymap.set("n", "<leader>qf", function()
+-- shortcut to open quickfix list
+vim.keymap.set("n", "<leader>co", function()
     vim.diagnostic.setqflist()
-    vim.api.nvim_command("lopen")
+    vim.api.nvim_command("copen")
 end, { desc = "Open quickfix list" })
+
+vim.keymap.set("n", "<leader>cn", "<cmd>cnext<cr>")
+vim.keymap.set("n", "<leader>cp", "<cmd>cprev<cr>")
 
 -- Run markdown lint against all the files
 vim.api.nvim_create_user_command("MarkdownLint", function()

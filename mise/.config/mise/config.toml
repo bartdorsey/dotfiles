@@ -2,6 +2,6 @@
 go = "latest"
 node = ["lts", "latest"]
 bun = "latest"
-deno = "latest"
 pnpm = "latest"
 python = "3.13"
+deno = "2"

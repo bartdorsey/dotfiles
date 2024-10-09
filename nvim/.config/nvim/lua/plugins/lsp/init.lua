@@ -131,6 +131,22 @@ if os.getenv("DEVMODE") then
                         "javascript",
                         "javascriptreact",
                     },
+                    root_dir = lsp.util.root_pattern(
+                        "tsconfig.json",
+                        "jsconfig.json",
+                        "package.json"
+                    ),
+                    single_file_support = false,
+                })
+            end
+
+            -- Deno
+            if which("deno") then -- Deno
+                vim.g.markdown_fenced_languages = {
+                    "ts=typescript",
+                }
+                lsp.denols.setup({
+                    capabilities = capabilities,
                 })
             end
 

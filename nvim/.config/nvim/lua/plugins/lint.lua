@@ -19,9 +19,9 @@ if os.getenv("DEVMODE") then
                 table.insert(python_linters, "flake8")
             end
 
-            if which("markdownlint") then
-                table.insert(markdown_linters, "markdownlint")
-            end
+            --            if which("markdownlint") or which("markdownlint-cli") then
+            table.insert(markdown_linters, "markdownlint")
+            --end
 
             -- print out the linters
             require("lint").linters_by_ft = {

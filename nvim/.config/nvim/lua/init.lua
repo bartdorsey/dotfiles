@@ -4,14 +4,15 @@ vim.g.loaded_netrwPlugin = 1
 -- vim.g.netrw_liststyle = 3
 
 -- Set <space> as the leader key
--- See `:help mapleader`
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Set the terminal title
 vim.cmd("set title")
 
+-- 256 colors
 vim.opt.termguicolors = true
--- Plugins
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -60,6 +61,8 @@ require("lazy").setup({
 })
 
 -- Post plugin configurations
+
+-- Neovide
 if vim.g.neovide then
     vim.o.guifont = "Monaspace Argon"
     vim.g.neovide_refresh_rate = 170
@@ -82,6 +85,7 @@ vim.o.backup = false
 vim.o.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.o.undofile = true
 
+-- set the characters used for indentations
 vim.opt.list = true
 vim.opt.listchars = {
     tab = "».",
@@ -91,18 +95,13 @@ vim.opt.listchars = {
     trail = "·",
 }
 
--- Concealing (for Obsidian plugin)
--- vim.opt.conceallevel = 1
-
--- Folding
+-- Folding with nvim-treesitter
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
 
--- local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
-
--- Split
+-- Split Behavior
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
@@ -131,6 +130,7 @@ vim.keymap.set(
     "<cmd>resize +2<CR>",
     { desc = "Make horizontal split larger" }
 )
+
 -- Window movement
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
@@ -165,6 +165,12 @@ vim.keymap.set(
     "g_",
     { desc = "Move to end of text on current line - Visual mode" }
 )
+vim.keymap.set(
+    "v",
+    "H",
+    "g_",
+    { desc = "Move to beginning of text on current line - Visual mode" }
+)
 
 -- remap escape to a closer key
 vim.keymap.set(
@@ -187,10 +193,6 @@ vim.keymap.set("x", "<leader>P", '"_dP')
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
-
--- Paste from system clipboard
--- vim.keymap.set("n", "<leader>p", '"+p"')
--- vim.keymap.set("v", "<leader>p", '"+p"')
 
 -- Captial Q is the worst place in the universe
 vim.keymap.set("n", "Q", "<nop>")
@@ -229,7 +231,6 @@ vim.api.nvim_create_user_command("Q", function()
 end, {})
 
 -- GuiCursor
-
 vim.opt.guicursor = "n-v-c-sm:block-blinkon1,i-ci-ve:ver20,r-cr-o:hor20"
 
 -- Configure vim short messages
@@ -247,6 +248,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
         vim.opt.relativenumber = true
     end,
 })
+
 -- sets working dir to neovim config and opens telescope
 vim.api.nvim_create_user_command("Config", function()
     vim.cmd("cd ~/.dotfiles/nvim/.config/nvim")
@@ -268,4 +270,5 @@ vim.api.nvim_create_autocmd("TermOpen", {
     end,
 })
 
+-- Load quickfix configuration
 require("quickfix")

@@ -1,4 +1,4 @@
--- quickfix diagnostics
+-- update diagnostics in location list automatically
 vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
     callback = function()
         vim.diagnostic.setloclist({ open = false })
@@ -10,15 +10,17 @@ vim.keymap.set("n", "<leader>co", function()
     vim.api.nvim_command("copen")
 end, { desc = "Open quickfix list" })
 
+-- Next and previous items in quickfix
 vim.keymap.set("n", "<leader>cn", "<cmd>cnext<cr>")
 vim.keymap.set("n", "<leader>cp", "<cmd>cprev<cr>")
 
--- shortcut to open quickfix list
+-- shortcut to open location list
 vim.keymap.set("n", "<leader>lo", function()
     vim.diagnostic.setloclist()
     vim.api.nvim_command("lopen")
 end, { desc = "Open quickfix list" })
 
+-- Next and previous items in location list
 vim.keymap.set("n", "<leader>ln", "<cmd>lnext<cr>")
 vim.keymap.set("n", "<leader>lp", "<cmd>lprev<cr>")
 
@@ -40,9 +42,10 @@ end, {})
 
 vim.keymap.set("n", "<leader>mdl", "<cmd>MarkdownLint<cr>")
 
-vim.api.nvim_create_user_command("TODOs", function()
-    vim.notify("Searching for TODOS")
-    vim.api.nvim_command("cexpr systemlist('rg --vimgrep TODO -tmd')")
+-- Grep for all TODO comments
+vim.api.nvim_create_user_command("TODO", function()
+    vim.notify("Searching for TODOs")
+    vim.api.nvim_command("cexpr systemlist('rg --vimgrep TODO')")
     vim.notify("Done")
     vim.api.nvim_command("copen")
 end, {})

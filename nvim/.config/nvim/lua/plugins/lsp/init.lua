@@ -21,7 +21,19 @@ if os.getenv("DEVMODE") then
             { "b0o/schemastore.nvim" },
 
             -- Snippets
-            { "L3MON4D3/LuaSnip" },
+            {
+                "L3MON4D3/LuaSnip",
+                config = function()
+                    require("luasnip").filetype_extend(
+                        "markdown",
+                        { "snippets.markdown" }
+                    )
+                    local config_path = vim.fn.stdpath("config")
+                    require("luasnip.loaders.from_lua").lazy_load({
+                        paths = config_path .. "/snippets",
+                    })
+                end,
+            },
 
             -- Diagnostics
             { "jmsegrev/lsp_lines.nvim" },

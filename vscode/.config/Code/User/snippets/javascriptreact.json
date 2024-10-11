@@ -1,0 +1,25 @@
+{
+  "rform": {
+    "prefix": "rform",
+    "description": "",
+    "body": [
+      "const $1 = () => {",
+      "",
+      "    const onSubmit = e => {",
+      "        e.preventDefault();",
+      "    }",
+      "",
+      "    return (",
+      "        <form onSubmit={onSubmit}>",
+      "            <button type=\"submit\">",
+      "                $2",
+      "            </button>",
+      "        </form>",
+      "    )",
+      "}",
+      "",
+      "",
+      "export default $1;"
+    ]
+  }
+}

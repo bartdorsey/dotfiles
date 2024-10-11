@@ -1,0 +1,82 @@
+{
+	"Express App With Listen": {
+		"scope": "javascript, typescript",
+		"prefix": "app-with-listen",
+		"body": [
+			"const express = require('express');",
+			"const PORT = process.env['PORT'] || ${1:port}",
+			"const app = express();",
+			"app.listen(PORT, () => console.log(`Listening on port \\${PORT}`));"
+		]
+	},
+	"Express App Minimal": {
+		"scope": "javascript, typescript",
+		"prefix": "app-minimal",
+		"body": [
+			"const express = require('express');",
+			"const app = express();",
+			"module.exports = app;"
+		]
+	},
+	"HTTP Server for express": {
+		"scope": "javascript, typescript",
+		"prefix": "http-server",
+		"body": [
+			"const { createServer } = require('http');",
+			"const app = require('${1:./app}');",
+			"const PORT = process.env['PORT'] || ${2:port};",
+			"const server = createServer(app);",
+			"server.listen(PORT, () => console.log(`Listening on port \\${PORT}`));"
+		]
+	},
+	"Express Router": {
+		"scope": "javascript, typescript",
+		"prefix": "router",
+		"body": [
+			"const express = require('express');",
+			"const ${1:router} = express.Router();",
+			"module.exports = ${1};"
+		]
+	},
+	"Express Middleware Minimal" : {
+		"scope": "javascript, typescript",
+		"prefix": "middleware-minimal",
+		"body": [
+			"(req, res, next) => {",
+			"\t${1}",
+			"}"
+		]
+	},
+	"Express Middleware Async": {
+		"scope": "javascript, typescript",
+		"prefix": "middleware-async",
+		"body": [
+			"async(req, res, next) => {",
+			"\t${1}",
+			"}"
+		]
+	},
+	"Express Full Middleware": {
+		"scope": "javascript, typescript",
+		"prefix": "middleware-full",
+		"body": [
+			"async(req, res, next) => {",
+			"\ttry {",
+			"\t\t${1}",
+			"\t}",
+			"\tcatch (error) {",
+			"\t\tnext(error)",
+			"\t}",
+			"}"
+		]
+	},
+	"Express Error Handling Middleware": {
+		"scope": "javascript, typescript",
+		"prefix": "middleware-error",
+		"body": [
+			"async(err, req, res, next) => {",
+			"\t${1}",
+			"}"
+		]
+	}
+}

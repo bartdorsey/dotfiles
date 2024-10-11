@@ -1,0 +1,121 @@
+{
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.analysis.typeCheckingMode": "basic",
+  "vim.leader": " ",
+  "vim.smartRelativeLine": true,
+  "vim.highlightedyank.enable": true,
+  "vim.statusBarColorControl": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "/"
+      ],
+      "after": [
+        "<leader>",
+        "<leader>",
+        "s"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "<leader>",
+        "f",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "<space>"
+      ],
+      "commands": [
+        "workbench.action.showAllEditors"
+      ]
+    }
+  ],
+  "workbench.colorCustomizations": null,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[django-html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "explorer.compactFolders": false,
+  "workbench.tree.indent": 20,
+  "emmet.includeLanguages": {
+    "django-html": "html",
+    "jinja-html": "html",
+    "javascript": "javascriptreact"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "redhat.telemetry.enabled": false,
+  "editor.fontFamily": "JetBrainsMono NF",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "markdown-mermaid.lightModeTheme": "dark",
+  "mermaid-editor.preview.backgroundColor": "black",
+  "vim.useSystemClipboard": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 1,
+  "remote.SSH.remotePlatform": {
+    "*.gitpod.io": "linux"
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "git.openRepositoryInParentFolders": "always",
+  "workbench.startupEditor": "none",
+  "database-client.highlightSQLBlock": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "totalTypeScript.hideAllTips": true,
+  "totalTypeScript.hideBasicTips": false,
+  "editor.gotoLocation.multipleDefinitions": "gotoAndPeek",
+  "editor.gotoLocation.multipleTypeDefinitions": "gotoAndPeek",
+  "editor.minimap.enabled": false,
+  "editor.fontSize": 16,
+  "terminal.integrated.fontSize": 16,
+  "cmake.showOptionsMovedNotification": false,
+  "window.titleBarStyle": "custom",
+  "python.analysis.autoFormatStrings": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.inlayHints.callArgumentNames": "all",
+  "python.analysis.inlayHints.pytestParameters": true,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-perfect-mocha",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "diffEditor.renderSideBySide": false,
+  "editor.accessibilitySupport": "off",
+  "workbench.activityBar.location": "top",
+  "workbench.editor.showTabs": "single",
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "vim.sneak": true,
+  "vim.sneakReplacesF": true,
+  "open-in-vim.useNeovim": true,
+  "terminal.integrated.defaultLocation": "editor",
+  "djlint.showInstallError": false,
+  "security.promptForRemoteFileProtocolHandling": false
+}

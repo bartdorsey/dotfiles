@@ -96,7 +96,7 @@ return {
                     arrowstatus,
                 },
                 lualine_c = { "diagnostics" },
-                lualine_x = {},
+                lualine_x = { { "overseer" } },
                 lualine_y = {
                     "filetype",
                 },

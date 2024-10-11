@@ -389,6 +389,11 @@ if os.getenv("DEVMODE") then
             --     capabilities = capabilities,
             -- })
 
+            -- powershell
+            lsp.powershell_es.setup({
+                capabilities = capabilities,
+            })
+
             -- Setup CMP
             require("plugins/lsp/cmp")
 

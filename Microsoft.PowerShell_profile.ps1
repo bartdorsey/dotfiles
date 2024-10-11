@@ -38,7 +38,7 @@ $env:GOROOT = "$env:USERPROFILE\.gobrew\current\go"
 $env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
 $env:KOMOREBI_CONFIG_HOME = "$env:USERPROFILE\.config\komorebi"
 $env:HOME = $env:USERPROFILE
-
+$env:DEVMODE = 1
 # Aliases
 Set-Alias p Get-Projects
 Set-Alias open explorer.exe

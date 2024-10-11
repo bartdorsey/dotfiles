@@ -239,6 +239,7 @@ if os.getenv("DEVMODE") then
                             require("whichpy.lsp").find_python_path(
                                 client.config.root_dir
                             )
+                        vim.api.nvim_command("WhichPy retrieve")
                     end,
                     capabilities = capabilities,
                     settings = {

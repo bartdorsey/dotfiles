@@ -13,6 +13,7 @@ return {
 
         require("nvim-treesitter.install").prefer_git = false
         require("nvim-treesitter.configs").setup({
+            ensure_installed = {},
             modules = {},
             ignore_install = {},
             autotag = {

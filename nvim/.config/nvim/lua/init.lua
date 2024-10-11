@@ -127,17 +127,25 @@ vim.keymap.set(
 )
 vim.keymap.set(
     "n",
-    "<A-j>",
+    "<A-l>",
     "<cmd>resize +2<CR>",
     { desc = "Make horizontal split larger" }
 )
+-- Window movement
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window right" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to window left" })
 
-vim.api.nvim_set_keymap(
+-- Buffer movement
+vim.keymap.set(
     "n",
-    "<Leader>mp",
-    ":MarkdownPreview<CR>",
-    { silent = true }
+    "<A-h>",
+    "<cmd>bprev<CR>",
+    { desc = "Move to previous buffer" }
 )
+
+vim.keymap.set("n", "<A-.>", "<cmd>bnext<CR>", { desc = "Move to next buffer" })
 
 -- Let you move visual blocks with J and K
 vim.keymap.set(

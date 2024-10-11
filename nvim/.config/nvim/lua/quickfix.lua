@@ -1,18 +1,26 @@
 -- quickfix diagnostics
 vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
     callback = function()
-        vim.diagnostic.setqflist({ open = false })
+        vim.diagnostic.setloclist({ open = false })
     end,
 })
 
 -- shortcut to open quickfix list
 vim.keymap.set("n", "<leader>co", function()
-    vim.diagnostic.setqflist()
     vim.api.nvim_command("copen")
 end, { desc = "Open quickfix list" })
 
 vim.keymap.set("n", "<leader>cn", "<cmd>cnext<cr>")
 vim.keymap.set("n", "<leader>cp", "<cmd>cprev<cr>")
+
+-- shortcut to open quickfix list
+vim.keymap.set("n", "<leader>lo", function()
+    vim.diagnostic.setloclist()
+    vim.api.nvim_command("lopen")
+end, { desc = "Open quickfix list" })
+
+vim.keymap.set("n", "<leader>ln", "<cmd>lnext<cr>")
+vim.keymap.set("n", "<leader>lp", "<cmd>lprev<cr>")
 
 -- Run markdown lint against all the files
 vim.api.nvim_create_user_command("MarkdownLint", function()
@@ -31,3 +39,10 @@ vim.api.nvim_create_user_command("MarkdownLint", function()
 end, {})
 
 vim.keymap.set("n", "<leader>mdl", "<cmd>MarkdownLint<cr>")
+
+vim.api.nvim_create_user_command("TODOs", function()
+    vim.notify("Searching for TODOS")
+    vim.api.nvim_command("cexpr systemlist('rg --vimgrep TODO -tmd')")
+    vim.notify("Done")
+    vim.api.nvim_command("copen")
+end, {})

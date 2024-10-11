@@ -7,7 +7,7 @@ return {
             show_model = true,
             model = "llama3.2:1b",
             host = "nzxt.home",
-            port = "11434",
+            port = "10001",
             debug = true,
         })
     end,

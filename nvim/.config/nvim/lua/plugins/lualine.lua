@@ -5,6 +5,7 @@ return {
             "rose-pine/neovim",
         },
         config = function()
+            local lualine = require("lualine")
             -- Turn off built in showmode
             vim.opt.showmode = false
 
@@ -52,6 +53,45 @@ return {
                     .. vim.fs.basename(name)
             end
 
+            -- Custom macro display
+            local function show_macro_recording()
+                local recording_register = vim.fn.reg_recording()
+                if recording_register == "" then
+                    return ""
+                else
+                    return "  @" .. recording_register
+                end
+            end
+
+            vim.api.nvim_create_autocmd("RecordingEnter", {
+                callback = function()
+                    lualine.refresh({
+                        place = { "statusline" },
+                    })
+                end,
+            })
+
+            vim.api.nvim_create_autocmd("RecordingLeave", {
+                callback = function()
+                    -- This is going to seem really weird!
+                    -- Instead of just calling refresh we need to wait a moment because of the nature of
+                    -- `vim.fn.reg_recording`. If we tell lualine to refresh right now it actually will
+                    -- still show a recording occuring because `vim.fn.reg_recording` hasn't emptied yet.
+                    -- So what we need to do is wait a tiny amount of time (in this instance 50 ms) to
+                    -- ensure `vim.fn.reg_recording` is purged before asking lualine to refresh.
+                    local timer = vim.loop.new_timer()
+                    timer:start(
+                        50,
+                        0,
+                        vim.schedule_wrap(function()
+                            lualine.refresh({
+                                place = { "statusline" },
+                            })
+                        end)
+                    )
+                end,
+            })
+
             -- Arrow plugin status
             local arrowstatus = function()
                 return require("arrow.statusline").text_for_statusline_with_icons()
@@ -94,6 +134,7 @@ return {
                     "filename",
                     "branch",
                     arrowstatus,
+                    show_macro_recording,
                 },
                 lualine_c = { "diagnostics" },
                 lualine_x = { { "overseer" } },
@@ -111,7 +152,7 @@ return {
             }
 
             -- Lualine
-            require("lualine").setup({
+            lualine.setup({
                 options = {
                     theme = "rose-pine",
                     component_separators = "│",

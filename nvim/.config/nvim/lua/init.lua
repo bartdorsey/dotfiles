@@ -169,7 +169,7 @@ vim.keymap.set(
     "v",
     "H",
     "g_",
-    { desc = "Move to beginning of text on current line - Visual mode" }
+    { desc = "Move to end of text on current line - Visual mode" }
 )
 
 -- remap escape to a closer key
@@ -185,6 +185,20 @@ vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+
+-- Setup OSC52 for clipboard
+
+vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+        ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+        ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+        ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+}
 
 -- Paste over without losing what's in your clipboard
 vim.keymap.set("x", "<leader>P", '"_dP')

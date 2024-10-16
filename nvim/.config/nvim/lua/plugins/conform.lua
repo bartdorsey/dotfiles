@@ -16,6 +16,7 @@ if os.getenv("DEVMODE") then
                     html = { "prettierd " },
                     htmldjango = { "djlint" },
                     nix = { "alejandra" },
+                    yaml = { "yamlfmt" },
                 },
                 format_on_save = {
                     -- These options will be passed to conform.format()

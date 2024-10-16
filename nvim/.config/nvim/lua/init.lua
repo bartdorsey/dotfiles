@@ -172,6 +172,10 @@ vim.keymap.set(
     { desc = "Move to end of text on current line - Visual mode" }
 )
 
+-- stay in visual mode when indenting
+vim.keymap.set("v", "<", "<gv", { desc = "Unindent" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent" })
+
 -- remap escape to a closer key
 vim.keymap.set(
     "i",

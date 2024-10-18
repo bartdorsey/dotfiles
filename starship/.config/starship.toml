@@ -1,8 +1,11 @@
 add_newline = true
 
 format = """\
- [╭╴](238) $os $container$all\
+ [╭╴](238) $os $all\
  [╰─](238) $shell$direnv$character"""
+
+[container]
+disabled = true
 
 [character]
 success_symbol = "[ ](bold blue)"
@@ -133,12 +136,6 @@ symbol = " "
 
 [spack]
 symbol = "🅢 "
-
-[container]
-symbol = " "
-format = "[$symbol$name]($style)"
-disabled = false
-style = "bold yellow"
 
 [direnv]
 disabled = false

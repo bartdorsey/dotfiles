@@ -15,3 +15,7 @@ done
 if [[ ! -d "$HOME/.config/tmux/plugins/tpm" ]]; then
     git clone https://github.com/tmux-plugins/tpm $HOME/.config/tmux/plugins/tpm
 fi
+
+if type code 2>/dev/null; then
+    cat "vscode/.config/Code/extensions.txt" | xargs -L 1 code --install-extension
+fi

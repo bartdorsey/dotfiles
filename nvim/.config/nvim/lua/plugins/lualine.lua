@@ -126,26 +126,57 @@ return {
                     {
                         custom_mode,
                         separator = { left = "┃" },
-                        right_padding = 2,
+                        padding = { left = 1, right = 1 },
                     },
                 },
                 lualine_b = {
                     cwd,
-                    "filename",
-                    "branch",
+                    {
+                        "filetype",
+                        icon_only = true,
+                        icon = { align = "right" },
+                        separator = { right = "" },
+                        padding = { left = 1, right = 0 },
+                    },
+                    {
+                        "filename",
+                        padding = { left = 1, right = 1 },
+                        file_status = true,
+                        path = 4,
+                        shorting_target = 10,
+                        symbols = {
+                            modified = "󰝒 ",
+                            readonly = "󰈡 ",
+                            unnamed = "󱀺 ",
+                        },
+                    },
+                    {
+                        "branch",
+                    },
                     arrowstatus,
                     show_macro_recording,
                 },
                 lualine_c = { "diagnostics" },
-                lualine_x = { { "overseer" } },
+                lualine_x = {
+                    { "overseer" },
+                },
                 lualine_y = {
                     "filetype",
+                    "encoding",
+                    {
+                        "fileformat",
+                        symbols = {
+                            unix = "LF",
+                            dos = "CRLF",
+                            mac = "CR",
+                        },
+                    },
                 },
                 lualine_z = {
                     {
                         lsp_status,
                         separator = { right = "┃" },
-                        left_padding = 2,
+                        left_padding = 0,
                         icon = "lsp",
                     },
                 },
@@ -172,6 +203,9 @@ return {
                     "oil",
                     "trouble",
                     "man",
+                    "man",
+                    "mason",
+                    "overseer",
                 },
             })
         end,

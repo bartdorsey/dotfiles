@@ -2,7 +2,7 @@
 git submodule init
 git submodule update
 
-ignore_directories=("metadata/" "firefox/")
+ignore_directories=("metadata/" "firefox/" "windows/" "nix/")
 
 for i in */; do
     if [[ " ${ignore_directories[@]} " =~ " $i " ]]; then

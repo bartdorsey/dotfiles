@@ -71,3 +71,8 @@ fi
 if type direnv > /dev/null; then
     eval "$(direnv hook zsh)"
 fi
+
+# PHP Laravel Herd
+if [ -d "$HOME/.config/herd-lite" ]; then
+    export PATH="$HOME/.config/herd-lite/bin:$PATH"
+fi

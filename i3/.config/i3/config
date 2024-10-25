@@ -14,14 +14,20 @@ for_window [class="^.*"] border pixel 4
 set $mod Mod4
 # set $mod Mod1
 
+exec --no-startup-id dunst
+exec --no-startup-id dunstify "Loading xrandr"
+exec --no-startup-id ~/.config/i3/xrandr.sh
+exec --no-startup-id dunstify "Loading picom"
 exec --no-startup-id picom
-exec --no-startup-id feh --bg-scale ~/Pictures/arch-black-4k.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/arch-black-4k.png
+exec --no-startup-id dunstify "Loading wallpaper"
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 # kill any hanging polybar processes
 exec_always killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec --no-startup-id dunstify "Loading polybar"
 
 bindsym Print exec maim "/home/$USER/Pictures/$(date).jpg"
 bindsym $mod+Print exec maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).jpg"
@@ -50,10 +56,12 @@ exec --no-startup-id dex --autostart --environment i3
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id dunstify "Loading xss-lock"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+exec --no-startup-id dunstify "Loading nm-applet"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -63,12 +71,13 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+exec --no-startup-id dunstify "Loading pulseaudio"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -121,7 +130,7 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
+set $ws1 "1: main"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
@@ -161,7 +170,17 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+  bindsym l exec i3-msg exit
+  bindsym r exec systemctl reboot
+  bindsym s exec systemctl shutdown
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+
+bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

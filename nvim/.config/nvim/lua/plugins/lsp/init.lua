@@ -384,6 +384,12 @@ if os.getenv("DEVMODE") then
                 })
             end
 
+            if which("intelephense") then
+                lsp.intelephense.setup({
+                    capabilities = capabilities,
+                })
+            end
+
             -- -- SQL
             -- lsp.sqlls.setup({
             --     capabilities = capabilities,

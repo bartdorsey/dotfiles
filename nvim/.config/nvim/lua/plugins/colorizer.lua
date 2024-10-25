@@ -1,7 +1,8 @@
 return {
-    'NvChad/nvim-colorizer.lua',
-    ft = {'css', 'scss', 'less', 'html', 'jsx', 'tsx'},
+    "norcalli/nvim-colorizer.lua",
     config = function()
-        require('colorizer').setup()
-    end
+        require("colorizer").setup({
+            "*",
+        })
+    end,
 }

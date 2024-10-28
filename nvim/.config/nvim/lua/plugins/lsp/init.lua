@@ -32,6 +32,9 @@ if os.getenv("DEVMODE") then
                     require("luasnip.loaders.from_lua").lazy_load({
                         paths = config_path .. "/snippets",
                     })
+                    require("luasnip.loaders.from_vscode").lazy_load({
+                        paths = config_path .. "/snippets",
+                    })
                 end,
             },
 

@@ -1,0 +1,49 @@
+{
+  "Instructor Tag": {
+    "prefix": "instructortag",
+    "body": ["### !instructor", "### !end-instructor"]
+  },
+  "Vimeo": {
+    "prefix": "vimeotag",
+    "body": [
+      "### !vimeo",
+      "* id: ${1:Vimeo ID}",
+      "* transcript_project: ${2:From 3PlayMedia if adding a transcript}",
+      "* transcript_file: ${3:From 3PlayMedia if adding a transcript}",
+      "* transcript_plugin: ${4:From 3PlayMedia if adding a transcript}",
+      "### !end-vimeo"
+    ]
+  },
+  "Blue Callout": {
+    "prefix": [
+      "gcallout-info",
+      "gcallout-note",
+      "gcallout-tip",
+      "gcallout-hint",
+      "gcallout-primary",
+      "gcallout-information"
+    ],
+    "body": ["### !callout-info", "${1: <!-- # Some Heading -->}", "${2: callout content}", "### !end-callout"],
+    "description": "A blue-highlighted callout box."
+  },
+  "Green Callout": {
+    "prefix": ["gcallout-success", "gcallout-important"],
+    "body": ["### !callout-success", "${1: <!-- # Some Heading -->}", "${2: callout content}", "### !end-callout"],
+    "description": "A green-highlighted callout box."
+  },
+  "Red Callout": {
+    "prefix": ["gcallout-danger", "gcallout-error"],
+    "body": ["### !callout-danger", "${1: <!-- # Some Heading -->}", "${2: callout content}", "### !end-callout"],
+    "description": "A red-highlighted callout box."
+  },
+  "Orange Callout": {
+    "prefix": ["gcallout-warning", "gcallout-caution"],
+    "body": ["### !callout-warning", "${1: <!-- # Some Heading -->}", "${2: callout content}", "### !end-callout"],
+    "description": "An orange-highlighted callout box."
+  },
+  "Grey Callout": {
+    "prefix": ["gcallout-secondary", "gcallout-admonition", "gcallout-light", "gcallout-dark"],
+    "body": ["### !callout-secondary", "${1: <!-- # Some Heading -->}", "${2: callout content}", "### !end-callout"],
+    "description": "A grey-highlighted callout box."
+  }
+}

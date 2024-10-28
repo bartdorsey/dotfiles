@@ -1,0 +1,93 @@
+{
+  "Standard": {
+    "prefix": ["standard", "gstandard"],
+    "body": [
+      "- time_to_learn: 01:00",
+      "",
+      "# !description",
+      "",
+      "${1:Statement that starts with a verb}",
+      "",
+      "# !end-description",
+      "",
+      "## !success-criteria",
+      "",
+      "$2",
+      "",
+      "## !end-success-criteria",
+      "",
+      "${3:## !assessment",
+      "",
+      "- automated: ${4:true}",
+      "",
+      "$5",
+      "",
+      "## !end-assessment}",
+      ""
+    ]
+  },
+
+  "Unit Overview": {
+    "prefix": ["unitoverview", "gunitoverview"],
+    "body": [
+      "# ${1:Title}",
+      "",
+      "## Standard",
+      "",
+      "By the end of this unit, you will be able to [*the standard*].",
+      "You'll know you're ready to move on when you've passed this unit's [checkpoint](./checkpoint.md).",
+      "",
+      "[Note: Do not include any written description of the checkpoint; simply include the link to the checkpoint.]",
+      "",
+      "## Unit Overview",
+      "",
+      "[One short paragraph detailing the rationale behind the unit--why this is something that is important to learn within the overall context of the block or field]",
+      "",
+      "[Followed by one short paragraph walking through the material that will be covered in the unit.]",
+      "[Depending on length/flow, the above may be combined into a single paragraph or expanded to three-four paragraphs total. Two is preferred when possible.]",
+      "",
+      "## Additional Resources [*Note*: optional, only include if required]",
+      "",
+      "[links to a **small** number of additional resources with rationale for including them]",
+      ""
+    ]
+  },
+
+  "Lesson": {
+    "prefix": ["glesson", "glesson"],
+    "body": [
+      "# ${1:Title}",
+      "",
+      "## Learning Objectives",
+      "",
+      "By the end of this lesson you will be able to:",
+      "",
+      "* ${2:First Objective}",
+      "* [at least one]",
+      "* [no more than four]",
+      "",
+      "## ${3:Lesson Content}",
+      "",
+      "[Include a rationale as the first few sentences/paragraph if you feel the lesson requires significant motivation or context.]",
+      "",
+      "## Challenges",
+      "",
+      "[Each lesson must have one or more challenges. These challenge can be spread out in between content, or can be at the end of the lesson]",
+      ""
+    ]
+  },
+
+  "Checkpoint": {
+    "prefix": ["checkpoint", "gcheckpoint"],
+    "body": [
+      "# Checkpoint",
+      "",
+      "Please verify your understanding of [unit lessons] with the following exercises.",
+      "",
+      "## Exercises",
+      "",
+      "[Checkpoint challenges should combine elements from all the unit lessons. While not required, these challenges will often include code-snippet and testable-project challenges.]",
+      ""
+    ]
+  }
+}

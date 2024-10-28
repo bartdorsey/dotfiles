@@ -9,10 +9,13 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-for_window [class="^.*"] border pixel 4
+# for_window [class="^.*"] border pixel 4
 
 set $mod Mod4
 # set $mod Mod1
+
+default_border pixel 4
+default_floating_border normal 4
 
 exec --no-startup-id dunst
 exec --no-startup-id dunstify "Loading xrandr"
@@ -21,7 +24,6 @@ exec --no-startup-id dunstify "Loading picom"
 exec --no-startup-id picom
 exec_always --no-startup-id feh --bg-fill ~/Pictures/arch-black-4k.png
 exec --no-startup-id dunstify "Loading wallpaper"
-exec --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 # kill any hanging polybar processes
@@ -77,7 +79,7 @@ exec --no-startup-id dunstify "Loading pulseaudio"
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec wezterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -130,8 +132,8 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: main"
-set $ws2 "2"
+set $ws1 "1: left"
+set $ws2 "2: right"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -181,6 +183,7 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
 bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -240,11 +243,12 @@ set $mantle    #181825
 set $crust     #11111b
 
 # target                 title     bg    text      indicator    border
-client.focused           $mantle   $mauve $mantle  $rosewater $mauve
-client.focused_inactive  $overlay0 $base  $text    $rosewater $overlay0
-client.unfocused         $overlay0 $base  $text    $rosewater $overlay0
+client.focused           $mantle   $sapphire $mantle  $rosewater $sapphire
+client.focused_inactive  $surface0 $base  $text    $rosewater $surface0
+client.unfocused         $surface0 $base  $text    $rosewater $surface0
 client.urgent            $peach    $base  $peach   $overlay0  $peach
 client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
-client.background        $base
+client.background        $crust
 
 gaps inner 20
+gaps top 30

@@ -1,0 +1,26 @@
+{
+  "Markdown Settings": {
+    "prefix": ["markdown-settings", "gmark-yaml-settings"],
+    "body": [
+      "\"[markdown]\": {",
+      "\"editor.snippetSuggestions\": \"top\",",
+      "\"editor.quickSuggestions\": {",
+      "\"other\": true,",
+      "\"comments\": false,",
+      "\"strings\": true",
+      "}"
+    ]
+  },
+  "YAML Settings": {
+    "prefix": ["yaml-settings", "gmark-markdown-settings"],
+    "body": [
+      "\"[yaml]\": {",
+      "\"editor.snippetSuggestions\": \"top\",",
+      "\"editor.quickSuggestions\": {",
+      "\"other\": true,",
+      "\"comments\": false,",
+      "\"strings\": true",
+      "}"
+    ]
+  }
+}

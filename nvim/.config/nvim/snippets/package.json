@@ -1,0 +1,31 @@
+{
+    "name": "gmark",
+    "contributes": {
+        "snippets": [
+            {
+                "language": "markdown",
+                "path": "./challenges.json"
+            },
+            {
+                "language": "markdown",
+                "path": "./tags.json"
+            },
+            {
+                "language": "markdown",
+                "path": "./pages.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./config.json"
+            },
+            {
+                "language": "json",
+                "path": "./settings.json"
+            },
+            {
+                "language": "markdown",
+                "path": "./readme.json"
+            }
+        ]
+    }
+}

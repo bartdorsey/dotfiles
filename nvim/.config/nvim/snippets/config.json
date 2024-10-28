@@ -1,0 +1,133 @@
+{
+  "Config yaml - long": {
+    "prefix": "configyaml",
+    "body": [
+      "# Config.yaml specifies the content and ordering within a repo for a curriculum block",
+      "",
+      "# Supported Fields",
+      "# ==========================",
+      "# Standards -- (Standards = Units). A list of Units for a block",
+      "# Standard.Title: string -- The Unit title that shows up on the curriculum overview",
+      "# Standard.UID: string -- A unique ID for the Unit. Use `cmd/ctrl+option/alt+u` to generate (runs once per cursor/selection)",
+      "# Standard.Description: string -- The Unit description that shows up on the curriculum overview",
+      "# Standard.SuccessCriteria: list -- An array of success criteria that can be viewed when scoring the checkpoint in a Unit.",
+      "# Standard.ContentFiles: list -- A list of Lessons and (optional) Checkpoints in a Unit.",
+      "# Standard.ContentFiles.Type: Lesson | Checkpoint -- The type of the current content file.",
+      "# Standard.ContentFiles.UID: string -- A unique ID for the Unit. Use `cmd/ctrl+option/alt+u` to generate (runs once per cursor/selection)",
+      "# Standard.ContentFiles.Path: string -- The absolute path to the Lesson, starting with `/`. Use `cmd/ctrl+option/alt+p` to generate",
+      "# Standard.ContentFiles.DefaultVisibility: hidden -- (optional) Set to 'hidden' to hide when a course first starts.",
+      "# Standard.ContentFiles.Autoscore: boolean -- (optional, for Checkpoints only) submit checkpoint scores without review",
+      "# Standard.ContentFiles.MaxCheckpointSubmissions: number -- (optional, for Checkpoints only) limit the number of submissions",
+      "",
+      "# Related Snippets",
+      "# ==========================",
+      "# `unityaml`: add a Unit",
+      "# `lessonyaml`: add a lesson",
+      "# Note: Be sure to place the cursor at the appropriate indentation level before running either of these.",
+      "",
+      "# All UIDs must be unique within a repo. Use `cmd/ctrl+option/alt+u` to generate",
+      "Standards:",
+      "  - Title: ${1:The unit name}",
+      "    UID: ${2:unique-id (cmd/ctrl+option/alt+u)}",
+      "    Description: ${3:The Unit Description}",
+      "    SuccessCriteria:",
+      "      - ${4: #The first success criteria}",
+      "      # - ${5: (optional) Another success criteria, uncomment to use]}",
+      "    ContentFiles:",
+      "      # - Type: Lesson",
+      "      #   UID: ${2:unique-id (cmd/ctrl+option/alt+u)}",
+      "      #   Path: ${6:/folder/file.md}",
+      "      #- Type: Checkpoint",
+      "      #  UID: ${2:unique-id (cmd/ctrl+option/alt+u)}",
+      "      #  Path: ${7:/folder/file.md}",
+      "      #  Autoscore: true"
+    ]
+  },
+  "Course yaml": {
+    "prefix": "courseyaml",
+    "body": [
+      "# Course.yaml files specify the grouping and ordering of repos that define a course.",
+      "",
+      "# Supported Fields",
+      "# ===================",
+      "# DefaultUnitVisibility: hidden -- (optional) set to 'hidden' to hide all units when a course first starts.",
+      "# Course -- The top level array containing the sections of a course",
+      "# Course.Section: list -- A list contining a single array of repos. Content in the same section is grouped together on curriculum homepage.",
+      "# Course.Repos: list --  A list containing block repos that have been published in Learn.",
+      "# Course.Repos.URL -- The URL to a block repo that has been published in Learn.",
+      "",
+      "# Related Snippets",
+      "# ===================",
+      "# `sectionyaml`: add one section",
+      "# `repoyaml`: add one repo",
+      "# Note: Be sure to place the cursor at the appropriate indentation level before running either of these.",
+      "",
+      "# All UIDs must be unique within a repo. Use `cmd/ctrl+option/alt+u` to generate",
+      "---",
+      "Course:",
+      "  - Section: ${1:[Section name]}",
+      "    Repos:",
+      "      - URL: https://github.com/gSchool/${2:[Repo name]}",
+      "#      - URL: https://github.com/gSchool/${3:[(optional) Repo name]}",
+      "# - Section: ${4:[(optional) Section name]}",
+      "#   Repos:",
+      "#     - URL: https://github.com/gSchool/${5:Repo name}"
+    ]
+  },
+  "Unit": {
+    "prefix": "unityaml",
+    "body": [
+      "- Title: ${1:The unit name}",
+      "  UID: ${2:[unique-id (option-command-G from uuidgen plugin)]}",
+      "  Description: ${3:[The Standard text]}",
+      "  SuccessCriteria:",
+      "    - ${4:[The first success criteria]}",
+      "    # - ${5:(optional) Another success criteria, uncomment to use}",
+      "  ContentFiles:",
+      "    # - Type: Lesson",
+      "    #   UID: ${8:[unique-id (option-command-G from uuidgen plugin)]}",
+      "    #   Path: ${9:/folder/file.md}",
+      "    - Type: Checkpoint",
+      "      UID: ${6:unique-id (option-command-G from uuidgen plugin)}",
+      "      Path: ${7:/folder/file.md}",
+      "      Autoscore: true"
+    ]
+  },
+  "Lesson": {
+    "prefix": "lessonyaml",
+    "body": [
+      "- Type: Lesson",
+      "  UID: ${1:unique-id (option-command-G from uuidgen plugin)}",
+      "  Path: ${2:/folder/file.md}"
+    ]
+  },
+  "Hidden Lesson": {
+    "scope": "yaml",
+    "prefix": "lessonyaml-hidden",
+    "body": [
+      "      - Type: Lesson",
+      "        UID: ${1:unique-id (option-command-G from uuidgen plugin)}",
+      "        Path: ${2:/folder/file.md}",
+      "        DefaultVisibility: hidden"
+    ],
+    "description": "Adds a Learn lesson that is hidden by default."
+  },
+  "Instructor Page": {
+    "scope": "yaml",
+    "prefix": "instructoryaml",
+    "body": [
+      "      - Type: Instructor",
+      "        UID: ${1:unique-id (option-command-G from uuidgen plugin)}",
+      "        Path: ${2:/folder/file.md}"
+    ],
+    "description": "Adds a Learn page that is on the left-nav but only visible to instructors."
+  },
+  "Section": {
+    "prefix": "sectionyaml",
+    "body": ["- Section: ${1:Section name]}", "  Repos:", "    - URL: https://github.com/gSchool/${2:[Repo name]}"]
+  },
+  "Repo": {
+    "prefix": "repoyaml",
+    "body": ["- URL: https://github.com/gSchool/${1:[Repo name]}"]
+  }
+}

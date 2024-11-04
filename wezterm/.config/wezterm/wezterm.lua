@@ -24,7 +24,7 @@ local default_program = { shell }
 local opacity = 0.8
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    default_program = { "wsl", "-d", "Arch", "--cd", "~" }
+    default_program = { "wsl", "-d", "NixOS", "--cd", "~" }
     opacity = 0.90
 end
 

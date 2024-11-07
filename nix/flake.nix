@@ -76,6 +76,12 @@
       khal
       sesh
       gum
+      bun
+      deno
+      go
+      swift
+      sqlite
+      inetutils
     ];
 
     userPackages = unstableUserPackages ++ stableUserPackages;

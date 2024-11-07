@@ -42,6 +42,20 @@ end, {})
 
 vim.keymap.set("n", "<leader>mdl", "<cmd>MarkdownLint<cr>")
 
+-- Run markdown lint against all the files
+vim.api.nvim_create_user_command("CSpell", function()
+    vim.notify("Running cspell")
+    local olderrorformat = vim.opt.errorformat
+    vim.opt.errorformat = {
+        "%f:%l:%c %m",
+        "%f:%l %m",
+    }
+    vim.api.nvim_command("cexpr systemlist('cspell -e node_modules **/*.md')")
+    vim.api.nvim_command("copen")
+    vim.opt.errorformat = olderrorformat
+    vim.notify("Done")
+end, {})
+
 -- Grep for all TODO comments
 vim.api.nvim_create_user_command("TODO", function()
     vim.notify("Searching for TODOs")

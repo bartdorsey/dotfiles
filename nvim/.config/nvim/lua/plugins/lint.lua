@@ -1,6 +1,10 @@
 if os.getenv("DEVMODE") then
     return {
         "mfussenegger/nvim-lint",
+        dependencies = {
+
+            "j-hui/fidget.nvim",
+        },
         config = function()
             local which = require("util").which
 

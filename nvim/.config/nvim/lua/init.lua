@@ -51,8 +51,8 @@ require("lazy").setup({
         notify = true,
     },
     change_detection = {
-        enabled = true,
-        notify = true,
+        enabled = false,
+        notify = false,
     },
     install = {
         missing = true,

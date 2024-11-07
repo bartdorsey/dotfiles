@@ -2,7 +2,7 @@ if os.getenv("DEVMODE") then
     return {
         "mfussenegger/nvim-lint",
         dependencies = {
-
+            "linux-cultist/venv-selector.nvim",
             "j-hui/fidget.nvim",
         },
         config = function()
@@ -13,27 +13,22 @@ if os.getenv("DEVMODE") then
 
             if which("ruff") then
                 table.insert(python_linters, "ruff")
-                vim.notify("ruff enabled.")
             end
 
             if which("mypy") then
                 table.insert(python_linters, "mypy")
-                vim.notify("mypy enabled.")
             end
 
             if which("flake8") then
                 table.insert(python_linters, "flake8")
-                vim.notify("flake8 enabled.")
             end
 
             if which("cspell") then
                 table.insert(markdown_linters, "cspell")
-                vim.notify("cspell enabled.")
             end
 
             if which("markdownlint") or which("markdownlint-cli") then
                 table.insert(markdown_linters, "markdownlint")
-                vim.notify("markdownlint enabled.")
             end
 
             -- print out the linters

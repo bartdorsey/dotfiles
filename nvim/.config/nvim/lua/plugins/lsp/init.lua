@@ -44,8 +44,6 @@ if os.getenv("DEVMODE") then
             -- Rust tools
             { "simrat39/rust-tools.nvim" },
 
-            -- Python tools
-            { "neolooong/whichpy.nvim" },
             -- Mason
             {
                 "williamboman/mason.nvim",
@@ -62,6 +60,10 @@ if os.getenv("DEVMODE") then
             },
             {
                 "nvim-orgmode/orgmode",
+            },
+            -- python
+            {
+                "linux-cultist/venv-selector.nvim",
             },
         },
         config = function()
@@ -249,13 +251,6 @@ if os.getenv("DEVMODE") then
             -- Pyright
             if which("pyright-langserver") then
                 lsp.pyright.setup({
-                    on_init = function(client)
-                        client.settings.python.pythonPath =
-                            require("whichpy.lsp").find_python_path(
-                                client.config.root_dir
-                            )
-                        vim.api.nvim_command("WhichPy retrieve")
-                    end,
                     capabilities = capabilities,
                     settings = {
                         python = {

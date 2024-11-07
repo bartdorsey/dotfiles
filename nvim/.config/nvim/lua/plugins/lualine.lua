@@ -3,6 +3,7 @@ return {
         "nvim-lualine/lualine.nvim",
         dependencies = {
             "rose-pine/neovim",
+            "AndreM222/copilot-lualine",
         },
         config = function()
             local lualine = require("lualine")
@@ -159,6 +160,22 @@ return {
                 lualine_c = { "diagnostics" },
                 lualine_x = {
                     { "overseer" },
+                    {
+                        "copilot",
+                        show_loading = true,
+                        show_colors = true,
+                        symbols = {
+                            status = {
+                                hl = {
+                                    enabled = colors.foam,
+                                    sleep = colors.overlay,
+                                    disabled = colors.overlay,
+                                    warning = colors.overlay,
+                                    unknown = colors.overlay,
+                                },
+                            },
+                        },
+                    },
                 },
                 lualine_y = {
                     "filetype",

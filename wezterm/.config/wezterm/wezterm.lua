@@ -86,6 +86,15 @@ config.keys = {
         action = wezterm.action.EmitEvent("toggle-ligature"),
     },
 }
-bar.apply_to_config(config)
+bar.apply_to_config(config, {
+    modules = {
+        workspace = {
+            enabled = false,
+        },
+        clock = {
+            enabled = false,
+        },
+    },
+})
 
 return config

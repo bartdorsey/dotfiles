@@ -14,3 +14,4 @@ New-Link $HOME/.dotfiles/oh-my-posh/.config/oh-my-posh $HOME/.config/oh-my-posh
 New-Link $HOME/.dotfiles/vscode/.config/Code/User/settings.json $env:APPDATA/Code/User/settings.json
 New-Link $HOME/.dotfiles/vscode/.config/Code/User/snippets $env:APPDATA/Code/User/snippets
 New-Link $HOME/.dotfiles/vscode/.config/Code/User/tasks.json $env:APPDATA/Code/User/tasks.json
+New-Link $HOME/.dotfiles/vim/.config/vim $HOME/.config/vim

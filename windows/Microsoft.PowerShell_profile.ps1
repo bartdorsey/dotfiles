@@ -1,23 +1,27 @@
-function Get-Disk-Free {
+function Get-Disk-Free
+{
 	Get-Volume | Sort-Object -Property DriveLetter
 }
 
-function Build-Django-Project {
-  python -m venv .venv
-  .\.venv\Scripts\Activate.ps1
-  pip install -r requirements.txt
-  python manage.py migrate
-  python manage.py createsuperuser
+function Build-Django-Project
+{
+	python -m venv .venv
+	.\.venv\Scripts\Activate.ps1
+	pip install -r requirements.txt
+	python manage.py migrate
+	python manage.py createsuperuser
 }
 
 
-function Build-Python-Virtual-Environment {
-  python -m venv .venv
-  .\.venv\Scripts\Activate.ps1
+function Build-Python-Virtual-Environment
+{
+	python -m venv .venv
+	.\.venv\Scripts\Activate.ps1
 }
 
-function Get-Projects {
-   fd -t d -d 1 . $env:USERPROFILE\dev\bartdorsey $env:USERPROFILE\dev\galvanize $env:USERPROFILE\projects | fzf | % { code $_ }
+function Get-Projects
+{
+	fd -t d -d 1 . $env:USERPROFILE\dev\bartdorsey $env:USERPROFILE\dev\galvanize $env:USERPROFILE\projects | fzf | % { code $_ }
 }
 
 # Set PS to Emacs mode
@@ -39,6 +43,7 @@ $env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
 $env:KOMOREBI_CONFIG_HOME = "$env:USERPROFILE\.config\komorebi"
 $env:HOME = $env:USERPROFILE
 $env:DEVMODE = 1
+$env:VIMINIT = "source ~/.config/vim/vimrc"
 # Aliases
 Set-Alias p Get-Projects
 Set-Alias open explorer.exe
@@ -51,14 +56,19 @@ Set-Alias dsetup Build-Django-Project-Setup
 Set-Alias lg lazygit
 #Set-Alias docker podman
 
-function Invoke-Exa {
+function Invoke-Exa
+{
 	eza --icons --git -F -h -G --group-directories-first $args
 }
 # Set-Alias ls Invoke-Exa
 
 Import-Module Terminal-Icons
 
-Invoke-Expression (& { $hook = if ($PSVersionTable.PSVersion.Major -ge 6) { 'pwd' } else { 'prompt' } (zoxide init powershell --hook $hook | Out-String) })
+Invoke-Expression (& { $hook = if ($PSVersionTable.PSVersion.Major -ge 6)
+		{ 'pwd' 
+		} else
+		{ 'prompt' 
+		} (zoxide init powershell --hook $hook | Out-String) })
 
 fastfetch --disk-show-external false
 
@@ -79,8 +89,9 @@ $DotFilesAutodetect = $true
 # for `choco` will not function.
 # See https://ch0.co/tab-completion for details.
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
+if (Test-Path($ChocolateyProfile))
+{
+	Import-Module "$ChocolateyProfile"
 }
 
 #f45873b3-b655-43a6-b217-97c00aa0db58 PowerToys CommandNotFound module

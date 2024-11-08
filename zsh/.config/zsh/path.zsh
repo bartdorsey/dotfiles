@@ -4,10 +4,11 @@ if [ -d /usr/local/bin ]; then
 fi
 
 # Linux brew
-if [ -d /home/linuxbrew ]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if ! type nix > /dev/null; then
+    if [ -d /home/linuxbrew ]; then
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    fi
 fi
-
 
 # Homebrew
 if [ -d "/opt/homebrew" ]; then
@@ -24,7 +25,12 @@ fi
 
 # Local bin
 if [ -d "$HOME/.local/bin" ];then
-    export PATH=$HOME/.local/bin:$PATH:
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Local scripts
+if [ -d "$HOME/.local/scripts" ]; then
+    export PATH="$HOME/.local/scripts:$PATH"
 fi
 
 # Nvim tarball

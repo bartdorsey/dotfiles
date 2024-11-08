@@ -9,8 +9,7 @@
   systemPackages,
   ...
 }: {
-  imports = [
-  ];
+  imports = [];
 
   wsl.enable = true;
   wsl.defaultUser = "echo";

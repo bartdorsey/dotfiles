@@ -16,18 +16,18 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     #   (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
     #fi
 
-    export WSL_INTEROP=
-    for socket in /run/WSL/*; do
-        if ss -elx | grep -q "$socket"; then
-            export WSL_INTEROP=$socket
-        else
-            rm -v $socket
-        fi
-    done
-
-    if [[ -z $WSL_INTEROP ]]; then
-        echo -e "\033[31mNo working WSL_INTEROP socket found !\033[0m"
-    fi
+    # export WSL_INTEROP=
+    # for socket in /run/WSL/*; do
+    #     if ss -elx | grep -q "$socket"; then
+    #         export WSL_INTEROP=$socket
+    #     else
+    #         rm -v $socket
+    #     fi
+    # done
+    #
+    # if [[ -z $WSL_INTEROP ]]; then
+    #     echo -e "\033[31mNo working WSL_INTEROP socket found !\033[0m"
+    # fi
 
     # WSL aliases
     alias clip='/mnt/c/Windows/system32/clip.exe'

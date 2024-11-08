@@ -2,3 +2,11 @@
 .local/share/Trash/
 .config/Code/CachedData
 .docker/
+node-modules/
+.venv/
+*.tmp
+*.log
+.DS_Store
+thumbs.db
+*cache*
+*Cache*

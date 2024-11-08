@@ -124,11 +124,12 @@ return {
 
             local statusline = {
                 lualine_a = {
-                    {
-                        custom_mode,
-                        separator = { left = "┃" },
-                        padding = { left = 1, right = 1 },
-                    },
+                    { "mode", icon = " " },
+                    -- {
+                    --     custom_mode,
+                    --     separator = { left = "┃" },
+                    --     padding = { left = 1, right = 1 },
+                    -- },
                 },
                 lualine_b = {
                     cwd,

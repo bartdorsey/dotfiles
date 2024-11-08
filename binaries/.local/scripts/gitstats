@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+
+import subprocess
+from collections import defaultdict
+from typing import TypedDict
+
+
+class RepoData(TypedDict):
+    commits: int
+    lines_added: int
+    lines_removed: int
+
+
+def get_git_log():
+    # Execute the git log command and return its output
+    return subprocess.check_output(
+        ["git", "log", "--pretty=format:%an", "--shortstat"], encoding="utf-8"
+    )
+
+
+def parse_git_log(log_data: str) -> dict[str, RepoData]:
+    # Parse the git log data and count commits and lines added/removed per author
+    data: dict[str, RepoData] = defaultdict(
+        lambda: {"commits": 0, "lines_added": 0, "lines_removed": 0}
+    )
+    current_author_name = None
+
+    for line in log_data.splitlines():
+        if line:
+            if not line.startswith(" "):
+                # This is an author line
+                current_author_name = line
+                current_author = data[current_author_name]
+                current_author["commits"] += 1
+            else:
+                # This is a line with commit stats
+                parts = line.split(",")
+                for part in parts:
+                    if "insertion" in part:
+                        current_author["lines_added"] += int(part.split()[0])
+                    elif "deletion" in part:
+                        current_author["lines_removed"] += int(part.split()[0])
+
+    return data
+
+
+def generate_report(repo_data: dict[str, RepoData]):
+    # Generate a formatted report
+    report = "Contributor Report\n"
+    report += "-----------------\n"
+    for author, stats in repo_data.items():
+        report += f"{author}: {stats['commits']} commits, {stats['lines_added']} lines added, {stats['lines_removed']} lines removed\n"
+
+    return report
+
+
+def main():
+    log_data = get_git_log()
+    repo_data = parse_git_log(log_data)
+    report = generate_report(repo_data)
+    print(report)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+# Configuration
+MOUNT_POINT="/mnt/backups/"
+SMB_SERVER="//10.0.0.192/WSLBackups"
+BACKUP_SRC="$HOME"
+BACKUP_DEST="$MOUNT_POINT/home/"
+RSYNC_LOG="/mnt/backups/backup_rsync.log"
+
+# Retrieve SMB credentials from pass
+SMB_USERNAME=$(pass show smb/username)
+SMB_PASSWORD=$(pass show smb/password)
+
+# Ensure the mount point exists
+if [ ! -d "$MOUNT_POINT" ]; then
+    sudo mkdir -p "$MOUNT_POINT"
+fi
+
+# Check if the share is already mounted
+if findmnt -rno TARGET "$MOUNT_POINT"; then
+    echo "SMB share is already mounted."
+else
+    echo "Mounting SMB share..."
+    sudo mount -t cifs -o username="$SMB_USERNAME",password="$SMB_PASSWORD",uid=$(id -u),gid=$(id -g),file_mode=0777,dir_mode=0777  "$SMB_SERVER" "$MOUNT_POINT"
+    
+    if [ $? -ne 0 ]; then
+        echo "Error mounting the SMB share."
+        exit 1
+    fi
+fi
+
+# Create backup destination folder if it doesn't exist
+if [ ! -d "$BACKUP_DEST" ]; then
+    mkdir -p "$BACKUP_DEST"
+fi
+
+# Perform incremental backup using rsync
+echo "Starting backup from $BACKUP_SRC to $BACKUP_DEST..."
+{ 
+    rsync --progress --info=progress2 -a --delete --exclude-from='backup-exclude.txt' --link-dest="$BACKUP_DEST/latest" "$BACKUP_SRC/" "$BACKUP_DEST/backup_$(date +'%Y-%m-%d_%H-%M-%S')/"
+} | tee -a "$RSYNC_LOG"
+
+# Update the latest backup symlink
+ln -sfn "$BACKUP_DEST/backup_$(date +'%Y-%m-%d_%H-%M-%S')" "$BACKUP_DEST/latest"
+
+echo "Backup complete."
+
+

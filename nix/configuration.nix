@@ -17,14 +17,7 @@
   # Bootloader.
   boot.loader = {
     efi.canTouchEfiVariables = true;
-
-    grub = {
-      devices = ["nodev"];
-      efiSupport = true;
-      enable = true;
-      useOSProber = true;
-      default = "saved";
-    };
+    systemd-boot.enable = true;
   };
 
   boot.extraModulePackages = with config.boot.kernelPackages; [
@@ -36,7 +29,6 @@
   security.polkit.enable = true;
 
   networking.hostName = "nzxt"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Fixes Windows and Linux clock problems
   time.hardwareClockInLocalTime = true;
@@ -67,21 +59,16 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
+    wayland = {
+      enable = true;
+    };
   };
 
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.desktopManager.cinnamon.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-
-  services.xserver.windowManager.awesome = {
-    enable = true;
-  };
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -215,7 +202,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
   virtualisation.docker.enable = true;
 

@@ -105,5 +105,6 @@
   "open-in-vim.useNeovim": true,
   "terminal.integrated.defaultLocation": "editor",
   "djlint.showInstallError": false,
-  "security.promptForRemoteFileProtocolHandling": false
+  "security.promptForRemoteFileProtocolHandling": false,
+  "lldb.suppressUpdateNotifications": true
 }

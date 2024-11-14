@@ -21,7 +21,7 @@ if command_exists lsd; then
 fi
 
 # lazygit
-if type lazygit > /dev/null;then
+if command_exists lazygit; then
     alias lg=lazygit
 fi
 
@@ -31,11 +31,11 @@ if command_exists lazydocker; then
 fi
 
 
-if type xdg-open > /dev/null; then
+if command_exists xdg-open; then
     alias open=xdg-open
 fi
 
-if type wsl-open > /dev/null; then
+if command_exists wsl-open; then
     alias open=wsl-open
 fi
 
@@ -54,27 +54,6 @@ if command_exists gh; then
     eval "$(gh copilot alias -- zsh)"
 fi
 
-# sesh
-if command_exists sesh; then
-
-    function sesh-sessions() {
-      {
-        exec </dev/tty
-        exec <&1
-        local session
-        session=$(sesh list -i -c -t -z | gum filter --width=80 --reverse --height=10 --limit 1 --placeholder 'Pick a sesh' --prompt='⚡')
-        # session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
-        [[ -z "$session" ]] && return
-        sesh connect $session
-      }
-    }
-
-    zle -N sesh-sessions
-    bindkey -M emacs '\es' sesh-sessions
-    bindkey -M vicmd '\es' sesh-sessions
-    bindkey -M viins '\es' sesh-sessions
-fi
-
 # wget
 if command_exists wget; then
     alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
@@ -86,6 +65,6 @@ if command_exists irssi; then
 fi
 
 # nvidia-settings
-if type nvidia-settings > /dev/null; then
+if command_exists nvidia-settings; then
     alias nvidia-settings=nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings
 fi

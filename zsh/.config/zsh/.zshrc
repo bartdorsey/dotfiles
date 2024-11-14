@@ -43,6 +43,9 @@ alias help=run-help
 # Skip global compinit initialization in Ubuntu
 skip_global_compinit=1
 
+# Load utils
+source $HOME/.config/common/utils.sh
+
 # Load zsh functions
 source $ZDOTDIR/zsh-functions.zsh
 
@@ -91,18 +94,20 @@ LISTMAX=-1
 stty stop undef
 
 # Path
+source $HOME/.config/common/path.sh
 source $ZDOTDIR/path.zsh
 
 # Devtools
 if [[ $DEVMODE ]]; then
     source $ZDOTDIR/devtools.zsh
+    source $HOME/.config/common/devtools.sh
 fi
 
 # Plugins
 source $ZDOTDIR/zsh-plugins.zsh
 
 # Aliases
-source $ZDOTDIR/aliases.zsh
+source $HOME/.config/common/aliases.sh
 
 # Prompt
 source $ZDOTDIR/prompt.zsh

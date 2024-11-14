@@ -10,6 +10,9 @@ source $HOME/.config/common/utils.sh
 source $HOME/.config/common/aliases.sh
 source $HOME/.config/common/path.sh
 
+# GRC
+source $HOME/.config/bash/grc.sh
+
 # Devtools
 if [[ $DEVMODE ]]; then
     source $HOME/.config/common/devtools.sh

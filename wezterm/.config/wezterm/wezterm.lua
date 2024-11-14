@@ -49,6 +49,7 @@ config.window_padding = {
 }
 
 config.font_size = 14
+config.color_scheme = 'Rosé Pine Moon (base16)'
 config.max_fps = 170
 config.cursor_thickness = "2pt"
 config.cursor_blink_rate = 600

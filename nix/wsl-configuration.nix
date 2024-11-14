@@ -64,9 +64,6 @@
   };
 
   programs.zsh = {
-    #    syntaxHighlighting.enable = true;
-    #autosuggestions.enable = true;
-    #enableLsColors = true;
     enable = true;
   };
 

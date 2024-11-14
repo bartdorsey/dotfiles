@@ -31,11 +31,22 @@
     };
 
     stableSystemPackages = with pkgs; [
-      vim
       wget
       zsh
       usbutils
       killall
+      dig
+      vim
+      htop
+      btop
+      fastfetch
+      stdenv.cc.cc
+      inetutils
+      tmux
+    ];
+
+    unstableSystemPackages = with pkgs-unstable; [
+      neovim
     ];
 
     unstableUserPackages = with pkgs-unstable; [
@@ -43,13 +54,11 @@
       nh
       nix-output-monitor
       nvd
-      neovim
       opam
       yazi
     ];
 
     stableUserPackages = with pkgs; [
-      vim
       (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
       git
       git-lfs
@@ -63,18 +72,12 @@
       zoxide
       nixd
       fd
-      fastfetch
-      htop
-      btop
       lsd
       grc
-      corepack_20
       rustup
-      stdenv.cc.cc
       pyright
       ruff
       ruff-lsp
-      tmux
       gh
       clang
       alejandra
@@ -87,13 +90,12 @@
       go
       swift
       sqlite
-      inetutils
       mc
       helix
     ];
 
     userPackages = unstableUserPackages ++ stableUserPackages;
-    systemPackages = stableSystemPackages;
+    systemPackages = unstableSystemPackages ++ stableSystemPackages;
   in {
     nixosConfigurations = {
       nzxt = lib.nixosSystem {

@@ -164,4 +164,4 @@ if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
 fi
 
 # MOTD
-source $ZDOTDIR/fetch.zsh
+source $HOME/.config/common/fetch.sh

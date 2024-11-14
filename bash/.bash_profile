@@ -21,3 +21,5 @@ fi
 if type starship > /dev/null; then
     eval "$(starship init bash)"
 fi
+
+source $HOME/.config/common/fetch.sh

@@ -34,6 +34,8 @@
       vim
       wget
       zsh
+      usbutils
+      killall
     ];
 
     unstableUserPackages = with pkgs-unstable; [

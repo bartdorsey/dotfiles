@@ -14,6 +14,11 @@
     ./hardware-configuration.nix
   ];
 
+  services.udev.extraRules = ''
+    # Grant access to GoXLRMin device over USB
+    SUBSYSTEM=="usb", ATTR{idVendor}=="1220", ATTR{idProduct}=="8fe4", MODE="0660", GROUP="audio"
+  '';
+
   # Bootloader.
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -59,15 +64,44 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # Enable i3
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm = {
-    enable = true;
-    wayland = {
+  services.xserver.enable = true;
+
+  services.xserver = {
+    displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --primary --mode 2560x1440 --pos 0x0 --rotate left --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 1440x1952 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --mode 2560x1440 --pos 1440x512 --rotate normal --output DP-5 --off";
+
+    desktopManager = {
+      xterm.enable = false;
+    };
+
+    windowManager.i3 = {
       enable = true;
+      package = pkgs-unstable.i3-rounded;
+      extraPackages = with pkgs-unstable; [
+        dmenu #application launcher most people use
+        i3status # gives you the default i3 status bar
+        i3lock #default i3 screen locker
+        i3blocks #if you are planning on using i3blocks over i3status
+        polybarFull
+        feh
+        lxappearance
+        networkmanagerapplet
+        goxlr-utility
+        dunst
+        picom
+        maim
+        dex
+        xss-lock
+      ];
     };
   };
 
+  # # Enable the KDE Plasma Desktop Environment.
+  services.displayManager.sddm = {
+    enable = true;
+  };
+  #
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -104,7 +138,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Bart Dorsey";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "audio"];
     packages =
       userPackages
       ++ (with pkgs-unstable; [
@@ -113,14 +147,14 @@
         nh
         nix-output-monitor
         nvd
+        _1password-gui
+        _1password-cli
       ])
       ++ (with pkgs; [
         firefox
         vivaldi
         libsForQt5.lightly
         libsForQt5.xdg-desktop-portal-kde
-        _1password-gui
-        _1password
         chromium
         flameshot
         obs-studio
@@ -132,8 +166,9 @@
         vscode
         wezterm
         kitty
-        monaspace
-        goxlr-utility
+        vesktop
+        darktable
+        rofi
       ]);
   };
   users.groups.echo = {
@@ -148,6 +183,11 @@
     "nix-2.16.2"
   ];
 
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+  };
+
   # Vivaldi stuff
   nixpkgs.config = {
     vivaldi = {
@@ -161,6 +201,8 @@
   environment.systemPackages = systemPackages;
 
   environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
+
+  programs.dconf.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

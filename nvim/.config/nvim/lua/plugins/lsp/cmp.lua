@@ -4,7 +4,7 @@ local cmp = require("cmp")
 cmp.setup({
     -- completion
     completion = {
-        keyword_length = 1,
+        keyword_length = 3,
     },
 
     -- Snippets to load

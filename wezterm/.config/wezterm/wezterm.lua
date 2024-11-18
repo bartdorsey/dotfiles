@@ -6,8 +6,7 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-local bar =
-    wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+local bar = wezterm.plugin.require("https://github.com/bartdorsey/bar.wezterm")
 
 wezterm.on("toggle-ligature", function(window, _)
     local overrides = window:get_config_overrides() or {}
@@ -49,7 +48,8 @@ config.window_padding = {
 }
 
 config.font_size = 14
-config.color_scheme = 'Rosé Pine Moon (base16)'
+config.color_scheme = "Rosé Pine Moon (base16)"
+config.disable_default_key_bindings = false
 config.max_fps = 170
 config.cursor_thickness = "2pt"
 config.cursor_blink_rate = 600
@@ -74,26 +74,99 @@ config.harfbuzz_features = nil
 config.command_palette_bg_color = "#000000"
 config.command_palette_fg_color = "#FFFFFF"
 config.command_palette_font_size = 16.0
-config.command_palette_rows = 1
+-- config.command_palette_rows = 1
 config.unix_domains = {
     {
         name = "unix",
     },
 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 10000 }
 config.keys = {
     {
         key = "E",
         mods = "CTRL",
         action = wezterm.action.EmitEvent("toggle-ligature"),
     },
+    {
+        key = "c",
+        mods = "LEADER",
+        action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+    },
+    {
+        key = "b",
+        mods = "LEADER",
+        action = wezterm.action.ActivateTabRelative(-1),
+    },
+    {
+        key = "n",
+        mods = "LEADER",
+        action = wezterm.action.ActivateTabRelative(1),
+    },
+    {
+        key = "\\",
+        mods = "LEADER",
+        action = wezterm.action.SplitHorizontal({
+            domain = "CurrentPaneDomain",
+        }),
+    },
+    {
+        key = "-",
+        mods = "LEADER",
+        action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+    },
+    {
+        key = "r",
+        mods = "LEADER",
+        action = wezterm.action.ReloadConfiguration,
+    },
+    {
+        key = "h",
+        mods = "LEADER",
+        action = wezterm.action.ActivatePaneDirection("Left"),
+    },
+    {
+        key = "j",
+        mods = "LEADER",
+        action = wezterm.action.ActivatePaneDirection("Down"),
+    },
+    {
+        key = "k",
+        mods = "LEADER",
+        action = wezterm.action.ActivatePaneDirection("Up"),
+    },
+    {
+        key = "l",
+        mods = "LEADER",
+        action = wezterm.action.ActivatePaneDirection("Right"),
+    },
+    {
+        key = "x",
+        mods = "LEADER",
+        action = wezterm.action.CloseCurrentPane({ confirm = false }),
+    },
+    {
+        key = "d",
+        mods = "LEADER",
+        action = wezterm.action.DetachDomain("CurrentPaneDomain"),
+    },
 }
+
+for i = 1, 9 do
+    -- CTRL+ALT + number to activate that tab
+    table.insert(config.keys, {
+        key = tostring(i),
+        mods = "LEADER",
+        action = wezterm.action.ActivateTab(i - 1),
+    })
+end
+
 bar.apply_to_config(config, {
     modules = {
         workspace = {
-            enabled = false,
+            enabled = true,
         },
         clock = {
-            enabled = false,
+            enabled = true,
         },
     },
 })

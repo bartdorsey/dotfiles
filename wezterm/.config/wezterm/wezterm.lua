@@ -31,12 +31,6 @@ local default_program = { shell }
 
 local opacity = 0.8
 
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    default_program = { "wsl", "-d", "NixOS", "--cd", "~" }
-    opacity = 0.90
-    config.dpi = 72
-end
-
 config.set_environment_variables = {
     TERM = "wezterm",
 }
@@ -175,5 +169,11 @@ bar.apply_to_config(config, {
         },
     },
 })
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    default_program = { "wsl", "-d", "NixOS", "--cd", "~" }
+    opacity = 0.90
+    config.font_size = 12
+end
 
 return config

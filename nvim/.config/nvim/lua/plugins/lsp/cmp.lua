@@ -52,6 +52,7 @@ cmp.setup({
         },
         { name = "emoji" },
         { name = "nerdfont" },
+        { name = "vim-dadbod-completion" },
     }, {
         { name = "copilot" },
         { name = "buffer" },

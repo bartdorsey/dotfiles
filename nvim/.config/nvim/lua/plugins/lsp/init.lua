@@ -158,14 +158,14 @@ if os.getenv("DEVMODE") then
             end
 
             -- Deno
-            if which("deno") then -- Deno
-                vim.g.markdown_fenced_languages = {
-                    "ts=typescript",
-                }
-                lsp.denols.setup({
-                    capabilities = capabilities,
-                })
-            end
+            -- if which("deno") then -- Deno
+            --     vim.g.markdown_fenced_languages = {
+            --         "ts=typescript",
+            --     }
+            --     lsp.denols.setup({
+            --         capabilities = capabilities,
+            --     })
+            -- end
 
             -- JSON
             if which("vscode-json-language-server") then

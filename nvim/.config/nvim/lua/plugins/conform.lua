@@ -13,7 +13,7 @@ if os.getenv("DEVMODE") then
                     json = { "prettierd" },
                     markdown = { "markdownlint" },
                     ocaml = { "ocamlformat" },
-                    html = { "prettierd " },
+                    html = { "prettierd" },
                     htmldjango = { "djlint" },
                     nix = { "alejandra" },
                     yaml = { "yamlfmt" },

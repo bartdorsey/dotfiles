@@ -7,11 +7,11 @@
 
 # i3 config file (v4)
 #
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# Please see https://i3wm.org/docs/user.html for a complete reference!
 
 # for_window [class="^.*"] border pixel 4
 
-set $mod Mod4
+set $mod Mod1
 # set $mod Mod1
 
 default_border pixel 4
@@ -22,7 +22,7 @@ exec --no-startup-id dunstify "Loading xrandr"
 exec --no-startup-id ~/.config/i3/xrandr.sh
 exec --no-startup-id dunstify "Loading picom"
 exec --no-startup-id picom
-exec_always --no-startup-id feh --bg-fill ~/Pictures/arch-black-4k.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/nixos.png
 exec --no-startup-id dunstify "Loading wallpaper"
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
@@ -86,7 +86,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show drun
-bindsym $mod+space exec --no-startup-id rofi -show combi
+bindsym $mod+space exec --no-startup-id rofi -show drun
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 # change focus

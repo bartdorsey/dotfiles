@@ -102,7 +102,7 @@
     enable = true;
   };
   #
-  services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -252,4 +252,19 @@
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
+
+  # Default applications
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [
+        "wezterm.desktop"
+      ];
+    };
+  };
+
+  xdg.mime.defaultApplications = {
+    "inode/directory" = "yazi.desktop";
+    "inode/mount-point" = "yazi.desktop";
+  };
 }

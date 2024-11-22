@@ -43,6 +43,7 @@
       stdenv.cc.cc
       inetutils
       tmux
+      file
     ];
 
     unstableSystemPackages = with pkgs-unstable; [
@@ -92,6 +93,10 @@
       sqlite
       mc
       helix
+      prettierd
+      glab
+      cloc
+      mise
     ];
 
     userPackages = unstableUserPackages ++ stableUserPackages;

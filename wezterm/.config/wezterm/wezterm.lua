@@ -34,6 +34,7 @@ local opacity = 0.8
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     default_program = { "wsl", "-d", "NixOS", "--cd", "~" }
     opacity = 0.90
+    config.dpi = 72
 end
 
 config.set_environment_variables = {
@@ -47,8 +48,7 @@ config.window_padding = {
     bottom = 0,
 }
 
-config.font_size = 12
-config.dpi = 96
+config.font_size = 14
 config.color_scheme = "Rosé Pine Moon (base16)"
 config.disable_default_key_bindings = false
 config.max_fps = 170

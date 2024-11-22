@@ -161,6 +161,9 @@ bar.apply_to_config(config, {
             enabled = true,
         },
         clock = {
+            enabled = false,
+        },
+        weather = {
             enabled = true,
         },
         weather = {

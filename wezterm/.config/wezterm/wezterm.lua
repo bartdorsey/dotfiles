@@ -48,6 +48,7 @@ config.window_padding = {
 }
 
 config.font_size = 12
+config.dpi = 96
 config.color_scheme = "Rosé Pine Moon (base16)"
 config.disable_default_key_bindings = false
 config.max_fps = 170

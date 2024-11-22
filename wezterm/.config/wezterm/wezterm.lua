@@ -47,7 +47,7 @@ config.window_padding = {
     bottom = 0,
 }
 
-config.font_size = 14
+config.font_size = 12
 config.color_scheme = "Rosé Pine Moon (base16)"
 config.disable_default_key_bindings = false
 config.max_fps = 170
@@ -167,6 +167,10 @@ bar.apply_to_config(config, {
         },
         clock = {
             enabled = true,
+        },
+        weather = {
+            enabled = true,
+            city = "conway",
         },
     },
 })

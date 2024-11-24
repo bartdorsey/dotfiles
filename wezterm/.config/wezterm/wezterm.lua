@@ -6,6 +6,8 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
+local color_scheme = "Rosé Pine Moon (base16)"
+
 local bar = wezterm.plugin.require("https://github.com/bartdorsey/bar.wezterm")
 
 wezterm.on("toggle-ligature", function(window, _)
@@ -30,6 +32,13 @@ local shell = os.getenv("SHELL")
 local default_program = { shell }
 
 local opacity = 0.8
+local font_size = 14
+
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+    config.default_domain = "WSL:NixOS"
+    opacity = 0.90
+    font_size = 12
+end
 
 config.set_environment_variables = {
     TERM = "wezterm",
@@ -42,8 +51,8 @@ config.window_padding = {
     bottom = 0,
 }
 
-config.font_size = 14
-config.color_scheme = "Rosé Pine Moon (base16)"
+config.font_size = font_size
+config.color_scheme = color_scheme
 config.disable_default_key_bindings = false
 config.max_fps = 170
 config.cursor_thickness = "2pt"
@@ -69,7 +78,7 @@ config.harfbuzz_features = nil
 config.command_palette_bg_color = "#000000"
 config.command_palette_fg_color = "#FFFFFF"
 config.command_palette_font_size = 16.0
--- config.command_palette_rows = 1
+config.command_palette_rows = 1
 config.unix_domains = {
     {
         name = "unix",
@@ -158,7 +167,7 @@ end
 bar.apply_to_config(config, {
     modules = {
         workspace = {
-            enabled = true,
+            enabled = false,
         },
         clock = {
             enabled = false,
@@ -167,16 +176,10 @@ bar.apply_to_config(config, {
             enabled = true,
         },
         weather = {
-            enabled = true,
+            enabled = false,
             city = "conway",
         },
     },
 })
-
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    default_program = { "wsl", "-d", "NixOS", "--cd", "~" }
-    opacity = 0.90
-    config.font_size = 12
-end
 
 return config

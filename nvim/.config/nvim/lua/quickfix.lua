@@ -50,7 +50,9 @@ vim.api.nvim_create_user_command("CSpell", function()
         "%f:%l:%c %m",
         "%f:%l %m",
     }
-    vim.api.nvim_command("cexpr systemlist('cspell -e node_modules **/*.md')")
+    vim.api.nvim_command(
+        "cexpr systemlist('cspell --no-progress --no-summary --show-suggestions -e node_modules **/*.md')"
+    )
     vim.api.nvim_command("copen")
     vim.opt.errorformat = olderrorformat
     vim.notify("Done")

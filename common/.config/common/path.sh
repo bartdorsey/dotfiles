@@ -3,6 +3,11 @@ if [ -d /usr/local/bin ]; then
     export PATH="/usr/local/bin:$PATH"
 fi
 
+# Mason's bin path
+if [ -d "$HOME/.local/share/nvim/mason/bin" ]; then
+    export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+fi
+
 # Linux brew
 if ! command_exists nix; then
     if [ -d /home/linuxbrew ]; then

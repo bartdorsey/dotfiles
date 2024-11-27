@@ -44,6 +44,7 @@
       inetutils
       tmux
       file
+      kmod
     ];
 
     unstableSystemPackages = with pkgs-unstable; [

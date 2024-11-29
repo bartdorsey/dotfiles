@@ -45,6 +45,9 @@
       tmux
       file
       kmod
+      iotop
+      iotop-c
+      iperf3
     ];
 
     unstableSystemPackages = with pkgs-unstable; [

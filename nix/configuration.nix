@@ -33,6 +33,28 @@
   '';
   security.polkit.enable = true;
 
+  boot.plymouth = {
+    enable = true;
+    theme = "rings";
+    themePackages = with pkgs; [
+      (adi1090x-plymouth-themes.override {
+        selected_themes = ["rings"];
+      })
+    ];
+  };
+
+  boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
+
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "boot.shell_on_fail"
+    "loglevel=3"
+    "rd.systemd.show_status=false"
+    "udev.log_priority=3"
+  ];
+
   networking.hostName = "nzxt"; # Define your hostname.
 
   # Fixes Windows and Linux clock problems
@@ -149,9 +171,12 @@
         nvd
         _1password-gui
         _1password-cli
+        firefox
+        firefoxpwa
+        firefox-devedition
       ])
       ++ (with pkgs; [
-        firefox
+        vieb
         vivaldi
         libsForQt5.lightly
         libsForQt5.xdg-desktop-portal-kde
@@ -169,6 +194,7 @@
         vesktop
         darktable
         rofi
+        microsoft-edge
       ]);
   };
   users.groups.echo = {

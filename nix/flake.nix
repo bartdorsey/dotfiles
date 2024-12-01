@@ -2,11 +2,11 @@
   description = "My first flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixoswsl.url = "github:nix-community/NixOS-WSL";
     nixoswsl.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -51,20 +51,20 @@
     ];
 
     unstableSystemPackages = with pkgs-unstable; [
-      neovim
     ];
 
     unstableUserPackages = with pkgs-unstable; [
+    ];
+
+    stableUserPackages = with pkgs; [
+      (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
+      neovim
       dust
       nh
       nix-output-monitor
       nvd
       opam
       yazi
-    ];
-
-    stableUserPackages = with pkgs; [
-      (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
       git
       git-lfs
       nodejs_22

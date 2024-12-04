@@ -27,7 +27,10 @@ if !has('nvim') " Neovim has its own special location
 endif
 
 " [[ Setting options ]]
+
+" Netrw options
 let g:netrw_liststyle = 3
+let g:netrw_banner = 0
 
 " Make line numbers default
 set number
@@ -112,6 +115,7 @@ else
     Plug 'tpope/vim-sensible'
     Plug 'rose-pine/vim'
     Plug 'Donaldttt/fuzzyy'
+    Plug 'tpope/vim-vinegar'
 
     call plug#end()
 

@@ -109,5 +109,14 @@ tnoremap <c-\> <c-\><c-n>
 if has('nvim')
     source ~/.config/nvim/init.vim
     finish
-endif
+else
+    call plug#begin()
+
+    Plug 'tpope/vim-sensible'
+    Plug 'rose-pine/vim'
+
+    call plug#end()
+
+    colorscheme rosepine
+end
 

@@ -32,6 +32,32 @@ endif
 set number
 set relativenumber
 
+" Set termguicolors
+set termguicolors
+
+" Disable netrw at the very start (strongly advised)
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+" let g:netrw_liststyle = 3
+
+" Set <space> as the leader key
+let mapleader = " "
+let maplocalleader = " "
+
+" Set the terminal title
+set title
+
+" Enable 256 colors
+set termguicolors
+
+" Set the characters used for indentations
+set list
+set listchars=tab:».",extends:›,precedes:‹,nbsp:·,trail:·
+
+" Split behavior
+set splitbelow
+set splitright
+
 " Enable mouse mode
 set mouse=a
 

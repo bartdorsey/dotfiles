@@ -24,12 +24,6 @@ vim.keymap.set(
     { desc = "Make horizontal split larger" }
 )
 
--- Window movement
--- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
--- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
--- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window right" })
--- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to window left" })
-
 -- Let you move visual blocks with J and K
 vim.keymap.set(
     "v",
@@ -105,5 +99,3 @@ vim.opt.guicursor = "n-v-c-sm:block-blinkon1,i-ci-ve:ver20,r-cr-o:hor20"
 
 -- Configure vim short messages
 vim.o.shortmess = "ltToOCIFa"
-
-return {}

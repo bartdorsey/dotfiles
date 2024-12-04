@@ -24,5 +24,3 @@ vim.api.nvim_create_user_command("Plugins", function()
     vim.cmd("cd ~/.dotfiles/nvim/.config/nvim")
     vim.cmd("Oil ~/.dotfiles/nvim/.config/nvim/lua/plugins")
 end, {})
-
-return {}

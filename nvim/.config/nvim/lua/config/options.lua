@@ -1,42 +1,14 @@
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
--- vim.g.netrw_liststyle = 3
-
--- Set <space> as the leader key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- Set the terminal title
-vim.cmd("set title")
-
--- 256 colors
-vim.opt.termguicolors = true
--- Swap and undo
-vim.o.swapfile = false
-vim.o.backup = false
-vim.o.undodir = vim.fn.stdpath("data") .. "/undodir"
-vim.o.undofile = true
-
--- set the characters used for indentations
-vim.opt.list = true
-vim.opt.listchars = {
-    tab = "».",
-    extends = "›",
-    precedes = "‹",
-    nbsp = "·",
-    trail = "·",
-}
-
 -- Folding with nvim-treesitter
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldenable = true
 
--- Split Behavior
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+-- Swap and undo
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undodir = vim.fn.stdpath("data") .. "/undodir"
+vim.o.undofile = true
 
 -- Neovide
 if vim.g.neovide then
@@ -67,5 +39,3 @@ vim.g.clipboard = {
         ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
     },
 }
-
-return {}

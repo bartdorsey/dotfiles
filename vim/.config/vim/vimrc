@@ -114,6 +114,7 @@ else
 
     Plug 'tpope/vim-sensible'
     Plug 'rose-pine/vim'
+    Plug 'Donaldttt/fuzzyy'
 
     call plug#end()
 

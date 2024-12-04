@@ -48,6 +48,8 @@
       iotop
       iotop-c
       iperf3
+      zip
+      unzip
     ];
 
     unstableSystemPackages = with pkgs-unstable; [
@@ -101,6 +103,9 @@
       glab
       cloc
       mise
+      gcc
+      glibc
+      binutils
     ];
 
     userPackages = unstableUserPackages ++ stableUserPackages;

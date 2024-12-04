@@ -41,6 +41,6 @@ require("lazy").setup({
     },
     install = {
         missing = true,
-        colorscheme = { "dawn" },
+        colorscheme = { "rosepine" },
     },
 })

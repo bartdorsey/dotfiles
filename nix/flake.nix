@@ -108,6 +108,7 @@
       binutils
       lua
       luarocks
+      tree
     ];
 
     userPackages = unstableUserPackages ++ stableUserPackages;

@@ -41,6 +41,9 @@ return {
             {
                 "cljoly/telescope-repo.nvim",
             },
+            {
+                "jvgrootveld/telescope-zoxide",
+            },
         },
         cmd = { "Telescope" },
         keys = {
@@ -114,6 +117,22 @@ return {
                 "<cmd>Telescope lsp_workspace_symbols<cr>",
                 desc = "Find Symbols in Workspace",
             },
+            {
+                "<leader>fn",
+                function()
+                    require("telescope.builtin").find_files({
+                        cwd = "~/.dotfiles/nvim/.config/nvim",
+                    })
+                end,
+                desc = "Find in Neovim Config",
+            },
+            {
+                "<leader>fz",
+                function()
+                    require("telescope").extensions.zoxide.list({})
+                end,
+                desc = "Find Files with Zoxide",
+            },
         },
         config = function()
             local actions = require("telescope.actions")
@@ -127,7 +146,7 @@ return {
                     sorting_strategy = "descending",
                     layout_config = {
                         flex = {
-                            flip_columns = 120,
+                            flip_columns = 130,
                         },
                         prompt_position = "bottom",
                         height = {
@@ -180,12 +199,16 @@ return {
                             },
                         },
                     },
+                    zoxide = {
+                        list_command = 'zoxide query -ls | sed "s|$HOME|~|"',
+                    },
                 },
             })
             require("telescope").load_extension("ui-select")
             require("telescope").load_extension("messages")
             require("telescope").load_extension("repo")
             require("telescope").load_extension("bookmarks")
+            require("telescope").load_extension("zoxide")
         end,
     },
     {

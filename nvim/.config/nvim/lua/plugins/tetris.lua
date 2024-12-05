@@ -1,3 +1,3 @@
 return {
-    'alec-gibson/nvim-tetris'
+    "alec-gibson/nvim-tetris",
 }

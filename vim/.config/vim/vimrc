@@ -116,6 +116,7 @@ else
     Plug 'rose-pine/vim'
     Plug 'Donaldttt/fuzzyy'
     Plug 'tpope/vim-vinegar'
+    Plug 'mhinz/vim-startify'
 
     call plug#end()
 

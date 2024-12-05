@@ -106,6 +106,8 @@
       gcc
       glibc
       binutils
+      lua
+      luarocks
     ];
 
     userPackages = unstableUserPackages ++ stableUserPackages;

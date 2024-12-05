@@ -1,7 +1,8 @@
 return {
-    -- "xiyaowong/nvim-transparent",
-    -- config = function()
-    --     vim.g.transparent_enabled = true
-    --     require("transparent").setup()
-    -- end,
+    "xiyaowong/nvim-transparent",
+    enabled = false,
+    init = function()
+        vim.g.transparent_enabled = true
+    end,
+    config = true,
 }

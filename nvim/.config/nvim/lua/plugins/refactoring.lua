@@ -1,3 +1,4 @@
 return {
-    'ThePrimeagen/refactoring.nvim'
+    "ThePrimeagen/refactoring.nvim",
+    config = true,
 }

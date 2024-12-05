@@ -7,6 +7,7 @@ return {
         "TmuxNavigateRight",
         "TmuxNavigatePrevious",
     },
+    config = true,
     keys = {
         { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
         { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },

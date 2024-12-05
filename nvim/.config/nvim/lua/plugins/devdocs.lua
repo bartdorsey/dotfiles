@@ -8,5 +8,5 @@ return {
     keys = {
         { "<leader>fD", "<cmd>DevdocsOpen<cr>", desc = "Dev Docs" },
     },
-    opts = {},
+    config = true,
 }

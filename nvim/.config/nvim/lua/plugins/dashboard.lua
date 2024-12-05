@@ -14,13 +14,14 @@ local neovim = {
 }
 
 return {
-    "goolord/alpha-nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    enabled = false,
-    config = function()
-        local alpha = require("alpha")
-        local startify = require("alpha.themes.startify")
-        startify.section.header.val = neovim
-        alpha.setup(startify.config)
-    end,
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
+    opts = {
+        theme = "hyper",
+        config = {
+            shortcut = {},
+            header = neovim,
+        },
+    },
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
 }

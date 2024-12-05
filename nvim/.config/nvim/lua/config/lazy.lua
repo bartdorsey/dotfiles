@@ -36,11 +36,14 @@ require("lazy").setup({
         notify = true,
     },
     change_detection = {
-        enabled = false,
-        notify = false,
+        enabled = true,
+        notify = true,
     },
     install = {
         missing = true,
         colorscheme = { "rosepine" },
+    },
+    rocks = {
+        enabled = false,
     },
 })

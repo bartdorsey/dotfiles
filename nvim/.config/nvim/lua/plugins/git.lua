@@ -1,33 +1,33 @@
 return {
     {
+        "tpope/vim-fugitive",
+    },
+    {
+        enable = false,
         "TimUntersberger/neogit",
         dependencies = {
             "sindrets/diffview.nvim",
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
         },
-        config = function()
-            require("neogit").setup({
-                integrations = {
-                    diffview = true,
-                },
-            })
-        end,
+        opts = {
+            integrations = {
+                diffview = true,
+            },
+        },
     },
     {
         "lewis6991/gitsigns.nvim",
         event = "BufReadPre",
-        config = function()
-            require("gitsigns").setup({
-                signs = {
-                    add = { text = "+" },
-                    change = { text = "~" },
-                    delete = { text = "_" },
-                    topdelete = { text = "‾" },
-                    changedelete = { text = "~" },
-                },
-            })
-        end,
+        opts = {
+            signs = {
+                add = { text = "+" },
+                change = { text = "~" },
+                delete = { text = "_" },
+                topdelete = { text = "‾" },
+                changedelete = { text = "~" },
+            },
+        },
     },
     -- lazygit.nvim
     {
@@ -36,5 +36,6 @@ return {
         keys = {
             { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
         },
+        config = true,
     },
 }

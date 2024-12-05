@@ -54,9 +54,7 @@ if os.getenv("DEVMODE") then
             {
                 "folke/neodev.nvim",
                 ft = "lua",
-                config = function()
-                    require("neodev").setup()
-                end,
+                config = true,
             },
             {
                 "nvim-orgmode/orgmode",

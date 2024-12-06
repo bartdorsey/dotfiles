@@ -8,7 +8,12 @@
   userPackages,
   systemPackages,
   ...
-}: {
+}: let
+  wslUserPackages = with pkgs; [
+    wsl-open
+    wslu
+  ];
+in {
   imports = [];
 
   wsl.enable = true;
@@ -33,7 +38,7 @@
     isNormalUser = true;
     description = "Bart Dorsey";
     extraGroups = ["networkmanager" "wheel" "docker"];
-    packages = userPackages;
+    packages = userPackages ++ wslUserPackages;
   };
 
   users.groups.echo = {

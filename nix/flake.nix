@@ -109,6 +109,9 @@
       lua
       luarocks
       tree
+      hub
+      xdg-utils
+      tree-sitter
     ];
 
     userPackages = unstableUserPackages ++ stableUserPackages;

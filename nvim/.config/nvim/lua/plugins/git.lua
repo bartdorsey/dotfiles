@@ -18,6 +18,7 @@ return {
     },
     {
         "lewis6991/gitsigns.nvim",
+        enabled = true,
         event = "BufReadPre",
         opts = {
             signs = {
@@ -32,6 +33,7 @@ return {
     -- lazygit.nvim
     {
         "kdheepak/lazygit.nvim",
+        enabled = false,
         cmd = { "LazyGit" },
         keys = {
             { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },

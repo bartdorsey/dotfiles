@@ -50,6 +50,7 @@
       iperf3
       zip
       unzip
+      sysz
     ];
 
     unstableSystemPackages = with pkgs-unstable; [
@@ -112,6 +113,7 @@
       hub
       xdg-utils
       tree-sitter
+      vdirsyncer
     ];
 
     userPackages = unstableUserPackages ++ stableUserPackages;

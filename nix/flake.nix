@@ -26,6 +26,16 @@
     };
   in {
     nixosConfigurations = {
+      nixos = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit pkgs;
+          inherit pkgs-unstable;
+          inherit userPackages;
+          inherit systemPackages;
+        };
+        modules = [./vm-configuration.nix];
+      };
       nzxt = lib.nixosSystem {
         inherit system;
         specialArgs = {

@@ -8,6 +8,14 @@
     nixoswsl.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
+    git-repo-manager = {
+      url = "github:hakoerber/git-repo-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs = {
@@ -15,6 +23,7 @@
     nixoswsl,
     nixpkgs-unstable,
     home-manager,
+    git-repo-manager,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -28,6 +37,7 @@
     pkgs = import nixpkgs {
       config.allowUnfree = true;
       inherit system;
+      overlays = [git-repo-manager.overlays.git-repo-manager];
     };
 
     stableSystemPackages = with pkgs; [
@@ -51,6 +61,7 @@
       zip
       unzip
       sysz
+      git-repo-manager
     ];
 
     unstableSystemPackages = with pkgs-unstable; [
@@ -114,6 +125,7 @@
       xdg-utils
       tree-sitter
       vdirsyncer
+      image_optim
     ];
 
     userPackages = unstableUserPackages ++ stableUserPackages;

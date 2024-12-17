@@ -9,3 +9,16 @@ vim.api.nvim_create_user_command("Plugins", function()
     vim.cmd("cd ~/.dotfiles/nvim/.config/nvim")
     vim.cmd("Oil ~/.dotfiles/nvim/.config/nvim/lua/plugins")
 end, {})
+
+vim.api.nvim_create_user_command("UUID", function()
+    -- Run `uuidgen` and capture the output
+    local handle = io.popen("uuidgen")
+    local result = handle:read("*a") -- Read the entire output
+    handle:close()
+
+    -- Strip out the newline character
+    local uuid = result:gsub("%s+", "")
+
+    -- Insert the UUID at the current cursor position
+    vim.api.nvim_put({ uuid }, "", true, true)
+end, {})

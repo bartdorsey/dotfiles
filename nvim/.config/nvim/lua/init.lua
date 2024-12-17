@@ -1,8 +1,20 @@
+_G.dd = function(...)
+    require("snacks.debug").inspect(...)
+end
+_G.bt = function(...)
+    require("snacks.debug").backtrace()
+end
+_G.p = function(...)
+    require("snacks.debug").profile(...)
+end
+vim.print = _G.dd
+
 local which = require("util").which
 
 -- this hacks vim.ui.open to support wsl-open
 local default_vim_ui_open = vim.ui.open
 
+---@diagnostic disable-next-line: duplicate-set-field
 vim.ui.open = function(url)
     if which("wsl-open") then
         return vim.fn.system("wsl-open " .. url)

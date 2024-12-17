@@ -15,6 +15,13 @@ collections = ["from a", "from b"]
 metadata = ["color", "displayname", "description", "order"]
 conflict_resolution = "a wins"
 
+[pair icloud_to_mirror]
+a = "mirror"
+b = "icloud"
+metadata = ["color", "displayname", "description", "order"]
+collections  = ["home", "a6f69460a35f8fc88421fd47ef0fa6c4f0de591d558420298c12fe69e0f98d2b", "27B8EE84-204E-4E67-8549-7E802AD59ED9", "9AB854FC-B39B-4B15-B33B-A73AA669EBA4"]
+conflict_resolution = "b wins"
+
 [storage galvanize]
 type = "google_calendar"
 token_file = "~/.config/vdirsyncer/google.token"
@@ -38,3 +45,6 @@ url = "https://caldav.icloud.com/"
 username = "bart@bartdorsey.com"
 password.fetch = ["command", "pass", "icloud"]
 
+[storage mirror]
+type = "singlefile"
+path = "~/dev/thirdparty/MagicMirror/modules/calendars/%s.ics"

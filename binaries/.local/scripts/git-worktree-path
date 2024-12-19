@@ -1,0 +1,237 @@
+#!/usr/bin/env bash
+set -euo pipefail
+shopt -s inherit_errexit extglob
+
+usage() {
+  test "${1:-}" != '--flags' ||
+    { declare -f parse_args | sed -Ene 's!\s*(--?[a-zA-Z0-9][a-zA-Z0-9| -]*)\)!\1!p'; return 0; }
+  local me; me=$(basename -- "$0")
+  cat <<EOF
+$me [options] { status | abs | rel | remove } [PATH]
+$me [-v]      move FROM TO
+$me [options] { git[cmd] | cmd } PATH-UNLESS--A CMD [ARG...]
+
+Options:
+  -h, --help
+  -v, --verbose
+  -a, --all        for all worktrees (rel | abs | [re]move: non-main)
+  -A               like -a, but don't stop on errors
+  -b, --branch BR  worktree for BR (':' = main worktree)
+  --detect-gitdir  print git main & common dir (-a/-b: worktree dirs too)
+  --keep-symlink   preserve symlink path components as much as possible
+  --no-main        ignore main worktree
+
+PATH is forbidden for '-a'; without -a, *cmd REQUIRES it ('' = current WT).
+Call from a worktree, (possibly bare) repo, or via 'git -C' or '\$GIT_DIR'.
+EOF
+}
+
+GCDIR=  # /tmp/repo.git or /tmp/repo/.git
+GCTOP=  # /tmp/repo.git or /tmp/repo
+
+errexit_call() {  # args: { RCVAR | '' } CMD ARG... # disable -e, re-enable in subshell, call $@, save exit code # simply calling `func || ...` disables -e for entire func # calling `func` directly under -e prevents checking / ignoring error
+  if [[ $1 = '' ]]; then local _RC; else test _RC = "$1" || local -n _RC=$1; fi; shift
+  local -; set +e
+  (set -e; "$@"); _RC=$?  # returns 0
+}
+
+rp() { realpath -m $_O_KEEP_SYMLINK "$@"; }
+rprel() { rp --relative-to="$1" -- "$2"; }
+rpabs() { (cd -- "$1" && rp "$2"); }  # resolve $2 relative to $1, output abspath
+
+grevp() { local D=$1; shift; git -C "$D" rev-parse "$@"; }
+grevptest() { local v; v=$(grevp "$@") || return 1; $v; }
+
+__pgd() { printf '%s' 'gitdir: '; }
+wt1op() {  # single op; args: op WT=/abs_path/wt # shouldn't fail catastrophically with -e disabled, but avoid calling inside condition
+  local WT=$1 op=$2; shift 2
+  case "$op" in
+    git) op=gitcmd ;;
+    rm)  op=remove ;;
+    mv)  op=move ;;
+  esac
+  local REPOWT; REPOWT=$(grevp "$WT" --git-dir) && REPOWT=$(rpabs "$WT" "$REPOWT") || return 1
+  if test "$REPOWT" = "$GCDIR"; then
+    while :; do  # unless break-ed early, skip main worktree
+      case "$op" in
+        rel|abs|move|remove|status) ;;
+        *) ! $_O_MAIN || break ;;
+      esac
+      echo 1>&2 "# main worktree ignored: $WT"
+      return 0
+    done
+  fi
+
+  case "$op" in
+
+    rel|abs) test -f "$WT"/.git && test -f "$REPOWT"/gitdir || return 1 ;;&
+    rel)
+      { __pgd; rprel "$WT" "$REPOWT"; } >"$WT"/.git
+      rprel "$GCTOP" "$WT"/.git >"$REPOWT"/gitdir  # git worktree prune only keeps relpaths ~ $GCTOP; git worktree repair reports incorrect for anything except abspath /tmp/wt/.git
+      ;;
+    abs)  # we've made all vars abspaths; resolutions are redundant
+      { __pgd; echo "$REPOWT"; } >"$WT"/.git
+      echo "$WT"/.git >"$REPOWT"/gitdir
+      ;;
+
+    status)  # TODO: status for main worktree
+      declare -A wtinfo; wtinfo=( [WT]="$WT"/.git [REPOWT]="$REPOWT"/gitdir )  # declare -> local
+      local k; for k in "${!wtinfo[@]}"; do wtinfo[${k}ptr]=$(cat "${wtinfo[$k]}"); done
+      declare -p wtinfo
+      ;;
+
+    move|remove)
+      wt1op "$WT" abs; git worktree "$op" "$WT" "$@" || return 1  # if wt1op fails & we go on, at worst [re]move may fail # TODO: restore relative-ness if needed
+      ;;
+
+    gitcmd)
+      git -C "$WT" "$@"
+      ;;
+
+    cmd)
+      (cd -- "$WT"; "$@")
+      ;;
+
+    *) echo 1>&2 "Bad args: $op"; exit 1 ;;
+
+  esac
+}
+
+wtall() {  # args: {:|true|false} op $(: $WT inserted here :) ... # with :, subshell & ignore errors # TODO: configure subshell separately
+  local _O_DOALL=$1; shift
+  local op=$1; shift
+  local l k v WT wtlist
+  declare -A wtinfo=()
+  mapfile -t wtlist < <(git worktree list --porcelain)
+
+  for l in "${wtlist[@]}"; do
+    k=${l%% *}; v=${l#"$k"}; v=${v# }  # single-word 'key', or 'key val'
+    if [[ $k != '' ]]; then
+      wtinfo[$k]=$v
+    else  # blank line = record separator
+      WT=${wtinfo[worktree]:-}
+      if [[ ! -v wtinfo[bare] && $WT != '' ]]; then
+        { printf "# in %q: %s " "$WT" "$op"; printf ' %q' "$@"; echo; } 1>&2
+        WT=$(rpabs "$GCTOP" "$WT")
+        if test ':' = "$_O_DOALL"; then
+          errexit_call '' "$op" "$WT" "$@"  # implies subshell
+        else
+          "$op" "$WT" "$@"
+        fi
+      fi
+      wtinfo=()
+    fi
+  done
+}
+
+use_branch() {  # TODO: still need PATH arg?
+  [[ $_O_BRANCH != '' ]] || return 0
+  cd -- "$GCTOP" || return 1
+  if [[ $_O_BRANCH != ':' ]]; then
+    local WT; WT=$(git for-each-ref --format='%(worktreepath)' refs/heads/"$_O_BRANCH")
+    [[ $WT != '' ]] || { echo 1>&2 "Branch $_O_BRANCH not checked out anywhere"; exit 1; }
+    cd -- "$WT" || return 1
+  fi
+  unset_git_dirs
+}
+
+unset_git_dirs() {  # TODO: can't merge all cases because of late WT detection
+  unset GIT_DIR GIT_PREFIX GIT_WORK_TREE
+}
+
+main() {
+  test $# -ne 0 || set -- status
+  use_branch
+  local op=$1; shift
+  if $_O_DOALL; then
+    unset_git_dirs
+    wtall $_O_DOALL wt1op "$op" "$@"
+  else
+    local WT=; if test $# -gt 0; then WT=$1; shift; fi  # TODO: convoluted logic -- internal ops can have 0 args; *cmd *always* gets an arg (CMD), so WT *must* be supplied; -a supplies it naturally
+    if test -n "$WT"
+    then WT=$(rp "$WT")
+    else WT=$(grevp . --show-toplevel)  # --s-tl returns abspath
+    fi
+    test -d "$WT" || { echo 1>&2 "Not a directory: $WT"; exit 1; }
+    unset_git_dirs
+    wt1op "$WT" "$op" "$@"
+  fi
+}
+
+save_wtinfo() {
+  local WT=$1; shift
+  local -; set +e
+  test wtinfo = "$1" || local -n wtinfo=$1; shift
+  ref=$(git name-rev --name-only "${wtinfo[HEAD]}"); : "${ref:=INVALID}"
+  while [[ -v __GIT_WORKTREE_PATH[$ref] ]]; do
+    if [[ $ref = *'~'+(0) ]]
+    then ref=${ref}0
+    else ref=$ref"~0"  # first ~0 suffix
+    fi
+  done
+  __GIT_WORKTREE_PATH[$ref]=$WT
+}
+
+detect_dirs() {
+  printf '%s\n' "__GIT_MAIN_WORKTREE=${GCTOP@Q}" "__GIT_COMMON_DIR=${GCDIR@Q}"
+  if [[ $_O_BRANCH != '' ]]; then
+    use_branch; cd -P .
+    printf '%s\n' "__GIT_WORKTREE_PATH=${PWD@Q}"
+  elif $_O_DOALL; then
+    declare -A __GIT_WORKTREE_PATH
+    wtall true save_wtinfo wtinfo  # can't use ':' since wtall would subshell
+    declare -p __GIT_WORKTREE_PATH
+  fi
+}
+
+parse_args() {
+_O_BRANCH= _O_DOALL=false _O_MAIN=true
+_O_KEEP_SYMLINK=  # realpath arg: resolve by default
+
+while test $# -gt 0; do local arg=$1; shift; case "$arg" in
+  --) break ;;
+  -h|--help) usage "$@"; exit 0 ;;
+  -v|--verbose) set -x ;;
+  -A|--all-ingore-err) _O_DOALL=: ;;
+  -a|--all) _O_DOALL=true ;;
+  -b|--branch) _O_BRANCH=$1; shift ;;
+  --detect-gitdir) [[ $- = *x* ]] || exec 2>/dev/null; detect_dirs; exit 0 ;;  # TODO: allow -a after
+  --keep-symlink) _O_KEEP_SYMLINK=-s ;;
+  --no-main) _O_MAIN=false ;;
+  -*) echo 1>&2 "Bad args: $arg"; exit 1 ;;
+  *) set -- "$arg" "$@"; break ;;
+esac; done
+ARGV=( "$@" )
+}
+
+# for $PWD or $1, cd to /repo (where .git/ lives) or /bare.git; this is what relative worktree paths are resolved against
+# outputs physical abspath $GIT_COMMON_DIR to stdout
+# beware using in $() without inherit_errexit
+# will unset GIT_DIR if $1 provided, otherwise tries to maintain it
+cd_git_common_top() {
+  local out rest GCDIR isbare
+  case $# in 0) ;; 1) unset GIT_DIR; cd -- "$1" ;; *) echo 1>&2 'Bad args'; return 1 ;; esac
+  out=$(git rev-parse --is-bare-repository --git-common-dir) || return 1
+  IFS=$'\n' read -r -d '' isbare GCDIR rest <<<"$out" || :
+  cd -- "$GCDIR" || return 1
+  pwd -P
+  if ! $isbare; then  # isbare = false also for worktrees of bare repo
+    isbare=$(unset GIT_DIR; git rev-parse --is-bare-repository) || return 1  # re-check isbare inside g-c-d
+    if ! $isbare; then
+      out=$(unset GIT_DIR; cd .. && git rev-parse --show-toplevel) || return 1  # --s-tl shouldn't be needed
+      cd -- "$out" || return 1
+    fi
+  fi
+}
+# physical abspaths
+git_common_top() {  # usage: git_common_top {GCTOP | ''} {GCDIR | ''}
+  if test "$1" = ''; then local GCTOP; else test GCTOP = "$1" || local -n GCTOP=$1; fi; shift
+  if test "$1" = ''; then local GCDIR; else test GCDIR = "$1" || local -n GCDIR=$1; fi; shift
+  local out; out=$(cd_git_common_top "$@" && pwd -P) || return 1
+  local rest; IFS=$'\n' read -r -d '' GCDIR GCTOP rest <<<"$out" || :
+  [[ $GCTOP != '' && $GCDIR != '' ]] || return 1  # sanity check
+}
+
+git_common_top GCTOP GCDIR
+parse_args "$@"
+main "${ARGV[@]}"

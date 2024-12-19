@@ -16,7 +16,7 @@
     nixpkgs-unstable,
     home-manager,
     ...
-  } @ inputs: let
+  }: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
 
@@ -53,6 +53,7 @@
       sysz
       gnumake
       gita
+      uv
     ];
 
     unstableSystemPackages = with pkgs-unstable; [

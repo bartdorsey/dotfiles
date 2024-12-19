@@ -30,7 +30,7 @@
       inherit system;
     };
 
-    stableSystemPackages = with pkgs; [
+    systemPackages = with pkgs; [
       wget
       zsh
       usbutils
@@ -54,74 +54,10 @@
       gnumake
       gita
       uv
-    ];
-
-    unstableSystemPackages = with pkgs-unstable; [
-    ];
-
-    unstableUserPackages = with pkgs-unstable; [
-    ];
-
-    stableUserPackages = with pkgs; [
-      (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
-      neovim
-      dust
-      nh
-      nix-output-monitor
-      nvd
-      opam
-      yazi
-      git
-      git-lfs
-      nodejs_22
-      starship
-      lazygit
-      pass
-      ripgrep
-      fzf
-      stow
-      zoxide
-      nixd
-      fd
-      lsd
-      grc
-      rustup
-      pyright
-      ruff
-      ruff-lsp
-      gh
-      clang
-      alejandra
-      lazydocker
-      khal
-      sesh
-      gum
-      bun
-      deno
-      go
-      swift
-      sqlite
-      mc
-      helix
-      prettierd
-      glab
-      cloc
-      mise
       gcc
       glibc
       binutils
-      lua
-      luarocks
-      tree
-      hub
-      xdg-utils
-      tree-sitter
-      vdirsyncer
-      image_optim
     ];
-
-    userPackages = unstableUserPackages ++ stableUserPackages;
-    systemPackages = unstableSystemPackages ++ stableSystemPackages;
   in {
     nixosConfigurations = {
       nzxt = lib.nixosSystem {
@@ -129,17 +65,23 @@
         specialArgs = {
           inherit pkgs;
           inherit pkgs-unstable;
-          inherit userPackages;
           inherit systemPackages;
         };
-        modules = [./configuration.nix];
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.echo = import ./home.nix;
+          }
+        ];
       };
       nzxt-wsl = lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit pkgs;
           inherit pkgs-unstable;
-          inherit userPackages;
           inherit systemPackages;
         };
         modules = [

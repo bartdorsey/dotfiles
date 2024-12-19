@@ -5,7 +5,6 @@
 # https://github.com/nix-community/NixOS-WSL
 {
   pkgs,
-  userPackages,
   systemPackages,
   ...
 }: let
@@ -38,7 +37,7 @@ in {
     isNormalUser = true;
     description = "Bart Dorsey";
     extraGroups = ["networkmanager" "wheel" "docker"];
-    packages = userPackages ++ wslUserPackages;
+    packages = wslUserPackages;
   };
 
   users.groups.echo = {
@@ -67,11 +66,6 @@ in {
   #   clean.extraArgs = "--keep-since 4d --keep 3";
   #   flake = "/home/echo/.dotfiles/";
   # };
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
 
   programs.zsh = {
     enable = true;

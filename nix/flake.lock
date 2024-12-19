@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "crane": {
-      "inputs": {
-        "nixpkgs": [
-          "git-repo-manager",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1724006180,
-        "narHash": "sha256-PVxPj0Ga2fMYMtcT9ARCthF+4U71YkOT7ZjgD/vf1Aw=",
-        "owner": "ipetkov",
-        "repo": "crane",
-        "rev": "7ce92819802bc583b7e82ebc08013a530f22209f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -55,31 +34,6 @@
         "type": "github"
       }
     },
-    "git-repo-manager": {
-      "inputs": {
-        "crane": "crane",
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1732981030,
-        "narHash": "sha256-ycJecaeTn9gOXsiEJApJPVNhnWY6yfOcPPTiYZYW4uc=",
-        "owner": "hakoerber",
-        "repo": "git-repo-manager",
-        "rev": "9dc557aeea502ae3b97a040e01d016ecd626208a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hakoerber",
-        "repo": "git-repo-manager",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -104,9 +58,7 @@
     "nixoswsl": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "flake-utils": [
-          "flake-utils"
-        ],
+        "flake-utils": "flake-utils",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -159,33 +111,10 @@
     },
     "root": {
       "inputs": {
-        "flake-utils": "flake-utils",
-        "git-repo-manager": "git-repo-manager",
         "home-manager": "home-manager",
         "nixoswsl": "nixoswsl",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "git-repo-manager",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1724293269,
-        "narHash": "sha256-x/XhOAszT/ejditCHUtGOjQcVg2AQhrC/QVew3i7kTI=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "6dc6d34a3a217457d7044dcce32b6d537480a6a1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
       }
     },
     "systems": {

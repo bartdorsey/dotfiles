@@ -6,17 +6,8 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixoswsl.url = "github:nix-community/NixOS-WSL";
     nixoswsl.inputs.nixpkgs.follows = "nixpkgs";
-    nixoswsl.inputs.flake-utils.follows = "flake-utils";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
-    git-repo-manager = {
-      url = "github:hakoerber/git-repo-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
   };
 
   outputs = {
@@ -37,7 +28,6 @@
     pkgs = import nixpkgs {
       config.allowUnfree = true;
       inherit system;
-      overlays = [inputs.git-repo-manager.overlays.git-repo-manager];
     };
 
     stableSystemPackages = with pkgs; [
@@ -61,7 +51,8 @@
       zip
       unzip
       sysz
-      git-repo-manager
+      gnumake
+      gita
     ];
 
     unstableSystemPackages = with pkgs-unstable; [

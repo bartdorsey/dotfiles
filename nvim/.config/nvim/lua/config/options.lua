@@ -39,3 +39,19 @@ vim.g.clipboard = {
         ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
     },
 }
+
+-- GuiCursor
+vim.opt.guicursor = "n-v-c-sm:block-blinkon1,i-ci-ve:ver20,r-cr-o:hor20"
+
+-- Configure vim short messages
+vim.o.shortmess = "ltToOCIFa"
+
+-- Diagnostic signs
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+        },
+    },
+})

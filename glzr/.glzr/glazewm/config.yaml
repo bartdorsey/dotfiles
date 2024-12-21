@@ -2,11 +2,11 @@ general:
   # Commands to run when the WM has started. This is useful for running a
   # script or launching another application.
   # Example: The below command launches Zebar.
-  startup_commands: ['shell-exec zebar']
+  startup_commands: ['shell-exec C:\Users\bart\Apps\tacky-borders.exe', 'shell-exec zebar']
 
   # Commands to run just before the WM is shutdown.
   # Example: The below command kills Zebar.
-  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
+  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F', 'shell-exec taskkill /IM tacky-borders.exe /F']
 
   # Commands to run after the WM config is reloaded.
   config_reload_commands: []
@@ -20,7 +20,7 @@ general:
 
   cursor_jump:
     # Whether to automatically move the cursor on the specified trigger.
-    enabled: true
+    enabled: false
 
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
@@ -32,7 +32,7 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: '20px'
+  inner_gap: '30px'
 
   # Gap between windows and the screen edge.
   outer_gap:
@@ -70,8 +70,8 @@ window_effects:
     hide_title_bar:
       enabled: false
     corner_style:
-      enabled: false
-      style: 'square'
+      enabled: true
+      style: 'rounded'
 
 window_behavior:
   # New windows are created in this state whenever possible.
@@ -99,24 +99,58 @@ window_behavior:
 
 workspaces:
   - name: '1'
+    display_name: "Main"
+    bind_to_monitor: 1
+    keep_alive: true
   - name: '2'
+    display_name: "Code"
+    bind_to_monitor: 1
+    keep_alive: true
   - name: '3'
+    display_name: "Zoom"
+    bind_to_monitor: 1
+    keep_alive: true
   - name: '4'
+    display_name: "Chat"
+    bind_to_monitor: 0
+    keep_alive: true
   - name: '5'
+    bind_to_monitor: 0
+    keep_alive: true
   - name: '6'
+    bind_to_monitor: 0
+    keep_alive: true
   - name: '7'
+    bind_to_monitor: 2
+    keep_alive: true
   - name: '8'
+    bind_to_monitor: 2
+    keep_alive: true
   - name: '9'
+    bind_to_monitor: 2
+    keep_alive: true
 
 window_rules:
+  - commands: ['move --workspace 2']
+    match:
+      - window_process: { regex: '[Ww]ezterm' }
+      - window_process: { regex: '[C]ode' }
+      - window_process: { regex: '[Cc]hrome' }
+      - window_process: { equals: 'WindowsTerminal'}
+  - commands: ['move --workspace 4']
+    match:
+      - window_process: { regex: '[Vv]esktop' }
+      - window_process: { regex: '[Ss]lack' }
+  - commands: ['move --workspace 3']
+    match:
+      - window_process: { regex: '[Zz]oom' }
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
       - window_process: { equals: 'zebar' }
 
       # Ignores picture-in-picture windows for browsers.
-      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
-        window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
+      # - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
 
       # Ignore rules for various 3rd-party apps.
       - window_process: { equals: 'PowerToys' }
@@ -125,6 +159,12 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
+  - commands: ['toggle-floating --centered']
+    match:
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
+  - commands: ['move --workspace 7']
+    match:
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.

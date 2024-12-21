@@ -1,6 +1,6 @@
 function Get-Disk-Free
 {
-	Get-Volume | Sort-Object -Property DriveLetter
+	Get-PSDrive -PSProvider FileSystem
 }
 
 function Build-Django-Project
@@ -54,6 +54,7 @@ Set-Alias which Get-Command
 Set-Alias vim nvim
 Set-Alias dsetup Build-Django-Project-Setup
 Set-Alias lg lazygit
+Set-Alias ls lsd
 #Set-Alias docker podman
 
 function Invoke-Exa
@@ -64,15 +65,11 @@ function Invoke-Exa
 
 Import-Module Terminal-Icons
 
-Invoke-Expression (& { $hook = if ($PSVersionTable.PSVersion.Major -ge 6)
-		{ 'pwd' 
-		} else
-		{ 'prompt' 
-		} (zoxide init powershell --hook $hook | Out-String) })
-
-fastfetch --disk-show-external false
-
 fnm env --use-on-cd --shell power-shell | Out-String | Invoke-Expression
+
+Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
+
+
 Invoke-Expression (&starship init powershell)
 #oh-my-posh init pwsh --config $env:USERPROFILE/.config/oh-my-posh/themes/rose-pine.omp.json | Invoke-Expression
 Import-Module scoop-completion
@@ -99,3 +96,4 @@ if (Test-Path($ChocolateyProfile))
 Import-Module -Name Microsoft.WinGet.CommandNotFound
 #f45873b3-b655-43a6-b217-97c00aa0db58
 
+fastfetch --disk-show-external false

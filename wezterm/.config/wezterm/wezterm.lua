@@ -79,6 +79,7 @@ config.command_palette_bg_color = "#000000"
 config.command_palette_fg_color = "#FFFFFF"
 config.command_palette_font_size = 16.0
 config.command_palette_rows = 1
+config.front_end = "WebGpu"
 config.unix_domains = {
     {
         name = "unix",

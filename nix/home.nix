@@ -55,6 +55,9 @@
     xdg-utils
     tree-sitter
     image_optim
+    unzip
+    zip
+    p7zip
   ];
 
   userPackages = stableUserPackages;

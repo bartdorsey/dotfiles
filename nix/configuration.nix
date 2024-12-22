@@ -5,7 +5,6 @@
   config,
   pkgs,
   pkgs-unstable,
-  userPackages,
   systemPackages,
   ...
 }: {
@@ -136,7 +135,6 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -162,8 +160,7 @@
     description = "Bart Dorsey";
     extraGroups = ["networkmanager" "wheel" "docker" "audio"];
     packages =
-      userPackages
-      ++ (with pkgs-unstable; [
+      (with pkgs-unstable; [
         zoom-us
         dust
         nh
@@ -186,7 +183,7 @@
         discord
         slack
         google-chrome
-        gnome.gnome-tweaks
+        gnome-tweaks
         gnomeExtensions.dash-to-panel
         vscode
         wezterm
@@ -249,9 +246,7 @@
     dedicatedServer.openFirewall = true;
   };
 
-  programs.hyprland.enable = true;
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  #  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # List services that you want to enable:
 

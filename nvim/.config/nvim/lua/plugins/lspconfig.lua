@@ -209,6 +209,28 @@ if os.getenv("DEVMODE") then
 
             require("lsp_lines").setup()
 
+            local _border = "single"
+
+            --- @param err? lsp.ResponseError
+            --- @param result any
+            --- @param ctx any
+            --- @param config? table
+            vim.lsp.handlers["textDocument/hover"] = function(
+                err,
+                result,
+                ctx,
+                config
+            )
+                config = config or {}
+                config.border = _border
+                vim.lsp.handlers.hover(err, result, ctx, config)
+            end
+
+            vim.lsp.handlers["textDocument/signatureHelp"] =
+                vim.lsp.with(vim.lsp.handlers.signature_help, {
+                    border = _border,
+                })
+
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("LspConfig", {}),
 
@@ -217,36 +239,6 @@ if os.getenv("DEVMODE") then
                     if client == nil then
                         return
                     end
-
-                    local _border = "single"
-
-                    --- @param err? lsp.ResponseError
-                    --- @param result any
-                    --- @param ctx any
-                    --- @param config? table
-                    vim.lsp.handlers["textDocument/hover"] = function(
-                        err,
-                        result,
-                        ctx,
-                        config
-                    )
-                        config = config or {}
-                        config.border = _border
-                        vim.lsp.handlers.hover(err, result, ctx, config)
-                    end
-
-                    vim.lsp.handlers["textDocument/signatureHelp"] =
-                        vim.lsp.with(vim.lsp.handlers.signature_help, {
-                            border = _border,
-                        })
-
-                    vim.diagnostic.config({
-                        float = { border = _border },
-                        virtual_text = {
-                            source = true,
-                        },
-                        virtual_lines = false,
-                    })
 
                     -- Enable inlay hints if it's available
                     if vim.lsp.inlay_hint then

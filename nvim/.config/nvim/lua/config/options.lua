@@ -54,4 +54,9 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.WARN] = "",
         },
     },
+    float = { border = "single" },
+    virtual_text = {
+        source = true,
+    },
+    virtual_lines = false,
 })

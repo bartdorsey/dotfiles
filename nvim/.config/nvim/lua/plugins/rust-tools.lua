@@ -1,6 +1,7 @@
 return {
     -- Rust tools
     "simrat39/rust-tools.nvim",
+    cond = os.getenv("DEVMODE") ~= nil,
     dependencies = {
         -- Autocompletion
         { "hrsh7th/cmp-nvim-lsp" },

@@ -1,6 +1,6 @@
 return {
     "stevearc/conform.nvim",
-    cond = os.getenv("DEVMODE"),
+    cond = os.getenv("DEVMODE") ~= nil,
     config = function()
         require("conform").setup({
             formatters_by_ft = {

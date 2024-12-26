@@ -4,13 +4,28 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 {
+  modulesPath,
   pkgs,
   systemPackages,
   ...
 }: let
 in {
-  imports = [];
-
+  imports = [(modulesPath + "/virtualisation/proxmox-lxc.nix")];
+  nix.settings = {sandbox = false;};
+  proxmoxLXC = {
+    manageNetwork = false;
+    privileged = true;
+  };
+  security.pam.services.sshd.allowNullPassword = true;
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      PermitRootLogin = "yes";
+      PasswordAuthentication = true;
+      PermitEmptyPasswords = "yes";
+    };
+  };
   time.timeZone = "US/Central";
 
   networking.nameservers = ["10.0.0.3" "10.0.0.4"];

@@ -4,6 +4,7 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 {
+  config,
   modulesPath,
   pkgs,
   systemPackages,
@@ -67,13 +68,6 @@ in {
 
   programs.zsh = {
     enable = true;
-  };
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      port = 2222;
-    };
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

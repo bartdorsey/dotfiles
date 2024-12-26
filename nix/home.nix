@@ -40,7 +40,6 @@
     bun
     deno
     go
-    swift
     sqlite
     mc
     helix

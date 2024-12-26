@@ -13,6 +13,12 @@
 in {
   imports = [(modulesPath + "/virtualisation/proxmox-lxc.nix")];
   nix.settings = {sandbox = false;};
+  systemd.mounts = [
+    {
+      where = "/sys/kernel/debug";
+      enable = false;
+    }
+  ];
   proxmoxLXC = {
     manageNetwork = false;
     privileged = true;

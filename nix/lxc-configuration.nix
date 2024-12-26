@@ -29,17 +29,11 @@ in {
   };
   time.timeZone = "US/Central";
 
-  networking = {
-    hostName = "nixos-dev";
-    nameservers = ["10.0.0.3" "10.0.0.4"];
-    domain = "home";
-  };
-
   users.users.echo = {
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Bart Dorsey";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["wheel" "docker"];
   };
 
   users.groups.echo = {

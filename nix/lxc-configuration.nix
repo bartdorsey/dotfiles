@@ -29,8 +29,11 @@ in {
   };
   time.timeZone = "US/Central";
 
-  networking.nameservers = ["10.0.0.3" "10.0.0.4"];
-  networking.domain = "home";
+  networking = {
+    hostName = "nixos-dev";
+    nameservers = ["10.0.0.3" "10.0.0.4"];
+    domain = "home";
+  };
 
   users.users.echo = {
     shell = pkgs.zsh;

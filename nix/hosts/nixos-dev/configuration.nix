@@ -7,7 +7,6 @@
   config,
   modulesPath,
   pkgs,
-  systemPackages,
   ...
 }: let
 in {
@@ -35,25 +34,10 @@ in {
   };
   time.timeZone = "US/Central";
 
-  users.users.echo = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    description = "Bart Dorsey";
-    extraGroups = ["wheel" "docker"];
-  };
-
-  users.groups.echo = {
-    name = "echo";
-    members = ["echo"];
-    gid = 1000;
-  };
-
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
   ];
-
-  environment.systemPackages = systemPackages;
 
   programs.nix-ld = {
     enable = true;
@@ -68,10 +52,6 @@ in {
   #   clean.extraArgs = "--keep-since 4d --keep 3";
   #   flake = "/home/echo/.dotfiles/";
   # };
-
-  programs.zsh = {
-    enable = true;
-  };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # This value determines the NixOS release from which the default

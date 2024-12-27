@@ -29,35 +29,6 @@
       config.allowUnfree = true;
       inherit system;
     };
-
-    systemPackages = with pkgs; [
-      wget
-      zsh
-      usbutils
-      killall
-      dig
-      vim
-      htop
-      btop
-      fastfetch
-      stdenv.cc.cc
-      inetutils
-      tmux
-      file
-      kmod
-      iotop
-      iotop-c
-      iperf3
-      zip
-      unzip
-      sysz
-      gnumake
-      gita
-      uv
-      gcc
-      glibc
-      binutils
-    ];
   in {
     nixosConfigurations = {
       nzxt = lib.nixosSystem {
@@ -65,10 +36,11 @@
         specialArgs = {
           inherit pkgs;
           inherit pkgs-unstable;
-          inherit systemPackages;
         };
         modules = [
-          ./configuration.nix
+          ./hosts/nzxt/configuration.nix
+          ./common/system-packages.nix
+          ./user.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -82,11 +54,12 @@
         specialArgs = {
           inherit pkgs;
           inherit pkgs-unstable;
-          inherit systemPackages;
         };
         modules = [
           nixoswsl.nixosModules.wsl
-          ./wsl-configuration.nix
+          ./hosts/nzxt-wsl/configuration.nix
+          ./common/system-packages.nix
+          ./user.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -100,10 +73,11 @@
         specialArgs = {
           inherit pkgs;
           inherit pkgs-unstable;
-          inherit systemPackages;
         };
         modules = [
-          ./lxc-configuration.nix
+          ./hosts/nixos-dev/configuration.nix
+          ./common/system-packages.nix
+          ./user.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

@@ -1,0 +1,30 @@
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    wget
+    zsh
+    usbutils
+    killall
+    dig
+    vim
+    htop
+    btop
+    fastfetch
+    stdenv.cc.cc
+    inetutils
+    tmux
+    file
+    kmod
+    iotop
+    iotop-c
+    iperf3
+    zip
+    unzip
+    sysz
+    gnumake
+    gita
+    uv
+    gcc
+    glibc
+    binutils
+  ];
+}

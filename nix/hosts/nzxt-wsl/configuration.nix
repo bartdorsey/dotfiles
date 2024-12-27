@@ -4,11 +4,11 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 {
+  config,
   pkgs,
-  systemPackages,
   ...
 }: let
-  wslUserPackages = with pkgs; [
+  wslPackages = with pkgs; [
     wsl-open
     wslu
   ];
@@ -32,26 +32,12 @@ in {
     fsType = "btrfs";
   };
 
-  users.users.echo = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    description = "Bart Dorsey";
-    extraGroups = ["networkmanager" "wheel" "docker"];
-    packages = wslUserPackages;
-  };
-
-  users.groups.echo = {
-    name = "echo";
-    members = ["echo"];
-    gid = 1000;
-  };
-
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
   ];
 
-  environment.systemPackages = systemPackages;
+  environment.systemPackages = wslPackages;
 
   programs.nix-ld = {
     enable = true;
@@ -66,10 +52,6 @@ in {
   #   clean.extraArgs = "--keep-since 4d --keep 3";
   #   flake = "/home/echo/.dotfiles/";
   # };
-
-  programs.zsh = {
-    enable = true;
-  };
 
   services.openssh = {
     enable = true;

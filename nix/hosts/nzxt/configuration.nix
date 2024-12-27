@@ -5,7 +5,6 @@
   config,
   pkgs,
   pkgs-unstable,
-  systemPackages,
   ...
 }: {
   imports = [
@@ -155,9 +154,6 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.echo = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    description = "Bart Dorsey";
     extraGroups = ["networkmanager" "wheel" "docker" "audio"];
     packages =
       (with pkgs-unstable; [
@@ -194,11 +190,6 @@
         microsoft-edge
       ]);
   };
-  users.groups.echo = {
-    name = "echo";
-    members = ["echo"];
-    gid = 1000;
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -219,10 +210,6 @@
     };
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = systemPackages;
-
   environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
 
   programs.dconf.enable = true;
@@ -233,9 +220,6 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-  };
-  programs.zsh = {
-    enable = true;
   };
 
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";

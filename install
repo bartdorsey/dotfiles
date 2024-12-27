@@ -2,6 +2,15 @@
 git submodule init
 git submodule update
 
+# Bootstrap some basic directories
+if [ ! -d "$HOME/.local" ]; then
+    mkdir "$HOME/.local"
+fi
+
+if [ ! -d "$HOME/.local/share" ]; then
+    mkdir "$HOME/.local/share"
+fi
+
 ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "glzr/")
 
 for i in */; do

@@ -30,6 +30,7 @@
     ruff
     ruff-lsp
     gh
+    gh-copilot
     clang
     alejandra
     lazydocker

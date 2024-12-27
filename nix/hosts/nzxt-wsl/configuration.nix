@@ -3,16 +3,7 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
-{
-  config,
-  pkgs,
-  ...
-}: let
-  wslPackages = with pkgs; [
-    wsl-open
-    wslu
-  ];
-in {
+{pkgs, ...}: {
   imports = [];
 
   wsl.enable = true;
@@ -37,7 +28,10 @@ in {
     "nix-2.16.2"
   ];
 
-  environment.systemPackages = wslPackages;
+  environment.systemPackages = with pkgs; [
+    wsl-open
+    wslu
+  ];
 
   programs.nix-ld = {
     enable = true;

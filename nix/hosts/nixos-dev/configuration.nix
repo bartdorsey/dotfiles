@@ -4,7 +4,6 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 {
-  config,
   modulesPath,
   pkgs,
   ...
@@ -43,15 +42,6 @@ in {
     enable = true;
     package = pkgs.nix-ld-rs;
   };
-
-  # vscode-remote-workaround.enable = true;
-
-  # programs.nh = {
-  #   enable = true;
-  #   clean.enable = true;
-  #   clean.extraArgs = "--keep-since 4d --keep 3";
-  #   flake = "/home/echo/.dotfiles/";
-  # };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # This value determines the NixOS release from which the default

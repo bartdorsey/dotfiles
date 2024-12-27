@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  stableUserPackages = with pkgs; [
+{pkgs, ...}: {
+  home.username = "echo";
+  home.homeDirectory = "/home/echo";
+
+  home.packages = with pkgs; [
     (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
     neovim
     dust
@@ -59,11 +58,6 @@
     p7zip
   ];
 
-  userPackages = stableUserPackages;
-in {
-  home.username = "echo";
-  home.homeDirectory = "/home/echo";
-  home.packages = userPackages;
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 

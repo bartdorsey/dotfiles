@@ -39,4 +39,5 @@ vscode/.config/Code/Trust Tokens
 vscode/.config/Code/Trust Tokens-journal
 vscode/.config/Code/languagepacks.json
 vscode/.config/Code/machineid
+*.cache
 vim/.config/vim/plugged

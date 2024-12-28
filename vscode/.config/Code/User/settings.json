@@ -106,5 +106,6 @@
   "terminal.integrated.defaultLocation": "editor",
   "djlint.showInstallError": false,
   "security.promptForRemoteFileProtocolHandling": false,
-  "lldb.suppressUpdateNotifications": true
+  "lldb.suppressUpdateNotifications": true,
+  "database-client.autoSync": true
 }

@@ -25,8 +25,10 @@ vscode/.config/Code/GPUCache
 vscode/.config/Code/Local Storage/leveldb
 vscode/.config/Code/Service Worker
 vscode/.config/Code/Session Storage
+vscode/.config/Code/SharedStorage*
 vscode/.config/Code/Shared Dictionary
 vscode/.config/Code/User/globalStorage
+vscode/.config/Code/User/History
 vscode/.config/Code/User/workspaceStorage
 vscode/.config/Code/WebStorage
 vscode/.config/Code/databases
@@ -41,3 +43,4 @@ vscode/.config/Code/languagepacks.json
 vscode/.config/Code/machineid
 *.cache
 vim/.config/vim/plugged
+code.lock

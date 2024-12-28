@@ -49,11 +49,6 @@ if command_exists buku; then
     }
 fi
 
-# gh copilot
-if command_exists gh; then
-    eval "$(gh copilot alias -- zsh)"
-fi
-
 # wget
 if command_exists wget; then
     alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"

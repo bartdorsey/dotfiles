@@ -1,8 +1,9 @@
-{pkgs, ...}: {
-  home.username = "echo";
-  home.homeDirectory = "/home/echo";
-
-  home.packages = with pkgs; [
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: let
+  stablePackages = with pkgs; [
     (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
     neovim
     dust
@@ -29,8 +30,6 @@
     pyright
     ruff
     ruff-lsp
-    gh
-    gh-copilot
     clang
     alejandra
     lazydocker
@@ -59,6 +58,14 @@
     p7zip
   ];
 
+  unstablePackages = with pkgs-unstable; [
+    gh
+  ];
+in {
+  home.username = "echo";
+  home.homeDirectory = "/home/echo";
+
+  home.packages = stablePackages ++ unstablePackages;
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 

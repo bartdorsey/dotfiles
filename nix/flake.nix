@@ -43,6 +43,9 @@
           ./user.nix
           home-manager.nixosModules.home-manager
           {
+            home-manager.extraSpecialArgs = {
+              inherit pkgs-unstable;
+            };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.echo = import ./home.nix;
@@ -62,6 +65,9 @@
           ./user.nix
           home-manager.nixosModules.home-manager
           {
+            home-manager.extraSpecialArgs = {
+              inherit pkgs-unstable;
+            };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.echo = import ./home.nix;
@@ -80,6 +86,9 @@
           ./user.nix
           home-manager.nixosModules.home-manager
           {
+            home-manager.extraSpecialArgs = {
+              inherit pkgs-unstable;
+            };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.echo = import ./home.nix;

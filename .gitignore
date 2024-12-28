@@ -12,35 +12,7 @@ binaries/.local/bin/*
 aerc/.config/aerc/accounts.conf
 *.token
 *.zwc
-vscode/.config/Code/Cache/Cache_Data
-vscode/.config/Code/CachedData
-vscode/.config/Code/CachedExtensionVSIXs
-vscode/.config/Code/CachedProfilesData
-vscode/.config/Code/Code Cache
-vscode/.config/Code/Crashpad
-vscode/.config/Code/DawnGraphiteCache
-vscode/.config/Code/DawnWebGPUCache
-vscode/.config/Code/Dictionaries
-vscode/.config/Code/GPUCache
-vscode/.config/Code/Local Storage/leveldb
-vscode/.config/Code/Service Worker
-vscode/.config/Code/Session Storage
-vscode/.config/Code/SharedStorage*
-vscode/.config/Code/Shared Dictionary
-vscode/.config/Code/User/globalStorage
-vscode/.config/Code/User/History
-vscode/.config/Code/User/workspaceStorage
-vscode/.config/Code/WebStorage
-vscode/.config/Code/databases
-vscode/.config/Code/Cookies
-vscode/.config/Code/Cookies-journal
-vscode/.config/Code/Network Persistent State
-vscode/.config/Code/Preferences
-vscode/.config/Code/TransportSecurity
-vscode/.config/Code/Trust Tokens
-vscode/.config/Code/Trust Tokens-journal
-vscode/.config/Code/languagepacks.json
-vscode/.config/Code/machineid
-*.cache
+vscode/.config/*
+!vscode/.config/Code/User/*.json
+!vscode/.config/Code/User/snippets/
 vim/.config/vim/plugged
-code.lock

@@ -73,7 +73,6 @@ config.warn_about_missing_glyphs = false
 config.window_close_confirmation = "NeverPrompt"
 config.window_background_opacity = opacity
 config.macos_window_background_blur = 80
-config.win32_system_backdrop = "Acrylic"
 config.adjust_window_size_when_changing_font_size = false
 config.allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace"
 config.harfbuzz_features = nil
@@ -174,9 +173,6 @@ bar.apply_to_config(config, {
         },
         clock = {
             enabled = false,
-        },
-        weather = {
-            enabled = true,
         },
         weather = {
             enabled = false,

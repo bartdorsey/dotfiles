@@ -1,5 +1,5 @@
 {
-  description = "My first flake";
+  description = "NixOS Configs";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
@@ -24,17 +24,11 @@
       config.allowUnfree = true;
       inherit system;
     };
-
-    pkgs = import nixpkgs {
-      config.allowUnfree = true;
-      inherit system;
-    };
   in {
     nixosConfigurations = {
       nzxt = lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit pkgs;
           inherit pkgs-unstable;
         };
         modules = [
@@ -55,7 +49,6 @@
       nzxt-wsl = lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit pkgs;
           inherit pkgs-unstable;
         };
         modules = [
@@ -77,7 +70,6 @@
       nixos-dev = lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit pkgs;
           inherit pkgs-unstable;
         };
         modules = [

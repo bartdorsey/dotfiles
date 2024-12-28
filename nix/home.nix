@@ -2,70 +2,70 @@
   pkgs,
   pkgs-unstable,
   ...
-}: let
-  stablePackages = with pkgs; [
-    (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
-    neovim
-    dust
-    nh
-    nix-output-monitor
-    nvd
-    opam
-    yazi
-    git
-    git-lfs
-    nodejs_22
-    starship
-    lazygit
-    pass
-    ripgrep
-    fzf
-    stow
-    zoxide
-    nixd
-    fd
-    lsd
-    grc
-    rustup
-    pyright
-    ruff
-    ruff-lsp
-    clang
-    alejandra
-    lazydocker
-    khal
-    sesh
-    gum
-    bun
-    deno
-    go
-    sqlite
-    mc
-    helix
-    prettierd
-    glab
-    cloc
-    mise
-    lua
-    luarocks
-    tree
-    hub
-    xdg-utils
-    tree-sitter
-    image_optim
-    unzip
-    zip
-    p7zip
-  ];
-
-  unstablePackages = with pkgs-unstable; [
-    gh
-  ];
-in {
+}: {
   home.username = "echo";
   home.homeDirectory = "/home/echo";
 
-  home.packages = stablePackages ++ unstablePackages;
+  home.packages =
+    (with pkgs; [
+      (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
+      alejandra
+      bun
+      clang
+      cloc
+      deno
+      dust
+      fd
+      fzf
+      git
+      git-lfs
+      gh
+      glab
+      go
+      grc
+      gum
+      helix
+      hub
+      image_optim
+      khal
+      lazydocker
+      lazygit
+      lsd
+      lua
+      luarocks
+      mc
+      mise
+      neovim
+      nh
+      nix-output-monitor
+      nixd
+      nodejs_22
+      nvd
+      opam
+      p7zip
+      pass
+      prettierd
+      pyright
+      ripgrep
+      ruff
+      ruff-lsp
+      rustup
+      sesh
+      sqlite
+      starship
+      stow
+      tree
+      tree-sitter
+      unzip
+      xdg-utils
+      yazi
+      zip
+      zoxide
+    ])
+    ++ (with pkgs-unstable; [
+      uv
+    ]);
+
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 

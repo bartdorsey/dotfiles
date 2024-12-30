@@ -52,6 +52,10 @@ config.window_padding = {
     top = 0,
     bottom = 0,
 }
+config.inactive_pane_hsb = {
+    saturation = 0.9,
+    brightness = 0.4,
+}
 
 config.font_size = font_size
 config.color_scheme = color_scheme

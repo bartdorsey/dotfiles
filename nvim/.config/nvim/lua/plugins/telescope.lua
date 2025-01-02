@@ -207,7 +207,6 @@ return {
             require("telescope").load_extension("ui-select")
             require("telescope").load_extension("messages")
             require("telescope").load_extension("repo")
-            require("telescope").load_extension("bookmarks")
             require("telescope").load_extension("zoxide")
         end,
     },

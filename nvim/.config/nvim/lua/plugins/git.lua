@@ -3,7 +3,7 @@ return {
         "tpope/vim-fugitive",
     },
     {
-        enable = false,
+        cond = os.getenv("DEVMODE") ~= nil,
         "TimUntersberger/neogit",
         dependencies = {
             "sindrets/diffview.nvim",

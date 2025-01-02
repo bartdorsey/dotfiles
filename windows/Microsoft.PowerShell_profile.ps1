@@ -35,14 +35,11 @@ $env:Path += ";C:\Users\bart\scoop\persist\rustup\.cargo\bin"
 $env:Path += ";C:\Users\bart\Apps"
 $env:Path += ";C:\Users\bart\OneDrive\Apps"
 $env:Path += ";C:\Users\bart\.local\bin"
-$env:Path += ";C:\Users\bart\.cargo\bin"
-$env:Path = ";$env:USERPROFILE\.gobrew\current\bin;$env:USERPROFILE\.gobrew\bin;$env:Path"
-$env:Path = ";C:\Program Files\Multipass\bin;$env:Path"
-$env:GOROOT = "$env:USERPROFILE\.gobrew\current\go"
+# $env:Path = ";$env:USERPROFILE\.gobrew\current\bin;$env:USERPROFILE\.gobrew\bin;$env:Path"
+# $env:GOROOT = "$env:USERPROFILE\.gobrew\current\go"
 $env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
-$env:KOMOREBI_CONFIG_HOME = "$env:USERPROFILE\.config\komorebi"
 $env:HOME = $env:USERPROFILE
-$env:DEVMODE = 1
+# $env:DEVMODE = 1
 $env:VIMINIT = "source ~/.config/vim/vimrc"
 # Aliases
 Set-Alias p Get-Projects

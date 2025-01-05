@@ -4,7 +4,7 @@ git submodule update
 
 # Set DEVMODE
 if [ -f "$HOME/.config/devmode" ]; then
-    DEVMODE=1
+    export DEVMODE=1
 fi
 
 # Bootstrap some basic directories

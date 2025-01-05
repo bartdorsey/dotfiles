@@ -28,3 +28,9 @@ fi
 if type code 2>/dev/null; then
     cat "vscode/.config/Code/extensions.txt" | xargs -L 1 code --install-extension
 fi
+
+# Install neovim plugins
+nvim --headless +"Lazy! restore" +qa
+
+# Install treesitter plugins
+nvim --headless +TSUpdate +qa

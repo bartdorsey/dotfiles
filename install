@@ -2,6 +2,11 @@
 git submodule init
 git submodule update
 
+# Set DEVMODE
+if [ -f "$HOME/.config/devmode" ]; then
+    DEVMODE=1
+fi
+
 # Bootstrap some basic directories
 if [ ! -d "$HOME/.local" ]; then
     mkdir "$HOME/.local"

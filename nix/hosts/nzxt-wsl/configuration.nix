@@ -45,6 +45,25 @@
     };
   };
 
+  services.syslog-ng = {
+    enable = true;
+    extraConfig = ''
+      source s_local {
+        system();
+        internal();
+      };
+
+      destination d_graylog {
+        udp("10.0.0.241" port(520));
+      };
+
+      log {
+        source(s_local);
+        destination(d_graylog);
+      };
+    '';
+  };
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   virtualisation.docker.enable = true;

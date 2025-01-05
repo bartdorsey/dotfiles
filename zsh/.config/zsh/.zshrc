@@ -87,6 +87,11 @@ unsetopt listambiguous
 setopt AUTO_LIST
 LISTMAX=-1
 
+# Home assistant completions
+if type ha > /dev/null; then
+    source <(ha completion zsh) && compdef _ha ha
+fi
+
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 

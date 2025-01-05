@@ -5,6 +5,7 @@
     dig
     fastfetch
     file
+    ffmpeg
     gcc
     gita
     glibc

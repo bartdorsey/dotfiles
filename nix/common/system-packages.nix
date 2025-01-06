@@ -4,8 +4,8 @@
     btop
     dig
     fastfetch
-    file
     ffmpeg
+    file
     gcc
     gita
     glibc
@@ -17,6 +17,7 @@
     iperf3
     killall
     kmod
+    nfs-utils
     stdenv.cc.cc
     sysz
     tmux

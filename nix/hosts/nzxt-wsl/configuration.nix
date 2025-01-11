@@ -23,6 +23,8 @@
     fsType = "btrfs";
   };
 
+  services.rpcbind.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
@@ -43,6 +45,11 @@
     settings = {
       port = 2222;
     };
+  };
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-tty;
   };
 
   services.syslog-ng = {

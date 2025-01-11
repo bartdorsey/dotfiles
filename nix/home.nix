@@ -22,6 +22,7 @@
       gh
       glab
       go
+      gnupg
       grc
       gum
       helix
@@ -44,6 +45,7 @@
       opam
       p7zip
       pass
+      pinentry
       prettierd
       pyright
       ripgrep
@@ -69,8 +71,9 @@
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 
-  services.gpg-agent = {
-    enable = true;
-    enableSshSupport = true;
-  };
+  # services.gpg-agent = {
+  #   enable = true;
+  #   enableSshSupport = true;
+  #   pinentryPackage = pkgs.pinentry-curses;
+  # };
 }

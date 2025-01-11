@@ -9,11 +9,16 @@ fi
 
 # Bootstrap some basic directories
 if [ ! -d "$HOME/.local" ]; then
-    mkdir "$HOME/.local"
+    mkdir -v "$HOME/.local"
 fi
 
 if [ ! -d "$HOME/.local/share" ]; then
-    mkdir "$HOME/.local/share"
+    mkdir -v "$HOME/.local/share"
+fi
+
+if [ ! -d "$HOME/.local/share/gnupg" ]; then
+    mkdir -v "$HOME/.local/share/gnupg"
+    chmod -v 700 "$HOME/.local/share/gnupg"
 fi
 
 ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "glzr/")

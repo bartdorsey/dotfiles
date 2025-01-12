@@ -115,6 +115,8 @@ if has('nvim')
     source ~/.config/nvim/init.vim
     finish
 else
+    let g:lightline = { 'colorscheme': 'rosepine' }
+
     call plug#begin()
 
     Plug 'tpope/vim-sensible'
@@ -122,7 +124,7 @@ else
     Plug 'Donaldttt/fuzzyy'
     Plug 'tpope/vim-vinegar'
     Plug 'mhinz/vim-startify'
-
+    Plug 'itchyny/lightline.vim'
     call plug#end()
 
     colorscheme rosepine

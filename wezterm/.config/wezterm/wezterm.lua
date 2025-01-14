@@ -173,7 +173,7 @@ end
 bar.apply_to_config(config, {
     modules = {
         workspace = {
-            enabled = false,
+            enabled = true,
         },
         clock = {
             enabled = false,

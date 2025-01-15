@@ -17,6 +17,7 @@ return {
                 htmldjango = { "djlint" },
                 nix = { "alejandra" },
                 yaml = { "yamlfmt" },
+                sh = { "beautysh" },
             },
             format_on_save = {
                 -- These options will be passed to conform.format()

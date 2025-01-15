@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+set -eo pipefail;
+
+# gets the URL for a webpage corresponding to file
+# this script incorporates code from: https://superuser.com/a/1157267
+# provided by user gsinti
+
+FILE=$(realpath $1)
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+# construct the relative path to the repository root
+REPO_DIR=$(git rev-parse --show-toplevel)
+REL_PATH=$(realpath --relative-to="$REPO_DIR" "$FILE")
+
+# Remove the top-level directory from the relative path
+REL_PATH=${REL_PATH#"$GIT_DIR/"}
+
+if [[ -n "${DEBUG}" ]]; then
+    echo "FILE: $FILE"
+    echo "GIT_DIR: $GIT_DIR"
+    echo "REPO_DIR: $REPO_DIR"
+    echo "REL_PATH: $REL_PATH"
+    echo "BRANCH: $BRANCH"
+fi
+
+URL=$(git config --get remote.origin.url | sed 's/\.git//g')
+URL=$(echo "$URL" | sed 's/git@\([^:]*\):/https:\/\/\1\//g')
+
+# Use regex to parse the URL
+regex='^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?'
+
+if [[ $URL =~ $regex ]]; then
+    scheme="${BASH_REMATCH[2]}"
+    authority="${BASH_REMATCH[4]}"
+    path="${BASH_REMATCH[5]}"
+    query="${BASH_REMATCH[7]}"
+    fragment="${BASH_REMATCH[9]}"
+
+    # Extract host and port from authority
+    host=$(echo "$authority" | awk -F: '{print $1}')
+    port=$(echo "$authority" | awk -F: '{print $2}')
+
+    # Output the parsed components
+    if [[ -n $DEBUG ]]; then
+        echo "URL: $URL"
+        echo "Scheme: $scheme"
+        echo "Host: $host"
+        echo "Port: $port"
+        echo "Path: $path"
+        echo "Query: $query"
+        echo "Fragment: $fragment"
+    fi
+else
+    echo "Invalid URL: $URL"
+    exit 1
+fi
+
+if [[ $host =~ github.com ]]; then
+    echo "${scheme}://${host}${path}/tree/${BRANCH}/$REL_PATH"
+elif [[ $host =~ sshlab.galvanize.com ]]; then
+    host=$(echo $host | sed 's/sshlab/gitlab/g')
+    echo "${scheme}://${host}${path}/-/blob/${BRANCH}/${REL_PATH}"
+else
+    echo $host
+    echo "${scheme}://${host}${path}/-/blob/${BRANCH}/${REL_PATH}"
+fi
+
+exit 0

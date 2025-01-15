@@ -26,15 +26,25 @@
     };
   in {
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      nixos-vm = lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit pkgs;
           inherit pkgs-unstable;
-          inherit userPackages;
-          inherit systemPackages;
         };
-        modules = [./vm-configuration.nix];
+        modules = [
+          ./hosts/nixos/configuration.nix
+          ./common/system-packages.nix
+          ./user.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {
+              inherit pkgs-unstable;
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.echo = import ./home.nix;
+          }
+        ];
       };
       nzxt = lib.nixosSystem {
         inherit system;

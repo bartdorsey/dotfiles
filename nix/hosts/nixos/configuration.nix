@@ -5,8 +5,6 @@
   config,
   pkgs,
   pkgs-unstable,
-  userPackages,
-  systemPackages,
   ...
 }: {
   imports = [
@@ -24,16 +22,10 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    v4l2loopback
-  ];
-  boot.extraModprobeConfig = ''
-    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-  '';
   security.polkit.enable = true;
 
   boot.plymouth = {
-    enable = true;
+    enable = false;
     theme = "rings";
     themePackages = with pkgs; [
       (adi1090x-plymouth-themes.override {
@@ -42,26 +34,22 @@
     ];
   };
 
-  boot.consoleLogLevel = 0;
-  boot.initrd.verbose = false;
+  # boot.consoleLogLevel = 0;
+  # boot.initrd.verbose = false;
 
-  boot.kernelParams = [
-    "quiet"
-    "splash"
-    "boot.shell_on_fail"
-    "loglevel=3"
-    "rd.systemd.show_status=false"
-    "udev.log_priority=3"
-  ];
+  # boot.kernelParams = [
+    # "quiet"
+    # "splash"
+    # "boot.shell_on_fail"
+    # "loglevel=3"
+    # "rd.systemd.show_status=false"
+    # "udev.log_priority=3"
+  # ];
 
-  networking.hostName = "nzxt"; # Define your hostname.
+  networking.hostName = "nixos-vm"; # Define your hostname.
 
   # Fixes Windows and Linux clock problems
   time.hardwareClockInLocalTime = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -85,12 +73,11 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable i3
-
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "vmware" ];
 
   services.xserver = {
-    displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --mode 2560x1440 --pos 0x0 --rotate left --output HDMI-0 --mode 1920x1080 --pos 1440x1952 --rotate normal --output DP-4 --primary --mode 2560x1440 --pos 1440x512 --rotate normal";
+    # displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output Virtual-1 --mode 2048x1152";
 
     desktopManager = {
       xterm.enable = false;
@@ -118,12 +105,9 @@
     };
   };
 
-  # # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
     enable = true;
   };
-  #
-  services.desktopManager.plasma6.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -135,7 +119,6 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -143,26 +126,13 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # My user account, with gui specific packages
   users.users.echo = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    description = "Bart Dorsey";
     extraGroups = ["networkmanager" "wheel" "docker" "audio"];
     packages =
-      userPackages
-      ++ (with pkgs-unstable; [
+      (with pkgs-unstable; [
         zoom-us
         dust
         nh
@@ -196,14 +166,10 @@
         microsoft-edge
       ]);
   };
-  users.groups.echo = {
-    name = "echo";
-    members = ["echo"];
-    gid = 1000;
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
   ];
@@ -221,24 +187,9 @@
     };
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = systemPackages;
-
   environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
 
   programs.dconf.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-  programs.zsh = {
-    enable = true;
-  };
 
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
 
@@ -248,9 +199,7 @@
     dedicatedServer.openFirewall = true;
   };
 
-  programs.hyprland.enable = true;
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  #  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # List services that you want to enable:
 

@@ -38,12 +38,12 @@
   # boot.initrd.verbose = false;
 
   # boot.kernelParams = [
-    # "quiet"
-    # "splash"
-    # "boot.shell_on_fail"
-    # "loglevel=3"
-    # "rd.systemd.show_status=false"
-    # "udev.log_priority=3"
+  # "quiet"
+  # "splash"
+  # "boot.shell_on_fail"
+  # "loglevel=3"
+  # "rd.systemd.show_status=false"
+  # "udev.log_priority=3"
   # ];
 
   networking.hostName = "nixos-vm"; # Define your hostname.
@@ -74,7 +74,9 @@
   };
 
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "vmware" ];
+  services.xserver.videoDrivers = ["vmware"];
+
+  catppuccin.enable = true;
 
   services.xserver = {
     # displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output Virtual-1 --mode 2048x1152";
@@ -105,10 +107,13 @@
     };
   };
 
-  services.displayManager.sddm = {
-    enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = false;
   };
 
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+  };
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -190,6 +195,8 @@
   environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
 
   programs.dconf.enable = true;
+
+  qt.enable = true;
 
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
 

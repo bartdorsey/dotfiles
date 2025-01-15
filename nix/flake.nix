@@ -8,6 +8,7 @@
     nixoswsl.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = {
@@ -15,6 +16,7 @@
     nixoswsl,
     nixpkgs-unstable,
     home-manager,
+    catppuccin,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -32,9 +34,10 @@
           inherit pkgs-unstable;
         };
         modules = [
-          ./hosts/nixos/configuration.nix
+          ./hosts/nixos-vm/configuration.nix
           ./common/system-packages.nix
           ./user.nix
+          catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
@@ -42,7 +45,12 @@
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.echo = import ./home.nix;
+            home-manager.users.echo = {
+              imports = [
+                ./home.nix
+                catppuccin.homeManagerModules.catppuccin
+              ];
+            };
           }
         ];
       };

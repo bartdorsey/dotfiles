@@ -40,6 +40,7 @@
         darktable
         rofi
         microsoft-edge
+        gimp
       ]);
   };
   xdg.portal = {

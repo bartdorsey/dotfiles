@@ -1,13 +1,10 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{pkgs-unstable, ...}: {
+  catppuccin.enable = true;
   services.xserver.enable = true;
 
   services.xserver = {
     desktopManager = {
-      xterm.enable = false;
+      xterm.enable = true;
     };
 
     windowManager.i3 = {
@@ -32,7 +29,7 @@
     };
   };
 
-  services.displayManager.sddm = {
+  services.xserver.displayManager.lightdm = {
     enable = true;
   };
 

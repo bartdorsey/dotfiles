@@ -1,12 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./vm-hardware-configuration.nix
@@ -29,17 +24,17 @@
     ];
   };
 
-  # boot.consoleLogLevel = 0;
-  # boot.initrd.verbose = false;
+  boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
 
-  # boot.kernelParams = [
-  # "quiet"
-  # "splash"
-  # "boot.shell_on_fail"
-  # "loglevel=3"
-  # "rd.systemd.show_status=false"
-  # "udev.log_priority=3"
-  # ];
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "boot.shell_on_fail"
+    "loglevel=3"
+    "rd.systemd.show_status=false"
+    "udev.log_priority=3"
+  ];
 
   networking.hostName = "nixos-vm"; # Define your hostname.
 
@@ -69,7 +64,6 @@
   };
 
   services.xserver.enable = true;
-  services.xserver.videoDrivers = ["vmware"];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -103,8 +97,6 @@
       enableWideView = true;
     };
   };
-
-  environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
 
   programs.dconf.enable = true;
 

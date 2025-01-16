@@ -22,3 +22,9 @@ vim.api.nvim_create_user_command("UUID", function()
     -- Insert the UUID at the current cursor position
     vim.api.nvim_put({ uuid }, "", true, true)
 end, {})
+
+vim.api.nvim_create_user_command("GitWebURL", function()
+    local filename = vim.fn.expand("%") -- Get the current buffer's filename
+    local output = vim.fn.system("git-web-url " .. filename) -- Run the shell script with the filename
+    vim.fn.setreg("+", output) -- Yank the output to the clipboard register
+end, { nargs = 0 })

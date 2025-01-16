@@ -128,18 +128,32 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $monitor_1 "DP-2"
+set $monitor_2 "DP-0"
+set $monitor_3 "HDMI-0"
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: left"
-set $ws2 "2: right"
-set $ws3 "3"
-set $ws4 "4"
+set $ws1 "1:Main"
+set $ws2 "2:Code"
+set $ws3 "3:Zoom"
+set $ws4 "4:Chat"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+
+workspace $ws1 output $monitor_1
+workspace $ws2 output $monitor_1
+workspace $ws3 output $monitor_1
+workspace $ws4 output $monitor_2
+workspace $ws5 output $monitor_2
+workspace $ws6 output $monitor_2
+workspace $ws7 output $monitor_3
+workspace $ws8 output $monitor_3
+workspace $ws9 output $monitor_3
+
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -164,6 +178,9 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# Assign windows to workspaces automatically
+assign [class="org.wezfurlong.wezterm"] $ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

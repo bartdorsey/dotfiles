@@ -22,7 +22,7 @@ exec --no-startup-id dunstify "Loading xrandr"
 exec --no-startup-id ~/.config/i3/xrandr.sh
 exec --no-startup-id dunstify "Loading picom"
 exec --no-startup-id picom
-exec_always --no-startup-id feh --bg-fill ~/Pictures/nixos.png
+exec_always --no-startup-id feh --bg-fill ~/.local/share/wallpapers/nixos.png
 exec --no-startup-id dunstify "Loading wallpaper"
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 

@@ -36,7 +36,8 @@
         modules = [
           ./hosts/nixos-vm/configuration.nix
           ./common/system-packages.nix
-          ./user.nix
+          ./users/echo.nix
+          ./users/echo-gui.nix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
@@ -62,8 +63,10 @@
         };
         modules = [
           ./hosts/nzxt/configuration.nix
+          ./common/gui.nix
           ./common/system-packages.nix
-          ./user.nix
+          ./users/echo.nix
+          ./users/echo-gui.nix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
@@ -72,6 +75,7 @@
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
             home-manager.users.echo = {
               imports = [
                 ./home-manager/home.nix
@@ -91,7 +95,7 @@
           nixoswsl.nixosModules.wsl
           ./hosts/nzxt-wsl/configuration.nix
           ./common/system-packages.nix
-          ./user.nix
+          ./users/echo.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
@@ -115,7 +119,7 @@
         modules = [
           ./hosts/nixos-dev/configuration.nix
           ./common/system-packages.nix
-          ./user.nix
+          ./users/echo.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {

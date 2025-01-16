@@ -1,21 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-
-  services.udev.extraRules = ''
-    # Grant access to GoXLRMin device over USB
-    SUBSYSTEM=="usb", ATTR{idVendor}=="1220", ATTR{idProduct}=="8fe4", MODE="0660", GROUP="audio"
-  '';
 
   # Bootloader.
   boot.loader = {
@@ -23,12 +13,6 @@
     systemd-boot.enable = true;
   };
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    v4l2loopback
-  ];
-  boot.extraModprobeConfig = ''
-    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-  '';
   security.polkit.enable = true;
 
   boot.plymouth = {
@@ -82,96 +66,8 @@
 
   services.xserver.enable = true;
 
-  services.xserver = {
-    displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --mode 2560x1440 --pos 0x0 --rotate left --output HDMI-0 --mode 1920x1080 --pos 1440x1952 --rotate normal --output DP-4 --primary --mode 2560x1440 --pos 1440x512 --rotate normal";
-
-    desktopManager = {
-      xterm.enable = false;
-    };
-
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs-unstable.i3-rounded;
-      extraPackages = with pkgs-unstable; [
-        dmenu #application launcher most people use
-        i3status # gives you the default i3 status bar
-        i3lock #default i3 screen locker
-        i3blocks #if you are planning on using i3blocks over i3status
-        polybarFull
-        feh
-        lxappearance
-        networkmanagerapplet
-        goxlr-utility
-        dunst
-        picom
-        maim
-        dex
-        xss-lock
-      ];
-    };
-  };
-
-  services.displayManager.sddm = {
-    enable = true;
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  # My user account, with gui specific packages
-  users.users.echo = {
-    extraGroups = ["networkmanager" "wheel" "docker" "audio"];
-    packages =
-      (with pkgs-unstable; [
-        zoom-us
-        dust
-        nh
-        nix-output-monitor
-        nvd
-        _1password-gui
-        _1password-cli
-        firefox
-        firefoxpwa
-        firefox-devedition
-      ])
-      ++ (with pkgs; [
-        vieb
-        vivaldi
-        libsForQt5.lightly
-        libsForQt5.xdg-desktop-portal-kde
-        chromium
-        flameshot
-        obs-studio
-        discord
-        slack
-        google-chrome
-        gnome-tweaks
-        gnomeExtensions.dash-to-panel
-        vscode
-        wezterm
-        kitty
-        vesktop
-        darktable
-        rofi
-        microsoft-edge
-      ]);
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -232,19 +128,4 @@
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
-
-  # Default applications
-  xdg.terminal-exec = {
-    enable = true;
-    settings = {
-      default = [
-        "wezterm.desktop"
-      ];
-    };
-  };
-
-  xdg.mime.defaultApplications = {
-    "inode/directory" = "yazi.desktop";
-    "inode/mount-point" = "yazi.desktop";
-  };
 }

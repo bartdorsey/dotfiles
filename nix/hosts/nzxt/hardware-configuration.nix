@@ -15,11 +15,22 @@
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/f1dba6d1-6648-400a-ba29-25a5f699e9ea";
     fsType = "ext4";
   };
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  '';
+
+  services.udev.extraRules = ''
+    # Grant access to GoXLRMin device over USB
+    SUBSYSTEM=="usb", ATTR{idVendor}=="1220", ATTR{idProduct}=="8fe4", MODE="0660", GROUP="audio"
+  '';
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/95AE-6CA5";
@@ -46,6 +57,10 @@
 
   hardware.graphics = {
     enable = true;
+  };
+
+  services.xserver = {
+    displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --mode 2560x1440 --pos 0x0 --rotate left --output HDMI-0 --mode 1920x1080 --pos 1440x1952 --rotate normal --output DP-4 --primary --mode 2560x1440 --pos 1440x512 --rotate normal";
   };
 
   services.xserver.videoDrivers = ["nvidia"];

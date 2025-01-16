@@ -18,6 +18,7 @@
         firefox
         firefoxpwa
         firefox-devedition
+        ghostty
       ])
       ++ (with pkgs; [
         vieb
@@ -40,6 +41,14 @@
         rofi
         microsoft-edge
       ]);
+  };
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-kde
+    ];
+    config.common.default = "*";
   };
 
   # Default applications

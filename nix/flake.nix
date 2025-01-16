@@ -36,6 +36,7 @@
         modules = [
           ./hosts/nixos-vm/configuration.nix
           ./common/system-packages.nix
+          ./common/gui.nix
           ./users/echo.nix
           ./users/echo-gui.nix
           catppuccin.nixosModules.catppuccin

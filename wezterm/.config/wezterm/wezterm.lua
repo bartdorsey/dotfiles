@@ -33,7 +33,7 @@ local default_program = { shell }
 
 local opacity = 0.8
 local font_size = 14
-local front_end = "WebGpu"
+local front_end = "OpenGL"
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     config.default_domain = "WSL:NixOS"

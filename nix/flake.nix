@@ -47,7 +47,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.echo = {
               imports = [
-                ./home.nix
+                ./home-manager/home.nix
+                ./home-manager/gui.nix
                 catppuccin.homeManagerModules.catppuccin
               ];
             };
@@ -63,6 +64,7 @@
           ./hosts/nzxt/configuration.nix
           ./common/system-packages.nix
           ./user.nix
+          catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
@@ -70,7 +72,13 @@
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.echo = import ./home.nix;
+            home-manager.users.echo = {
+              imports = [
+                ./home-manager/home.nix
+                ./home-manager/gui.nix
+                catppuccin.homeManagerModules.catppuccin
+              ];
+            };
           }
         ];
       };
@@ -91,7 +99,11 @@
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.echo = import ./home.nix;
+            home-manager.users.echo = {
+              imports = [
+                ./home-manager/home.nix
+              ];
+            };
           }
         ];
       };
@@ -111,7 +123,11 @@
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.echo = import ./home.nix;
+            home-manager.users.echo = {
+              imports = [
+                ./home-manager/home.nix
+              ];
+            };
           }
         ];
       };

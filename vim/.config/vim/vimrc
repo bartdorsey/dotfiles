@@ -95,6 +95,7 @@ set syntax=on
 let g:startify_custom_header = ''
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
+let g:startify_persistence = 0
 
 let g:startify_lists = [
     \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
@@ -130,6 +131,8 @@ if has('nvim')
     let g:loaded_netrw = 1
     let g:loaded_netrwPlugin = 1
 
+    let g:startify_session_dir = $HOME . "/.local/state/nvim/sessions/" 
+
     " Run the rest of my neovim config
     source ~/.config/nvim/init.vim
     finish
@@ -142,18 +145,18 @@ else
     command! ConfigDir execute 'cd ~/.dotfiles/vim/.config/vim/' | execute 'Ex ~/.dotfiles/vim/.config/vim/'
 
     command! DotFiles execute 'cd ~/.dotfiles' | execute 'Ex ~/.dotfiles'
-    let g:lightline = { 'colorscheme': 'rosepine' }
+    let g:lightline = { 'colorscheme': 'catppuccin_mocha' }
 
     call plug#begin()
 
     Plug 'tpope/vim-sensible'
-    Plug 'catppuccin/vim'
+    Plug 'catppuccin/vim', { 'as': 'catppuccin' }
     Plug 'Donaldttt/fuzzyy'
     Plug 'tpope/vim-vinegar'
     Plug 'mhinz/vim-startify'
     Plug 'itchyny/lightline.vim'
     call plug#end()
 
-    colorscheme rosepine
+    colorscheme catppuccin_mocha
 end
 

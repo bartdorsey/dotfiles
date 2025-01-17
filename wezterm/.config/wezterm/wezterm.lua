@@ -6,7 +6,7 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-local color_scheme = "Rosé Pine Moon (base16)"
+local color_scheme = "Catppuccin Mocha"
 
 local bar = wezterm.plugin.require("https://github.com/bartdorsey/bar.wezterm")
 

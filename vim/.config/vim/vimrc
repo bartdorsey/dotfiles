@@ -96,6 +96,22 @@ let g:startify_custom_header = ''
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 
+let g:startify_lists = [
+    \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+    \ { 'type': 'files',     'header': ['   MRU']            },
+    \ { 'type': 'sessions',  'header': ['   Sessions']       },
+    \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+    \ { 'type': 'commands',  'header': ['   Commands']       },
+    \ ]
+
+let g:startify_bookmarks = [
+    \ {'v': '~/.dotfiles/vim/.config/vim/vimrc'},
+    \ {'n': '~/.dotfiles/nvim/.config/nvim/lua/init.lua'},
+    \]
+
+let g:startify_commands = [
+    \ ['Vim Reference', 'h ref'],
+    \ ]
 " keep cursor always centered
 augroup VCenterCursor
   au!
@@ -106,15 +122,26 @@ augroup END
 " sane terminal keymap to move back to normal mode
 tnoremap <c-\> <c-\><c-n>
 
+
+
 " Run neovim config if we are in neovim
 if has('nvim')
     " Disable netrw for neovim
     let g:loaded_netrw = 1
     let g:loaded_netrwPlugin = 1
 
+    " Run the rest of my neovim config
     source ~/.config/nvim/init.vim
     finish
 else
+    " Commands to load vimrc and vim plugins
+    " Sets the working directory to Neovim config and opens the main config file
+    command! Config execute 'cd ~/.dotfiles/vim/.config/vim/' | execute 'edit vimrc'
+
+    " Sets the working directory to the plugins directory and opens it with Ex
+    command! ConfigDir execute 'cd ~/.dotfiles/vim/.config/vim/' | execute 'Ex ~/.dotfiles/vim/.config/vim/'
+
+    command! DotFiles execute 'cd ~/.dotfiles' | execute 'Ex ~/.dotfiles'
     let g:lightline = { 'colorscheme': 'rosepine' }
 
     call plug#begin()

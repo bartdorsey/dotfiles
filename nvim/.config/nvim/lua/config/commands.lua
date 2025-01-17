@@ -5,9 +5,15 @@ vim.api.nvim_create_user_command("Config", function()
 end, {})
 
 -- sets working dir to plugins dir and opens Oil
-vim.api.nvim_create_user_command("Plugins", function()
+vim.api.nvim_create_user_command("ConfigDir", function()
     vim.cmd("cd ~/.dotfiles/nvim/.config/nvim")
-    vim.cmd("Oil ~/.dotfiles/nvim/.config/nvim/lua/plugins")
+    vim.cmd("Oil ~/.dotfiles/nvim/.config/nvim/")
+end, {})
+
+-- sets working dir to Dotfiles repo
+vim.api.nvim_create_user_command("Dotfiles", function()
+    vim.cmd("cd ~/.dotfiles/")
+    vim.cmd("Oil ~/.dotfiles/")
 end, {})
 
 vim.api.nvim_create_user_command("UUID", function()

@@ -99,22 +99,23 @@ window_behavior:
 
 workspaces:
   - name: '1'
-    display_name: "Main"
+    display_name: "1:Main"
     bind_to_monitor: 1
     keep_alive: true
   - name: '2'
-    display_name: "Code"
+    display_name: "2:Code"
     bind_to_monitor: 1
     keep_alive: true
   - name: '3'
-    display_name: "Zoom"
+    display_name: "3:Zoom"
     bind_to_monitor: 1
     keep_alive: true
   - name: '4'
-    display_name: "Chat"
-    bind_to_monitor: 0
-    keep_alive: true
+    display_name: "4:VM"
+    bind_to_monitor: 1
+    keep_alive: false
   - name: '5'
+    display_name: "5:Chat"
     bind_to_monitor: 0
     keep_alive: true
   - name: '6'

@@ -1,4 +1,4 @@
 return {
     "mhinz/vim-startify",
-    enabled = true,
+    enabled = false,
 }

@@ -94,6 +94,11 @@ vim.keymap.set("n", "q:", "<nop>")
 -- Control-S save
 vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>")
 
+-- Find Sessions from MiniSessions
+vim.keymap.set("", "<leader>ss", function()
+    MiniSessions.select()
+end, { desc = "Find Sessions" })
+
 -- on LSP attach
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),

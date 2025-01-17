@@ -1,6 +1,6 @@
 return {
     "j-hui/fidget.nvim",
-    enabled = true,
+    enabled = false,
     opts = {
         progress = {
             ignore_empty_message = true,

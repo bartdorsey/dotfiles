@@ -1,5 +1,6 @@
 return {
     "folke/which-key.nvim",
+    enabled = false,
     dependencies = {
         "echasnovski/mini.icons",
         "nvim-tree/nvim-web-devicons",

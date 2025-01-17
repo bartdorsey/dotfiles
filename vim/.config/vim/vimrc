@@ -147,7 +147,7 @@ else
     call plug#begin()
 
     Plug 'tpope/vim-sensible'
-    Plug 'rose-pine/vim'
+    Plug 'catppuccin/vim'
     Plug 'Donaldttt/fuzzyy'
     Plug 'tpope/vim-vinegar'
     Plug 'mhinz/vim-startify'

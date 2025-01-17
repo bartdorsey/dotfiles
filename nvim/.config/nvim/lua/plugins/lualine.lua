@@ -94,7 +94,7 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {
-            "rose-pine/neovim",
+            "catppuccin/nvim",
             "AndreM222/copilot-lualine",
         },
         init = function()
@@ -103,7 +103,7 @@ return {
         end,
         opts = {
             options = {
-                theme = "rose-pine",
+                theme = "catppuccin",
                 component_separators = "│",
                 section_separators = { left = "┃", right = "┃" },
                 globalstatus = false,

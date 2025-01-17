@@ -1,12 +1,16 @@
 -- Theme
 return {
-    "rose-pine/neovim",
+    "catppuccin/nvim",
     lazy = false,
     priority = 1000,
     config = function()
-        require("rose-pine").setup({
-            dim_inactive_windows = true,
+        require("catppuccin").setup({
+            flavor = "mocha",
+            transparent_background = true,
+            dim_inactive = {
+                enabled = true,
+            },
         })
-        vim.cmd("colorscheme rose-pine")
+        vim.cmd("colorscheme catppuccin-mocha")
     end,
 }

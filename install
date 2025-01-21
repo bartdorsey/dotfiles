@@ -12,6 +12,10 @@ if [ ! -d "$HOME/.local" ]; then
     mkdir -v "$HOME/.local"
 fi
 
+if [ ! -d "$HOME/.ssh" ]; then
+    mkdir -v "$HOME/.ssh"
+fi
+
 if [ ! -d "$HOME/.local/share" ]; then
     mkdir -v "$HOME/.local/share"
 fi

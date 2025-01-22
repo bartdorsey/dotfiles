@@ -22,6 +22,7 @@
       gh
       glab
       go
+      gopls
       gnupg
       grc
       gum

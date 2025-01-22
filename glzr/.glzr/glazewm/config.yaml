@@ -142,7 +142,7 @@ window_rules:
     match:
       - window_process: { regex: '[Vv]esktop' }
       - window_process: { regex: '[Ss]lack' }
-  - commands: ['move --workspace 3']
+  - commands: ['move --workspace 5']
     match:
       - window_process: { regex: '[Zz]oom' }
   - commands: ['ignore']

@@ -14,7 +14,6 @@ return {
                 "jsonls",
                 "eslint",
                 "cssls",
-                "gopls",
                 "emmet_language_server",
                 "rust_analyzer",
                 "perlnavigator",

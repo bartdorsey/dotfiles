@@ -71,4 +71,12 @@
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
+
+  programs.go = {
+    enable = true;
+    packages = with pkgs; [
+      gopls
+      gotools
+    ];
+  };
 }

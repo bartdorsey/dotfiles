@@ -138,11 +138,11 @@ window_rules:
       - window_process: { regex: '[C]ode' }
       - window_process: { regex: '[Cc]hrome' }
       - window_process: { equals: 'WindowsTerminal'}
-  - commands: ['move --workspace 4']
+  - commands: ['move --workspace 5']
     match:
       - window_process: { regex: '[Vv]esktop' }
       - window_process: { regex: '[Ss]lack' }
-  - commands: ['move --workspace 5']
+  - commands: ['move --workspace 3']
     match:
       - window_process: { regex: '[Zz]oom' }
   - commands: ['ignore']

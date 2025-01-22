@@ -132,7 +132,7 @@ workspaces:
     keep_alive: true
 
 window_rules:
-  - commands: ['move --workspace 2']
+  - commands: ['move --workspace 2', 'focus --workspace 2']
     match:
       - window_process: { regex: '[Ww]ezterm' }
       - window_process: { regex: '[C]ode' }
@@ -156,11 +156,10 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
-  - commands: ['toggle-floating --centered']
+  - commands: ['move --workspace 7','set-floating']
     match:
-      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
       - window_process: { equals: 'ksnip' }
-  - commands: ['move --workspace 7']
+  - commands: ['move --workspace 7', 'set-fullscreen']
     match:
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
 

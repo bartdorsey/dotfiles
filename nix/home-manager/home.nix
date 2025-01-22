@@ -74,9 +74,5 @@
 
   programs.go = {
     enable = true;
-    packages = with pkgs; [
-      gopls
-      gotools
-    ];
   };
 }

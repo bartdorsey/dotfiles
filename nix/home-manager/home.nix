@@ -14,6 +14,7 @@
       clang
       cloc
       deno
+      devbox
       dust
       fd
       fzf

@@ -23,6 +23,7 @@
       glab
       go
       gopls
+      gotools
       gnupg
       grc
       gum

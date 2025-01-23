@@ -77,4 +77,56 @@
   programs.go = {
     enable = true;
   };
+
+  # programs.git = {
+  #   enable = true;
+  #   userName = "Bart Dorsey";
+  #   userEmail = "bart@bartdorsey.com";
+  #   aliases = {
+  #     co = "checkout";
+  #     st = "status";
+  #     ci = "commit";
+  #     br = "branch";
+  #   };
+  #   extraConfig = {
+  #     core = {
+  #       editor = "nvim";
+  #     };
+  #     color = {
+  #       ui = "auto";
+  #       branch = "auto";
+  #       diff = "auto";
+  #       interactive = "auto";
+  #       status = "auto";
+  #     };
+  #     push = {
+  #       default = "simple";
+  #     };
+  #     pull = {
+  #       rebase = true;
+  #     };
+  #     init = {
+  #       defaultBranch = "main";
+  #     };
+  #   };
+  #   ignores = [
+  #     "__pycache__/"
+  #     ".pytest_cache/"
+  #     ".DS_Store"
+  #     ".nvim"
+  #     ".mypy_cache/"
+  #     ".venv/"
+  #   ];
+  #   delta = {
+  #     enable = true;
+  #     options = {
+  #       navigate = true;
+  #       line-numbers = true;
+  #     };
+  #   };
+  # };
+  # xdg.configFile."nvim" = {
+  #   source = ../../nvim/.config/nvim;
+  #   recursive = true;
+  # };
 }

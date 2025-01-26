@@ -7,6 +7,7 @@
     ffmpeg
     file
     gcc
+    git
     gita
     glibc
     gnumake

@@ -1,11 +1,28 @@
 #!/usr/bin/env bash
+
+function cyan() {
+    local CYAN="\033[0;36m"
+    local RESET="\033[0m"
+    echo -e "${CYAN}$1${RESET}"
+}
+
+cyan "--------------------"
+cyan "Updating Git Modules"
+cyan "--------------------"
 git submodule init
 git submodule update
 
 # Set DEVMODE
 if [ -f "$HOME/.config/devmode" ]; then
+    cyan "---------------"
+    cyan "DEVMODE enabled"
+    cyan "---------------"
     export DEVMODE=1
 fi
+
+cyan "-------------------------"
+cyan "Bootstrapping directories"
+cyan "-------------------------"
 
 # Bootstrap some basic directories
 if [ ! -d "$HOME/.local" ]; then
@@ -25,26 +42,59 @@ if [ ! -d "$HOME/.local/share/gnupg" ]; then
     chmod -v 700 "$HOME/.local/share/gnupg"
 fi
 
-ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "glzr/")
+if type stow 2>/dev/null; then
 
-for i in */; do
-    if [[ " ${ignore_directories[@]} " =~ " $i " ]]; then
-        continue
-    fi
-    stow -v -R "$i";
-done
+    cyan "-------------------------"
+    cyan "Symlinking in dotfiles..."
+    cyan "-------------------------"
+    ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "glzr/")
+
+    for i in */; do
+        if [[ " ${ignore_directories[@]} " =~ " $i " ]]; then
+            continue
+        fi
+        stow -v -R "$i" 2>&1 | grep "WARNING"
+    done
+
+fi
 
 # Install tmux plugin manager if it's not installed
 if [[ ! -d "$HOME/.config/tmux/plugins/tpm" ]]; then
+    cyan "------------------------------"
+    cyan "Installing Tmux Plugin Manager"
+    cyan "------------------------------"
     git clone https://github.com/tmux-plugins/tpm $HOME/.config/tmux/plugins/tpm
 fi
 
+# Clean Install tmux plugins, and update them
+if [[ -d "$HOME/.config/tmux/plugins/tpm" ]]; then
+    cyan "-----------------------"
+    cyan "Installing tmux plugins"
+    cyan "-----------------------"
+    $HOME/.config/tmux/plugins/tpm/bin/clean_plugins
+    $HOME/.config/tmux/plugins/tpm/bin/install_plugins
+    $HOME/.config/tmux/plugins/tpm/bin/update_plugins all
+fi
+
 if type code 2>/dev/null; then
+    cyan "----------------------------"
+    cyan "Installing VSCode extensions"
+    cyan "----------------------------"
+
     cat "vscode/.config/Code/extensions.txt" | xargs -L 1 code --install-extension
 fi
 
 # Install neovim plugins
-nvim --headless +"Lazy! restore" +qa
+if type nvim 2>/dev/null; then
+    cyan "-------------------------"
+    cyan "Installing neovim plugins"
+    cyan "-------------------------"
 
-# Install treesitter plugins
-nvim --headless +TSUpdate +qa
+    nvim --headless +"Lazy! restore" +qa
+
+    cyan "------------------------------------"
+    cyan "Installing neovim treesitter plugins"
+    cyan "------------------------------------"
+    # Install treesitter plugins
+    nvim --headless +TSUpdate +qa
+fi

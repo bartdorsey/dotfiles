@@ -10,6 +10,7 @@
     (with pkgs; [
       (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
       alejandra
+      buku
       bun
       clang
       cloc
@@ -59,6 +60,7 @@
       sqlite
       starship
       stow
+      syncthing
       tree
       tree-sitter
       unzip
@@ -72,9 +74,15 @@
     ]);
 
   home.stateVersion = "23.11";
+
+  systemd.user.enable = true;
+
   programs.home-manager.enable = true;
 
   programs.go = {
+    enable = true;
+  };
+  services.syncthing = {
     enable = true;
   };
 

@@ -15,12 +15,6 @@
   wsl.startMenuLaunchers = true;
   time.timeZone = "US/Central";
 
-  # This is a hack to make systemd user work:
-  #    https://github.com/nix-community/NixOS-WSL/issues/375#issuecomment-2411845271
-  systemd.tmpfiles.rules = [
-    "f /var/lib/systemd/linger/echo"
-  ];
-
   networking.nameservers = ["10.0.0.3" "10.0.0.4"];
   networking.domain = "home";
 

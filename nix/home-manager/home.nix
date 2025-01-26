@@ -10,6 +10,7 @@
     (with pkgs; [
       (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
       alejandra
+      bat
       buku
       bun
       clang
@@ -56,7 +57,6 @@
       ruff
       ruff-lsp
       rustup
-      sesh
       sqlite
       starship
       stow

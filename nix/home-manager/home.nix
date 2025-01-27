@@ -41,6 +41,7 @@
       luarocks
       mc
       mise
+      mtr
       neovim
       nh
       nix-output-monitor

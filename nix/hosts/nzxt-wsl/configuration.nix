@@ -17,6 +17,11 @@
 
   networking.nameservers = ["10.0.0.3" "10.0.0.4"];
   networking.domain = "home";
+  networking.search = [
+    "home"
+    "heronshaven.online"
+    "tail7974e.ts.net"
+  ];
 
   fileSystems."/home/echo/nixos-home" = {
     device = "/dev/disk/by-uuid/2d7c255f-2e84-4127-9205-12c2086b8a34";
@@ -65,6 +70,8 @@
       port = 2222;
     };
   };
+
+  services.tailscale.enable = true;
 
   programs.gnupg.agent = {
     enable = true;

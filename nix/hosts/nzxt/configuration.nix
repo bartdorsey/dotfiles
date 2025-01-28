@@ -33,6 +33,14 @@
 
   networking.hostName = "nzxt"; # Define your hostname.
 
+  networking.search = [
+    "home"
+    "heronshaven.online"
+    "tail7974e.ts.net"
+  ];
+
+  services.tailscale.enable = true;
+
   # Fixes Windows and Linux clock problems
   time.hardwareClockInLocalTime = true;
 

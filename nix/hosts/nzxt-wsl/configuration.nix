@@ -13,15 +13,9 @@
   wsl.wslConf.network.generateResolvConf = false;
   wsl.useWindowsDriver = true;
   wsl.startMenuLaunchers = true;
-  time.timeZone = "US/Central";
 
   networking.nameservers = ["10.0.0.3" "10.0.0.4"];
   networking.domain = "home";
-  networking.search = [
-    "home"
-    "heronshaven.online"
-    "tail7974e.ts.net"
-  ];
 
   fileSystems."/home/echo/nixos-home" = {
     device = "/dev/disk/by-uuid/2d7c255f-2e84-4127-9205-12c2086b8a34";
@@ -49,7 +43,6 @@
     wantedBy = ["local-fs-pre.target"];
   };
 
-  nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
   ];
@@ -58,20 +51,6 @@
     wsl-open
     wslu
   ];
-
-  programs.nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs;
-  };
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      port = 2222;
-    };
-  };
-
-  services.tailscale.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
@@ -96,12 +75,6 @@
       };
     '';
   };
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  virtualisation.docker.enable = true;
-
-  documentation.man.generateCaches = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

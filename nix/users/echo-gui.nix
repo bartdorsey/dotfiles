@@ -21,6 +21,7 @@
         ghostty
       ])
       ++ (with pkgs; [
+        appimage-run
         vieb
         vivaldi
         libsForQt5.lightly

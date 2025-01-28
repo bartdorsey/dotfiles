@@ -7,6 +7,11 @@
   catppuccin.flavor = "mocha";
   services.xserver.enable = true;
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   services.xserver = {
     desktopManager = {
       xterm.enable = true;
@@ -16,20 +21,10 @@
       enable = true;
       package = pkgs-unstable.i3-rounded;
       extraPackages = with pkgs-unstable; [
-        dmenu #application launcher most people use
         i3status # gives you the default i3 status bar
         i3lock #default i3 screen locker
         i3blocks #if you are planning on using i3blocks over i3status
         polybarFull
-        feh
-        lxappearance
-        networkmanagerapplet
-        goxlr-utility
-        dunst
-        picom
-        maim
-        dex
-        xss-lock
       ];
     };
   };
@@ -55,8 +50,18 @@
   };
 
   environment.systemPackages = with pkgs; [
-    gnomeExtensions.appindicator
     adwaita-icon-theme
+    dex
+    dmenu #application launcher most people use
+    dunst
+    feh
+    gnomeExtensions.appindicator
+    goxlr-utility
+    lxappearance
+    maim
+    networkmanagerapplet
+    picom
+    xss-lock
   ];
 
   services.udev.packages = with pkgs; [

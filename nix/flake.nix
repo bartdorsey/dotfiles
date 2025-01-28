@@ -9,6 +9,7 @@
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs = {
@@ -17,6 +18,7 @@
     nixpkgs-unstable,
     home-manager,
     catppuccin,
+    zen-browser,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -73,6 +75,8 @@
           {
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
+              inherit zen-browser;
+              inherit system;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

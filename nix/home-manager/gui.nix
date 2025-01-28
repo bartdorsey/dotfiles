@@ -1,6 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  zen-browser,
+  system,
+  ...
+}: {
   catppuccin.enable = true;
   programs.firefox.enable = true;
+
+  home.packages = with zen-browser; [
+    packages."${system}".default
+  ];
 
   dconf.settings = {
     "org/gnome/desktop/background" = {

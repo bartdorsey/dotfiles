@@ -77,8 +77,6 @@
 
   home.stateVersion = "23.11";
 
-  systemd.user.enable = true;
-
   programs.home-manager.enable = true;
 
   programs.go = {

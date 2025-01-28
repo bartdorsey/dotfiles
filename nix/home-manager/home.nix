@@ -41,6 +41,7 @@
       luarocks
       mc
       mise
+      mosh
       mtr
       neovim
       nh

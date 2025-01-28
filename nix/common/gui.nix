@@ -68,4 +68,14 @@
     gnome-settings-daemon
     gnome2.GConf
   ];
+
+  # Vivaldi stuff
+  nixpkgs.config = {
+    vivaldi = {
+      proprietaryCodecs = true;
+      enableWideView = true;
+    };
+  };
+
+  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
 }

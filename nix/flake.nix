@@ -37,6 +37,7 @@
         };
         modules = [
           ./hosts/nixos-vm/configuration.nix
+          ./common/os.nix
           ./common/system-packages.nix
           ./common/gui.nix
           ./users/echo.nix
@@ -66,6 +67,7 @@
         };
         modules = [
           ./hosts/nzxt/configuration.nix
+          ./common/os.nix
           ./common/gui.nix
           ./common/system-packages.nix
           ./users/echo.nix
@@ -98,6 +100,7 @@
         };
         modules = [
           nixoswsl.nixosModules.wsl
+          ./common/os.nix
           ./hosts/nzxt-wsl/configuration.nix
           ./common/system-packages.nix
           ./users/echo.nix
@@ -124,6 +127,7 @@
         };
         modules = [
           ./hosts/nixos-dev/configuration.nix
+          ./common/os.nix
           ./common/system-packages.nix
           ./users/echo.nix
           home-manager.nixosModules.home-manager

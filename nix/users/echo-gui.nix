@@ -30,6 +30,7 @@
         obs-studio
         discord
         slack
+        glib
         google-chrome
         gnome-tweaks
         gnomeExtensions.dash-to-panel

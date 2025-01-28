@@ -1,5 +1,10 @@
-{pkgs-unstable, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   catppuccin.enable = true;
+  catppuccin.flavor = "mocha";
   services.xserver.enable = true;
 
   services.xserver = {
@@ -48,4 +53,14 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.appindicator
+    adwaita-icon-theme
+  ];
+
+  services.udev.packages = with pkgs; [
+    gnome-settings-daemon
+    gnome2.GConf
+  ];
 }

@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   catppuccin.enable = true;
+  programs.firefox.enable = true;
 
   dconf.settings = {
     "org/gnome/desktop/background" = {

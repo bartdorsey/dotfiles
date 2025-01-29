@@ -40,3 +40,16 @@ require("config.quickfix")
 
 -- Lazy
 require("config.lazy")
+
+-- Neovide specific settings
+if vim.g.neovide then
+    vim.o.guifont = "JetBrainsMono Nerd Font Mono:h12"
+    vim.g.neovide_transparency = 0.8
+    vim.g.transparency = 0.8
+    vim.g.neovide_normal_opacity = 0.8
+    vim.g.neovide_window_blurred = true
+    vim.g.neovide_floating_blur_amount_x = 2.0
+    vim.g.neovide_floating_blur_amount_y = 2.0
+    vim.g.neovide_refresh_rate = 120
+    vim.g.neovide_cursor_vfx_mode = "sonicboom"
+end

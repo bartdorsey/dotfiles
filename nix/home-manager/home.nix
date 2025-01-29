@@ -68,6 +68,7 @@
       unzip
       xdg-utils
       yazi
+      yarn
       zip
       zoxide
     ])

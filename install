@@ -42,6 +42,14 @@ if [ ! -d "$HOME/.local/share/gnupg" ]; then
     chmod -v 700 "$HOME/.local/share/gnupg"
 fi
 
+if [ ! -d "$HOME/.config/zen" ]; then
+    mkdir -v "$HOME/.config/zen"
+fi
+
+if [ ! -d "$HOME/.config/firefox" ]; then
+    mkdir -v "$HOME/.config/firefox"
+fi
+
 if type stow 2>/dev/null; then
 
     cyan "-------------------------"

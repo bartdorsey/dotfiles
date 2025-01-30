@@ -17,4 +17,4 @@ New-Link $HOME/.dotfiles/vscode/.config/Code/User/tasks.json $env:APPDATA/Code/U
 New-Link $HOME/.dotfiles/nvim/.config/nvim $HOME/.config/nvim
 New-Link $HOME/.dotfiles/vim/.config/vim $HOME/.config/vim
 New-Link $HOME/.dotfiles/glzr/.glzr $HOME/.glzr
-
+New-Link $HOME/.dotfiles/zen/.config/zen $HOME/.config/zen

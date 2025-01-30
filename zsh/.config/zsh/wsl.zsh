@@ -35,6 +35,7 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     alias wsl='/mnt/c/Windows/system32/wsl.exe'
     alias pwsh='/mnt/c/Program\ Files/PowerShell/7/pwsh.exe'
     alias code="/mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
+    alias neovide="/mnt/c/Users/bart/scoop/apps/neovide/current/neovide.exe --wsl --"
 
     if [ -d "/mnt/c/Users/bart/AppData/Local/Programs/cursor" ]; then 
         function cursor {

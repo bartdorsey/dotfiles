@@ -43,7 +43,7 @@
 
   virtualisation.docker.enable = true;
 
-  documentation.man.generateCaches = true;
+  # documentation.man.generateCaches = true;
 
   services.tailscale.enable = true;
 

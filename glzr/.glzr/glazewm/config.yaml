@@ -47,7 +47,7 @@ window_effects:
     # Highlight the window with a colored border.
     # ** Exclusive to Windows 11 due to API limitations.
     border:
-      enabled: true
+      enabled: false
       color: '#8dbcff'
 
     # Remove the title bar from the window's frame. Note that this can
@@ -58,19 +58,19 @@ window_effects:
     # Change the corner style of the window's frame.
     # ** Exclusive to Windows 11 due to API limitations.
     corner_style:
-      enabled: true
+      enabled: false
       # Allowed values: 'square', 'rounded', 'small_rounded'.
       style: 'rounded'
 
   # Visual effects to apply to non-focused windows.
   other_windows:
     border:
-      enabled: true
+      enabled: false
       color: '#a1a1a1'
     hide_title_bar:
       enabled: false
     corner_style:
-      enabled: true
+      enabled: false
       style: 'rounded'
 
 window_behavior:
@@ -132,6 +132,11 @@ workspaces:
     keep_alive: true
 
 window_rules:
+  - commands: ['move --workspace 1', 'focus --workspace 1']
+    match:
+      - window_process: { regex: '[Ff]irefox' }
+      - window_process: { regex: '[Aa]rc' }
+      - window_process: { regex: '[Zz]en' }
   - commands: ['move --workspace 2', 'focus --workspace 2']
     match:
       - window_process: { regex: '[Ww]ezterm' }

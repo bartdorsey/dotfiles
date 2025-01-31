@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     binutils
     btop
+    curl
     dig
     fastfetch
     ffmpeg
@@ -24,7 +25,6 @@
     tmux
     unzip
     usbutils
-    uv
     vim
     wget
     zip

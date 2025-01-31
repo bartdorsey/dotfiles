@@ -53,6 +53,7 @@
       nodejs_22
       nvd
       opam
+      optinix
       p7zip
       pass
       pinentry
@@ -69,6 +70,7 @@
       tree
       tree-sitter
       unzip
+      uv
       xdg-utils
       xh
       wget
@@ -78,8 +80,7 @@
       zoxide
     ])
     ++ (with pkgs-unstable; [
-      uv
-    ]);
+      ]);
 
   home.stateVersion = "23.11";
 

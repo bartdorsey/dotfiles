@@ -15,6 +15,8 @@
       bun
       clang
       cloc
+      curl
+      curlie
       deno
       devbox
       dust
@@ -33,6 +35,7 @@
       helix
       hub
       image_optim
+      jq
       khal
       lazydocker
       lazygit
@@ -67,6 +70,8 @@
       tree-sitter
       unzip
       xdg-utils
+      xh
+      wget
       yazi
       yarn
       zip

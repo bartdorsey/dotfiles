@@ -57,6 +57,7 @@
       p7zip
       pass
       pinentry
+      pnpm
       prettierd
       pyright
       ripgrep

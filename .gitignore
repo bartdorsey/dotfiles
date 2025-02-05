@@ -16,3 +16,4 @@ vscode/.config/*
 !vscode/.config/Code/User/*.json
 !vscode/.config/Code/User/snippets/
 vim/.config/vim/plugged
+tmp*

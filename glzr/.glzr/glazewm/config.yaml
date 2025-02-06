@@ -142,7 +142,7 @@ window_rules:
       - window_process: { regex: '^[Ww]ezterm' }
       - window_process: { regex: '^[C]ode' }
       - window_process: { regex: '^[Cc]hrome' }
-      - window_process: { equals: '^WindowsTerminal'}
+      - window_process: { equals: 'WindowsTerminal'}
   - commands: ['move --workspace 4', 'focus --workspace 4']
     match:
       - window_process: { regex: '^[Ss]team' }

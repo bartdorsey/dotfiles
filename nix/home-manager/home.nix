@@ -96,6 +96,8 @@
 
   services.git-sync = {
     enable = true;
+    repo = {
+    };
   };
 
   # programs.git = {

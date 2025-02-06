@@ -101,10 +101,6 @@
         path = /home/echo/Obsidian/Journal;
         uri = "git@github.com:bartdorsey/obsidian.git";
       };
-      dotfiles = {
-        path = /home/echo/.dotfiles;
-        uri = "git@github.com:bartdorsey/dotfiles.git";
-      };
     };
   };
 

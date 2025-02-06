@@ -96,9 +96,11 @@
 
   services.git-sync = {
     enable = true;
-    repositories.dotfiles = {
-      path = /home/echo/.dotfiles;
-      uri = "git@github.com:bartdorsey/dotfiles.git";
+    repositories = {
+      dotfiles = {
+        path = /home/echo/.dotfiles;
+        uri = "git@github.com:bartdorsey/dotfiles.git";
+      };
     };
   };
 

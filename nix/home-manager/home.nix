@@ -94,6 +94,11 @@
     enable = true;
   };
 
+  services.git-sync = {
+
+    enable = true;
+};
+
   # programs.git = {
   #   enable = true;
   #   userName = "Bart Dorsey";

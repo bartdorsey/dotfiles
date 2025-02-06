@@ -1,10 +1,13 @@
 <configuration version="37">
-    <folder id="rp6vp-4sf7s" label="Sync" path="~/Sync" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+    <folder id="rp6vp-4sf7s" label="Sync" path="~/Sync" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" fsWatcherTimeoutS="0" ignorePerms="false" autoNormalize="true">
         <filesystemType>basic</filesystemType>
         <device id="OHWAGGX-SROZ3RS-IA7TIDI-5NLHZ5H-3DNTMM6-Z4DTR5B-ZZX64OJ-BVP5JA3" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="PSBYRFL-WZ7YO47-IEVAFIP-NEDYGOB-7AIYEMP-SUPLWYW-NVEJI5W-RAQ5IAI" introducedBy="">
+            <encryptionPassword></encryptionPassword>
+        </device>
+        <device id="2CRW2IF-M54MH4R-XJ6TSDM-VLO7UUA-3273QVN-XG2UFKA-ACXMCOH-O2VV5AX" introducedBy="">
             <encryptionPassword></encryptionPassword>
         </device>
         <device id="3ZQTYTZ-62ZWT57-URH5UJ3-P7MYMNU-PUOD3QY-YT6NEYS-2WW6P7N-NYOVFA6" introducedBy="">
@@ -58,6 +61,17 @@
         <numConnections>0</numConnections>
     </device>
     <device id="PSBYRFL-WZ7YO47-IEVAFIP-NEDYGOB-7AIYEMP-SUPLWYW-NVEJI5W-RAQ5IAI" name="nzxt" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
+        <address>dynamic</address>
+        <paused>false</paused>
+        <autoAcceptFolders>false</autoAcceptFolders>
+        <maxSendKbps>0</maxSendKbps>
+        <maxRecvKbps>0</maxRecvKbps>
+        <maxRequestKiB>0</maxRequestKiB>
+        <untrusted>false</untrusted>
+        <remoteGUIPort>0</remoteGUIPort>
+        <numConnections>0</numConnections>
+    </device>
+    <device id="2CRW2IF-M54MH4R-XJ6TSDM-VLO7UUA-3273QVN-XG2UFKA-ACXMCOH-O2VV5AX" name="nzxt-wsl" compression="metadata" introducer="false" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
         <paused>false</paused>
         <autoAcceptFolders>false</autoAcceptFolders>
@@ -143,9 +157,12 @@
         <connectionPriorityUpgradeThreshold>0</connectionPriorityUpgradeThreshold>
     </options>
     <defaults>
-        <folder id="" label="" path="~" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
+        <folder id="" label="" path="~" type="sendreceive" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" fsWatcherTimeoutS="0" ignorePerms="false" autoNormalize="true">
             <filesystemType>basic</filesystemType>
             <device id="PSBYRFL-WZ7YO47-IEVAFIP-NEDYGOB-7AIYEMP-SUPLWYW-NVEJI5W-RAQ5IAI" introducedBy="">
+                <encryptionPassword></encryptionPassword>
+            </device>
+            <device id="2CRW2IF-M54MH4R-XJ6TSDM-VLO7UUA-3273QVN-XG2UFKA-ACXMCOH-O2VV5AX" introducedBy="">
                 <encryptionPassword></encryptionPassword>
             </device>
             <minDiskFree unit="%">1</minDiskFree>

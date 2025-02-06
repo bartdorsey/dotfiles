@@ -98,7 +98,7 @@
     enable = true;
     repo = {
         path = /home/echo/.dotfiles
-        uri = "git@github.com:bartdorsey/dotfiles.git"
+        uri = "git@github.com:bartdorsey/dotfiles.git";
     };
   };
 

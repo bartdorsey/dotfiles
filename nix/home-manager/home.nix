@@ -90,19 +90,19 @@
   programs.go = {
     enable = true;
   };
-  services.syncthing = {
-    enable = true;
-  };
-
-  services.git-sync = {
-    enable = true;
-    repositories = {
-      Obsidian = {
-        path = /home/echo/Obsidian/Journal;
-        uri = "git@github.com:bartdorsey/obsidian.git";
-      };
-    };
-  };
+  # services.syncthing = {
+  #   enable = true;
+  # };
+  #
+  # services.git-sync = {
+  #   enable = true;
+  #   repositories = {
+  #     Obsidian = {
+  #       path = /home/echo/Obsidian/Journal;
+  #       uri = "git@github.com:bartdorsey/obsidian.git";
+  #     };
+  #   };
+  # };
 
   programs.git = {
     enable = true;

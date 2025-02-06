@@ -10,12 +10,12 @@
   wsl.defaultUser = "echo";
   wsl.wslConf.interop.appendWindowsPath = false;
   wsl.wslConf.network.hostname = "nzxt-wsl";
-  wsl.wslConf.network.generateResolvConf = false;
+  wsl.wslConf.network.generateResolvConf = true;
   wsl.useWindowsDriver = true;
   wsl.startMenuLaunchers = true;
 
-  networking.nameservers = ["10.0.0.3" "10.0.0.4"];
-  networking.domain = "home";
+  # networking.nameservers = ["10.0.0.3" "10.0.0.4"];
+  # networking.domain = "home";
 
   fileSystems."/home/echo/nixos-home" = {
     device = "/dev/disk/by-uuid/2d7c255f-2e84-4127-9205-12c2086b8a34";
@@ -82,5 +82,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }

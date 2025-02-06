@@ -45,7 +45,7 @@
 
   # documentation.man.generateCaches = true;
 
-  services.tailscale.enable = true;
+  services.tailscale.enable = false;
 
   security.pam.services.sshd.allowNullPassword = true;
   services.openssh = {

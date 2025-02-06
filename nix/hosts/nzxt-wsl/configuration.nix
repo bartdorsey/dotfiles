@@ -20,28 +20,26 @@
   fileSystems."/home/echo/nixos-home" = {
     device = "/dev/disk/by-uuid/2d7c255f-2e84-4127-9205-12c2086b8a34";
     fsType = "btrfs";
+    options = [
+      "noauto"
+      "nofail"
+      "x-systemd.automount"
+      "x-systemd.device-timeout=10"
+    ];
   };
 
   fileSystems."/home/echo/projects" = {
     device = "/dev/disk/by-uuid/1816d42e-528e-479b-8f16-8e5073cd961a";
     fsType = "btrfs";
+    options = [
+      "noauto"
+      "nofail"
+      "x-systemd.automount"
+      "x-systemd.device-timeout=10"
+    ];
   };
 
-  # services.rpcbind.enable = true;
-
-  # Custom WSL Drive mount
-
-  systemd.services.wsl-mount-home = {
-    description = "Custom Command before /home Mount";
-    before = ["default.target"];
-    wants = ["default.target"];
-    enable = true;
-    serviceConfig = {
-      ExecStart = "/mnt/c/windows/system32/schtasks.exe /RUN /I /TN WSL\\\\wsl-mount-home";
-      Type = "oneshot";
-    };
-    wantedBy = ["default.target"];
-  };
+  services.rpcbind.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"

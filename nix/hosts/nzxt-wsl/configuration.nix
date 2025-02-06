@@ -27,20 +27,20 @@
     fsType = "btrfs";
   };
 
-  services.rpcbind.enable = true;
+  # services.rpcbind.enable = true;
 
   # Custom WSL Drive mount
 
   systemd.services.wsl-mount-home = {
     description = "Custom Command before /home Mount";
-    before = ["local-fs-pre.target"];
-    wants = ["local-fs-pre.target"];
+    before = ["default.target"];
+    wants = ["default.target"];
     enable = true;
     serviceConfig = {
       ExecStart = "/mnt/c/windows/system32/schtasks.exe /RUN /I /TN WSL\\\\wsl-mount-home";
       Type = "oneshot";
     };
-    wantedBy = ["local-fs-pre.target"];
+    wantedBy = ["default.target"];
   };
 
   nixpkgs.config.permittedInsecurePackages = [

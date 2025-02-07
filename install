@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 shopt -s expand_aliases
 
 function cyan() {
@@ -103,7 +103,7 @@ fi
 
 if [[ -v WSL_DISTRO_NAME ]]; then
     code() {
-      /mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code "$@"
+        /mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code "$@"
     }
 fi
 

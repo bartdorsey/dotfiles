@@ -1,5 +1,3 @@
-andrewmcodes.tailwindcss-extension-pack
-austenc.tailwind-docs
 bpruitt-goddard.mermaid-markdown-syntax-highlighting
 bradlc.vscode-tailwindcss
 clemenspeters.format-json

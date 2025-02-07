@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+shopt -s expand_aliases
 
 function cyan() {
     local CYAN="\033[0;36m"
@@ -84,13 +85,6 @@ if [[ -d "$HOME/.config/tmux/plugins/tpm" ]]; then
     $HOME/.config/tmux/plugins/tpm/bin/update_plugins all
 fi
 
-if type code 2>/dev/null; then
-    cyan "----------------------------"
-    cyan "Installing VSCode extensions"
-    cyan "----------------------------"
-
-    cat "vscode/.config/Code/extensions.txt" | xargs -L 1 code --install-extension
-fi
 
 # Install neovim plugins
 if type nvim 2>/dev/null; then
@@ -106,3 +100,16 @@ if type nvim 2>/dev/null; then
     # Install treesitter plugins
     nvim --headless +TSUpdate +qa
 fi
+
+if [[ -v WSL_DISTRO_NAME ]]; then
+    code() {
+      /mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code "$@"
+    }
+fi
+
+cyan "----------------------------"
+cyan "Installing VSCode extensions"
+cyan "----------------------------"
+while IFS= read -r extension; do
+    code --install-extension "$extension"
+done < "vscode/.config/Code/extensions.txt"

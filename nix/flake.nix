@@ -101,6 +101,7 @@
         modules = [
           nixoswsl.nixosModules.wsl
           ./common/os.nix
+          ./common/nfs.nix
           ./hosts/nzxt-wsl/configuration.nix
           ./common/system-packages.nix
           ./users/echo.nix

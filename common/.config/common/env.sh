@@ -177,3 +177,7 @@ fi
 if [ -f ~/.config/devmode ]; then
     export DEVMODE=1
 fi
+
+# Restic
+export RESTIC_REPOSITORY=/mnt/Backups/restic/
+export RESTIC_PASSWORD_COMMAND="pass restic"

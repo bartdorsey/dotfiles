@@ -20,6 +20,7 @@
     killall
     kmod
     nfs-utils
+    restic
     stdenv.cc.cc
     sysz
     tmux

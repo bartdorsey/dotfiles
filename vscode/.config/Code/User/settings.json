@@ -64,7 +64,8 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "window.zoomLevel": 1,
   "remote.SSH.remotePlatform": {
-    "*.gitpod.io": "linux"
+    "*.gitpod.io": "linux",
+    "nixos-dev": "linux"
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
@@ -105,5 +106,6 @@
   "djlint.showInstallError": false,
   "security.promptForRemoteFileProtocolHandling": false,
   "lldb.suppressUpdateNotifications": true,
-  "database-client.autoSync": true
+  "database-client.autoSync": true,
+  "remote.SSH.useExecServer": false
 }

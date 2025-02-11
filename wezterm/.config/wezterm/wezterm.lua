@@ -177,6 +177,9 @@ bar.apply_to_config(config, {
         workspace = {
             enabled = true,
         },
+        pane = {
+            enabled = false,
+        },
         clock = {
             enabled = false,
         },

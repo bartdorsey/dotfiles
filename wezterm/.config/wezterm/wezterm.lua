@@ -9,7 +9,11 @@ end
 
 local color_scheme = "Catppuccin Mocha"
 
-local bar = wezterm.plugin.require("https://github.com/bartdorsey/bar.wezterm")
+-- local tabline =
+--     wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+
+local tabline =
+    wezterm.plugin.require("https://github.com/bartdorsey/tabline.wez")
 
 wezterm.on("toggle-ligature", function(window, _)
     local overrides = window:get_config_overrides() or {}
@@ -92,7 +96,7 @@ config.unix_domains = {
         name = "unix",
     },
 }
-config.leader = { key = "A", mods = "CTRL", timeout_milliseconds = 10000 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 10000 }
 config.keys = {
     {
         key = "E",
@@ -172,24 +176,6 @@ for i = 1, 9 do
     })
 end
 
-bar.apply_to_config(config, {
-    modules = {
-        workspace = {
-            enabled = true,
-        },
-        pane = {
-            enabled = true,
-        },
-        clock = {
-            enabled = false,
-        },
-        weather = {
-            enabled = false,
-            city = "conway",
-        },
-    },
-})
-
 config.mouse_bindings = {
     -- Change the default click behavior so that it only selects
     -- text and doesn't open hyperlinks
@@ -212,5 +198,75 @@ config.mouse_bindings = {
         action = act.Nop,
     },
 }
+
+tabline.setup({
+    options = {
+        icons_enabled = true,
+        theme = "Catppuccin Mocha",
+        tabs_enabled = true,
+        theme_overrides = {},
+        section_separators = {
+            left = wezterm.nerdfonts.pl_left_hard_divider,
+            right = wezterm.nerdfonts.pl_right_hard_divider,
+        },
+        component_separators = {
+            left = wezterm.nerdfonts.pl_left_soft_divider,
+            right = wezterm.nerdfonts.pl_right_soft_divider,
+        },
+        tab_separators = {
+            left = wezterm.nerdfonts.pl_left_hard_divider,
+            right = wezterm.nerdfonts.pl_right_hard_divider,
+        },
+    },
+    sections = {
+        tabline_a = { "mode" },
+        tabline_b = { "" },
+        tabline_c = { "" },
+        tab_active = {
+            {
+                "index",
+                padding = 0,
+                fmt = function(string)
+                    return string .. " "
+                end,
+            },
+            { "zoomed", padding = 0 },
+            {
+                "process",
+                process_to_icon = {
+                    ["lg"] = wezterm.nerdfonts.dev_git,
+                    ["lazygit"] = wezterm.nerdfonts.dev_git,
+                },
+            },
+        },
+        tab_inactive = {
+            {
+                "index",
+                padding = 0,
+                fmt = function(string)
+                    return string .. " "
+                end,
+            },
+            { "zoomed", padding = 0 },
+            { "process" },
+        },
+        tabline_x = { "ram", "cpu" },
+        tabline_y = {
+            {
+                "datetime",
+                style = "%l:%m %p",
+            },
+            "battery",
+        },
+        tabline_z = {
+            "hostname",
+        },
+    },
+    extensions = {},
+})
+
+tabline.apply_to_config(config)
+
+config.window_decorations = "TITLE | RESIZE"
 
 return config

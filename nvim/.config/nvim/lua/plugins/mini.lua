@@ -37,6 +37,7 @@ return {
                 starter.gen_hook.padding(3, 2),
                 starter.gen_hook.aligning("center", "center"),
             },
+            query_updaters = "abcdefghijklmnopqrstuvwxyz0123456789_.",
         })
         -- Clues
         local miniclue = require("mini.clue")

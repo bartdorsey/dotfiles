@@ -117,6 +117,9 @@ source $HOME/.config/common/aliases.sh
 # Prompt
 source $ZDOTDIR/prompt.zsh
 
+# Title
+source $ZDOTDIR/title.zsh
+
 # Keybinds for OSes like Arch
 source $ZDOTDIR/keybinds.zsh
 
@@ -126,26 +129,6 @@ source $ZDOTDIR/ssh-agent.zsh
 # WSL
 source $ZDOTDIR/wsl.zsh
 
-# Prompt Title
-if type lsb_release > /dev/null 2>&1;then
-    if [[ $OSTYPE == "linux-gnu" ]]; then
-        export PROMPT_TITLE=$(lsb_release -d | awk '{print $2 " " $3 " " $4}')
-    fi
-fi
-
-# Set the terminal title with our distribution
-if type lsb_release > /dev/null; then
-    TERMINAL_TITLE="$USER@$(hostname -f):$(lsb_release -i -s)"
-else
-    TERMINAL_TITLE="$USER@$(hostname -f)"
-fi
-
-set_terminal_title() {
-    printf "\e]0;$TERMINAL_TITLE\a" 
-}
-
-autoload -U add-zsh-hook
-add-zsh-hook precmd set_terminal_title
 
 # VSCode Integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
@@ -170,3 +153,7 @@ fi
 
 # MOTD
 source $HOME/.config/common/fetch.sh
+
+# Wezterm
+source $HOME/.config/common/wezterm.sh
+

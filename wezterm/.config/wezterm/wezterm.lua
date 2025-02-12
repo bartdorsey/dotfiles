@@ -178,7 +178,7 @@ bar.apply_to_config(config, {
             enabled = true,
         },
         pane = {
-            enabled = false,
+            enabled = true,
         },
         clock = {
             enabled = false,

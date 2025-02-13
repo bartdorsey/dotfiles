@@ -9,11 +9,11 @@ end
 
 local color_scheme = "Catppuccin Mocha"
 
--- local tabline =
---     wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
-
 local tabline =
-    wezterm.plugin.require("https://github.com/bartdorsey/tabline.wez")
+    wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+
+-- local tabline =
+--     wezterm.plugin.require("https://github.com/bartdorsey/tabline.wez")
 
 wezterm.on("toggle-ligature", function(window, _)
     local overrides = window:get_config_overrides() or {}

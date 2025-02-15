@@ -75,6 +75,7 @@
       uv
       xdg-utils
       xh
+      wezterm
       wget
       yazi
       yarn

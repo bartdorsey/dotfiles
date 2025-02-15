@@ -80,3 +80,7 @@ if command_exists op; then
    }
 fi
 
+if [ -d "$HOME/.config/emacs/bin" ]; then
+    export PATH="$HOME/.config/emacs/bin:$PATH"
+fi
+

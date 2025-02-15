@@ -20,6 +20,7 @@
       deno
       devbox
       dust
+      emacs-nox
       fd
       fzf
       git

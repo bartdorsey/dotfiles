@@ -79,6 +79,7 @@
       wget
       yazi
       yarn
+      yt-dlp
       zip
       zoxide
     ])

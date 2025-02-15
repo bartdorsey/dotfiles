@@ -2,7 +2,7 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.typeCheckingMode": "standard",
   "vim.leader": " ",
   "vim.smartRelativeLine": true,
   "vim.highlightedyank.enable": true,
@@ -50,7 +50,7 @@
   },
   "editor.formatOnSave": true,
   "redhat.telemetry.enabled": false,
-  "editor.fontFamily": "JetBrainsMono NF",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
@@ -93,7 +93,6 @@
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.inlayHints.callArgumentNames": "all",
   "python.analysis.inlayHints.pytestParameters": true,
-  "workbench.colorTheme": "base16-catppuccin-mocha",
   "workbench.iconTheme": "catppuccin-perfect-mocha",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.renderSideBySide": false,
@@ -107,5 +106,13 @@
   "security.promptForRemoteFileProtocolHandling": false,
   "lldb.suppressUpdateNotifications": true,
   "database-client.autoSync": true,
-  "remote.SSH.useExecServer": false
+  "remote.SSH.useExecServer": false,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "github.copilot.editor.enableAutoCompletions": true
 }

@@ -153,6 +153,7 @@
         line-numbers = true;
       };
     };
+    lfs.enable = true;
   };
   # xdg.configFile."nvim" = {
   #   source = ../../nvim/.config/nvim;

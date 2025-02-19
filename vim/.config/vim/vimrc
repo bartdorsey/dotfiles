@@ -149,6 +149,7 @@ else
         set guioptions-=r  "scrollbar
         set guifont=JetBrainsMono_NFM:h12
     endif
+
     " Commands to load vimrc and vim plugins
     " Sets the working directory to Neovim config and opens the main config file
     command! Config execute 'cd ~/.dotfiles/vim/.config/vim/' | execute 'edit vimrc'
@@ -159,6 +160,8 @@ else
     command! DotFiles execute 'cd ~/.dotfiles' | execute 'Ex ~/.dotfiles'
     let g:lightline = { 'colorscheme': 'catppuccin_mocha' }
 
+    let g:highlightedyank_highlight_duration = 200
+
     call plug#begin()
 
     Plug 'tpope/vim-sensible'
@@ -167,6 +170,7 @@ else
     Plug 'tpope/vim-vinegar'
     Plug 'mhinz/vim-startify'
     Plug 'itchyny/lightline.vim'
+    Plug 'machakann/vim-highlightedyank'
     call plug#end()
 
     colorscheme catppuccin_mocha

@@ -107,9 +107,9 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     }
 fi
 
-cyan "----------------------------"
-cyan "Installing VSCode extensions"
-cyan "----------------------------"
-while IFS= read -r extension; do
-    code --install-extension "$extension"
-done < "vscode/.config/Code/extensions.txt"
+# cyan "----------------------------"
+# cyan "Installing VSCode extensions"
+# cyan "----------------------------"
+# while IFS= read -r extension; do
+#     code --install-extension "$extension"
+# done < "vscode/.config/Code/extensions.txt"

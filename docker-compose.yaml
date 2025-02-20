@@ -9,7 +9,7 @@ services:
       - TERM=$TERM
       - SHELL=/bin/zsh
       - HOME=/home/ubuntu
-    user: "${UID}:${GID}"
+    user: "${DUID}:${DGID}"
     stdin_open: true
     tty: true
 

@@ -39,7 +39,7 @@ $env:Path += ";C:\Users\bart\.local\bin"
 # $env:GOROOT = "$env:USERPROFILE\.gobrew\current\go"
 $env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
 $env:HOME = $env:USERPROFILE
-# $env:DEVMODE = 1
+$env:DEVMODE = 1
 $env:VIMINIT = "source ~/.config/vim/vimrc"
 # Aliases
 Set-Alias p Get-Projects

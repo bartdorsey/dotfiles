@@ -165,7 +165,7 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
-  - commands: ['move --workspace 7','set-floating']
+  - commands: ['move --workspace 7']
     match:
       - window_process: { equals: 'ksnip' }
   - commands: ['move --workspace 7', 'set-fullscreen']
@@ -245,8 +245,8 @@ keybindings:
     bindings: ['alt+v']
 
   # Change focus from tiling windows -> floating -> fullscreen.
-  - commands: ['wm-cycle-focus']
-    bindings: ['alt+space']
+  # - commands: ['wm-cycle-focus']
+  #   bindings: ['alt+space']
 
   # Change the focused window to be floating.
   - commands: ['toggle-floating --centered']

@@ -24,9 +24,9 @@
     }
   ],
   "workbench.colorCustomizations": {
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f",
+    "statusBar.background": "#5f00af",
+    "statusBar.noFolderBackground": "#5f00af",
+    "statusBar.debuggingBackground": "#5f00af",
     "statusBar.foreground": "#ffffff",
     "statusBar.debuggingForeground": "#ffffff"
   },
@@ -65,7 +65,8 @@
   "window.zoomLevel": 1,
   "remote.SSH.remotePlatform": {
     "*.gitpod.io": "linux",
-    "nixos-dev": "linux"
+    "nixos-dev": "linux",
+    "python-test.devpod": "linux"
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1

@@ -11,7 +11,11 @@ function lsp_binary_exists(server_config)
 
     local binary = server_config.document_config.default_config.cmd[1]
 
-    return vim.fn.executable(binary) == 1
+    local found = vim.fn.executable(binary) == 1
+    if not found then
+        vim.notify("Missing LSP:" .. binary)
+    end
+    return found
 end
 
 return {
@@ -39,6 +43,12 @@ return {
         -- python
         {
             "linux-cultist/venv-selector.nvim",
+        },
+        {
+            "echasnovski/mini.nvim",
+        },
+        {
+            "williamboman/mason.nvim",
         },
     },
     config = function()
@@ -139,6 +149,8 @@ return {
                     schemas = {
                         ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
                         ["schema.yml"] = "**/question.yml",
+                        ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/config.schema.json"] = "**/espanso/config/*.yml",
+                        ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json"] = "**/espanso/match/*.yml",
                     },
                 },
             },

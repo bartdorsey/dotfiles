@@ -74,7 +74,6 @@ return {
                 },
             },
             nixd = {},
-            biome = {},
             ts_ls = {
                 filetypes = {
                     "typescript",

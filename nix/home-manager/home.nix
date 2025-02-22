@@ -27,6 +27,7 @@
       git-lfs
       gh
       glab
+      gleam
       go
       gopls
       gotools
@@ -36,6 +37,7 @@
       helix
       hub
       image_optim
+      intelephense
       jq
       khal
       lazydocker
@@ -57,6 +59,7 @@
       optinix
       p7zip
       pass
+      php
       pinentry
       pnpm
       prettierd

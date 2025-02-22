@@ -110,6 +110,8 @@
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
             };
+
+            nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";

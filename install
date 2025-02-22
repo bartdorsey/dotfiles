@@ -85,6 +85,14 @@ if [[ -d "$HOME/.config/tmux/plugins/tpm" ]]; then
     $HOME/.config/tmux/plugins/tpm/bin/update_plugins all
 fi
 
+# Install vim plugins
+if type vim 2>/dev/null; then
+    cyan "-------------------------"
+    cyan "Installing vim plugins"
+    cyan "-------------------------"
+
+    vim +PlugInstall +qa
+fi
 
 # Install neovim plugins
 if type nvim 2>/dev/null; then

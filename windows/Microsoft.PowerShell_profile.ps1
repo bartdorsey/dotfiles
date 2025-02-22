@@ -31,12 +31,6 @@ Set-PSReadlineOption -EditMode Emacs
 Set-PSReadLineKeyHandler -Key 'Ctrl+d' -Function DeleteCharOrExit
 
 $env:EDITOR = "code"
-$env:Path += ";C:\Users\bart\scoop\persist\rustup\.cargo\bin"
-$env:Path += ";C:\Users\bart\Apps"
-$env:Path += ";C:\Users\bart\OneDrive\Apps"
-$env:Path += ";C:\Users\bart\.local\bin"
-# $env:Path = ";$env:USERPROFILE\.gobrew\current\bin;$env:USERPROFILE\.gobrew\bin;$env:Path"
-# $env:GOROOT = "$env:USERPROFILE\.gobrew\current\go"
 $env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
 $env:HOME = $env:USERPROFILE
 $env:DEVMODE = 1

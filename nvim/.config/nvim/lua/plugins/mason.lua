@@ -23,7 +23,6 @@ return {
                 "jsonls",
                 "lua_ls",
                 "perlnavigator",
-                "pyre",
                 "pyright",
                 "ruff",
                 "rust_analyzer",

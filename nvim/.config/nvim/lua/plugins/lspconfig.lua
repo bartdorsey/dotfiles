@@ -134,7 +134,6 @@ return {
                     },
                 },
             },
-            pyre = {},
             ansiblels = {},
             yamlls = {
                 yaml = {

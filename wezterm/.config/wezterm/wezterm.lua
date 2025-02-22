@@ -34,9 +34,6 @@ end)
 -- Read more below on the gotcha of binding an 'Up' event only.
 -- end)
 
-local shell = os.getenv("SHELL")
-local default_program = { shell }
-
 local opacity = 0.8
 local font_size = 14
 local front_end = "WebGpu"
@@ -46,6 +43,35 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     opacity = 0.90
     font_size = 12
     front_end = "OpenGL"
+    config.launch_menu = {
+        {
+            label = "NixOS",
+            domain = { DomainName = "WSL:NixOS" },
+        },
+        {
+            label = "Ubuntu",
+            domain = { DomainName = "WSL:Ubuntu" },
+        },
+        {
+            label = "Powershell",
+            args = { "pwsh.exe" },
+            domain = { DomainName = "local" },
+        },
+        {
+            label = "Powershell (Admin)",
+            args = { "sudo.exe", "pwsh.exe" },
+            domain = { DomainName = "local" },
+        },
+    }
+else
+    local shell = os.getenv("SHELL")
+    config.default_prog = { shell }
+    config.launch_menu = {
+        {
+            label = "zsh",
+            args = { "zsh", "-l" },
+        },
+    }
 end
 
 config.set_environment_variables = {
@@ -74,7 +100,6 @@ config.cursor_blink_ease_out = "Constant"
 config.force_reverse_video_cursor = false
 config.initial_rows = 35
 config.initial_cols = 100
-config.default_prog = default_program
 config.audible_bell = "Disabled"
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
@@ -104,9 +129,16 @@ config.keys = {
         action = wezterm.action.EmitEvent("toggle-ligature"),
     },
     {
+        key = " ",
+        mods = "LEADER",
+        action = wezterm.action.ShowLauncherArgs({
+            flags = "LAUNCH_MENU_ITEMS",
+        }),
+    },
+    {
         key = "c",
         mods = "LEADER",
-        action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+        action = wezterm.action.SpawnTab("DefaultDomain"),
     },
     {
         key = "b",

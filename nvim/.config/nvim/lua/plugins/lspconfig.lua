@@ -121,7 +121,7 @@ return {
                     },
                 },
             },
-            pyright = {
+            basedpyright = {
                 settings = {
                     python = {
                         analysis = {

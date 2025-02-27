@@ -135,6 +135,7 @@
           ./users/echo.nix
           home-manager.nixosModules.home-manager
           {
+            nixpkgs.config.allowUnfree = true;
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
             };

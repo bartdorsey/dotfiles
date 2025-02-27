@@ -53,7 +53,6 @@
       nh
       nix-output-monitor
       nixd
-      nodejs_22
       nvd
       opam
       optinix
@@ -87,7 +86,8 @@
       zoxide
     ])
     ++ (with pkgs-unstable; [
-      ]);
+      nodejs
+    ]);
 
   home.stateVersion = "23.11";
 

@@ -51,8 +51,8 @@ if [ ! -d "$HOME/.config/firefox" ]; then
     mkdir -v "$HOME/.config/firefox"
 fi
 
-if [ ! -d "$HOME/config/systemd/user" ]; then
-    mkdir -p -v "$HOME/.config/systemd/user"
+if [ ! -d "$HOME/config/systemd/user/default.target.wants" ]; then
+    mkdir -p -v "$HOME/.config/systemd/user/default.target.wants"
 fi
 
 if [ ! -d "$HOME/config/git" ]; then

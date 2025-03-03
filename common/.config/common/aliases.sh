@@ -63,3 +63,7 @@ fi
 if command_exists nvidia-settings; then
     alias nvidia-settings=nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings
 fi
+
+if command_exists superfile; then
+    alias spf=superfile
+fi

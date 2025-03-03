@@ -70,6 +70,7 @@
       sqlite
       starship
       stow
+      superfile
       syncthing
       tree
       tree-sitter

@@ -19,6 +19,7 @@
     iperf3
     killall
     kmod
+    lsb-release
     nfs-utils
     restic
     stdenv.cc.cc

@@ -51,8 +51,12 @@ if [ ! -d "$HOME/.config/firefox" ]; then
     mkdir -v "$HOME/.config/firefox"
 fi
 
-if [ ! -d "$HOME/config/systemd" ]; then
-    mkdir -v "$HOME/.config/systemd"
+if [ ! -d "$HOME/config/systemd/user" ]; then
+    mkdir -p -v "$HOME/.config/systemd/user"
+fi
+
+if [ ! -d "$HOME/config/git" ]; then
+    mkdir -v "$HOME/.config/git"
 fi
 
 if type stow 2>/dev/null; then

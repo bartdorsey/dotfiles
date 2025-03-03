@@ -51,6 +51,10 @@ if [ ! -d "$HOME/.config/firefox" ]; then
     mkdir -v "$HOME/.config/firefox"
 fi
 
+if [ ! -d "$HOME/config/systemd" ]; then
+    mkdir -v "$HOME/.config/systemd"
+fi
+
 if type stow 2>/dev/null; then
 
     cyan "-------------------------"

@@ -20,7 +20,7 @@
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/523b8271-451c-4d84-a5ad-d4c96ce7f036";}
+    {device = "/dev/disk/by-uuid/4fb3ab6c-cbd9-4042-996a-5662a956e1a2";}
   ];
 
   services.xserver.videoDrivers = ["vmware"];

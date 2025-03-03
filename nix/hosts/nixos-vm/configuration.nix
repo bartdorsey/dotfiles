@@ -85,11 +85,6 @@
     "nix-2.16.2"
   ];
 
-  programs.nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs;
-  };
-
   # Vivaldi stuff
   nixpkgs.config = {
     vivaldi = {

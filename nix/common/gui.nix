@@ -13,6 +13,7 @@
   };
 
   services.xserver = {
+    dpi = 96;
     desktopManager = {
       xterm.enable = true;
     };
@@ -38,6 +39,8 @@
     layout = "us";
     variant = "";
   };
+
+  services.xserver.upscaleDefaultCursor = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;

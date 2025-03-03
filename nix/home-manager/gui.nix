@@ -30,4 +30,12 @@
     platformTheme.name = "kvantum";
     style.name = "kvantum";
   };
+
+  home.pointerCursor = {
+    x11.enable = true;
+    gtk.enable = true;
+    name = "Vanilla-DMZ";
+    size = 64;
+    package = pkgs.vanilla-dmz;
+  };
 }

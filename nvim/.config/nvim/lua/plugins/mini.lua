@@ -12,6 +12,17 @@ return {
         require("mini.ai").setup({})
         -- Pairs
         require("mini.pairs").setup({})
+        -- Files
+        require("mini.files").setup({
+            options = {
+                use_as_default_explorer = true,
+            },
+        })
+        -- Files keymap
+        vim.keymap.set("n", "<leader>-", ":lua MiniFiles.open()<cr>", {
+            desc = "Open Mini Files",
+        })
+
         -- Sessions
         local MiniSessions = require("mini.sessions")
         MiniSessions.setup({

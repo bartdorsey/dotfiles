@@ -5,6 +5,10 @@ zmodload zsh/zprof
 # Load vcs_info
 autoload -Uz vcs_info
 
+# Tetris, because why not
+autoload -Uz tetriscurses
+alias tetris=tetriscurses
+
 # Hook vcs_info into the precmd (executed before every prompt)
 precmd() { vcs_info }
 

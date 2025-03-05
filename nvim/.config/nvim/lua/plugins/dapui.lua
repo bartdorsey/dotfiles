@@ -10,15 +10,27 @@ return {
                 end,
                 desc = "Debug",
             },
+            {
+                "<leader>b",
+                function()
+                    require("dap").toggle_breakpoint()
+                end,
+                desc = "Toggle Breakpoint",
+            },
         },
+        lazy = false,
         dependencies = {
             "mfussenegger/nvim-dap",
+            "mfussenegger/nvim-dap-python",
         },
         config = function()
             -- DapUI Setup
             local dapui = require("dapui")
 
             local dap = require("dap")
+
+            require("dap-python").setup("python3")
+
             dapui.setup({
                 controls = {
                     element = "stacks",
@@ -52,6 +64,18 @@ return {
             dap.listeners.before.event_exited["dapui_config"] = function()
                 dapui.close()
             end
+
+            dap.configurations.python = {
+                {
+                    type = "python",
+                    request = "launch",
+                    name = "Launch file",
+                    program = "${file}",
+                    pythonPath = function()
+                        return "python"
+                    end,
+                },
+            }
         end,
     },
 }

@@ -28,6 +28,7 @@
       gh
       glab
       gleam
+      glow
       go
       gopls
       gotools

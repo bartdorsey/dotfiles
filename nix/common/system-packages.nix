@@ -21,6 +21,7 @@
     kmod
     lsb-release
     nfs-utils
+    pciutils
     restic
     stdenv.cc.cc
     sysz

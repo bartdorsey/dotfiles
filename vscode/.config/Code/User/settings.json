@@ -24,9 +24,9 @@
     }
   ],
   "workbench.colorCustomizations": {
-    "statusBar.background": "#5f00af",
-    "statusBar.noFolderBackground": "#5f00af",
-    "statusBar.debuggingBackground": "#5f00af",
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f",
     "statusBar.foreground": "#ffffff",
     "statusBar.debuggingForeground": "#ffffff"
   },
@@ -94,7 +94,7 @@
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.inlayHints.callArgumentNames": "all",
   "python.analysis.inlayHints.pytestParameters": true,
-  "workbench.iconTheme": "catppuccin-perfect-mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.renderSideBySide": false,
   "editor.accessibilitySupport": "off",
@@ -108,12 +108,12 @@
   "lldb.suppressUpdateNotifications": true,
   "database-client.autoSync": true,
   "remote.SSH.useExecServer": false,
-  "workbench.colorTheme": "Catppuccin Mocha",
   "github.copilot.enable": {
     "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false
   },
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "workbench.colorTheme": "Catppuccin Mocha"
 }

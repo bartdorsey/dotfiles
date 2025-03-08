@@ -17,7 +17,6 @@
         _1password-cli
         firefox
         firefoxpwa
-        firefox-devedition
         ghostty
       ])
       ++ (with pkgs; [

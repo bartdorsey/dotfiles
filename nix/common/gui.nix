@@ -62,6 +62,7 @@
     goxlr-utility
     lxappearance
     maim
+    nerdfonts
     networkmanagerapplet
     picom
     xss-lock

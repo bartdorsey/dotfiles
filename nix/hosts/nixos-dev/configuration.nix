@@ -24,6 +24,16 @@ in {
     "nix-2.16.2"
   ];
 
+  services.ollama = {
+    enable = true;
+    # Optional: load models on startup
+    loadModels = [];
+  };
+  services.open-webui = {
+    enable = true;
+    host = "0.0.0.0";
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave

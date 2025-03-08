@@ -47,3 +47,12 @@ end, { nargs = 0 })
 vim.api.nvim_create_user_command("SDelete", function()
     MiniSessions.delete(nil, { force = true })
 end, { nargs = 0 })
+
+vim.api.nvim_create_user_command("Glow", function()
+    local file = vim.fn.expand("%:p") -- Get the absolute path of the current file
+    if file ~= "" then
+        vim.cmd("vsplit | terminal glow -p " .. vim.fn.shellescape(file))
+    else
+        print("No file to preview with glow")
+    end
+end, {})

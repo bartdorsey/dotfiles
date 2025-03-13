@@ -34,6 +34,7 @@
         google-chrome
         gnome-tweaks
         gnomeExtensions.dash-to-panel
+        qutebrowser
         vscode
         wezterm
         kitty

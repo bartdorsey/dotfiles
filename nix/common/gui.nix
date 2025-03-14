@@ -26,6 +26,8 @@
         i3lock #default i3 screen locker
         i3blocks #if you are planning on using i3blocks over i3status
         polybarFull
+        xscreensaver
+        lxappearance
       ];
     };
   };

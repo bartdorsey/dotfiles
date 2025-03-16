@@ -19,6 +19,8 @@
       curlie
       deno
       devbox
+      distrobox
+      distrobox-tui
       dust
       emacs-nox
       fd

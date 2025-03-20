@@ -115,11 +115,11 @@ workspaces:
     bind_to_monitor: 1
     keep_alive: true
   - name: '5'
-    display_name: "5:Chat"
-    bind_to_monitor: 0
+    display_name: "5:Misc"
+    bind_to_monitor: 1
     keep_alive: true
   - name: '6'
-    display_name: "6:Web"
+    display_name: "6:Chat"
     bind_to_monitor: 0
     keep_alive: true
   - name: '7'
@@ -132,28 +132,48 @@ workspaces:
     keep_alive: true
 
 window_rules:
+  # Workspace 1
   - commands: ['move --workspace 1', 'focus --workspace 1']
     match:
       - window_process: { regex: '^[Ff]irefox' }
       - window_process: { regex: '^Arc' }
       - window_process: { regex: '^[Zz]en' }
+  # Workspace 2
   - commands: ['move --workspace 2', 'focus --workspace 2']
     match:
       - window_process: { regex: '^[Ww]ezterm' }
       - window_process: { regex: '^[C]ode' }
       - window_process: { regex: '^[Cc]hrome' }
       - window_process: { equals: 'WindowsTerminal'}
+  # Workspace 3
+  - commands: ['move --workspace 3']
+    match:
+      - window_process: { regex: '^[Zz]oom' }
+  # Workspace 4
   - commands: ['move --workspace 4', 'focus --workspace 4']
     match:
       - window_process: { regex: '^[Ss]team' }
       - window_process: { regex: '^NMS' }
+  - commands: ['move --workspace 4', 'set-fullscreen']
+    match:
+      - window_process: { regex: '^NMS' }
+  # Workspace 5
   - commands: ['move --workspace 5']
+    match:
+      - window_process: { regex: '^Bambu Studio' }
+  # Workspace 6
+  - commands: ['move --workspace 6']
     match:
       - window_process: { regex: '^[Vv]esktop' }
       - window_process: { regex: '^[Ss]lack' }
-  - commands: ['move --workspace 3']
+  # Workspace 7
+  - commands: ['move --workspace 7']
     match:
-      - window_process: { regex: '^[Zz]oom' }
+      - window_process: { equals: 'ksnip' }
+  - commands: ['move --workspace 7', 'set-fullscreen']
+    match:
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
+  # Ignore
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
@@ -165,15 +185,6 @@ window_rules:
         window_title: { regex: '.*? - Peek' }
       - window_process: { equals: 'Lively' }
         window_class: { regex: 'HwndWrapper' }
-  - commands: ['move --workspace 7']
-    match:
-      - window_process: { equals: 'ksnip' }
-  - commands: ['move --workspace 7', 'set-fullscreen']
-    match:
-      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
-  - commands: ['move --workspace 4', 'set-fullscreen']
-    match:
-      - window_process: { regex: '^NMS' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.

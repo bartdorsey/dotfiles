@@ -8,7 +8,17 @@
 
   home.packages =
     (with pkgs; [
-      (python312.withPackages (ps: with ps; [pip flake8 black pipx ipython bpython vdirsyncer]))
+      (python312.withPackages (ps:
+        with ps; [
+          pip
+          flake8
+          black
+          pipx
+          ipython
+          bpython
+          pgcli
+          vdirsyncer
+        ]))
       alejandra
       bat
       buku
@@ -22,6 +32,7 @@
       distrobox
       distrobox-tui
       dust
+      dune_3
       emacs-nox
       fd
       fzf
@@ -49,6 +60,7 @@
       lua
       luarocks
       mc
+      micro
       mise
       mosh
       mtr
@@ -57,13 +69,17 @@
       nix-output-monitor
       nixd
       nvd
-      opam
+      ocaml
+      ocamlformat
+      ocamlPackages.findlib
+      ocamlPackages.ocaml-lsp
       optinix
       p7zip
       pass
       php
       pinentry
       pnpm
+      postgresql
       prettierd
       pyright
       ripgrep

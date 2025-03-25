@@ -7,7 +7,7 @@ return {
                 lua = { "stylua" },
                 python = { "black" },
                 javascript = { "prettierd" },
-                typescript = { "prettierd " },
+                typescript = { "prettierd" },
                 typescriptreact = { "prettierd" },
                 javascriptreact = { "prettierd" },
                 json = { "prettierd" },

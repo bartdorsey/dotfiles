@@ -86,7 +86,7 @@ return {
                     "jsconfig.json",
                     "package.json"
                 ),
-                single_file_support = false,
+                single_file_support = true,
             },
             jsonls = {
                 json = {

@@ -41,9 +41,9 @@
         }
     ],
     "workbench.colorCustomizations": {
-        "statusBar.background": "#5f00af",
-        "statusBar.noFolderBackground": "#5f00af",
-        "statusBar.debuggingBackground": "#5f00af",
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f",
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
@@ -132,5 +132,8 @@
     "workbench.colorTheme": "Catppuccin Mocha",
     "markdown-preview-enhanced.previewTheme": "github-dark.css",
     "markdown-preview-enhanced.mermaidTheme": "dark",
-    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true
+    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
+    "plpgsqlLanguageServer.database": "book_store",
+    "plpgsqlLanguageServer.password": "postgres",
+    "plpgsqlLanguageServer.user": "postgres"
 }

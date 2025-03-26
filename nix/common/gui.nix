@@ -32,7 +32,7 @@
     };
   };
 
-  services.xserver.displayManager.lightdm = {
+  services.displayManager.ly = {
     enable = true;
   };
 

@@ -52,6 +52,11 @@
     dedicatedServer.openFirewall = true;
   };
 
+  programs.streamdeck-ui = {
+    enable = true;
+    autoStart = true; # optional
+  };
+
   # List services that you want to enable:
 
   # Open ports in the firewall.

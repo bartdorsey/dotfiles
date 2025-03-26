@@ -95,6 +95,7 @@
       tree-sitter
       unzip
       uv
+      vtm
       xdg-utils
       xh
       wezterm

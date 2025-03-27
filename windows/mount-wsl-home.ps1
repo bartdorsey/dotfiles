@@ -1,2 +1,2 @@
-C:\Windows\System32\wsl.exe --mount \\.\PHYSICALDRIVE5 --bare
+C:\Windows\System32\wsl.exe --mount \\.\PHYSICALDRIVE7 --bare
 

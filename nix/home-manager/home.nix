@@ -64,7 +64,6 @@
       mise
       mosh
       mtr
-      neovim
       nh
       nix-output-monitor
       nixd
@@ -108,6 +107,7 @@
     ])
     ++ (with pkgs-unstable; [
       nodejs
+      neovim
     ]);
 
   home.stateVersion = "23.11";

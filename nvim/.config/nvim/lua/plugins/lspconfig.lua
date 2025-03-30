@@ -1,5 +1,5 @@
 -- Function which checks if a lsp binary exists
-function lsp_binary_exists(server_config)
+local function lsp_binary_exists(server_config)
     local valid_config = server_config.document_config
         and server_config.document_config.default_config
         and type(server_config.document_config.default_config.cmd) == "table"
@@ -29,7 +29,7 @@ return {
         { "b0o/schemastore.nvim" },
 
         -- Diagnostics
-        { "jmsegrev/lsp_lines.nvim" },
+        -- { "jmsegrev/lsp_lines.nvim" },
 
         -- For developing neovim plugins and configs
         {
@@ -217,7 +217,7 @@ return {
             vim.api.nvim_set_current_buf(buf)
         end, {})
 
-        require("lsp_lines").setup()
+        -- require("lsp_lines").setup()
 
         local _border = "single"
 

@@ -33,6 +33,14 @@ local lsp_status = function()
     end
 end
 
+local inlay_hint_status = function()
+    if vim.lsp.inlay_hint.is_enabled() then
+        return "ih"
+    else
+        return ""
+    end
+end
+
 -- Sections
 
 local mode = {
@@ -81,6 +89,7 @@ local filetype = {
 }
 
 local lsp = {
+    inlay_hint_status,
     {
         lsp_status,
         separator = { right = "┃" },

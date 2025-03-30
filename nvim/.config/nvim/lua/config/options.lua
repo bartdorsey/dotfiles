@@ -57,6 +57,7 @@ vim.diagnostic.config({
     float = { border = "single" },
     virtual_text = {
         source = true,
+        current_line = true,
     },
     virtual_lines = false,
 })

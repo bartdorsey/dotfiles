@@ -103,6 +103,9 @@ end, { desc = "Find Sessions" })
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function()
+        vim.keymap.set("n", "<leader>i", function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        end, { desc = "Toggle Inlay Hints" })
         vim.keymap.set(
             "n",
             "<leader>rn",
@@ -208,12 +211,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
             if config.virtual_text then
                 vim.diagnostic.config({
                     virtual_text = false,
-                    virtual_lines = true,
+                    virtual_lines = {
+                        current_line = true,
+                    },
                 })
             else
                 vim.diagnostic.config({
                     virtual_text = {
                         source = true,
+                        current_line = true,
                     },
                     virtual_lines = false,
                 })

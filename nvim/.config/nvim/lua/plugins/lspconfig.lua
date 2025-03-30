@@ -83,6 +83,18 @@ return {
                     "jsconfig.json",
                     "package.json"
                 ),
+                init_options = {
+                    preferences = {
+                        includeInlayParameterNameHints = "all",
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayVariableTypeHints = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayEnumMemberValueHints = true,
+                        importModuleSpecifierPreference = "non-relative",
+                    },
+                },
                 single_file_support = true,
             },
             jsonls = {
@@ -117,7 +129,7 @@ return {
                     },
                 },
             },
-            pyright = {
+            basedpyright = {
                 settings = {
                     python = {
                         analysis = {
@@ -216,25 +228,25 @@ return {
 
         local _border = "single"
 
-        --- @param err? lsp.ResponseError
-        --- @param result any
-        --- @param ctx any
-        --- @param config? table
-        vim.lsp.handlers["textDocument/hover"] = function(
-            err,
-            result,
-            ctx,
-            config
-        )
-            config = config or {}
-            config.border = _border
-            vim.lsp.handlers.hover(err, result, ctx, config)
-        end
+        -- --- @param err? lsp.ResponseError
+        -- --- @param result any
+        -- --- @param ctx any
+        -- --- @param config? table
+        -- vim.lsp.handlers["textDocument/hover"] = function(
+        --     err,
+        --     result,
+        --     ctx,
+        --     config
+        -- )
+        --     config = config or {}
+        --     config.border = _border
+        --     vim.lsp.handlers.hover(err, result, ctx, config)
+        -- end
 
-        vim.lsp.handlers["textDocument/signatureHelp"] =
-            vim.lsp.with(vim.lsp.handlers.signature_help, {
-                border = _border,
-            })
+        -- vim.lsp.handlers["textDocument/signatureHelp"] =
+        --     vim.lsp.with(vim.lsp.handlers.signature_help, {
+        --         border = _border,
+        --     })
 
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("LspConfig", {}),
@@ -244,15 +256,12 @@ return {
                 if client == nil then
                     return
                 end
-
-                -- Enable inlay hints if it's available
-                if vim.lsp.inlay_hint then
-                    if
-                        client ~= nil
-                        and client.server_capabilities.inlayHintProvider
-                    then
-                        vim.lsp.inlay_hint.enable(true)
-                    end
+                if
+                    client:supports_method("textDocument/inlayHint", args.buf)
+                    or client.server_capabilities.inlayHintProvider
+                then
+                    vim.notify("Enabling Inlay Hints")
+                    vim.lsp.inlay_hint.enable(true)
                 end
             end,
         })

@@ -9,21 +9,26 @@
 
   # Bootloader.
   boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot.enable = true;
+    grub = {
+      enable = true;
+      useOSProber = true;
+      efiSupport = true;
+      device = "nodev";
+      gfxmodeEfi = "1920x1080";
+      default = "saved";
+    };
+    efi = {
+      efiSysMountPoint = "/boot/efi";
+      canTouchEfiVariables = true;
+    };
   };
 
   security.polkit.enable = true;
-
-  boot.plymouth = {
-    enable = true;
-  };
 
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
 
   boot.kernelParams = [
-    "quiet"
     "splash"
     "boot.shell_on_fail"
     "loglevel=3"

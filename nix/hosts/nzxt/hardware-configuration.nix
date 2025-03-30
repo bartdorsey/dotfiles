@@ -32,7 +32,7 @@
     SUBSYSTEM=="usb", ATTR{idVendor}=="1220", ATTR{idProduct}=="8fe4", MODE="0660", GROUP="audio"
   '';
 
-  fileSystems."/boot" = {
+  fileSystems."/boot/efi" = {
     device = "/dev/disk/by-uuid/95AE-6CA5";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];

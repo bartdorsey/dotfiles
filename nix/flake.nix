@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixoswsl.url = "github:nix-community/NixOS-WSL";
     nixoswsl.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
@@ -19,6 +20,7 @@
     home-manager,
     catppuccin,
     zen-browser,
+    nixos-hardware,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -71,6 +73,7 @@
         };
         modules = [
           ./hosts/nzxt/configuration.nix
+          nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           ./common/os.nix
           ./common/gui.nix
           ./common/system-packages.nix

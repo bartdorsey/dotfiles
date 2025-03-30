@@ -32,7 +32,7 @@
     };
   };
 
-  services.displayManager.ly = {
+  services.xserver.displayManager.lightdm = {
     enable = true;
   };
 
@@ -65,8 +65,8 @@
     lxappearance
     maim
     nerdfonts
+    picom-pijulius
     networkmanagerapplet
-    picom
     xss-lock
   ];
 

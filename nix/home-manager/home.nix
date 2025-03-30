@@ -107,7 +107,6 @@
     ])
     ++ (with pkgs-unstable; [
       nodejs
-      neovim
     ]);
 
   home.stateVersion = "23.11";

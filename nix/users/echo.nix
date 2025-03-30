@@ -1,5 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  neovim-nightly-overlay,
+  ...
+}: {
   programs.zsh.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    # package = neovim-nightly-overlay.packages.${pkgs.system}.default;
+  };
 
   users.users.echo = {
     shell = pkgs.zsh;

@@ -10,6 +10,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = {
@@ -19,6 +20,7 @@
     home-manager,
     catppuccin,
     zen-browser,
+    neovim-nightly-overlay,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -34,6 +36,7 @@
         inherit system;
         specialArgs = {
           inherit pkgs-unstable;
+          inherit neovim-nightly-overlay;
         };
         modules = [
           ./hosts/nixos-vm/configuration.nix
@@ -48,6 +51,7 @@
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
               inherit zen-browser;
+              inherit neovim-nightly-overlay;
               inherit system;
             };
             nixpkgs.config.allowUnfree = true;
@@ -68,6 +72,7 @@
         inherit system;
         specialArgs = {
           inherit pkgs-unstable;
+          inherit neovim-nightly-overlay;
         };
         modules = [
           ./hosts/nzxt/configuration.nix
@@ -82,6 +87,7 @@
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
               inherit zen-browser;
+              inherit neovim-nightly-overlay;
               inherit system;
             };
             nixpkgs.config.allowUnfree = true;
@@ -102,6 +108,7 @@
         inherit system;
         specialArgs = {
           inherit pkgs-unstable;
+          inherit neovim-nightly-overlay;
         };
         modules = [
           nixoswsl.nixosModules.wsl
@@ -114,6 +121,7 @@
           {
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
+              inherit neovim-nightly-overlay;
             };
 
             nixpkgs.config.allowUnfree = true;
@@ -132,6 +140,7 @@
         inherit system;
         specialArgs = {
           inherit pkgs-unstable;
+          inherit neovim-nightly-overlay;
         };
         modules = [
           ./hosts/nixos-dev/configuration.nix
@@ -143,6 +152,7 @@
             nixpkgs.config.allowUnfree = true;
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
+              inherit neovim-nightly-overlay;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

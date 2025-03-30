@@ -28,9 +28,6 @@ return {
         -- Schema Store
         { "b0o/schemastore.nvim" },
 
-        -- Diagnostics
-        -- { "jmsegrev/lsp_lines.nvim" },
-
         -- For developing neovim plugins and configs
         {
             "folke/neodev.nvim",
@@ -216,8 +213,6 @@ return {
             )
             vim.api.nvim_set_current_buf(buf)
         end, {})
-
-        -- require("lsp_lines").setup()
 
         local _border = "single"
 

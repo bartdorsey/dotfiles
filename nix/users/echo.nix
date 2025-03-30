@@ -1,13 +1,18 @@
 {
   pkgs,
-  neovim-nightly-overlay,
+  pkgs-unstable,
   ...
 }: {
   programs.zsh.enable = true;
 
+  programs.vim = {
+    enable = true;
+  };
+
   programs.neovim = {
     enable = true;
-    # package = neovim-nightly-overlay.packages.${pkgs.system}.default;
+    defaultEditor = true;
+    package = pkgs-unstable.neovim-unwrapped;
   };
 
   users.users.echo = {

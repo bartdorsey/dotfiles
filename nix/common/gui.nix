@@ -12,6 +12,8 @@
     binfmt = true;
   };
 
+  services.autorandr.enable = true;
+
   services.xserver = {
     dpi = 96;
     desktopManager = {
@@ -32,8 +34,14 @@
     };
   };
 
-  services.xserver.displayManager.lightdm = {
+  programs.hyprland = {
     enable = true;
+    xwayland.enable = true;
+  };
+
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    package = pkgs.kdePackages.sddm;
   };
 
   # Configure keymap in X11
@@ -67,6 +75,9 @@
     nerdfonts
     picom-pijulius
     networkmanagerapplet
+    waybar
+    hyprpaper
+    wofi
     xss-lock
   ];
 

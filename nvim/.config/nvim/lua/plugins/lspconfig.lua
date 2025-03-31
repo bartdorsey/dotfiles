@@ -166,6 +166,7 @@ return {
                                 ["schema.yml"] = "**/question.yml",
                                 ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/config.schema.json"] = "**/espanso/config/*.yml",
                                 ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json"] = "**/espanso/match/*.yml",
+                                ["https://git.sr.ht/~johnhamelink/hass-json-schema/blob/main/json-schemas/configuration.json"] = "configuration.yaml",
                             }
                         ),
                     },

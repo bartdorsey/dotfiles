@@ -1,36 +1,47 @@
 {...}: {
   services.rpcbind.enable = true; # needed for NFS
   systemd.mounts = let
-    commonMountOptions = {
+    commonNFSMountOptions = {
       type = "nfs";
     };
+    commonSMBMountOptions = {
+      type = "cifs";
+      options = "credentials=/etc/nixos/smb-credentials,uid=1000,gid=1000";
+    };
   in [
-    (commonMountOptions
+    (commonNFSMountOptions
       // {
         what = "10.0.0.192:/volume1/Media";
         where = "/mnt/Media";
       })
 
-    (commonMountOptions
+    (commonNFSMountOptions
       // {
         what = "10.0.0.192:/volume2/echo";
         where = "/mnt/echo";
       })
-    (commonMountOptions
+    (commonNFSMountOptions
       // {
         what = "10.0.0.192:/volume2/Developer";
         where = "/mnt/Developer";
       })
-    (commonMountOptions
+    (commonNFSMountOptions
       // {
         what = "10.0.0.192:/volume1/Backups";
         where = "/mnt/Backups";
       })
-    (commonMountOptions
+    (commonNFSMountOptions
       // {
         what = "10.0.0.192:/volume2/WSLBackups";
         where = "/mnt/WSLBackups";
       })
+    (
+      commonSMBMountOptions
+      // {
+        what = "//10.0.0.67/config";
+        where = "/mnt/homeassistant";
+      }
+    )
   ];
 
   systemd.automounts = let
@@ -46,5 +57,6 @@
     (commonAutoMountOptions // {where = "/mnt/Developer";})
     (commonAutoMountOptions // {where = "/mnt/Backups";})
     (commonAutoMountOptions // {where = "/mnt/WSLBackups";})
+    (commonAutoMountOptions // {where = "/mnt/homeassistant";})
   ];
 }

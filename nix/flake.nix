@@ -109,7 +109,7 @@
         modules = [
           nixoswsl.nixosModules.wsl
           ./common/os.nix
-          ./common/nfs.nix
+          ./common/mounts.nix
           ./hosts/nzxt-wsl/configuration.nix
           ./common/system-packages.nix
           ./users/echo.nix

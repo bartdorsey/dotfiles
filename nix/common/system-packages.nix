@@ -2,6 +2,7 @@
   environment.systemPackages = with pkgs; [
     binutils
     btop
+    cifs-utils
     curl
     dig
     fastfetch
@@ -23,6 +24,7 @@
     nfs-utils
     pciutils
     restic
+    samba
     stdenv.cc.cc
     sysz
     tmux

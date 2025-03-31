@@ -92,7 +92,7 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "q:", "<nop>")
 
 -- Control-S save
-vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>")
+-- vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>")
 
 -- Find Sessions from MiniSessions
 vim.keymap.set("", "<leader>ss", function()
@@ -187,18 +187,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.lsp.buf.remove_workspace_folder,
             { desc = "Workspace Remove Folder" }
         )
-        vim.keymap.set(
-            "n",
-            "gn",
-            vim.diagnostic.goto_next,
-            { desc = "Goto Next Diagnostic" }
-        )
-        vim.keymap.set(
-            "n",
-            "gp",
-            vim.diagnostic.goto_prev,
-            { desc = "Goto Previous Diagnostic" }
-        )
+        vim.keymap.set("n", "gn", function()
+            vim.diagnostic.jump({
+                count = 1,
+            })
+        end, { desc = "Goto Next Diagnostic" })
+        vim.keymap.set("n", "gp", function()
+            vim.diagnostic.jump({
+                count = -1,
+            })
+        end, { desc = "Goto Previous Diagnostic" })
         vim.keymap.set("n", "<leader>wl", function()
             require("notify")(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, { desc = "Workspace List Folders" })

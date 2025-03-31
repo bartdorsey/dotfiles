@@ -30,7 +30,7 @@ return {
 
         -- For developing neovim plugins and configs
         {
-            "folke/neodev.nvim",
+            "folke/lazydev.nvim",
             ft = "lua",
             config = true,
         },
@@ -55,6 +55,7 @@ return {
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
+        --- @type vim.lsp.ClientConfig[]
         local servers = {
             emmet_language_server = {
                 filetypes = {
@@ -98,9 +99,11 @@ return {
                 single_file_support = true,
             },
             jsonls = {
-                json = {
-                    schemas = require("schemastore").json.schemas(),
-                    validate = { enable = true },
+                settings = {
+                    json = {
+                        schemas = require("schemastore").json.schemas(),
+                        validate = { enable = true },
+                    },
                 },
             },
             gopls = {},
@@ -133,37 +136,42 @@ return {
                 settings = {
                     python = {
                         analysis = {
-                            typeCheckingMode = "basic",
+                            typeCheckingMode = "recommended",
                             autoSearchPaths = true,
                             diagnosticMode = "workspace",
                             useLibraryCodeForTypes = true,
-                            reportMissingTypeStubs = false,
                         },
                     },
                 },
             },
             ansiblels = {},
             yamlls = {
-                yaml = {
-                    schemaStore = {
-                        enable = true,
-                    },
-                    format = {
-                        enable = true,
-                    },
-                    validate = true,
-                    hover = true,
-                    schemas = {
-                        ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
-                        ["schema.yml"] = "**/question.yml",
-                        ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/config.schema.json"] = "**/espanso/config/*.yml",
-                        ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json"] = "**/espanso/match/*.yml",
+                settings = {
+                    yaml = {
+                        schemaStore = {
+                            enable = true,
+                        },
+                        format = {
+                            enable = true,
+                        },
+                        validate = true,
+                        hover = true,
+                        schemas = {
+                            ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
+                            ["schema.yml"] = "**/question.yml",
+                            ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/config.schema.json"] = "**/espanso/config/*.yml",
+                            ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json"] = "**/espanso/match/*.yml",
+                        },
                     },
                 },
             },
             lua_ls = {
                 settings = {
                     Lua = {
+                        hint = {
+                            enable = true,
+                            arrayIndex = "Disable",
+                        },
                         completion = {
                             callSnippet = "Replace",
                         },
@@ -202,29 +210,6 @@ return {
                 }))
             end
         end
-
-        -- LspReport
-        vim.api.nvim_create_user_command("LspReport", function()
-            local servers = {}
-            local configs = require("lspconfig.configs")
-            for server, config in pairs(configs) do
-                if config.manager ~= nil then
-                    table.insert(servers, {
-                        name = server,
-                        capabilities = config.manager.config.capabilities,
-                    })
-                end
-            end
-            local buf = vim.api.nvim_create_buf(true, true)
-            vim.api.nvim_buf_set_lines(
-                buf,
-                0,
-                0,
-                true,
-                vim.split(vim.inspect(servers), "\n")
-            )
-            vim.api.nvim_set_current_buf(buf)
-        end, {})
 
         local _border = "single"
 

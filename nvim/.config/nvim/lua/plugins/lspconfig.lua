@@ -149,19 +149,25 @@ return {
                 settings = {
                     yaml = {
                         schemaStore = {
-                            enable = true,
+                            enable = false,
+                            url = "",
                         },
                         format = {
                             enable = true,
                         },
                         validate = true,
+                        completion = true,
                         hover = true,
-                        schemas = {
-                            ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
-                            ["schema.yml"] = "**/question.yml",
-                            ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/config.schema.json"] = "**/espanso/config/*.yml",
-                            ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json"] = "**/espanso/match/*.yml",
-                        },
+                        schemas = vim.tbl_extend(
+                            "force",
+                            require("schemastore").yaml.schemas(),
+                            {
+                                ["/tools/glossary-yaml-to-xml/docs/glossary-schema.yaml"] = "**/glossary.yml",
+                                ["schema.yml"] = "**/question.yml",
+                                ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/config.schema.json"] = "**/espanso/config/*.yml",
+                                ["https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json"] = "**/espanso/match/*.yml",
+                            }
+                        ),
                     },
                 },
             },

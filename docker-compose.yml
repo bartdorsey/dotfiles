@@ -1,0 +1,14 @@
+services:
+    homedir:
+        image: homedir
+        build: .
+        volumes:
+            - "$HOME/projects:/home/ubuntu/projects"
+        working_dir: "/home/ubuntu"
+        environment:
+            - TERM=$TERM
+            - SHELL=/bin/zsh
+            - HOME=/home/ubuntu
+        user: "${DUID}:${DGID}"
+        stdin_open: true
+        tty: true

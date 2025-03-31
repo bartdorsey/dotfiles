@@ -1,3 +1,5 @@
 {
-    "workspace.checkThirdParty": "Disable"
+    "workspace.checkThirdParty": "Disable",
+    "hint.enable": true
 }
+

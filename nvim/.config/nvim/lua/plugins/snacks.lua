@@ -16,6 +16,7 @@ local neovim = [[
 
 return {
     "folke/snacks.nvim",
+    enabled = true,
     priority = 1000,
     dependencies = {
         "folke/persistence.nvim",
@@ -64,6 +65,11 @@ return {
             enabled = true,
         },
         quickfile = { enabled = true },
-        statuscolumn = { enabled = true },
+        statuscolumn = { 
+            enabled = true, 
+            folds = {
+                open = true
+            }
+        },
     },
 }

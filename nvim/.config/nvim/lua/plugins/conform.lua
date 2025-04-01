@@ -13,7 +13,6 @@ return {
                 json = { "prettierd" },
                 markdown = { "markdownlint" },
                 ocaml = { "ocamlformat" },
-                html = { "prettierd" },
                 htmldjango = { "djlint" },
                 nix = { "alejandra" },
                 yaml = { "yamlfmt" },

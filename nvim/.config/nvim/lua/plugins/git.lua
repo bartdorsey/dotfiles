@@ -4,7 +4,7 @@ return {
     },
     {
         cond = os.getenv("DEVMODE") ~= nil,
-        enable = false,
+        enabled = true,
         "TimUntersberger/neogit",
         dependencies = {
             "sindrets/diffview.nvim",

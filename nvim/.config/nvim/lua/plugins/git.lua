@@ -4,6 +4,7 @@ return {
     },
     {
         cond = os.getenv("DEVMODE") ~= nil,
+        enable = false,
         "TimUntersberger/neogit",
         dependencies = {
             "sindrets/diffview.nvim",
@@ -21,13 +22,8 @@ return {
         enabled = true,
         event = "BufReadPre",
         opts = {
-            signs = {
-                add = { text = "+" },
-                change = { text = "~" },
-                delete = { text = "_" },
-                topdelete = { text = "‾" },
-                changedelete = { text = "~" },
-            },
+            word_diff = true,
+            numhl = true,
         },
     },
     -- lazygit.nvim

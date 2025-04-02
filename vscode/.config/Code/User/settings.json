@@ -50,7 +50,7 @@
     "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.inlayHints.functionReturnTypes": true,
     "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.html-language-features"
     },
     "[django-html]": {
         "editor.defaultFormatter": "monosans.djlint"
@@ -65,7 +65,6 @@
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.formatOnSave": true,
     "redhat.telemetry.enabled": false,
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
@@ -135,5 +134,11 @@
     "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
     "plpgsqlLanguageServer.database": "book_store",
     "plpgsqlLanguageServer.password": "postgres",
-    "plpgsqlLanguageServer.user": "postgres"
+    "plpgsqlLanguageServer.user": "postgres",
+    "css.styleSheets": [
+        "**/*.css"
+    ],
+    "html.format.indentInnerHtml": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
 }

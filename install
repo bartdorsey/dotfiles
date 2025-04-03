@@ -87,7 +87,7 @@ fi
 if [[ -d "$HOME/.config/tmux/plugins/tpm" ]]; then
     cyan "-----------------------"
     cyan "Installing tmux plugins"
-    cyan "-----------------------"
+cyan "-----------------------"
     $HOME/.config/tmux/plugins/tpm/bin/clean_plugins
     $HOME/.config/tmux/plugins/tpm/bin/install_plugins
     $HOME/.config/tmux/plugins/tpm/bin/update_plugins all
@@ -107,7 +107,7 @@ if type nvim 2>/dev/null; then
     cyan "-------------------------"
     cyan "Installing neovim plugins"
     cyan "-------------------------"
-
+    nvim --headless +"Lazy! clean" +qa
     nvim --headless +"Lazy! restore" +qa
 
     cyan "------------------------------------"

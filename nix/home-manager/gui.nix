@@ -7,9 +7,9 @@
   catppuccin.enable = true;
   programs.firefox.enable = true;
 
-  home.packages = with zen-browser; [
-    packages."${system}".default
-  ];
+  # home.packages = with zen-browser; [
+  #   packages."${system}".default
+  # ];
 
   dconf.settings = {
     "org/gnome/desktop/background" = {

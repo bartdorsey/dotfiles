@@ -21,28 +21,29 @@
       ])
       ++ (with pkgs; [
         appimage-run
-        vieb
-        vivaldi
-        libsForQt5.lightly
-        libsForQt5.xdg-desktop-portal-kde
         chromium
-        flameshot
-        obs-studio
+        darktable
         discord
-        slack
+        flameshot
+        gimp
         glib
-        google-chrome
         gnome-tweaks
         gnomeExtensions.dash-to-panel
+        google-chrome
+        kitty
+        libsForQt5.lightly
+        libsForQt5.xdg-desktop-portal-kde
+        microsoft-edge
+        neovide
+        obs-studio
         qutebrowser
+        rofi
+        slack
+        vesktop
+        vieb
+        vivaldi
         vscode
         wezterm
-        kitty
-        vesktop
-        darktable
-        rofi
-        microsoft-edge
-        gimp
       ]);
   };
   xdg.portal = {

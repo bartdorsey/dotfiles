@@ -34,12 +34,14 @@
     };
   };
 
+  services.flatpak.enable = true;
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
 
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     package = pkgs.kdePackages.sddm;
   };
@@ -64,11 +66,13 @@
 
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
+    desktop-file-utils
     dex
     dmenu #application launcher most people use
     dunst
     feh
     gnomeExtensions.appindicator
+    gnome-software
     goxlr-utility
     lxappearance
     maim

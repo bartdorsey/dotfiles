@@ -1,5 +1,6 @@
 return {
     "hrsh7th/nvim-cmp", -- autocompletion plugin
+    enabled = false,
     cond = os.getenv("DEVMODE") ~= nil,
     dependencies = {
         { "hrsh7th/cmp-buffer" }, -- buffer words source for cmp

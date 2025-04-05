@@ -51,13 +51,6 @@ return {
             end,
             desc = "Blame line",
         },
-        {
-            "<C-Space>",
-            function()
-                Snacks.terminal()
-            end,
-            desc = "Toggle Terminal",
-        },
     },
     opts = {
         bigfile = { enabled = true },

@@ -27,6 +27,10 @@ if vim.g.neovide then
     vim.cmd("cd ~")
 end
 
+-- Spellchecker
+vim.opt_local.spell = true
+vim.opt_local.spelllang = { "en_us" }
+
 -- GuiCursor
 vim.opt.guicursor = "n-v-c-sm:block-blinkon1,i-ci-ve:ver20,r-cr-o:hor20"
 

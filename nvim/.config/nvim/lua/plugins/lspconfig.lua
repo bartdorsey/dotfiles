@@ -22,9 +22,10 @@ return {
     "neovim/nvim-lspconfig",
     cond = os.getenv("DEVMODE") ~= nil,
     dependencies = {
-        -- Autocompletion
-        { "hrsh7th/cmp-nvim-lsp" },
-
+        -- Completion
+        {
+            "saghen/blink.cmp",
+        },
         -- Schema Store
         { "b0o/schemastore.nvim" },
 
@@ -52,10 +53,6 @@ return {
         -- LSP settings.
         local lsp = require("lspconfig")
         -- Capabilities
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
-        local capabilities = cmp_nvim_lsp.default_capabilities()
-        capabilities.textDocument.completion.completionItem.snippetSupport =
-            true
 
         --- @type vim.lsp.ClientConfig[]
         local servers = {
@@ -219,12 +216,15 @@ return {
             "ts=typescript",
         }
 
+        local capabilities = require("blink-cmp").get_lsp_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport =
+            true
+
         -- Main loop to initialize the servers
         for name, config in pairs(servers) do
             if lsp_binary_exists(lsp[name]) then
-                lsp[name].setup(vim.tbl_extend("force", config, {
-                    capabilities = capabilities,
-                }))
+                config.capabilities = capabilities
+                lsp[name].setup(config)
             end
         end
 

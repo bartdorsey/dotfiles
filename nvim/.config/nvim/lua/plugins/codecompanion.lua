@@ -1,5 +1,6 @@
 return {
     "olimorris/codecompanion.nvim",
+    cond = os.getenv("DEVMODE") ~= nil,
     opts = {
         strategies = {
             chat = {

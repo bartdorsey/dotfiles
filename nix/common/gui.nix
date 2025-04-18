@@ -36,14 +36,10 @@
 
   services.flatpak.enable = true;
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  services.desktopManager.plasma6.enable = true;
 
   services.displayManager.sddm = {
     enable = true;
-    package = pkgs.kdePackages.sddm;
   };
 
   # Configure keymap in X11

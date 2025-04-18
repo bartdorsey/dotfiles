@@ -21,6 +21,7 @@
       ])
       ++ (with pkgs; [
         appimage-run
+        catppuccin-kde
         chromium
         darktable
         discord

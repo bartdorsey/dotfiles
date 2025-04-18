@@ -25,11 +25,11 @@
     gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
   };
 
-  qt = {
-    enable = true;
-    platformTheme.name = "kvantum";
-    style.name = "kvantum";
-  };
+  # qt = {
+  #   enable = true;
+  #   platformTheme.name = "kvantum";
+  #   style.name = "kvantum";
+  # };
 
   home.pointerCursor = {
     x11.enable = true;

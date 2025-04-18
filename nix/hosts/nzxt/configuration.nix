@@ -15,6 +15,7 @@
       efiSupport = true;
       device = "nodev";
       gfxmodeEfi = "1920x1080";
+      gfxmodeBios = "1920x1080";
       default = "saved";
     };
     efi = {
@@ -23,12 +24,11 @@
     };
   };
 
+  time.hardwareClockInLocalTime = true;
   security.polkit.enable = true;
 
-  boot.consoleLogLevel = 0;
-  boot.initrd.verbose = false;
-
   boot.kernelParams = [
+    "video=1920x1080"
     "splash"
     "boot.shell_on_fail"
     "loglevel=3"

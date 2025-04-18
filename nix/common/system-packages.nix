@@ -30,6 +30,7 @@
     tmux
     unzip
     usbutils
+    vbetool
     vim
     wget
     zip

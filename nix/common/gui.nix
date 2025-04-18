@@ -20,6 +20,13 @@
       xterm.enable = true;
     };
 
+    windowManager.awesome = {
+      enable = true;
+      luaModules = with pkgs.luaPackages; [
+        luarocks
+        luadbi-mysql
+      ];
+    };
     windowManager.i3 = {
       enable = true;
       package = pkgs-unstable.i3-rounded;
@@ -74,6 +81,8 @@
     maim
     nerdfonts
     picom-pijulius
+    terminus-nerdfont
+    terminus_font_ttf
     networkmanagerapplet
     waybar
     hyprpaper

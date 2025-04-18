@@ -25,6 +25,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     defaults = {
+        submodules = false,
+        version = "*",
         cond = vim.g.vscode == nil,
     },
     spec = {

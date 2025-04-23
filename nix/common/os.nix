@@ -41,9 +41,17 @@
 
   programs.dconf.enable = true;
 
-  virtualisation.docker.enable = true;
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+  };
 
-  # documentation.man.generateCaches = true;
+  programs.starship = {
+    enable = true;
+    presets = ["plain-text-symbols"];
+  };
+
+  virtualisation.docker.enable = true;
 
   services.tailscale.enable = false;
 

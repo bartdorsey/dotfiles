@@ -25,6 +25,7 @@
     pciutils
     restic
     samba
+    starship
     stdenv.cc.cc
     sysz
     tmux

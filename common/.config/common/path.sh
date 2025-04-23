@@ -43,6 +43,10 @@ if [ -d /opt/nvim-linux64/bin ];then
     export PATH="/opt/nvim-linux64/bin:$PATH"
 fi
 
+if [ -d /opt/nvim-linux-x86_64/bin ];then
+    export PATH="/opt/nvim-linux-x89_64/bin:$PATH"
+fi
+
 # Wezterm Windows
 if [ -f "/mnt/c/Users/bart/scoop/apps/wezterm-nightly/current/wezterm.exe" ];then
     export PATH="/mnt/c/Users/bart/scoop/apps/wezterm-nightly/current:$PATH"

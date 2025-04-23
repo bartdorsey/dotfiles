@@ -62,17 +62,6 @@ if command_exists zoxide; then
     alias z=cd
 fi
 
-# nvim
-if command_exists vim; then
-    alias vi=$(which vim)
-fi
-
-if command_exists nvim;then
-    alias vim=$(which nvim)
-    alias nvchad="VIMINIT= NVIM_APPNAME=nvchad nvim"
-    alias butts="VIMINIT= NVIM_APPNAME=alphakeks nvim"
-fi
-
 # 1Password
 if command_exists op; then
    function 1p {

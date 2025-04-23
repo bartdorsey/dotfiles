@@ -44,7 +44,7 @@ if [ -d /opt/nvim-linux64/bin ];then
 fi
 
 if [ -d /opt/nvim-linux-x86_64/bin ];then
-    export PATH="/opt/nvim-linux-x89_64/bin:$PATH"
+    export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 fi
 
 # Wezterm Windows

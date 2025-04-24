@@ -4,10 +4,11 @@ if type fzf > /dev/null;then
     if type fzf-share > /dev/null; then
         fzf_dir_list=$(fzf-share)
     else
-        fzf_dir_list=("/usr/share/fzf/" "/usr/share/doc/fzf/examples/", "/opt/local/share/fzf/shell/", "/opt/homebrew/opt/fzf/shell/")
+        fzf_dir_list=("/usr/share/fzf/" "/usr/share/doc/fzf/examples/" "/opt/local/share/fzf/shell/" "/opt/homebrew/opt/fzf/shell/")
     fi
 
     for dir in "${fzf_dir_list[@]}"; do
+        echo $dir
         if [[ -d "$dir" ]]; then
             FZF_SCRIPT_DIR="$dir"
             break

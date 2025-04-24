@@ -8,7 +8,6 @@ if type fzf > /dev/null;then
     fi
 
     for dir in "${fzf_dir_list[@]}"; do
-        echo $dir
         if [[ -d "$dir" ]]; then
             FZF_SCRIPT_DIR="$dir"
             break

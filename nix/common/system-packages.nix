@@ -23,6 +23,7 @@
     lsb-release
     nfs-utils
     pciutils
+    postgresql.lib
     restic
     samba
     starship

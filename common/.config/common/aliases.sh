@@ -18,6 +18,8 @@ fi
 
 if command_exists lsd; then
     alias ls="lsd --group-directories-first -g"
+else
+    alias ls='ls --color=auto'
 fi
 
 # lazygit

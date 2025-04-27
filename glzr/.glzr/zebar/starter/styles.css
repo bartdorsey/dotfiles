@@ -83,6 +83,7 @@ span {
 .cpu,
 .media,
 .workspaces,
+.window,
 .battery {
     display: flex;
     align-items: center;

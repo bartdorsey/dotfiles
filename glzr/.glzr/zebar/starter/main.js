@@ -1,3 +1,4 @@
+// @ts-check
 import React, { useState, useEffect } from "https://esm.sh/react@18?dev";
 import { createRoot } from "https://esm.sh/react-dom@18/client?dev";
 import * as zebar from "https://esm.sh/zebar@2";
@@ -19,6 +20,8 @@ createRoot(document.getElementById("root")).render(<App />);
 
 function App() {
     const [output, setOutput] = useState(providers.outputMap);
+
+    // console.log(output.glazewm?.focusedContainer);
 
     useEffect(() => {
         providers.onOutput(() => setOutput(providers.outputMap));
@@ -76,8 +79,6 @@ function App() {
         }
     }
 
-    console.log(output.glazewm && output.glazewm.currentMonitor);
-
     return (
         <div className="app">
             <div className="left">
@@ -85,7 +86,6 @@ function App() {
                 <div className="pill">
                     {output.glazewm && output.glazewm.currentMonitor.hardwareId}
                 </div>
-                <i className="nf nf-md-view_grid" />
                 {output.glazewm && (
                     <>
                         {output.glazewm.bindingModes.map((bindingMode) => (
@@ -127,6 +127,10 @@ function App() {
             </div>
 
             <div className="center clock">
+                <i className="nf nf-md-dock_window" />
+                <div className="window pill">
+                    {output.glazewm && output.glazewm.focusedContainer.title}
+                </div>
                 <i className="nf nf-seti-clock"></i>
                 <div className="pill">{output.pacific?.formatted}</div>
                 <i className="nf nf-fa-calendar"></i>

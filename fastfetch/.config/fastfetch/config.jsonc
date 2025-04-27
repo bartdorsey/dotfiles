@@ -15,7 +15,6 @@
         "packages",
         "shell",
         "editor",
-        "cursor",
         "terminal",
         "terminalfont",
         "cpu",

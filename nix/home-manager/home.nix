@@ -29,6 +29,7 @@
       curlie
       deno
       devbox
+      diff-so-fancy
       distrobox
       distrobox-tui
       dust
@@ -136,9 +137,10 @@
     userEmail = "bart@bartdorsey.com";
     aliases = {
       co = "checkout";
-      st = "status";
+      st = "status --short";
       ci = "commit";
       br = "branch";
+      ap = "add --patch";
     };
     extraConfig = {
       core = {
@@ -151,6 +153,17 @@
         interactive = "auto";
         status = "auto";
       };
+      diff = {
+        context = 3;
+        rename = "copies";
+        interHunkContext = 10;
+      };
+      pager = {
+        diff = "diff-so-fancy | $PAGER";
+      };
+      diff-so-fancy = {
+        markEmptyLines = false;
+      };
       push = {
         default = "simple";
       };
@@ -159,6 +172,11 @@
       };
       init = {
         defaultBranch = "main";
+      };
+      status = {
+        branch = true;
+        showStash = true;
+        showUntrackedFiles = true;
       };
     };
     ignores = [

@@ -132,6 +132,11 @@ if type nvim > /dev/null 2>&1; then
     export MANPAGER="nvim +Man!"
 fi
 
+# bat as PAGER
+if type bat > /dev/null 2>&1; then
+    export PAGER=bat
+fi
+
 # Git pager
 if type nvimpager > /dev/null 2>&1; then
     export PAGER=nvimpager

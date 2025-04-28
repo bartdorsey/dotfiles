@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/home/echo/.local/scripts/chooser.sh
+MimeType=text/html;
+Name=chooser.sh
+NoDisplay=true
+Type=Application

@@ -141,10 +141,14 @@
       ci = "commit";
       br = "branch";
       ap = "add --patch";
+      lg = "log --oneline --graph --all";
     };
     extraConfig = {
       core = {
         editor = "nvim";
+      };
+      commit = {
+        verbose = true;
       };
       color = {
         ui = "auto";
@@ -158,6 +162,10 @@
         rename = "copies";
         interHunkContext = 10;
       };
+      interactive = {
+        diffFilter = "diff-so-fancy --patch";
+        singleKey = true;
+      };
       pager = {
         diff = "diff-so-fancy | $PAGER";
       };
@@ -165,10 +173,17 @@
         markEmptyLines = false;
       };
       push = {
-        default = "simple";
+        autoSetupRemote = true;
+        default = "current";
+        followTags = true;
       };
       pull = {
+        default = "current";
         rebase = true;
+      };
+      rebase = {
+        autoStash = true;
+        missingCommitsCheck = "warn";
       };
       init = {
         defaultBranch = "main";
@@ -177,6 +192,9 @@
         branch = true;
         showStash = true;
         showUntrackedFiles = true;
+      };
+      log = {
+        decorate = "short";
       };
     };
     ignores = [
@@ -187,13 +205,6 @@
       ".mypy_cache/"
       ".venv/"
     ];
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        line-numbers = true;
-      };
-    };
     lfs.enable = true;
   };
   # xdg.configFile."nvim" = {

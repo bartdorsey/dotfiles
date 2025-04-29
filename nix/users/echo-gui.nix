@@ -69,5 +69,10 @@
   xdg.mime.defaultApplications = {
     "inode/directory" = "yazi.desktop";
     "inode/mount-point" = "yazi.desktop";
-  };
+    "text/html" = "chooser.sh.desktop";
+    "x-scheme-handler/http" = "chooser.sh.desktop";
+    "x-scheme-handler/https" = "chooser.sh.desktop";
+    "x-scheme-handler/about" = "chooser.sh.desktop";
+    "x-scheme-handler/unknown" = "chooser.sh.desktop";
+    };
 }

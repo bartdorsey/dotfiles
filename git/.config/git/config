@@ -1,29 +1,69 @@
-[include]
-	path = ~/.config/delta/themes.gitconfig
+[alias]
+	ap = "add --patch"
+	br = "branch"
+	ci = "commit"
+	co = "checkout"
+	lg = "log --oneline --graph --all"
+	st = "status --short"
+
+[color]
+	branch = "auto"
+	diff = "auto"
+	interactive = "auto"
+	status = "auto"
+	ui = "auto"
+
+[commit]
+	verbose = true
+
+[core]
+	editor = "nvim"
+
+[diff]
+	context = 3
+	interHunkContext = 10
+	rename = "copies"
+
+[diff-so-fancy]
+	markEmptyLines = false
+
+[filter "lfs"]
+	clean = "git-lfs clean -- %f"
+	process = "git-lfs filter-process"
+	required = true
+	smudge = "git-lfs smudge -- %f"
+
+[init]
+	defaultBranch = "main"
+
+[interactive]
+	diffFilter = "diff-so-fancy --patch"
+	singleKey = true
+
+[log]
+	decorate = "short"
+
+[pager]
+	diff = "diff-so-fancy | $PAGER"
+
+[pull]
+	default = "current"
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+	default = "current"
+	followTags = true
+
+[rebase]
+	autoStash = true
+	missingCommitsCheck = "warn"
+
+[status]
+	branch = true
+	showStash = true
+	showUntrackedFiles = true
 
 [user]
-	email = bart@bartdorsey.com
-	name = Bart Dorsey
-	
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	
-[core]
-	excludesFile = ~/.config/git/ignore
-
-[alias]
-	co = checkout
-	st = status
-	ci = commit
-	br = branch
-[pull]
-	rebase = true
-[color]
-	ui = auto
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
+	email = "bart@bartdorsey.com"
+	name = "Bart Dorsey"

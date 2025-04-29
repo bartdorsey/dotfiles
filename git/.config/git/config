@@ -37,14 +37,10 @@
 	defaultBranch = "main"
 
 [interactive]
-	diffFilter = "diff-so-fancy --patch"
 	singleKey = true
 
 [log]
 	decorate = "short"
-
-[pager]
-	diff = "diff-so-fancy | $PAGER"
 
 [pull]
 	default = "current"
@@ -62,7 +58,6 @@
 [status]
 	branch = true
 	showStash = true
-	showUntrackedFiles = true
 
 [user]
 	email = "bart@bartdorsey.com"

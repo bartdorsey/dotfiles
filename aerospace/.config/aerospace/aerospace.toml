@@ -15,7 +15,7 @@ after-login-command = []
 # so it won't be run twice on AeroSpace restart
 after-startup-command = [
     'exec-and-forget sketchybar',
-    'exec-and-forget borders active_color=0xff56949f inactive_color=0xff393552 width=8.0'
+    'exec-and-forget borders active_color=0xff8bd5ca inactive_color=0xff393552 width=10.0 hidpi=on style=round order=above'
 ]
 
 # Notify Sketchybar about workspace change
@@ -68,12 +68,12 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 20
-inner.vertical = 20
-outer.left = 20
-outer.bottom = 20
-outer.top = 50
-outer.right = 20
+inner.horizontal = 15
+inner.vertical = 15
+outer.left = 10
+outer.bottom = 10 
+outer.top = 40
+outer.right = 10
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes

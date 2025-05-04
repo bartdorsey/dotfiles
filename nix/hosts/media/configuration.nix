@@ -16,7 +16,8 @@
   };
 
   networking = {
-    hostName = "media.home";
+    hostName = "media";
+    domain = "home";
     interfaces = {
       eth0.ipv4.addresses = [
         {

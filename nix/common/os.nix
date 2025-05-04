@@ -31,7 +31,7 @@
   };
 
   # allow unfree packages
-  nixpkgs.config.allowunfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   programs.nix-ld = {
     enable = true;

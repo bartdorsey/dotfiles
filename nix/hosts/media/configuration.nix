@@ -15,6 +15,24 @@
     };
   };
 
+  networking = {
+    interfaces = {
+      eth0.ipv4.addresses = [
+        {
+          address = "10.0.0.200";
+          prefixLength = 24;
+        }
+      ];
+    };
+    defaultGateway = {
+      address = "10.0.0.1";
+      interface = "eth0";
+    };
+    nameservers = ["10.0.0.3" "10.0.0.4"];
+  };
+
+  time.timeZone = "US/Central";
+
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     keyMap = "us";

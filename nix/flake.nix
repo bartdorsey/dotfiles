@@ -160,6 +160,19 @@
           }
         ];
       };
+      media = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit pkgs-unstable;
+        };
+        modules = [
+          ./hosts/media/configuration.nix
+          nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+          ./common/os.nix
+          ./common/system-packages.nix
+          ./users/echo.nix
+        ];
+      };
     };
   };
 }

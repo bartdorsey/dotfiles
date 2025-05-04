@@ -32,8 +32,6 @@
     nameservers = ["10.0.0.3" "10.0.0.4"];
   };
 
-  time.timeZone = "US/Central";
-
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     keyMap = "us";

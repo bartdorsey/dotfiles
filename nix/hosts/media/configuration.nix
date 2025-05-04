@@ -16,6 +16,7 @@
   };
 
   networking = {
+    networkmanager.enable = true;
     hostName = "media";
     domain = "home";
     interfaces = {

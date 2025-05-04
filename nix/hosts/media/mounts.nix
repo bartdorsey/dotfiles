@@ -12,7 +12,7 @@
     (commonNFSMountOptions
       // {
         what = "10.0.0.192:/volume1/Media";
-        where = "/mnt/Media";
+        where = "/mnt/media";
       })
   ];
 

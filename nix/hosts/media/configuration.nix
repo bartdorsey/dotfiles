@@ -25,8 +25,6 @@
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  system.copySystemConfiguration = true;
-
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
 }

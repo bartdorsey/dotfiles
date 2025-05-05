@@ -81,6 +81,7 @@
     maim
     nerdfonts
     picom-pijulius
+    pulsemixer
     terminus-nerdfont
     terminus_font_ttf
     networkmanagerapplet

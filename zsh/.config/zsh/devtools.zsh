@@ -18,3 +18,6 @@ if command_exists direnv; then
     eval "$(direnv hook zsh)"
 fi
 
+if [ -f "$HOME/.pyenvrc" ]; then
+    source "$HOME/.pyenvrc"
+fi

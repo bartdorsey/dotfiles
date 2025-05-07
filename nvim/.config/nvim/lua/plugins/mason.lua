@@ -14,7 +14,6 @@ return {
                 "bashls",
                 "cssls",
                 "cssmodules_ls",
-                "denols",
                 "docker_compose_language_service",
                 "dockerls",
                 "emmet_language_server",

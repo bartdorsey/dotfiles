@@ -6,6 +6,7 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",
+        version = "1.x.x",
         cond = os.getenv("DEVMODE") ~= nil,
         opts = {
             ensure_installed = {
@@ -36,6 +37,7 @@ return {
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         cond = os.getenv("DEVMODE") ~= nil,
+        commit = "1255518cb067e038a4755f5cb3e980f79b6ab89c",
         opts = {
             ensure_installed = {
                 "prettierd",

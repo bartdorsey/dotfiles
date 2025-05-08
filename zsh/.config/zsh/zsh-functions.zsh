@@ -47,3 +47,17 @@ function vmrss() {
         sleep 1;
     done;
 }
+
+function garchive() {
+  local repo_name
+  repo_name=$(basename "$(git rev-parse --show-toplevel)" 2>/dev/null) || {
+    echo "Not inside a Git repository."
+    return 1
+  }
+
+  local output_path="../${repo_name}.zip"
+
+  git archive --format=zip --prefix="${repo_name}/" HEAD > "$output_path" && \
+    echo "Archive created at: $output_path"
+}
+

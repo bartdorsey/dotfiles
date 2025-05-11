@@ -4,7 +4,7 @@ return {
     cond = os.getenv("DEVMODE") ~= nil,
     dependencies = {
         "rafamadriz/friendly-snippets",
-        "fang2hou/blink-copilot",
+        { "fang2hou/blink-copilot", version = "1.3" },
         "folke/lazydev.nvim",
         "moyiz/blink-emoji.nvim",
         "MahanRahmati/blink-nerdfont.nvim",

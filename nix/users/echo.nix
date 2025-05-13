@@ -13,6 +13,7 @@
     enable = true;
     defaultEditor = true;
     vimAlias = true;
+    package = pkgs-unstable.neovim-unwrapped;
   };
 
   users.users.echo = {

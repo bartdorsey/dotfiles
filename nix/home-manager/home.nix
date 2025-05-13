@@ -108,6 +108,7 @@
     ])
     ++ (with pkgs-unstable; [
       nodejs
+      television
     ]);
 
   home.stateVersion = "23.11";

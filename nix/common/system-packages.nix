@@ -5,6 +5,7 @@
     cifs-utils
     curl
     dig
+    direnv
     fastfetch
     ffmpeg
     file

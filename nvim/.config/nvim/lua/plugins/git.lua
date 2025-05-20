@@ -22,7 +22,7 @@ return {
         enabled = true,
         event = "BufReadPre",
         opts = {
-            word_diff = true,
+            word_diff = false,
             numhl = true,
         },
     },

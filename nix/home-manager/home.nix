@@ -35,7 +35,9 @@
       dust
       dune_3
       emacs-nox
+      evil-helix
       fd
+      fselect
       fzf
       git
       git-lfs
@@ -49,7 +51,6 @@
       gnupg
       grc
       gum
-      helix
       hub
       image_optim
       intelephense
@@ -64,6 +65,7 @@
       micro
       mise
       mosh
+      mprocs
       mtr
       nh
       nix-output-monitor

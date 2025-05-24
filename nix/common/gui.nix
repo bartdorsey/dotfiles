@@ -81,6 +81,7 @@
     goxlr-utility
     lxappearance
     maim
+    nvtopPackages.nvidia
     picom-pijulius
     pulsemixer
     terminus_font_ttf

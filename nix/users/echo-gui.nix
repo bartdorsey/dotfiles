@@ -32,9 +32,6 @@
         gnomeExtensions.dash-to-panel
         google-chrome
         kitty
-        libsForQt5.lightly
-        libsForQt5.xdg-desktop-portal-kde
-        microsoft-edge
         neovide
         obs-studio
         qutebrowser
@@ -51,7 +48,6 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-kde
     ];
     config.common.default = "*";
   };
@@ -74,5 +70,5 @@
     "x-scheme-handler/https" = "chooser.sh.desktop";
     "x-scheme-handler/about" = "chooser.sh.desktop";
     "x-scheme-handler/unknown" = "chooser.sh.desktop";
-    };
+  };
 }

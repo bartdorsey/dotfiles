@@ -77,7 +77,7 @@ exec --no-startup-id dunstify "Loading pulseaudio"
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec i3-msg "workspace 2:Code"; exec wezterm
 
 # kill focused window
 bindsym $mod+Shift+q kill

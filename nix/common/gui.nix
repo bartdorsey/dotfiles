@@ -13,6 +13,7 @@
   };
 
   services.autorandr.enable = true;
+  services.gnome.gnome-browser-connector.enable = true;
 
   services.xserver = {
     dpi = 96;
@@ -59,7 +60,7 @@
   services.xserver.upscaleDefaultCursor = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -82,7 +83,6 @@
     maim
     picom-pijulius
     pulsemixer
-    terminus-nerdfont
     terminus_font_ttf
     networkmanagerapplet
     waybar
@@ -174,4 +174,15 @@
   };
 
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+
+  # Add other browsers to 1password
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        zen
+        vivaldi-bin
+      '';
+      mode = "0755";
+    };
+  };
 }

@@ -7,7 +7,11 @@
   catppuccin.enable = true;
   programs.firefox = {
     enable = true;
-    enableGnomeExtensions = true;
+    package = pkgs.firefox.override {
+      nativeMessagingHosts = [
+        pkgs.gnome-browser-connector
+      ];
+    };
   };
 
   home.packages = with zen-browser; [

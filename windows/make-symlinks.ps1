@@ -24,3 +24,4 @@ New-Link $HOME/.dotfiles/zen/.config/zen/zen-keyboard-shortcuts.json $HOME/.conf
 New-Link $HOME/.dotfiles/zen/.config/zen/zen-theme.json $HOME/.config/zen/zen-theme.json
 New-Link $HOME/.dotfiles/zen/.config/zen/containers.json $HOME/.config/zen/containers.json
 New-Link $HOME/.dotfiles/zen/.config/zen/chrome $HOME/.config/zen/chrome
+New-Link $HOME/.dotfiles/fastfetch/.config/fastfetch $HOME/.config/fastfetch

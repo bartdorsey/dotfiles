@@ -1,0 +1,161 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+i {
+    color: rgb(148 226 213 / 100%);
+    padding: 4px 2px;
+}
+
+body {
+    color: rgb(255 255 255 / 100%);
+    font-family: "JetBrainsMono Nerd Font Mono", ui-monospace, monospace;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.nf {
+    font-size: 1.1rem;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+div,
+span {
+    white-space: nowrap;
+}
+
+#root {
+    background: rgb(49 50 68 / 70%);
+}
+
+.app {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    height: 100%;
+    padding: 4px 1.5vw;
+    gap: 1rem;
+}
+
+.pill {
+    background: rgb(69, 71, 90);
+    padding: 4px 8px;
+    color: rgb(255 255 255);
+    border: none;
+    border-radius: 20px;
+    height: 24px;
+}
+
+.left,
+.center,
+.right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.center {
+    justify-self: center;
+}
+
+.right {
+    justify-self: end;
+}
+
+
+.clock {
+    display: flex;
+    gap: 1rem;
+}
+
+.logo,
+.binding-mode,
+.tiling-direction,
+.network,
+.memory,
+.cpu,
+.media,
+.workspaces,
+.window,
+.battery {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.media {
+    justify-content: right;
+}
+
+.media-title-container {
+    overflow: hidden;
+    max-width: 20rem;
+}
+
+.media-title {
+    animation: scroll 10s linear infinite;
+    white-space: nowrap;
+}
+
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.workspace {
+    cursor: pointer;
+
+    &.displayed {
+        background: rgb(255 255 255 / 15%);
+    }
+
+    &.focused,
+    &:hover {
+        background: rgb(148, 226, 213);
+        color: rgb(0 0 0);
+    }
+}
+
+.binding-mode,
+.tiling-direction {
+    background: rgb(255 255 255 / 15%);
+    color: rgb(255 255 255 / 90%);
+    border-radius: 2px;
+    line-height: 1;
+    padding: 4px 8px;
+    border: 0;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.binding-mode {
+    margin-right: 4px;
+}
+
+.cpu .high-usage {
+    color: #900029;
+}
+
+.battery {
+    position: relative;
+}
+
+.battery .charging-icon {
+    position: absolute;
+    font-size: 7px;
+    left: -8px;
+    top: 3px;
+}

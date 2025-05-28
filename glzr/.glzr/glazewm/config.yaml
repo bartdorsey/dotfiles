@@ -13,7 +13,7 @@ general:
         ['shell-exec C:\Users\bart\.glzr\glazewm\reload.vbs']
 
     # Whether to automatically focus windows underneath the cursor.
-    focus_follows_cursor: false
+    focus_follows_cursor: true
 
     # Whether to switch back and forth between the previously focused
     # workspace when focusing the current workspace.
@@ -26,11 +26,11 @@ general:
         # Trigger for cursor jump:
         # - 'monitor_focus': Jump when focus changes between monitors.
         # - 'window_focus': Jump when focus changes between windows.
-        trigger: "monitor_focus"
+        trigger: "window_focus"
 
 gaps:
     # Whether to scale the gaps with the DPI of the monitor.
-    scale_with_dpi: true
+    scale_with_dpi: false
 
     # Gap between adjacent windows.
     inner_gap: "0px"
@@ -88,7 +88,7 @@ window_behavior:
             centered: true
 
             # Whether to show floating windows as always on top.
-            shown_on_top: false
+            shown_on_top: true
 
         fullscreen:
             # Maximize the window if possible. If the window doesn't have a
@@ -195,7 +195,7 @@ binding_modes:
     - name: "resize"
       keybindings:
           - commands: ["resize --width -2%"]
-            bindings: ["h", "left"]
+            bindings: ["h", "right"]
           - commands: ["resize --width +2%"]
             bindings: ["l", "right"]
           - commands: ["resize --height +2%"]
@@ -208,10 +208,10 @@ binding_modes:
 
     # When enabled, all keybindings are disabled except for alt+shift+p which
     # returns to default keybindings.
-    - name: "pause"
-      keybindings:
-          - commands: ["wm-disable-binding-mode --name pause"]
-            bindings: ["alt+shift+p"]
+    # - name: "pause"
+    #   keybindings:
+    #       - commands: ["wm-disable-binding-mode --name pause"]
+    #         bindings: ["alt+shift+p"]
 
 keybindings:
     # Shift focus in a given direction.
@@ -260,8 +260,8 @@ keybindings:
       bindings: ["alt+v"]
 
     # Change focus from tiling windows -> floating -> fullscreen.
-    # - commands: ['wm-cycle-focus']
-    #   bindings: ['alt+space']
+    #- commands: ["wm-cycle-focus"]
+    #  bindings: ["alt+space"]
 
     # Change the focused window to be floating.
     - commands: ["toggle-floating --centered"]
@@ -302,10 +302,10 @@ keybindings:
       bindings: ["alt+enter"]
 
     # Focus the next/previous workspace defined in `workspaces` config.
-    - commands: ["focus --next-workspace"]
-      bindings: ["alt+s"]
-    - commands: ["focus --prev-workspace"]
-      bindings: ["alt+a"]
+    # - commands: ["focus --next-workspace"]
+    #   bindings: ["alt+s"]
+    # - commands: ["focus --prev-workspace"]
+    #   bindings: ["alt+a"]
 
     # Focus the workspace that last had focus.
     - commands: ["focus --recent-workspace"]

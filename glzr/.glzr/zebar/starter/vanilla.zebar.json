@@ -1,13 +1,13 @@
 {
-  "$schema": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/widget-schema.json",
-  "htmlPath": "./with-glazewm.html",
+  "$schema": "https://github.com/glzr-io/zebar/raw/v2.7.0/resources/widget-schema.json",
+  "htmlPath": "./vanilla.html",
   "zOrder": "normal",
   "shownInTaskbar": false,
   "focused": false,
   "resizable": false,
-  "transparent": true,
+  "transparent": false,
   "caching": {
-    "defaultDuration": 0,
+    "defaultDuration": 604800,
     "rules": []
   },
   "privileges": {
@@ -20,7 +20,7 @@
       "offsetX": "0px",
       "offsetY": "0px",
       "width": "100%",
-      "height": "32px",
+      "height": "40px",
       "monitorSelection": {
         "type": "all"
       },

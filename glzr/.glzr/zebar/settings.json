@@ -4,6 +4,10 @@
     {
       "path": "starter/with-glazewm.zebar.json",
       "preset": "default"
+    },
+    {
+      "path": "catppuccin-zebar\\catppuccin.zebar.json",
+      "preset": "default"
     }
   ]
 }

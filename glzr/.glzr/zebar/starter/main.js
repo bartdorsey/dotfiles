@@ -98,10 +98,14 @@ function App() {
                         ))}
 
                         <button
-                            className={`tiling-direction nf ${output.glazewm.tilingDirection === "horizontal" ? "nf-md-swap_horizontal" : "nf-md-swap_vertical"}`}
+                            className={`tiling-direction nf ${
+                                output.glazewm.tilingDirection === "horizontal"
+                                    ? "nf-md-swap_horizontal"
+                                    : "nf-md-swap_vertical"
+                            }`}
                             onClick={() =>
                                 output.glazewm.runCommand(
-                                    "toggle-tiling-direction",
+                                    "toggle-tiling-direction"
                                 )
                             }
                         ></button>
@@ -111,10 +115,12 @@ function App() {
                     <div className="workspaces">
                         {output.glazewm.currentWorkspaces.map((workspace) => (
                             <button
-                                className={`workspace pill ${workspace.hasFocus && "focused"} ${workspace.isDisplayed && "displayed"}`}
+                                className={`workspace pill ${
+                                    workspace.hasFocus && "focused"
+                                } ${workspace.isDisplayed && "displayed"}`}
                                 onClick={() =>
                                     output.glazewm.runCommand(
-                                        `focus --workspace ${workspace.name}`,
+                                        `focus --workspace ${workspace.name}`
                                     )
                                 }
                                 key={workspace.name}
@@ -127,10 +133,10 @@ function App() {
             </div>
 
             <div className="center clock">
-                <i className="nf nf-md-dock_window" />
-                <div className="window pill">
+                {/* <i className="nf nf-md-dock_window" /> */}
+                {/* <div className="window pill">
                     {output.glazewm && output.glazewm.focusedContainer.title}
-                </div>
+                </div> */}
                 <i className="nf nf-seti-clock"></i>
                 <div className="pill">{output.pacific?.formatted}</div>
                 <i className="nf nf-fa-calendar"></i>
@@ -173,7 +179,7 @@ function App() {
                             {output.network.defaultInterface.ipv4Addresses.map(
                                 (ip) => {
                                     return ip;
-                                },
+                                }
                             )}
                         </div>
                     </div>
@@ -194,7 +200,9 @@ function App() {
 
                         {/* Change the text color if the CPU usage is high. */}
                         <span
-                            className={`${output.cpu.usage > 85 ? "high-usage" : ""} pill`}
+                            className={`${
+                                output.cpu.usage > 85 ? "high-usage" : ""
+                            } pill`}
                         >
                             {Math.round(output.cpu.usage)}%
                         </span>

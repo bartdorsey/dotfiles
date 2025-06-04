@@ -8,7 +8,7 @@
 
   home.packages =
     (with pkgs; [
-      (python312.withPackages (ps:
+      (python3.withPackages (ps:
         with ps; [
           pip
           flake8
@@ -17,6 +17,7 @@
           ipython
           bpython
           pgcli
+          mypy
           vdirsyncer
         ]))
       alejandra

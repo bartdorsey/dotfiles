@@ -6,6 +6,27 @@
   home.username = "guest";
   home.homeDirectory = "/home/guest";
 
+  programs.zsh = {
+    enable = true;
+    autosuggestion = {
+      enable = true;
+    };
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   home.packages =
     (with pkgs; [
       (python3.withPackages (ps:

@@ -84,7 +84,6 @@
       pyright
       ripgrep
       ruff
-      ruff-lsp
       rustup
       sqlite
       starship

@@ -61,8 +61,8 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.echo = {
               imports = [
-                ./home-manager/home.nix
-                ./home-manager/gui.nix
+                ./home-manager/echo.nix
+                ./home-manager/echo-gui.nix
                 catppuccin.homeModules.catppuccin
               ];
             };
@@ -96,8 +96,8 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.echo = {
               imports = [
-                ./home-manager/home.nix
-                ./home-manager/gui.nix
+                ./home-manager/echo.nix
+                ./home-manager/echo-gui.nix
                 catppuccin.homeModules.catppuccin
               ];
             };
@@ -116,6 +116,7 @@
           ./hosts/nzxt-wsl/configuration.nix
           ./common/system-packages.nix
           ./users/echo.nix
+          ./users/guest.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
@@ -128,7 +129,12 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.echo = {
               imports = [
-                ./home-manager/home.nix
+                ./home-manager/echo.nix
+              ];
+            };
+            home-manager.users.guest = {
+              imports = [
+                ./home-manager/guest.nix
               ];
             };
           }
@@ -154,7 +160,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.echo = {
               imports = [
-                ./home-manager/home.nix
+                ./home-manager/echo.nix
               ];
             };
           }

@@ -13,10 +13,10 @@ Set-PSReadlineOption -EditMode Emacs
 Set-PSReadLineKeyHandler -Key 'Ctrl+d' -Function DeleteCharOrExit
 
 $env:EDITOR = "code"
-#$env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
-#$env:HOME = $env:USERPROFILE
+$env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
+$env:HOME = $env:USERPROFILE
 $env:DEVMODE = 1
-#$env:VIMINIT = "source ~/.config/vim/vimrc"
+$env:VIMINIT = "source ~/.config/vim/vimrc"
 # Aliases
 
 @{

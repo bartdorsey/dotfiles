@@ -11,6 +11,8 @@ local color_scheme = "Catppuccin Mocha"
 
 local tabline =
     wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+local domains =
+    wezterm.plugin.require("https://github.com/DavidRR-F/quick_domains.wezterm")
 
 -- local tabline =
 --     wezterm.plugin.require("https://github.com/bartdorsey/tabline.wez")
@@ -43,6 +45,13 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     opacity = 0.90
     font_size = 12
     front_end = "OpenGL"
+    config.exec_domains = {
+        wezterm.exec_domain("powershell", function(cmd)
+            wezterm.log_info(cmd)
+            cmd.args = { "pwsh.exe", "-NoLogo" }
+            return cmd
+        end),
+    }
     config.launch_menu = {
         {
             label = "NixOS",
@@ -115,6 +124,7 @@ config.command_palette_bg_color = "#000000"
 config.command_palette_fg_color = "#FFFFFF"
 config.command_palette_font_size = 16.0
 config.command_palette_rows = 1
+config.status_update_interval = 1000
 config.front_end = front_end
 config.unix_domains = {
     {
@@ -286,17 +296,43 @@ tabline.setup({
         tabline_y = {
             {
                 "datetime",
-                style = "%l:%m %p",
             },
-            "battery",
         },
         tabline_z = {
             "hostname",
         },
     },
-    extensions = {},
+    extensions = {
+        "quick_domains",
+    },
 })
 
+domains.apply_to_config(config, {
+    keys = {
+        -- open domain in new tab
+        attach = {
+            -- mod keys for fuzzy domain finder
+            mods = "LEADER",
+            -- base key for fuzzy domain finder
+            key = "d",
+            -- key table to insert key map to if any
+            tbl = "",
+        },
+        -- open domain in split pane
+        -- excludes remote domains
+        -- add remote domains as exec domain for split binds
+        vsplit = {
+            key = "v",
+            mods = "LEADER",
+            tbl = "",
+        },
+        hsplit = {
+            key = "h",
+            mods = "LEADER",
+            tbl = "",
+        },
+    },
+})
 tabline.apply_to_config(config)
 
 config.window_decorations = "TITLE | RESIZE"

@@ -180,6 +180,7 @@ window_rules:
           - window_process: { equals: "Flow.Launcher" }
     - commands: ["ignore"]
       match:
+          - window_process: { equals: "msrdc" }
           - window_process: { regex: "TeraCopy" }
           # Ignores any Zebar windows.
           - window_process: { equals: "zebar" }

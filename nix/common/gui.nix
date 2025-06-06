@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-unstable,
+  lib,
   ...
 }: {
   catppuccin.enable = true;
@@ -58,7 +59,7 @@
   services.xserver.upscaleDefaultCursor = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -79,9 +80,7 @@
     goxlr-utility
     lxappearance
     maim
-    nerdfonts
     picom-pijulius
-    terminus-nerdfont
     terminus_font_ttf
     networkmanagerapplet
     waybar
@@ -90,6 +89,7 @@
     xss-lock
   ];
 
+  fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   services.udev.packages = with pkgs; [
     gnome-settings-daemon
     gnome2.GConf
@@ -103,5 +103,5 @@
     };
   };
 
-  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
+  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
 }

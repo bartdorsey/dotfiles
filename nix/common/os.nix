@@ -52,8 +52,6 @@
 
   virtualisation.docker.enable = true;
 
-  services.tailscale.enable = false;
-
   security.pam.services.sshd.allowNullPassword = true;
   services.openssh = {
     enable = true;

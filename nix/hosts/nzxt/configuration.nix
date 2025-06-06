@@ -62,6 +62,8 @@
     autoStart = true; # optional
   };
 
+  services.tailscale.enable = true;
+
   # List services that you want to enable:
 
   # Open ports in the firewall.

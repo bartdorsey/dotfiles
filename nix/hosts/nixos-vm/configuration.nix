@@ -69,7 +69,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -96,8 +96,6 @@
   programs.dconf.enable = true;
 
   qt.enable = true;
-
-  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
 
   programs.steam = {
     enable = true;

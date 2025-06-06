@@ -16,7 +16,7 @@
   services.autorandr.enable = true;
 
   services.xserver = {
-    dpi = 96;
+    dpi = 75;
     desktopManager = {
       xterm.enable = true;
     };
@@ -45,6 +45,8 @@
   services.flatpak.enable = true;
 
   services.desktopManager.plasma6.enable = true;
+
+  services.displayManager.defaultSession = "none+i3";
 
   services.displayManager.sddm = {
     enable = true;

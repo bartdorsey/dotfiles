@@ -296,6 +296,7 @@ tabline.setup({
         tabline_y = {
             {
                 "datetime",
+                style = "%I:%M %p",
             },
         },
         tabline_z = {

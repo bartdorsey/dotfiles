@@ -148,7 +148,7 @@
     "basedpyright.analysis.diagnosticMode": "workspace",
     "basedpyright.analysis.typeCheckingMode": "standard",
     "editor.lineHeight": 0,
-    "editor.fontSize": 13,
+    "editor.fontSize": 15,
     "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
     "editor.codeLensFontSize": 14,
     "editor.inlayHints.fontSize": 14,

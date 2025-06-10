@@ -319,14 +319,6 @@ domains.apply_to_config(config, {
             -- key table to insert key map to if any
             tbl = "",
         },
-        -- disable ssh multiplex auto config
-        ssh_ignore = true,
-        -- disable exec domain auto configs
-        exec_ignore = {
-            ssh = true,
-            docker = true,
-            kubernetes = true,
-        },
         -- add remote domains as exec domain for split binds
         vsplit = {
             key = "v",
@@ -337,6 +329,16 @@ domains.apply_to_config(config, {
             key = "h",
             mods = "LEADER",
             tbl = "",
+        },
+    },
+    auto = {
+        -- disable ssh multiplex auto config
+        ssh_ignore = true,
+        -- disable exec domain auto configs
+        exec_ignore = {
+            ssh = true,
+            docker = true,
+            kubernetes = true,
         },
     },
 })

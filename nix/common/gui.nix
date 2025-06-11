@@ -42,12 +42,23 @@
     };
   };
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
   services.flatpak.enable = true;
 
-  services.desktopManager.plasma6.enable = true;
+  services.desktopManager = {
+    cosmic.enable = true;
+    plasma6.enable = true;
+  };
 
-  services.displayManager.sddm = {
-    enable = true;
+  services.displayManager = {
+    defaultSession = "none+i3";
+    sddm = {
+      enable = true;
+    };
+    cosmic-greeter.enable = false;
   };
 
   # Configure keymap in X11
@@ -56,10 +67,11 @@
     variant = "";
   };
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   services.xserver.upscaleDefaultCursor = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

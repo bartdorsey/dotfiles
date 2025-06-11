@@ -1,0 +1,114 @@
+[
+    (
+        output: (
+            name: "DP-3",
+            edid: Some((
+                manufacturer: ('G', 'B', 'T'),
+                product: 9997,
+                serial: Some(16843009),
+                manufacture_week: 20,
+                manufacture_year: 2020,
+                model_year: None,
+            )),
+        ),
+        tiling_enabled: true,
+    ),
+    (
+        output: (
+            name: "DP-3",
+            edid: Some((
+                manufacturer: ('G', 'B', 'T'),
+                product: 9997,
+                serial: Some(16843009),
+                manufacture_week: 20,
+                manufacture_year: 2020,
+                model_year: None,
+            )),
+        ),
+        tiling_enabled: true,
+    ),
+    (
+        output: (
+            name: "DP-3",
+            edid: Some((
+                manufacturer: ('G', 'B', 'T'),
+                product: 9997,
+                serial: Some(16843009),
+                manufacture_week: 20,
+                manufacture_year: 2020,
+                model_year: None,
+            )),
+        ),
+        tiling_enabled: true,
+    ),
+    (
+        output: (
+            name: "DP-3",
+            edid: Some((
+                manufacturer: ('G', 'B', 'T'),
+                product: 9997,
+                serial: Some(16843009),
+                manufacture_week: 20,
+                manufacture_year: 2020,
+                model_year: None,
+            )),
+        ),
+        tiling_enabled: true,
+    ),
+    (
+        output: (
+            name: "DP-3",
+            edid: Some((
+                manufacturer: ('G', 'B', 'T'),
+                product: 9997,
+                serial: Some(16843009),
+                manufacture_week: 20,
+                manufacture_year: 2020,
+                model_year: None,
+            )),
+        ),
+        tiling_enabled: true,
+    ),
+    (
+        output: (
+            name: "DP-3",
+            edid: Some((
+                manufacturer: ('G', 'B', 'T'),
+                product: 9997,
+                serial: Some(16843009),
+                manufacture_week: 20,
+                manufacture_year: 2020,
+                model_year: None,
+            )),
+        ),
+        tiling_enabled: true,
+    ),
+    (
+        output: (
+            name: "DP-3",
+            edid: Some((
+                manufacturer: ('G', 'B', 'T'),
+                product: 9997,
+                serial: Some(16843009),
+                manufacture_week: 20,
+                manufacture_year: 2020,
+                model_year: None,
+            )),
+        ),
+        tiling_enabled: true,
+    ),
+    (
+        output: (
+            name: "DP-3",
+            edid: Some((
+                manufacturer: ('G', 'B', 'T'),
+                product: 9997,
+                serial: Some(16843009),
+                manufacture_week: 20,
+                manufacture_year: 2020,
+                model_year: None,
+            )),
+        ),
+        tiling_enabled: true,
+    ),
+]

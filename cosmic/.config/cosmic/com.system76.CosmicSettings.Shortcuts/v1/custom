@@ -1,0 +1,114 @@
+{
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "2",
+    ): Workspace(2),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "7",
+    ): Workspace(7),
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "j",
+    ): Move(Down),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "5",
+    ): Workspace(5),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "4",
+    ): Workspace(4),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "h",
+    ): Focus(Left),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "l",
+    ): Focus(Right),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "6",
+    ): Workspace(6),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "3",
+    ): Workspace(3),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Down",
+    ): Disable,
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "1",
+    ): Workspace(1),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "j",
+    ): Focus(Down),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "9",
+    ): Workspace(9),
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "l",
+    ): Move(Right),
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "h",
+    ): Move(Left),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "k",
+    ): Focus(Up),
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "k",
+    ): Move(Up),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "8",
+    ): Workspace(8),
+}

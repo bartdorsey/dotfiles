@@ -8,17 +8,19 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "hyprland/window",
-        "custom/music"
+        "custom/date-central",
+        "custom/date",
+        "custom/date-pacific"
     ],
     "modules-right": [
+        "cpu",
+        "memory",
+        "temperature",
+        "network",
         "pulseaudio",
-        "backlight",
-        "battery",
-        "clock",
         "tray",
+        "idle_inhibitor",
         "custom/lock",
-        "custom/power"
     ],
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -51,12 +53,41 @@
             "7": "Video"
         }
     },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
     "hyprland/window": {
         "separate-outputs": true
     },
     "tray": {
         "icon-size": 21,
         "spacing": 10
+    },
+    "cpu": {
+        "format": "{usage}%  ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}%  "
+    },
+    "network": {
+        "format": "{bandwidthDownBytes} 󰛳 "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "custom/music": {
         "format": "  {}",
@@ -73,45 +104,6 @@
         "format-alt": " {:%d/%m/%Y}",
         "format": " {:%H:%M}"
     },
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}",
-        "format-charging": "",
-        "format-plugged": "",
-        "format-alt": "{icon}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}%",
@@ -125,14 +117,18 @@
         },
         "on-click": "pavucontrol"
     },
+    "custom/date-central": {
+        "exec": "date '+%l:%M %p %Z'"
+    },
+    "custom/date-pacific": {
+        "exec": "TZ='US/Pacific' date '+%l:%M %p %Z'"
+    },
+    "custom/date": {
+        "exec": "date '+%A %B %e %Y'"
+    },
     "custom/lock": {
         "tooltip": false,
-        "on-click": "sh -c '(sleep 0.5s; swaylock --grace 0)' & disown",
-        "format": "",
-    },
-    "custom/power": {
-        "tooltip": false,
-        "on-click": "wlogout &",
-        "format": "襤"
+        "on-click": "hyprlock",
+        "format": ""
     }
 }

@@ -24,13 +24,35 @@
         "disable-scroll": true,
         "sort-by-name": true,
         "active-only": false,
+        "persistent-workspaces": {
+            "DP-3": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "DP-1": [
+                6
+            ],
+            "HDMI-A-1": [
+                7
+            ]
+        },
         "format": " {name}:{icon} ",
         "format-icons": {
             "default": "",
-            "1": "Main",
+            "1": "Web",
             "2": "Code",
-            "3": "Chat"
+            "3": "Chat",
+            "4": "Games",
+            "5": "Misc",
+            "6": "Chat",
+            "7": "Video"
         }
+    },
+    "hyprland/window": {
+        "separate-outputs": true
     },
     "tray": {
         "icon-size": 21,

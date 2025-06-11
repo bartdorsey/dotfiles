@@ -97,6 +97,8 @@
     networkmanagerapplet
     waybar
     hyprpaper
+    hyprlock
+    hypridle
     wofi
     xss-lock
   ];

@@ -24,6 +24,7 @@
     nfs-utils
     pciutils
     postgresql.lib
+    pulsemixer
     restic
     samba
     starship

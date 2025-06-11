@@ -93,6 +93,7 @@
     lxappearance
     libnotify
     maim
+    pavucontrol
     picom-pijulius
     terminus_font_ttf
     networkmanagerapplet

@@ -94,6 +94,7 @@
     libnotify
     maim
     pavucontrol
+    plattenalbum
     picom-pijulius
     terminus_font_ttf
     networkmanagerapplet

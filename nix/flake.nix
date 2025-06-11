@@ -80,6 +80,7 @@
           ./hosts/nzxt/configuration.nix
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           ./common/os.nix
+          ./common/mounts.nix
           ./common/gui.nix
           ./common/system-packages.nix
           ./users/echo.nix

@@ -14,7 +14,11 @@
         what = "10.0.0.192:/volume1/Media";
         where = "/mnt/Media";
       })
-
+    (commonNFSMountOptions
+      // {
+        what = "10.0.0.192:/volume2/Music";
+        where = "/mnt/Music";
+      })
     (commonNFSMountOptions
       // {
         what = "10.0.0.192:/volume2/echo";
@@ -53,6 +57,7 @@
     };
   in [
     (commonAutoMountOptions // {where = "/mnt/Media";})
+    (commonAutoMountOptions // {where = "/mnt/Music";})
     (commonAutoMountOptions // {where = "/mnt/echo";})
     (commonAutoMountOptions // {where = "/mnt/Developer";})
     (commonAutoMountOptions // {where = "/mnt/Backups";})

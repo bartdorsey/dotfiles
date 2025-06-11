@@ -22,6 +22,9 @@
     kmod
     lsb-release
     nfs-utils
+    mpc-cli
+    mpdris2
+    ncmpcpp
     pciutils
     postgresql.lib
     pulsemixer

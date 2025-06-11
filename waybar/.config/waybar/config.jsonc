@@ -5,7 +5,8 @@
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "custom/music"
     ],
     "modules-center": [
         "custom/date-central",
@@ -93,8 +94,8 @@
         "format": "  {}",
         "escape": true,
         "interval": 5,
-        "tooltip": false,
-        "exec": "playerctl metadata --format='{{ title }}'",
+        "tooltip": true,
+        "exec": "playerctl metadata --format='{{ artist }}|{{ title }}'",
         "on-click": "playerctl play-pause",
         "max-length": 50
     },

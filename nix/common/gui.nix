@@ -42,6 +42,11 @@
     };
   };
 
+  programs.streamdeck-ui = {
+    enable = true;
+    autoStart = true; # optional
+  };
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;

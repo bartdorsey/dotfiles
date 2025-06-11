@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-unstable,
+  lib,
   ...
 }: {
   catppuccin.enable = true;
@@ -79,9 +80,7 @@
     goxlr-utility
     lxappearance
     maim
-    nerdfonts
     picom-pijulius
-    terminus-nerdfont
     terminus_font_ttf
     networkmanagerapplet
     waybar
@@ -103,5 +102,7 @@
     };
   };
 
-  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
+  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+
+  fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

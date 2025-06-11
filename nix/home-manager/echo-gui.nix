@@ -10,6 +10,7 @@
   # home.packages = with zen-browser; [
   #   packages."${system}".default
   # ];
+  fonts.fontconfig.enable = true;
 
   dconf.settings = {
     "org/gnome/desktop/background" = {

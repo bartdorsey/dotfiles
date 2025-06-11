@@ -97,8 +97,6 @@
 
   qt.enable = true;
 
-  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;

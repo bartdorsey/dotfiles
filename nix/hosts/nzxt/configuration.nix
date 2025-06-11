@@ -24,7 +24,6 @@
     };
   };
 
-  time.hardwareClockInLocalTime = true;
   security.polkit.enable = true;
 
   boot.kernelParams = [

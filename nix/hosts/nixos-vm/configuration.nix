@@ -38,9 +38,6 @@
 
   networking.hostName = "nixos-vm"; # Define your hostname.
 
-  # Fixes Windows and Linux clock problems
-  time.hardwareClockInLocalTime = true;
-
   # Enable networking
   networking.networkmanager.enable = true;
 

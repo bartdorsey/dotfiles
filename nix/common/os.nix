@@ -7,9 +7,6 @@
     "tail7974e.ts.net"
   ];
 
-  # Fixes Windows and Linux clock problems
-  time.hardwareClockInLocalTime = true;
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Set your time zone.

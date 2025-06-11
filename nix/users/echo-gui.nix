@@ -27,6 +27,9 @@
         discord
         flameshot
         gimp
+        grimblast
+        grim
+        slurp
         glib
         gnome-tweaks
         gnomeExtensions.dash-to-panel

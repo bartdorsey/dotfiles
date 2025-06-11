@@ -91,6 +91,7 @@
     gnome-software
     goxlr-utility
     lxappearance
+    libnotify
     maim
     picom-pijulius
     terminus_font_ttf
@@ -99,6 +100,7 @@
     hyprpaper
     hyprlock
     hypridle
+    hyprshot
     wofi
     xss-lock
   ];

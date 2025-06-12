@@ -47,21 +47,6 @@
     presets = ["plain-text-symbols"];
   };
 
-  services.mpd = {
-    enable = true;
-    user = "echo";
-    musicDirectory = "/mnt/Music/iTunes Old/iTunes Music/Music/";
-    extraConfig = ''
-      audio_output {
-          type "pipewire"
-          name "Pipewire Output" # this can be whatever you want
-      }
-    '';
-  };
-  systemd.services.mpd.environment = {
-    XDG_RUNTIME_DIR = "/run/user/1000";
-  };
-
   virtualisation.docker.enable = true;
 
   services.tailscale.enable = false;

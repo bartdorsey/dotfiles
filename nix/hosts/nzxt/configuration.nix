@@ -61,6 +61,21 @@
     autoStart = true; # optional
   };
 
+  services.mpd = {
+    enable = true;
+    user = "echo";
+    musicDirectory = "/mnt/Music/iTunes Old/iTunes Music/Music/";
+    extraConfig = ''
+      audio_output {
+          type "pipewire"
+          name "Pipewire Output" # this can be whatever you want
+      }
+    '';
+  };
+  systemd.services.mpd.environment = {
+    XDG_RUNTIME_DIR = "/run/user/1000";
+  };
+
   # List services that you want to enable:
 
   # Open ports in the firewall.

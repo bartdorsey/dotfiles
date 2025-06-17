@@ -33,6 +33,7 @@
     starship
     stdenv.cc.cc
     sysz
+    texlive.combined.scheme-full
     tmux
     unzip
     usbutils

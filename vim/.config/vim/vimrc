@@ -47,7 +47,9 @@ let maplocalleader = " "
 set title
 
 " Customize the terminal title
-autocmd BufEnter,BufWinEnter,TabEnter * let &titlestring = (has('nvim') ? 'nvim' : 'vim') . ' [' . expand('%:t') . ']'
+autocmd BufEnter,BufWinEnter,TabEnter * 
+  \ let &titlestring = (has('nvim') ? 'nvim' : 'vim') . 
+  \ (expand('%:t') != '' ? ' [' . expand('%:t') . ']' : '')
 
 " Enable 256 colors
 set termguicolors

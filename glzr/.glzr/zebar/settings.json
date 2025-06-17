@@ -1,12 +1,14 @@
 {
-  "$schema": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/settings-schema.json",
+  "$schema": "https://github.com/glzr-io/zebar/raw/v3.1.0/resources/settings-schema.json",
   "startupConfigs": [
     {
-      "path": "starter/with-glazewm.zebar.json",
+      "pack": "starter",
+      "widget": "with-glazewm",
       "preset": "default"
     },
     {
-      "path": "catppuccin-zebar\\catppuccin.zebar.json",
+      "pack": "catppuccin-zebar",
+      "widget": "catppuccin",
       "preset": "default"
     }
   ]

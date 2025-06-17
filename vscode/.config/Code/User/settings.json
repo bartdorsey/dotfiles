@@ -190,4 +190,5 @@
         "*.sdb": "${capture}.${extname}-*",
         "*.s3db": "${capture}.${extname}-*"
     },
+    "latex-workshop.view.pdf.invert": 1,
 }

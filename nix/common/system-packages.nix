@@ -35,6 +35,7 @@
     sysz
     texlive.combined.scheme-full
     tmux
+    typst
     unzip
     usbutils
     vim

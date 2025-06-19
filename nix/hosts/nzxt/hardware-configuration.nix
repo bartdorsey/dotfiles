@@ -84,4 +84,9 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  hardware.openrazer = {
+    users = ["echo"];
+    enable = true;
+  };
 }

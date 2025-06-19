@@ -8,7 +8,8 @@
     extraGroups = ["networkmanager" "wheel" "docker" "audio"];
     packages =
       (with pkgs-unstable; [
-        zoom-us
+        ])
+      ++ (with pkgs; [
         dust
         nh
         nix-output-monitor
@@ -18,8 +19,6 @@
         firefox
         firefoxpwa
         ghostty
-      ])
-      ++ (with pkgs; [
         appimage-run
         catppuccin-kde
         chromium
@@ -70,4 +69,6 @@
     "inode/directory" = "yazi.desktop";
     "inode/mount-point" = "yazi.desktop";
   };
+
+  programs.zoom-us.enable = true;
 }

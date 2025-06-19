@@ -7,9 +7,9 @@
   catppuccin.enable = true;
   programs.firefox.enable = true;
 
-  home.packages = with zen-browser; [
-    packages."${system}".default
-  ];
+  # home.packages = with zen-browser; [
+  #   packages."${system}".default
+  # ];
   fonts.fontconfig.enable = true;
 
   dconf.settings = {

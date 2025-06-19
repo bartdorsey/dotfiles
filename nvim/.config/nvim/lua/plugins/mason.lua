@@ -28,6 +28,7 @@ return {
                 "rust_analyzer",
                 "sqlls",
                 "tailwindcss",
+                "tinymist",
                 "ts_ls",
                 "vimls",
                 "yamlls",

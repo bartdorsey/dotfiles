@@ -41,7 +41,7 @@ local font_size = 14
 local front_end = "WebGpu"
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-    config.default_domain = "WSL:NixOS"
+    config.default_domain = "WSL:Ubuntu"
     opacity = 0.90
     font_size = 12
     front_end = "OpenGL"

@@ -100,6 +100,7 @@
     maim
     pavucontrol
     plattenalbum
+    plexamp
     picom-pijulius
     terminus_font_ttf
     networkmanagerapplet

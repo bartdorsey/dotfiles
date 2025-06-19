@@ -40,7 +40,7 @@ WORKDIR /home/ubuntu
 # Install fnm
 RUN curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell -d /home/ubuntu/.local/bin
 
-RUN /home/ubuntu/.local/bin/fnm install 22
+RUN /home/ubuntu/.local/bin/fnm install 24
 
 # Turn on devmode
 RUN mkdir /home/ubuntu/.config && touch /home/ubuntu/.config/devmode

@@ -47,7 +47,13 @@
     presets = ["plain-text-symbols"];
   };
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    extraPackages = with pkgs; [
+      docker-buildx
+    ];
+    autoPrune.enable = true;
+    enable = true;
+  };
 
   services.tailscale.enable = false;
 

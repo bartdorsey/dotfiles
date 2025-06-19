@@ -5,6 +5,7 @@
     cifs-utils
     curl
     dig
+    docker-buildx
     fastfetch
     ffmpeg
     file

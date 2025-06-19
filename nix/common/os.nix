@@ -48,9 +48,6 @@
   };
 
   virtualisation.docker = {
-    extraPackages = with pkgs; [
-      docker-buildx
-    ];
     autoPrune.enable = true;
     enable = true;
   };

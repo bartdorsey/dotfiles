@@ -16,8 +16,6 @@
         nvd
         _1password-gui
         _1password-cli
-        firefox
-        firefoxpwa
         ghostty
         appimage-run
         catppuccin-kde

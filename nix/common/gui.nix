@@ -85,33 +85,37 @@
     pulse.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    adwaita-icon-theme
-    desktop-file-utils
-    dex
-    dmenu #application launcher most people use
-    dunst
-    feh
-    gnomeExtensions.appindicator
-    gnome-software
-    goxlr-utility
-    lxappearance
-    libnotify
-    maim
-    pavucontrol
-    plattenalbum
-    plexamp
-    picom-pijulius
-    terminus_font_ttf
-    networkmanagerapplet
-    waybar
-    hyprpaper
-    hyprlock
-    hypridle
-    hyprshot
-    wofi
-    xss-lock
-  ];
+  environment.systemPackages =
+    (with pkgs-unstable; [
+      firefoxpwa
+    ])
+    ++ (with pkgs; [
+      adwaita-icon-theme
+      desktop-file-utils
+      dex
+      dmenu #application launcher most people use
+      dunst
+      feh
+      gnomeExtensions.appindicator
+      gnome-software
+      goxlr-utility
+      lxappearance
+      libnotify
+      maim
+      pavucontrol
+      plattenalbum
+      plexamp
+      picom-pijulius
+      terminus_font_ttf
+      networkmanagerapplet
+      waybar
+      hyprpaper
+      hyprlock
+      hypridle
+      hyprshot
+      wofi
+      xss-lock
+    ]);
 
   services.udev.packages = with pkgs; [
     gnome-settings-daemon
@@ -129,4 +133,10 @@
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
 
   fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+
+  programs.firefox = {
+    enable = true;
+    package = pkgs-unstable.firefox;
+    nativeMessagingHosts.packages = [pkgs-unstable.firefoxpwa];
+  };
 }

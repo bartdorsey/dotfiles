@@ -1,11 +1,9 @@
 {
   pkgs,
-  zen-browser,
-  system,
+  config,
   ...
 }: {
   catppuccin.enable = true;
-  programs.firefox.enable = true;
 
   # home.packages = with zen-browser; [
   #   packages."${system}".default
@@ -39,4 +37,6 @@
     size = 64;
     package = pkgs.vanilla-dmz;
   };
+
+  home.file.".config/xdg-settings/default-web-browser".text = "firefox.desktop";
 }

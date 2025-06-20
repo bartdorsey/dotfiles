@@ -29,6 +29,7 @@
     curlie
     deno
     devbox
+    direnv
     distrobox
     distrobox-tui
     dust

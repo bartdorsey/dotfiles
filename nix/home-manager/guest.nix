@@ -65,7 +65,6 @@
       gleam
       glow
       go
-      gopls
       gotools
       gnupg
       grc

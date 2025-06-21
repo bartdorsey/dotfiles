@@ -18,8 +18,6 @@ export default function GlazeWM() {
 
     return (
         <>
-            <i className="nf nf-md-monitor" />
-            <div className="pill">{glazewm.currentMonitor.hardwareId}</div>
             <>
                 {glazewm.bindingModes.map((bindingMode) => (
                     <button className="binding-mode" key={bindingMode.name}>

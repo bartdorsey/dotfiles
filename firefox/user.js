@@ -12,11 +12,11 @@
  * "Ad meliora"                                                             *
  * version: 118                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
-****************************************************************************/
+ ****************************************************************************/
 
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("nglayout.initialpaint.delay", 0);
 user_pref("nglayout.initialpaint.delay_in_oopif", 0);
 user_pref("content.notify.interval", 100000);
@@ -67,11 +67,17 @@ user_pref("network.predictor.enable-prefetch", false);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
-****************************************************************************/
+ ****************************************************************************/
 /** TRACKING PROTECTION ***/
 user_pref("browser.contentblocking.category", "strict");
-user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
-user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
+user_pref(
+    "urlclassifier.trackingSkipURLs",
+    "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com",
+);
+user_pref(
+    "urlclassifier.features.socialtracking.skipURLs",
+    "*.instagram.com, *.twitter.com, *.twimg.com",
+);
 user_pref("privacy.partition.bloburl_per_partition_key", true);
 user_pref("browser.uitour.enabled", false);
 user_pref("privacy.globalprivacycontrol.enabled", true);
@@ -141,7 +147,10 @@ user_pref("identity.fxaccounts.enabled", false);
 user_pref("browser.tabs.firefox-view", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
-user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+user_pref(
+    "geo.provider.network.url",
+    "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%",
+);
 user_pref("permissions.manager.defaultsUrl", "");
 user_pref("webchannel.allowObject.urlWhitelist", "");
 
@@ -175,7 +184,7 @@ user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
 /****************************************************************************
  * SECTION: PESKYFOX                                                        *
-****************************************************************************/
+ ****************************************************************************/
 /** MOZILLA UI ***/
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
@@ -185,8 +194,14 @@ user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+user_pref(
+    "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons",
+    false,
+);
+user_pref(
+    "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features",
+    false,
+);
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
 user_pref("browser.aboutConfig.showWarning", false);
@@ -230,18 +245,19 @@ user_pref("pdfjs.sidebarViewOnLoad", 2);
 
 /** TAB BEHAVIOR ***/
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
+user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
-****************************************************************************/
+ ****************************************************************************/
 // visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 // Enter your scrolling prefs below this line:
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
-****************************************************************************/
+ ****************************************************************************/
 // Enter your personal prefs below this line:
 //
 // PREF: restore Firefox Sync
@@ -261,7 +277,7 @@ user_pref("gfx.canvas.accelerated", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *
-****************************************************************************/
+ ****************************************************************************/
 
 /****************************************************************************************
  * Smoothfox                                                                            *
@@ -273,7 +289,7 @@ user_pref("gfx.canvas.accelerated", true);
 
 /****************************************************************************************
  * OPTION 1: INSTANT SCROLLING (SIMPLE ADJUSTMENT)                                      *
-****************************************************************************************/
+ ****************************************************************************************/
 // recommended for 60hz+ displays
 user_pref("apz.overscroll.enabled", true); // not DEFAULT on Linux
 user_pref("general.smoothScroll", true); // DEFAULT
@@ -281,7 +297,7 @@ user_pref("mousewheel.default.delta_multiplier_y", 275); // 250-400; adjust this
 
 /****************************************************************************************
  * OPTION 2: SMOOTH SCROLLING                                                           *
-****************************************************************************************/
+ ****************************************************************************************/
 // recommended for 90hz+ displays
 user_pref("apz.overscroll.enabled", true); // not DEFAULT on Linux
 user_pref("general.smoothScroll", true); // DEFAULT
@@ -290,7 +306,7 @@ user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this
 
 /****************************************************************************************
  * OPTION 3: NATURAL SMOOTH SCROLLING V3 [MODIFIED]                                     *
-****************************************************************************************/
+ ****************************************************************************************/
 // recommended for 120hz+ displays
 // largely matches Chrome flags: Windows Scrolling Personality and Smooth Scrolling
 // from https://github.com/AveYo/fox/blob/cf56d1194f4e5958169f9cf335cd175daa48d349/Natural%20Smooth%20Scrolling%20for%20user.js
@@ -307,7 +323,6 @@ user_pref("general.smoothScroll.currentVelocityWeighting", 1.0);
 user_pref("general.smoothScroll.stopDecelerationWeighting", 1.0);
 user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
 
-
 /***************************************************************************************
  * Fastfox                                                                              *
  * "Non ducor duco"                                                                     *
@@ -323,7 +338,7 @@ user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this
 // by processCount.webIsolated. Disabling fission.autostart or changing
 // fission.webContentIsolationStrategy reverts control back to processCount.
 // [1] https://www.reddit.com/r/firefox/comments/r69j52/firefox_content_process_limit_is_gone/
-// [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes 
+// [2] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#web-content-processes
 //user_pref("dom.ipc.processCount", 8); // DEFAULT; Shared Web Content
 //user_pref("dom.ipc.processCount.webIsolated", 1); // default=4; Isolated Web Content
 
@@ -424,7 +439,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 
 /****************************************************************************
  * SECTION: TAB UNLOAD                                                      *
-****************************************************************************/
+ ****************************************************************************/
 
 // PREF: unload tabs on low memory
 // [ABOUT] about:unloads
@@ -456,7 +471,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 
 /****************************************************************************
  * SECTION: EXPERIMENTAL                                                    *
-****************************************************************************/
+ ****************************************************************************/
 
 // PREF: CSS Masonry Layout [NIGHTLY]
 // [1] https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout
@@ -485,7 +500,7 @@ user_pref("dom.security.sanitizer.enabled", true);
 // PREF: Wasm GC [NIGHTLY]
 // WASM GC refers to garbage collection for WebAssembly. Garbage collection is a mechanism
 // to automatically free up memory that is no longer being used by a program. This helps
-// manage memory and prevent memory leaks. 
+// manage memory and prevent memory leaks.
 // [1] https://github.com/WebAssembly/gc/blob/main/proposals/gc/Overview.md
 //user_pref("javascript.options.wasm_gc", true);
 
@@ -525,7 +540,7 @@ user_pref("dom.security.sanitizer.enabled", true);
 
 /****************************************************************************
  * SECTION: GFX RENDERING TWEAKS                                            *
-****************************************************************************/
+ ****************************************************************************/
 
 // PREF: Webrender tweaks
 // [1] https://searchfox.org/mozilla-central/rev/6e6332bbd3dd6926acce3ce6d32664eab4f837e5/modules/libpref/init/StaticPrefList.yaml#6202-6219
@@ -590,7 +605,7 @@ user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
 
 /****************************************************************************
  * SECTION: BROWSER CACHE                                                   *
-****************************************************************************/
+ ****************************************************************************/
 
 // PREF: disk cache
 // [NOTE] If you think disk cache helps performance, then feel free to override this.
@@ -641,7 +656,7 @@ user_pref("browser.cache.disk.enable", false);
 
 /****************************************************************************
  * SECTION: MEDIA CACHE                                                     *
-****************************************************************************/
+ ****************************************************************************/
 
 // PREF: media disk cache
 //user_pref("media.cache_size", 512000); // DEFAULT
@@ -669,7 +684,7 @@ user_pref("media.cache_resume_threshold", 3600); // 60 min; default=30; when a n
 
 /****************************************************************************
  * SECTION: IMAGE CACHE                                                     *
-****************************************************************************/
+ ****************************************************************************/
 
 // PREF: image cache
 //user_pref("image.cache.size", 5242880); // DEFAULT; in MiB; alt=10485760 (cache images up to 10MiB in size)
@@ -684,7 +699,7 @@ user_pref("image.mem.decode_bytes_at_a_time", 32768); // default=16384; alt=6553
 
 /****************************************************************************
  * SECTION: NETWORK                                                         *
-****************************************************************************/
+ ****************************************************************************/
 
 // PREF: use bigger packets
 // Reduce Firefox's CPU usage by requiring fewer application-to-driver data transfers.
@@ -738,12 +753,12 @@ user_pref("network.dnsCacheExpiration", 86400); // keep entries for 1 day; alt=3
 user_pref("network.dns.max_high_priority_threads", 8); // default=5
 //user_pref("network.dns.max_any_priority_threads", 5); // default=3
 
-// PREF: increase TLS token caching 
+// PREF: increase TLS token caching
 user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS token caching (fast reconnects)
 
 /****************************************************************************
  * SECTION: SPECULATIVE CONNECTIONS                                         *
-****************************************************************************/
+ ****************************************************************************/
 
 // [NOTE] FF85+ partitions (isolates) pooled connections, prefetch connections,
 // pre-connect connections, speculative connections, TLS session identifiers,
@@ -903,4 +918,3 @@ user_pref("network.predictor.enable-prefetch", false);
 //user_pref("network.predictor.prefetch-rolling-load-count", 120); // default=10
 //user_pref("network.predictor.max-resources-per-entry", 250); // default=100
 //user_pref("network.predictor.max-uri-length", 1000); // default=500
-

@@ -32,12 +32,12 @@
           "offsetX": "0px",
           "offsetY": "0px",
           "width": "100%",
-          "height": "32px",
+          "height": "40px",
           "monitorSelection": {
             "type": "all"
           },
           "dockToEdge": {
-            "enabled": false,
+            "enabled": true,
             "edge": null,
             "windowMargin": "0px"
           }

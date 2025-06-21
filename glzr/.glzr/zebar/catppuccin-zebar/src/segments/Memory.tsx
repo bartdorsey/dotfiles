@@ -1,5 +1,7 @@
 import { createProvider } from "zebar";
 import { useEffect, useState } from "react";
+import { getUsageClass } from "../shared/getUsageClass";
+import Segment from "../shared/Segment";
 
 const memoryProvider = createProvider({
     type: "memory",
@@ -17,9 +19,11 @@ export default function Memory() {
     }
 
     return (
-        <div className="memory">
-            <i className="nf nf-fae-chip"></i>
-            <div className="pill">{Math.round(memory.usage)}%</div>
-        </div>
+        <Segment
+            iconClass="nf-fae-chip"
+            className={getUsageClass(memory.usage)}
+        >
+            {Math.round(memory.usage)}%
+        </Segment>
     );
 }

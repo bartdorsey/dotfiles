@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { createProvider } from "zebar";
+import { getUsageClass } from "../shared/getUsageClass";
+import Segment from "../shared/Segment";
 
 const cpuProvider = createProvider({
     type: "cpu",
@@ -15,14 +17,14 @@ export default function Cpu() {
     if (!cpu) {
         return null;
     }
-    return (
-        <div className="cpu">
-            <i className="nf nf-oct-cpu"></i>
 
-            {/* Change the text color if the CPU usage is high. */}
-            <span className={`${cpu.usage > 85 ? "high-usage" : ""} pill`}>
-                {Math.round(cpu.usage)}%
-            </span>
-        </div>
+    return (
+        <Segment
+            iconClass="nf-oct-cpu"
+            active={false}
+            className={getUsageClass(cpu.usage)}
+        >
+            {Math.round(cpu.usage)}%
+        </Segment>
     );
 }

@@ -1,6 +1,8 @@
 import type { WeatherStatus } from "zebar";
 import { createProvider } from "zebar";
 import { useEffect, useState } from "react";
+import Segment from "../shared/Segment";
+import styles from "./Weather.module.css";
 
 const weatherProvider = createProvider({
     type: "weather",
@@ -34,16 +36,11 @@ export default function Weather() {
         return null;
     }
     return (
-        <div className="weather">
-            <i
-                className={`nf ${
-                    weatherIconMap[weather.status] || "nf-weather-na"
-                }`}
-            ></i>
-            <span className="pill">
-                {Math.round(weather.fahrenheitTemp)}
-                °F
-            </span>
-        </div>
+        <Segment
+            className={styles.weather}
+            iconClass={weatherIconMap[weather.status] || "nf-weather-na"}
+        >
+            {Math.round(weather.fahrenheitTemp)} °F
+        </Segment>
     );
 }

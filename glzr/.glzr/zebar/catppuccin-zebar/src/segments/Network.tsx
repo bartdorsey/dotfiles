@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import type { NetworkOutput } from "zebar";
 import { createProvider } from "zebar";
+import Segment from "../shared/Segment";
+import styles from "./Network.module.css";
 
 const networkProvider = createProvider({
     type: "network",
@@ -8,36 +10,36 @@ const networkProvider = createProvider({
 });
 
 // Get icon to show for current network status.
-function getNetworkIcon(networkOutput: NetworkOutput) {
+function getNetworkIcon(networkOutput: NetworkOutput): string {
     switch (networkOutput.defaultInterface?.type) {
         case "ethernet":
-            return <i className="nf nf-md-ethernet_cable"></i>;
+            return "nf-md-ethernet_cable";
         case "wifi":
             if (
                 networkOutput.defaultGateway?.signalStrength != null &&
                 networkOutput.defaultGateway.signalStrength >= 80
             ) {
-                return <i className="nf nf-md-wifi_strength_4"></i>;
+                return "nf-md-wifi_strength_4";
             } else if (
                 networkOutput.defaultGateway?.signalStrength != null &&
                 networkOutput.defaultGateway.signalStrength >= 65
             ) {
-                return <i className="nf nf-md-wifi_strength_3"></i>;
+                return "nf-md-wifi_strength_3";
             } else if (
                 networkOutput.defaultGateway?.signalStrength != null &&
                 networkOutput.defaultGateway.signalStrength >= 40
             ) {
-                return <i className="nf nf-md-wifi_strength_2"></i>;
+                return "nf-md-wifi_strength_2";
             } else if (
                 networkOutput.defaultGateway?.signalStrength != null &&
                 networkOutput.defaultGateway.signalStrength >= 25
             ) {
-                return <i className="nf nf-md-wifi_strength_1"></i>;
+                return "nf-md-wifi_strength_1";
             } else {
-                return <i className="nf nf-md-wifi_strength_outline"></i>;
+                return "nf-md-wifi_strength_outline";
             }
         default:
-            return <i className="nf nf-md-wifi_strength_off_outline"></i>;
+            return "nf-md-wifi_strength_off_outline";
     }
 }
 
@@ -53,13 +55,10 @@ export default function Network() {
     }
 
     return (
-        <div className="network">
-            {getNetworkIcon(network)}
-            <div className="pill">
-                {network.defaultInterface?.ipv4Addresses.map((ip) => {
-                    return ip;
-                })}
-            </div>
-        </div>
+        <Segment iconClass={getNetworkIcon(network)} className={styles.network}>
+            {network.defaultInterface?.ipv4Addresses.map((ip) => {
+                return ip;
+            })}
+        </Segment>
     );
 }

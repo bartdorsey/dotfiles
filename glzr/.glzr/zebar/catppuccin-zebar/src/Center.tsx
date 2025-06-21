@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Clock from "./Clock";
-import Date from "./Date";
+import Clock from "./segments/Clock";
+import Date from "./segments/Date";
 import { createProvider } from "zebar";
 
 const pacificProvider = createProvider({

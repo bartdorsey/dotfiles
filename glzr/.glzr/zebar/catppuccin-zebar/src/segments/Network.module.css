@@ -1,0 +1,5 @@
+@container right (width < 400px) {
+    .network {
+        display: none;
+    }
+}

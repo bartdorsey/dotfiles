@@ -1,9 +1,9 @@
-import Network from "./Network";
-import Weather from "./Weather";
-import Cpu from "./Cpu";
-import Memory from "./Memory";
-import Media from "./Media";
-import Battery from "./Battery";
+import Network from "./segments/Network";
+import Weather from "./segments/Weather";
+import Cpu from "./segments/Cpu";
+import Memory from "./segments/Memory";
+import Media from "./segments/Media";
+import Battery from "./segments/Battery";
 
 export default function Right() {
     return (

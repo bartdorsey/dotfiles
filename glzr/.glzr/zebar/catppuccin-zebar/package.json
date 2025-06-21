@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@catppuccin/palette": "^1.7.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "zebar": "^2.7.0"

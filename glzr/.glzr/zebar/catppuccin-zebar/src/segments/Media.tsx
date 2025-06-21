@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { createProvider } from "zebar";
+import Segment from "../shared/Segment";
+import styles from "./Media.module.css";
+
 const mediaProvider = createProvider({
     type: "media",
 });
@@ -16,11 +19,27 @@ export default function Media() {
     if (!media.currentSession) {
         return null;
     }
+
+    function handleClick() {
+        if (media?.currentSession?.isPlaying) {
+            media.pause();
+        } else {
+            media?.play();
+        }
+    }
+
     return (
-        <div className="media">
+        <Segment
+            className={styles.media}
+            iconClass={
+                media.currentSession.isPlaying ? "nf-md-pause" : "nf-md-play"
+            }
+            iconAlignment="right"
+            onClick={handleClick}
+        >
             {media.currentSession.isPlaying ? (
-                <div className="media-title-container pill">
-                    <div className="media-title">
+                <div className={styles.container}>
+                    <div className={styles.title}>
                         {media.currentSession.isPlaying
                             ? media.currentSession.title
                             : ""}
@@ -29,11 +48,6 @@ export default function Media() {
             ) : (
                 ""
             )}
-            {media.currentSession.isPlaying ? (
-                <i className="nf nf-md-pause" onClick={() => media.pause()} />
-            ) : (
-                <i className="nf nf-md-play" onClick={() => media.play()} />
-            )}
-        </div>
+        </Segment>
     );
 }

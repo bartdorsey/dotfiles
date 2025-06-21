@@ -1,13 +1,9 @@
 import type { DateOutput } from "zebar";
+import Segment from "../shared/Segment";
 
 export default function Clock({ date }: { date: DateOutput | null }) {
     if (!date) {
         return null;
     }
-    return (
-        <>
-            <i className="nf nf-seti-clock"></i>
-            <div className="pill">{date.formatted}</div>
-        </>
-    );
+    return <Segment iconClass="nf-seti-clock">{date.formatted}</Segment>;
 }

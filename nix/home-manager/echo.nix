@@ -115,13 +115,14 @@
   };
   services.syncthing = {
     enable = true;
+    guiAddress = "0.0.0.0:8385";
   };
 
   services.git-sync = {
     enable = true;
     repositories = {
       Obsidian = {
-        path = /home/echo/Obsidian/Journal;
+        path = /home/echo/Obsidian;
         uri = "git@github.com:bartdorsey/obsidian.git";
       };
     };

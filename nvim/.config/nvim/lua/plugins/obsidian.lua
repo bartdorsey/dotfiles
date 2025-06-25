@@ -45,8 +45,8 @@ return {
         },
         workspaces = {
             {
-                name = "personal",
-                path = "~/Obsidian/Journal",
+                name = "Obsidian",
+                path = "~/Obsidian",
             },
         },
         notes_subdir = "Notes",

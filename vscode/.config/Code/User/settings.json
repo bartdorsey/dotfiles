@@ -111,7 +111,6 @@
     "editor.gotoLocation.multipleTypeDefinitions": "gotoAndPeek",
     "editor.minimap.enabled": false,
     "cmake.showOptionsMovedNotification": false,
-    "window.titleBarStyle": "custom",
     "python.analysis.autoFormatStrings": true,
     "python.analysis.completeFunctionParens": true,
     "python.analysis.diagnosticMode": "workspace",
@@ -124,7 +123,6 @@
     "vim.sneak": true,
     "vim.sneakReplacesF": true,
     "open-in-vim.useNeovim": true,
-    "terminal.integrated.defaultLocation": "editor",
     "djlint.showInstallError": false,
     "security.promptForRemoteFileProtocolHandling": false,
     "lldb.suppressUpdateNotifications": true,
@@ -191,4 +189,20 @@
         "*.s3db": "${capture}.${extname}-*"
     },
     "latex-workshop.view.pdf.invert": 1,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "css": false
+    },
+    "editor.rulers": [
+        80
+    ],
+    "editor.inlayHints.enabled": "off",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.pdf": "latex-workshop-pdf-hook"
+    }
 }

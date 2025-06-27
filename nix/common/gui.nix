@@ -117,6 +117,7 @@
       hyprlock
       hypridle
       hyprshot
+      hyprpolkitagent
       wofi
       wl-clipboard
       wtype

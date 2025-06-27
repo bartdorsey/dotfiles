@@ -45,6 +45,8 @@
         vlc
         vscode
         wezterm
+        xfce.thunar
+        pcmanfm
       ]);
   };
   xdg.portal = {

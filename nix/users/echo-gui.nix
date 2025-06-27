@@ -32,6 +32,7 @@
         gnomeExtensions.dash-to-panel
         google-chrome
         kitty
+        mpv
         neovide
         obs-studio
         obsidian
@@ -41,6 +42,7 @@
         vesktop
         vieb
         vivaldi
+        vlc
         vscode
         wezterm
       ]);

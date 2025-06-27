@@ -6,48 +6,6 @@
   # My user account, with gui specific packages
   users.users.echo = {
     extraGroups = ["networkmanager" "wheel" "docker" "audio"];
-    packages =
-      (with pkgs-unstable; [
-        ])
-      ++ (with pkgs; [
-        dust
-        nh
-        nix-output-monitor
-        nvd
-        _1password-gui
-        _1password-cli
-        ghostty
-        appimage-run
-        catppuccin-kde
-        chromium
-        darktable
-        discord
-        flameshot
-        gimp
-        grimblast
-        grim
-        slurp
-        glib
-        gnome-tweaks
-        gnomeExtensions.dash-to-panel
-        google-chrome
-        kitty
-        mpv
-        neovide
-        obs-studio
-        obsidian
-        qutebrowser
-        rofi
-        slack
-        vesktop
-        vieb
-        vivaldi
-        vlc
-        vscode
-        wezterm
-        xfce.thunar
-        pcmanfm
-      ]);
   };
   xdg.portal = {
     enable = true;

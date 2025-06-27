@@ -1,47 +1,144 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    (python313.withPackages (ps:
+      with ps; [
+        pip
+        flake8
+        black
+        pipx
+        ipython
+        bpython
+        pgcli
+        mypy
+        vdirsyncer
+      ]))
+    alejandra
+    bat
     binutils
     btop
+    buku
+    bun
     cifs-utils
+    clang
+    cloc
     curl
+    curl
+    curlie
+    deno
+    devbox
     dig
+    direnv
+    distrobox
+    distrobox-tui
     docker-buildx
+    dune_3
+    dust
+    emacs-nox
     fastfetch
+    fd
     ffmpeg
     file
+    fzf
     gcc
+    gh
     git
+    git
+    git-lfs
     gita
+    glab
+    gleam
     glibc
+    glow
     gnumake
+    gnupg
+    go
+    gotools
+    grc
+    gum
+    helix
     htop
+    hub
+    image_optim
     inetutils
+    intelephense
     iotop
     iotop-c
     iperf3
+    jq
+    khal
     killall
     kmod
+    lazydocker
+    lazygit
     lsb-release
-    nfs-utils
+    lsd
+    lua
+    luarocks
+    mc
+    micro
+    mise
+    mosh
     mpc-cli
     mpdris2
+    mtr
     ncmpcpp
+    nfs-utils
+    nh
+    nix-output-monitor
+    nixd
+    nodejs_24
+    nvd
+    ocaml
+    ocamlPackages.findlib
+    ocamlPackages.ocaml-lsp
+    ocamlformat
+    optinix
+    p7zip
+    pass
     pciutils
+    php
+    pinentry
+    pnpm
+    postgresql
     postgresql.lib
+    prettierd
     pulsemixer
+    pyright
     restic
+    ripgrep
+    ruff
+    rustup
     samba
+    sqlite
+    starship
     starship
     stdenv.cc.cc
+    stow
+    superfile
+    syncthing
     sysz
     texlive.combined.scheme-full
     tmux
+    tree
+    tree-sitter
     typst
     unzip
+    unzip
     usbutils
+    uv
     vim
+    vtm
+    wezterm
     wget
+    wget
+    xdg-utils
+    xh
+    yarn
+    yazi
+    yt-dlp
     zip
+    zip
+    zoxide
     zsh
   ];
 }

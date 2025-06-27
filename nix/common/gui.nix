@@ -50,6 +50,7 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    withUWSM = true;
   };
   programs.waybar = {
     enable = true;
@@ -62,7 +63,7 @@
   };
 
   services.displayManager = {
-    defaultSession = "hyprland";
+    defaultSession = "hyprland-uwsm";
     sddm = {
       enable = true;
     };
@@ -93,34 +94,72 @@
       firefoxpwa
     ])
     ++ (with pkgs; [
+      _1password-cli
+      _1password-gui
       adwaita-icon-theme
-      clipman
+      appimage-run
+      catppuccin-kde
+      chromium
       cliphist
+      clipman
+      darktable
       desktop-file-utils
       dex
+      discord
       dmenu #application launcher most people use
       dunst
+      dust
       feh
-      gnomeExtensions.appindicator
+      flameshot
+      ghostty
+      gimp
+      glib
       gnome-software
-      lxappearance
-      libnotify
-      maim
-      pavucontrol
-      plattenalbum
-      plexamp
-      picom-pijulius
-      terminus_font_ttf
-      networkmanagerapplet
-      waybar
-      hyprpaper
-      hyprlock
+      gnome-tweaks
+      gnomeExtensions.appindicator
+      gnomeExtensions.dash-to-panel
+      google-chrome
+      grim
+      grimblast
       hypridle
-      hyprshot
+      hyprlock
+      hyprpaper
       hyprpolkitagent
-      wofi
+      hyprshot
+      kitty
+      libnotify
+      lxappearance
+      maim
+      mpv
+      neovide
+      networkmanagerapplet
+      nh
+      nix-output-monitor
+      nvd
+      obs-studio
+      obsidian
+      pavucontrol
+      pcmanfm
+      picom-pijulius
+      plattenalbum
+      playerctl
+      plexamp
+      qutebrowser
+      rofi
+      slack
+      slurp
+      terminus_font_ttf
+      vesktop
+      vieb
+      vivaldi
+      vlc
+      vscode
+      waybar
+      wezterm
       wl-clipboard
+      wofi
       wtype
+      xfce.thunar
       xss-lock
     ]);
 

@@ -95,8 +95,8 @@
         "escape": true,
         "interval": 5,
         "tooltip": true,
-        "exec": "playerctl metadata --format='{{ artist }}|{{ title }}'",
-        "on-click": "playerctl play-pause",
+        "exec": "/run/current-system/sw/bin/playerctl metadata --format='{{ artist }}|{{ title }}'",
+        "on-click": "/run/current-system/sw/bin/playerctl play-pause",
         "max-length": 50
     },
     "clock": {
@@ -129,7 +129,7 @@
     },
     "custom/lock": {
         "tooltip": false,
-        "on-click": "hyprlock",
+        "on-click": "/run/current-system/sw/bin/hyprlock",
         "format": ""
     }
 }

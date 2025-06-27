@@ -34,6 +34,7 @@
         kitty
         neovide
         obs-studio
+        obsidian
         qutebrowser
         rofi
         slack

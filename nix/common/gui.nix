@@ -51,6 +51,9 @@
     enable = true;
     xwayland.enable = true;
   };
+  programs.waybar = {
+    enable = true;
+  };
   services.flatpak.enable = true;
 
   services.desktopManager = {
@@ -59,7 +62,7 @@
   };
 
   services.displayManager = {
-    defaultSession = "none+i3";
+    defaultSession = "hyprland";
     sddm = {
       enable = true;
     };
@@ -98,7 +101,6 @@
       feh
       gnomeExtensions.appindicator
       gnome-software
-      goxlr-utility
       lxappearance
       libnotify
       maim

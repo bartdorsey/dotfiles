@@ -76,6 +76,10 @@
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
 
+  services.goxlr-utility = {
+    enable = true;
+    autoStart.xdg = true;
+  };
   # List services that you want to enable:
 
   # Open ports in the firewall.

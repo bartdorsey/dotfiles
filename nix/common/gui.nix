@@ -94,6 +94,8 @@
     ])
     ++ (with pkgs; [
       adwaita-icon-theme
+      clipman
+      cliphist
       desktop-file-utils
       dex
       dmenu #application launcher most people use
@@ -116,6 +118,8 @@
       hypridle
       hyprshot
       wofi
+      wl-clipboard
+      wtype
       xss-lock
     ]);
 

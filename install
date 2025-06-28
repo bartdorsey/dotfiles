@@ -64,7 +64,7 @@ if type stow 2>/dev/null; then
     cyan "-------------------------"
     cyan "Symlinking in dotfiles..."
     cyan "-------------------------"
-    ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "glzr/")
+    ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "glzr/" "syncthing/")
 
     for i in */; do
         if [[ " ${ignore_directories[@]} " =~ " $i " ]]; then

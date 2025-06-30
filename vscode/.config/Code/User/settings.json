@@ -51,9 +51,9 @@
         }
     ],
     "workbench.colorCustomizations": {
-        "statusBar.background": "#005f5f",
-        "statusBar.noFolderBackground": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f",
+        "statusBar.background": "#5f0000",
+        "statusBar.noFolderBackground": "#5f0000",
+        "statusBar.debuggingBackground": "#5f0000",
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
@@ -204,5 +204,8 @@
     "workbench.editorAssociations": {
         "*.copilotmd": "vscode.markdown.preview.editor",
         "*.pdf": "latex-workshop-pdf-hook"
-    }
+    },
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wrappingStrategy": "advanced",
+    "tinymist.lint.enabled": true
 }

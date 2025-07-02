@@ -52,6 +52,7 @@
     gnumake
     gnupg
     go
+    gopls
     gotools
     grc
     gum

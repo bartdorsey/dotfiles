@@ -66,6 +66,7 @@
     defaultSession = "hyprland-uwsm";
     sddm = {
       enable = true;
+      wayland.enable = true;
     };
     cosmic-greeter.enable = false;
   };
@@ -75,6 +76,8 @@
     layout = "us";
     variant = "";
   };
+
+  programs.kdeconnect.enable = true;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -155,8 +158,9 @@
       vlc
       vscode
       waybar
+      wayland-utils # Wayland utilities
       wezterm
-      wl-clipboard
+      wl-clipboard # Command-line copy/paste utilities for Wayland
       wofi
       wtype
       xfce.thunar

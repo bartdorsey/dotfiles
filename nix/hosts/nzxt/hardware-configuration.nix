@@ -89,4 +89,8 @@
     users = ["echo"];
     enable = true;
   };
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 }

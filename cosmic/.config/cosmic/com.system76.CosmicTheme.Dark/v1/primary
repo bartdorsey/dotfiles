@@ -21,7 +21,7 @@
         pressed: (
             red: 0.36976713,
             green: 0.36976713,
-            blue: 0.36976707,
+            blue: 0.36976704,
             alpha: 1.0,
         ),
         selected: (
@@ -31,15 +31,15 @@
             alpha: 1.0,
         ),
         selected_text: (
-            red: 0.3882353,
-            green: 0.8156863,
-            blue: 0.8745098,
+            red: 0.6313726,
+            green: 0.7529412,
+            blue: 0.92156863,
             alpha: 1.0,
         ),
         focus: (
-            red: 0.3882353,
-            green: 0.8156863,
-            blue: 0.8745098,
+            red: 0.6313726,
+            green: 0.7529412,
+            blue: 0.92156863,
             alpha: 1.0,
         ),
         divider: (
@@ -69,13 +69,13 @@
         border: (
             red: 0.7432059,
             green: 0.7432059,
-            blue: 0.7432057,
+            blue: 0.7432056,
             alpha: 1.0,
         ),
         disabled_border: (
             red: 0.7432059,
             green: 0.7432059,
-            blue: 0.7432057,
+            blue: 0.7432056,
             alpha: 0.5,
         ),
     ),
@@ -92,9 +92,9 @@
         alpha: 1.0,
     ),
     small_widget: (
-        red: 0.20212594,
+        red: 0.2021259,
         green: 0.202126,
-        blue: 0.20212579,
+        blue: 0.20212576,
         alpha: 0.25,
     ),
 )

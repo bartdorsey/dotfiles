@@ -43,8 +43,9 @@ local front_end = "WebGpu"
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     config.default_domain = "WSL:Ubuntu"
     opacity = 0.90
-    font_size = 12
+    font_size = 14
     front_end = "OpenGL"
+    config.font = wezterm.font("JetBrains Mono", { weight = "DemiBold" })
     config.exec_domains = {
         wezterm.exec_domain("powershell", function(cmd)
             wezterm.log_info(cmd)
@@ -111,8 +112,7 @@ config.initial_rows = 35
 config.initial_cols = 100
 config.audible_bell = "Disabled"
 config.enable_tab_bar = true
-config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = true
+config.tab_bar_at_bottom = false
 config.warn_about_missing_glyphs = false
 config.window_close_confirmation = "NeverPrompt"
 config.window_background_opacity = opacity
@@ -344,6 +344,7 @@ domains.apply_to_config(config, {
 })
 tabline.apply_to_config(config)
 
-config.window_decorations = "TITLE | RESIZE"
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.use_fancy_tab_bar = false
 
 return config

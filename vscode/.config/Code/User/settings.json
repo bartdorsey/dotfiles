@@ -5,7 +5,6 @@
     "python.analysis.typeCheckingMode": "standard",
     "vim.leader": "<space>",
     "vim.highlightedyank.enable": true,
-    "vim.statusBarColorControl": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [

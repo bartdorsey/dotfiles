@@ -88,12 +88,6 @@ config.set_environment_variables = {
     TERM = "wezterm",
 }
 
-config.window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0,
-}
 config.inactive_pane_hsb = {
     saturation = 0.9,
     brightness = 0.4,
@@ -347,4 +341,10 @@ tabline.apply_to_config(config)
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.use_fancy_tab_bar = false
 
+config.window_padding = {
+    left = "2cell",
+    right = "2cell",
+    top = "1cell",
+    bottom = "1cell",
+}
 return config

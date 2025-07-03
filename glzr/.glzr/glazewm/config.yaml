@@ -106,7 +106,7 @@ workspaces:
       display_name: "Code"
       bind_to_monitor: 1
     - name: "3"
-      display_name: "Zoom"
+      display_name: "Video"
       bind_to_monitor: 1
     - name: "4"
       display_name: "Notes"
@@ -118,13 +118,13 @@ workspaces:
       display_name: "Misc"
       bind_to_monitor: 1
     - name: "7"
-      display_name: "Chat"
+      display_name: "Secondary"
       bind_to_monitor: 0
     - name: "8"
-      display_name: "PIP"
+      display_name: "Aux"
       bind_to_monitor: 2
     - name: "9"
-      display_name: "Misc"
+      display_name: "PIP"
       bind_to_monitor: 2
 
 window_rules:
@@ -144,7 +144,7 @@ window_rules:
     # Workspace 3
     - commands: ["move --workspace 3"]
       match:
-          - window_process: { regex: "^[Zz]oom" }
+          - window_title: { regex: "YouTube" }
     # Workspace 4
     - commands: ["move --workspace 4"]
       match:
@@ -166,11 +166,13 @@ window_rules:
       match:
           - window_process: { regex: "^[Vv]esktop" }
           - window_process: { regex: "^[Ss]lack" }
+          - window_process: { regex: "^[Zz]oom" }
     # Workspace 8
-    - commands: ["move --workspace 8"]
+    - commands: ["move --workspace 8", "focus --workspace 8"]
       match:
           - window_process: { equals: "ksnip" }
-    - commands: ["move --workspace 8", "set-fullscreen"]
+          - window_title: { regex: "Galvanize SIS" }
+    - commands: ["move --workspace 9", "set-fullscreen", "focus --workspace 9"]
       match:
           - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
     # Ignore

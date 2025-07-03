@@ -19,9 +19,13 @@ general:
     # workspace when focusing the current workspace.
     toggle_workspace_on_refocus: false
 
+    hide_method: "cloak"
+
+    show_all_in_taskbar: true
+
     cursor_jump:
         # Whether to automatically move the cursor on the specified trigger.
-        enabled: true
+        enabled: false
 
         # Trigger for cursor jump:
         # - 'monitor_focus': Jump when focus changes between monitors.
@@ -73,6 +77,9 @@ window_effects:
         corner_style:
             enabled: true
             style: "rounded"
+        transparency:
+            enabled: true
+            opacity: "90%"
 
 window_behavior:
     # New windows are created in this state whenever possible.
@@ -106,10 +113,10 @@ workspaces:
       display_name: "Code"
       bind_to_monitor: 1
     - name: "3"
-      display_name: "Video"
+      display_name: "Notes"
       bind_to_monitor: 1
     - name: "4"
-      display_name: "Notes"
+      display_name: "Video"
       bind_to_monitor: 1
     - name: "5"
       display_name: "Games"
@@ -144,11 +151,11 @@ window_rules:
     # Workspace 3
     - commands: ["move --workspace 3"]
       match:
-          - window_title: { regex: "YouTube" }
+          - window_process: { regex: "^[Oo]bsidian" }
     # Workspace 4
     - commands: ["move --workspace 4"]
       match:
-          - window_process: { regex: "^[Oo]bsidian" }
+          - window_title: { regex: "YouTube" }
     # Workspace 5
     - commands: ["move --workspace 5", "focus --workspace 5"]
       match:
@@ -179,6 +186,7 @@ window_rules:
     - commands: ["set-floating"]
       match:
           - window_process: { equals: "Flow.Launcher" }
+          - window_class: { regex: "^ZPFloat" }
     - commands: ["ignore"]
       match:
           - window_process: { equals: "msrdc" }

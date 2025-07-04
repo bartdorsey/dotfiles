@@ -110,6 +110,7 @@
     pyright
     restic
     ripgrep
+    rmpc
     ruff
     rustup
     samba
@@ -131,6 +132,7 @@
     usbutils
     uv
     vim
+    vimpc
     vtm
     wezterm
     wget

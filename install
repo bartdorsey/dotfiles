@@ -66,6 +66,11 @@ if type stow 2>/dev/null; then
     cyan "-------------------------"
     ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "glzr/" "syncthing/")
 
+    if [ -f /etc/NIXOS ]; then
+        ignore_directories+=("zshenv/")
+        cyan "Detected NixOS, skipping ~/.zshenv linking"
+    fi
+
     for i in */; do
         if [[ " ${ignore_directories[@]} " =~ " $i " ]]; then
             continue

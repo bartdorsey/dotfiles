@@ -160,4 +160,3 @@ source $HOME/.config/common/fetch.sh
 
 # Wezterm
 source $HOME/.config/common/wezterm.sh
-

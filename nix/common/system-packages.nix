@@ -20,6 +20,7 @@
     bun
     cifs-utils
     clang
+    claude-code
     cloc
     curl
     curl

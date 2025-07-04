@@ -30,6 +30,20 @@
   # allow unfree packages
   nixpkgs.config.allowunfree = true;
 
+  # ZSH
+  programs.zsh = {
+    enable = true;
+    histFile = "$XDG_STATE_HOME/zsh/history";
+    shellInit = ''
+      ZDOTDIR=$HOME/.config/zsh
+    '';
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.nix-ld = {
     enable = true;
     package = pkgs.nix-ld-rs;
@@ -63,5 +77,13 @@
       PasswordAuthentication = true;
       PermitEmptyPasswords = "yes";
     };
+  };
+
+  # Setup XDG vars by default
+  environment.sessionVariables = {
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
+    XDG_CACHE_HOME = "$HOME/.cache";
   };
 }

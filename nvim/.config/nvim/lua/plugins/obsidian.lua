@@ -1,5 +1,5 @@
 return {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
     keys = {
@@ -49,15 +49,20 @@ return {
                 path = "~/Obsidian",
             },
         },
-        notes_subdir = "Notes",
+        notes_subdir = "notes",
         daily_notes = {
-            folder = "Daily Notes",
+            folder = "daily-notes",
         },
         templates = {
-            subdir = "Templates",
+            subdir = "templates",
         },
         follow_url_func = function(url)
             vim.fn.jobstart({ "wsl-open", url })
         end,
+        completion = {
+            blink = true,
+            -- Trigger completion at 2 chars.
+            min_chars = 2,
+        },
     },
 }

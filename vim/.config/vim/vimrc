@@ -23,7 +23,11 @@ set undodir=$XDG_STATE_HOME/vim/undo     | call mkdir(&undodir,   'p', 0700)
 set viewdir=$XDG_STATE_HOME/vim/view     | call mkdir(&viewdir,   'p', 0700)
 
 if !has('nvim') " Neovim has its own special location
-  set viminfofile=$XDG_STATE_HOME/vim/viminfo
+    if empty($XDG_STATE_HOME)
+        set viminfofile=$HOME/.local/state/vim/viminfo
+    else
+        set viminfofile=$XDG_STATE_HOME/vim/viminfo
+    endif
 endif
 
 " [[ Setting options ]]

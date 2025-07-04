@@ -41,6 +41,21 @@
 
   services.rpcbind.enable = true;
 
+  services.mpd = {
+    enable = true;
+    user = "echo";
+    musicDirectory = "/mnt/Music/iTunes Old/iTunes Music/Music/";
+    extraConfig = ''
+      audio_output {
+        type        "pulse"
+        name        "WSLg Audio"
+      }
+    '';
+  };
+  systemd.services.mpd.environment = {
+    XDG_RUNTIME_DIR = "/run/user/1000";
+  };
+
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
   ];

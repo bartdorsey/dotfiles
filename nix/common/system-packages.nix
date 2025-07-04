@@ -104,6 +104,8 @@
     postgresql
     postgresql.lib
     prettierd
+    pulseaudio-ctl
+    pulseaudio
     pulsemixer
     pyright
     restic

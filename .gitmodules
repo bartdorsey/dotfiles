@@ -20,3 +20,6 @@
 	path = nvim/.config/nvim/local/quickclip.nvim
 	url = https://github.com/bartdorsey/quickclip.nvim.git
 
+[submodule "zsh/.config/zsh/plugins/zsh-auto-notify"]
+	path = zsh/.config/zsh/plugins/zsh-auto-notify
+	url = https://github.com/MichaelAquilina/zsh-auto-notify.git

@@ -88,6 +88,9 @@ fi
 # iPython
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 
+# Python
+export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
+
 # Jupyter
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 

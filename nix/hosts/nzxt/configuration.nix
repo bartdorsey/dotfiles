@@ -64,7 +64,7 @@
   services.mpd = {
     enable = true;
     user = "echo";
-    musicDirectory = "/mnt/Music/iTunes Old/iTunes Music/Music/";
+    musicDirectory = "/mnt/Music/";
     extraConfig = ''
       audio_output {
           type "pipewire"

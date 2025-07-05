@@ -79,7 +79,7 @@ window_effects:
             style: "rounded"
         transparency:
             enabled: true
-            opacity: "90%"
+            opacity: "95%"
 
 window_behavior:
     # New windows are created in this state whenever possible.
@@ -185,6 +185,7 @@ window_rules:
     # Ignore
     - commands: ["set-floating"]
       match:
+          - window_class: { regex: "^Avalonia" }
           - window_process: { equals: "Flow.Launcher" }
           - window_class: { regex: "^ZPFloat" }
     - commands: ["ignore"]

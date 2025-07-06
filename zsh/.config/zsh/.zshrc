@@ -112,6 +112,9 @@ if [[ $DEVMODE ]]; then
     source $HOME/.config/common/devtools.sh
 fi
 
+# WSL
+source $ZDOTDIR/wsl.zsh
+
 # Plugins
 source $ZDOTDIR/zsh-plugins.zsh
 
@@ -129,10 +132,6 @@ source $ZDOTDIR/keybinds.zsh
 
 # SSH Agent
 source $ZDOTDIR/ssh-agent.zsh
-
-# WSL
-source $ZDOTDIR/wsl.zsh
-
 
 # VSCode Integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

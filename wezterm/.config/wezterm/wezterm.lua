@@ -338,8 +338,9 @@ domains.apply_to_config(config, {
 })
 tabline.apply_to_config(config)
 
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_decorations = "NONE"
 config.use_fancy_tab_bar = false
+config.enable_wayland = true
 
 config.window_padding = {
     left = "2cell",

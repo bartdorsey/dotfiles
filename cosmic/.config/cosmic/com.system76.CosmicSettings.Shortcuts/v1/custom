@@ -2,46 +2,60 @@
     (
         modifiers: [
             Alt,
+            Shift,
         ],
-        key: "2",
-    ): Workspace(2),
-    (
-        modifiers: [
-            Alt,
-        ],
-        key: "7",
-    ): Workspace(7),
+        key: "l",
+    ): Move(Right),
     (
         modifiers: [
             Alt,
             Shift,
         ],
-        key: "j",
-    ): Move(Down),
-    (
-        modifiers: [
-            Alt,
-        ],
-        key: "5",
-    ): Workspace(5),
-    (
-        modifiers: [
-            Alt,
-        ],
         key: "4",
-    ): Workspace(4),
+    ): MoveToWorkspace(4),
     (
         modifiers: [
             Alt,
+        ],
+        key: "2",
+    ): Workspace(2),
+    (
+        modifiers: [
+            Super,
+        ],
+    ): Disable,
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "9",
+    ): MoveToWorkspace(9),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "9",
+    ): Workspace(9),
+    (
+        modifiers: [
+            Alt,
+            Shift,
         ],
         key: "h",
-    ): Focus(Left),
+    ): Move(Left),
     (
         modifiers: [
-            Alt,
+            Ctrl,
         ],
-        key: "l",
-    ): Focus(Right),
+        key: "space",
+    ): System(Launcher),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Down",
+    ): Disable,
     (
         modifiers: [
             Alt,
@@ -52,14 +66,54 @@
         modifiers: [
             Alt,
         ],
-        key: "3",
-    ): Workspace(3),
+        key: "m",
+    ): Minimize,
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "l",
+    ): Focus(Right),
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "2",
+    ): MoveToWorkspace(2),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "4",
+    ): Workspace(4),
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "q",
+    ): Close,
     (
         modifiers: [
             Super,
         ],
-        key: "Down",
+        key: "t",
     ): Disable,
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "j",
+    ): Move(Down),
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "7",
+    ): MoveToWorkspace(7),
     (
         modifiers: [
             Alt,
@@ -76,28 +130,21 @@
         modifiers: [
             Alt,
         ],
-        key: "9",
-    ): Workspace(9),
+        key: "Return",
+    ): System(Terminal),
     (
         modifiers: [
             Alt,
-            Shift,
-        ],
-        key: "l",
-    ): Move(Right),
-    (
-        modifiers: [
-            Alt,
-            Shift,
         ],
         key: "h",
-    ): Move(Left),
+    ): Focus(Left),
     (
         modifiers: [
             Alt,
+            Shift,
         ],
-        key: "k",
-    ): Focus(Up),
+        key: "5",
+    ): MoveToWorkspace(5),
     (
         modifiers: [
             Alt,
@@ -108,7 +155,65 @@
     (
         modifiers: [
             Alt,
+            Shift,
+        ],
+        key: "8",
+    ): MoveToWorkspace(8),
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "3",
+    ): MoveToWorkspace(3),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "5",
+    ): Workspace(5),
+    (
+        modifiers: [
+            Alt,
         ],
         key: "8",
     ): Workspace(8),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "k",
+    ): Focus(Up),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "7",
+    ): Workspace(7),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "3",
+    ): Workspace(3),
+    (
+        modifiers: [
+            Alt,
+        ],
+        key: "f",
+    ): Maximize,
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "6",
+    ): MoveToWorkspace(6),
+    (
+        modifiers: [
+            Alt,
+            Shift,
+        ],
+        key: "1",
+    ): MoveToWorkspace(1),
 }

@@ -185,10 +185,10 @@ window_rules:
     # Ignore
     - commands: ["set-floating"]
       match:
-          - window_process: { equals: "Flow.Launcher" }
           - window_class: { regex: "^ZPFloat" }
     - commands: ["ignore"]
       match:
+          - window_class: { regex: "^Avalonia" }
           - window_process: { equals: "msrdc" }
           - window_process: { regex: "TeraCopy" }
           # Ignores any Zebar windows.

@@ -6,28 +6,38 @@
 }: {
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
-  services.xserver.enable = true;
 
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
+  services.displayManager = {
+    defaultSession = "hyprland-uwsm";
+    ly = {
+      enable = false;
+    };
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    cosmic-greeter.enable = false;
   };
 
-  services.autorandr.enable = true;
-
   services.xserver = {
-    dpi = 96;
     desktopManager = {
-      xterm.enable = true;
+      xterm.enable = false;
     };
+    displayManager = {
+      startx.enable = true;
+      lightdm.enable = false;
+    };
+    enable = true;
+    dpi = 96;
 
     windowManager.awesome = {
-      enable = true;
+      enable = false;
       luaModules = with pkgs.luaPackages; [
         luarocks
         luadbi-mysql
       ];
     };
+
     windowManager.i3 = {
       enable = true;
       package = pkgs-unstable.i3-rounded;
@@ -41,6 +51,26 @@
       ];
     };
   };
+  programs.uwsm = {
+    enable = true;
+  };
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
+  services.flatpak.enable = true;
+
+  systemd.services.flatpak-repo = {
+    wantedBy = ["multi-user.target"];
+    path = [pkgs.flatpak];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
+  services.autorandr.enable = true;
 
   programs.streamdeck-ui = {
     enable = true;
@@ -52,23 +82,16 @@
     xwayland.enable = true;
     withUWSM = true;
   };
+
   programs.waybar = {
     enable = true;
   };
-  services.flatpak.enable = true;
+
+  programs.zoom-us.enable = false;
 
   services.desktopManager = {
     cosmic.enable = true;
     plasma6.enable = true;
-  };
-
-  services.displayManager = {
-    defaultSession = "hyprland-uwsm";
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-    cosmic-greeter.enable = false;
   };
 
   # Configure keymap in X11

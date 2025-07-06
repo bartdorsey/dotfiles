@@ -31,6 +31,4 @@
     "inode/directory" = "yazi.desktop";
     "inode/mount-point" = "yazi.desktop";
   };
-
-  programs.zoom-us.enable = true;
 }

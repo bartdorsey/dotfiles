@@ -47,11 +47,11 @@
             "default": "",
             "1": "Web",
             "2": "Code",
-            "3": "Zoom",
+            "3": "Notes",
             "4": "Games",
             "5": "Misc",
-            "6": "Chat",
-            "7": "Video"
+            "6": "Secondary",
+            "7": "Aux"
         }
     },
     "idle_inhibitor": {

@@ -95,6 +95,7 @@
   environment.systemPackages =
     (with pkgs-unstable; [
       firefoxpwa
+      wezterm
     ])
     ++ (with pkgs; [
       _1password-cli
@@ -102,6 +103,7 @@
       adwaita-icon-theme
       appimage-run
       catppuccin-kde
+      cava
       chromium
       cliphist
       clipman
@@ -129,8 +131,10 @@
       hyprpaper
       hyprpolkitagent
       hyprshot
+      iosevka
       kitty
       libnotify
+      lora
       lxappearance
       maim
       mpv
@@ -159,7 +163,6 @@
       vscode
       waybar
       wayland-utils # Wayland utilities
-      wezterm
       wl-clipboard # Command-line copy/paste utilities for Wayland
       wofi
       wtype

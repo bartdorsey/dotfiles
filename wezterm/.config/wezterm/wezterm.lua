@@ -7,15 +7,12 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-local color_scheme = "Catppuccin Mocha"
+config.color_scheme = "Catppuccin Mocha"
 
 local tabline =
     wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 local domains =
     wezterm.plugin.require("https://github.com/DavidRR-F/quick_domains.wezterm")
-
--- local tabline =
---     wezterm.plugin.require("https://github.com/bartdorsey/tabline.wez")
 
 wezterm.on("toggle-ligature", function(window, _)
     local overrides = window:get_config_overrides() or {}
@@ -29,23 +26,14 @@ wezterm.on("toggle-ligature", function(window, _)
     window:set_config_overrides(overrides)
 end)
 
--- wezterm.on("window-focus-changed", function()
---     os.execute(
---         "xdotool search -classname org.wezfurlong.wezterm | xargs -I{} xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id {}"
---     )
--- Read more below on the gotcha of binding an 'Up' event only.
--- end)
-
-local opacity = 0.8
-local font_size = 14
-local front_end = "WebGpu"
-
+-- Windows
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     config.default_domain = "WSL:Ubuntu"
-    opacity = 0.90
-    font_size = 14
-    front_end = "OpenGL"
+    config.front_end = "OpenGL"
     config.font = wezterm.font("JetBrains Mono", { weight = "DemiBold" })
+    config.font_size = 14
+    config.win32_system_backdrop = "Mica"
+    config.window_background_opacity = 0.9
     config.exec_domains = {
         wezterm.exec_domain("powershell", function(cmd)
             wezterm.log_info(cmd)
@@ -73,9 +61,13 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
             domain = { DomainName = "local" },
         },
     }
+-- MacOS and Linux
 else
-    local shell = os.getenv("SHELL")
-    config.default_prog = { shell }
+    config.macos_window_background_blur = 80
+    config.window_background_opacity = 0.8
+    config.font_size = 14
+    config.default_prog = { os.getenv("SHELL") }
+    config.front_end = "WebGpu"
     config.launch_menu = {
         {
             label = "zsh",
@@ -93,8 +85,6 @@ config.inactive_pane_hsb = {
     brightness = 0.4,
 }
 
-config.font_size = font_size
-config.color_scheme = color_scheme
 config.disable_default_key_bindings = false
 config.max_fps = 170
 config.cursor_thickness = "2pt"
@@ -109,22 +99,21 @@ config.enable_tab_bar = true
 config.tab_bar_at_bottom = false
 config.warn_about_missing_glyphs = false
 config.window_close_confirmation = "NeverPrompt"
-config.window_background_opacity = opacity
-config.macos_window_background_blur = 80
 config.adjust_window_size_when_changing_font_size = false
 config.allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace"
 config.harfbuzz_features = nil
-config.command_palette_bg_color = "#000000"
-config.command_palette_fg_color = "#FFFFFF"
-config.command_palette_font_size = 16.0
-config.command_palette_rows = 1
+config.command_palette_bg_color = "#181825"
+config.command_palette_fg_color = "#cdd6f4"
+config.command_palette_font_size = 14.0
+config.command_palette_font = wezterm.font("JetBrains Mono")
 config.status_update_interval = 1000
-config.front_end = front_end
 config.unix_domains = {
     {
         name = "unix",
     },
 }
+
+-- Keybinds
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 10000 }
 config.keys = {
     {
@@ -212,6 +201,7 @@ for i = 1, 9 do
     })
 end
 
+-- Mouse binds
 config.mouse_bindings = {
     -- Change the default click behavior so that it only selects
     -- text and doesn't open hyperlinks
@@ -235,6 +225,7 @@ config.mouse_bindings = {
     },
 }
 
+-- Tabline config
 tabline.setup({
     options = {
         icons_enabled = true,
@@ -302,6 +293,7 @@ tabline.setup({
     },
 })
 
+-- Domains config
 domains.apply_to_config(config, {
     keys = {
         -- open domain in new tab
@@ -336,11 +328,12 @@ domains.apply_to_config(config, {
         },
     },
 })
+
+-- Apply the tabline config
 tabline.apply_to_config(config)
 
--- config.window_decorations = "NONE"
+-- Reset things that tab line sets
 config.use_fancy_tab_bar = false
-config.enable_wayland = false
 
 config.window_padding = {
     left = "2cell",

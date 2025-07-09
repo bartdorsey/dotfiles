@@ -71,12 +71,12 @@ user_pref("network.predictor.enable-prefetch", false);
 /** TRACKING PROTECTION ***/
 user_pref("browser.contentblocking.category", "strict");
 user_pref(
-    "urlclassifier.trackingSkipURLs",
-    "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com",
+  "urlclassifier.trackingSkipURLs",
+  "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com",
 );
 user_pref(
-    "urlclassifier.features.socialtracking.skipURLs",
-    "*.instagram.com, *.twitter.com, *.twimg.com",
+  "urlclassifier.features.socialtracking.skipURLs",
+  "*.instagram.com, *.twitter.com, *.twimg.com",
 );
 user_pref("privacy.partition.bloburl_per_partition_key", true);
 user_pref("browser.uitour.enabled", false);
@@ -148,8 +148,8 @@ user_pref("browser.tabs.firefox-view", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref(
-    "geo.provider.network.url",
-    "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%",
+  "geo.provider.network.url",
+  "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%",
 );
 user_pref("permissions.manager.defaultsUrl", "");
 user_pref("webchannel.allowObject.urlWhitelist", "");
@@ -195,12 +195,12 @@ user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref(
-    "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons",
-    false,
+  "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons",
+  false,
 );
 user_pref(
-    "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features",
-    false,
+  "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features",
+  false,
 );
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
@@ -274,6 +274,9 @@ user_pref("privacy.userContext.enabled", true);
 
 // PREF: enable GPU-accelerated Canvas2D [WINDOWS]
 user_pref("gfx.canvas.accelerated", true);
+
+// Disable restore window state
+user_pref("browser.restoreWindowState.disabled", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *

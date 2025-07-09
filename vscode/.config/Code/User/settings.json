@@ -49,13 +49,6 @@
             ]
         }
     ],
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#5f0000",
-        "statusBar.noFolderBackground": "#5f0000",
-        "statusBar.debuggingBackground": "#5f0000",
-        "statusBar.foreground": "#ffffff",
-        "statusBar.debuggingForeground": "#ffffff"
-    },
     "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.inlayHints.functionReturnTypes": true,
     "[html]": {
@@ -141,7 +134,6 @@
     "html.format.indentInnerHtml": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "terminal.integrated.fontSize": 13,
     "basedpyright.analysis.diagnosticMode": "workspace",
     "basedpyright.analysis.typeCheckingMode": "standard",
     "editor.lineHeight": 0,

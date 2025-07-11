@@ -59,6 +59,10 @@ if [ ! -d "$HOME/config/git" ]; then
     mkdir -v "$HOME/.config/git"
 fi
 
+if [ ! -d "$HOME/.claude" ]; then
+    mkdir -v "$HOME/.claude"
+fi
+
 if type stow 2>/dev/null; then
 
     cyan "-------------------------"

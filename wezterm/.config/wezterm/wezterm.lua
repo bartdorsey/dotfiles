@@ -62,10 +62,23 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         },
     }
 -- MacOS and Linux
+elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+    config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
+    config.enable_wayland = false
+    config.kde_window_background_blur = true
+    config.window_background_opacity = 0.8
+    config.font_size = 14
+    config.default_prog = { os.getenv("SHELL") }
+    config.front_end = "WebGpu"
+    config.launch_menu = {
+        {
+            label = "zsh",
+            args = { "zsh", "-l" },
+        },
+    }
 else
     config.macos_window_background_blur = 80
     config.window_background_opacity = 0.8
-    config.font_size = 14
     config.default_prog = { os.getenv("SHELL") }
     config.front_end = "WebGpu"
     config.launch_menu = {

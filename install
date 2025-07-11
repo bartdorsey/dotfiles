@@ -80,7 +80,7 @@ if type stow 2>/dev/null; then
         if [[ " ${ignore_directories[@]} " =~ " $i " ]]; then
             continue
         fi
-        stow -v -R "$i" 2>&1 | grep "WARNING"
+        stow -v -R "$i" -t "$HOME" 2>&1 | grep "WARNING"
     done
 
 fi

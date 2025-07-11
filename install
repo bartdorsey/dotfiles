@@ -27,28 +27,28 @@ cyan "-------------------------"
 
 # Bootstrap some basic directories
 if [ ! -d "$HOME/.local" ]; then
-    mkdir -v "$HOME/.local"
+    mkdir -vp "$HOME/.local"
 fi
 
 if [ ! -d "$HOME/.ssh" ]; then
-    mkdir -v "$HOME/.ssh"
+    mkdir -vp "$HOME/.ssh"
 fi
 
 if [ ! -d "$HOME/.local/share" ]; then
-    mkdir -v "$HOME/.local/share"
+    mkdir -vp "$HOME/.local/share"
 fi
 
 if [ ! -d "$HOME/.local/share/gnupg" ]; then
-    mkdir -v "$HOME/.local/share/gnupg"
+    mkdir -vp "$HOME/.local/share/gnupg"
     chmod -v 700 "$HOME/.local/share/gnupg"
 fi
 
 if [ ! -d "$HOME/.config/zen" ]; then
-    mkdir -v "$HOME/.config/zen"
+    mkdir -vp "$HOME/.config/zen"
 fi
 
 if [ ! -d "$HOME/.config/firefox" ]; then
-    mkdir -v "$HOME/.config/firefox"
+    mkdir -vp "$HOME/.config/firefox"
 fi
 
 if [ ! -d "$HOME/config/systemd/user/default.target.wants" ]; then
@@ -56,11 +56,11 @@ if [ ! -d "$HOME/config/systemd/user/default.target.wants" ]; then
 fi
 
 if [ ! -d "$HOME/config/git" ]; then
-    mkdir -v "$HOME/.config/git"
+    mkdir -vp "$HOME/.config/git"
 fi
 
 if [ ! -d "$HOME/.claude" ]; then
-    mkdir -v "$HOME/.claude"
+    mkdir -vp "$HOME/.claude"
 fi
 
 if type stow 2>/dev/null; then
@@ -72,7 +72,8 @@ if type stow 2>/dev/null; then
 
     if [ -f /etc/NIXOS ]; then
         ignore_directories+=("zshenv/")
-        cyan "Detected NixOS, skipping ~/.zshenv linking"
+        ignore_directories+=("git/")
+        cyan "Detected NixOS, skipping configs handled by home manager..."
     fi
 
     for i in */; do

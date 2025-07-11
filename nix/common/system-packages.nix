@@ -100,6 +100,7 @@
       ocamlformat
       optinix
       p7zip
+      parted
       pass
       pciutils
       php

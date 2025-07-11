@@ -144,6 +144,7 @@
       glib
       gnome-software
       gnome-tweaks
+      gparted
       gnomeExtensions.appindicator
       gnomeExtensions.dash-to-panel
       google-chrome

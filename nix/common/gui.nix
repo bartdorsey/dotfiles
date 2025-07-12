@@ -191,6 +191,7 @@
       wofi
       wtype
       xfce.thunar
+      xorg.xhost
       xss-lock
     ]);
 

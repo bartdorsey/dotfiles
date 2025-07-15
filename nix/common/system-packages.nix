@@ -129,6 +129,7 @@
       sysz
       texlive.combined.scheme-full
       tmux
+      transcrypt
       tree
       tree-sitter
       typst

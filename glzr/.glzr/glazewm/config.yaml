@@ -148,12 +148,14 @@ window_rules:
           - window_process: { regex: "^[C]ode" }
           - window_process: { regex: "^[Cc]hrome" }
           - window_process: { equals: "WindowsTerminal" }
+          - window_process: { regex: "^[Cc]laude" }
+          - window_process: { regex: "^[Nn]eovide" }
     # Workspace 3
-    - commands: ["move --workspace 3"]
+    - commands: ["move --workspace 3", "focus --workspace 3"]
       match:
           - window_process: { regex: "^[Oo]bsidian" }
     # Workspace 4
-    - commands: ["move --workspace 4"]
+    - commands: ["move --workspace 4", "focus --workspace 4"]
       match:
           - window_title: { regex: "YouTube" }
     # Workspace 5
@@ -165,7 +167,7 @@ window_rules:
       match:
           - window_process: { regex: "^NMS" }
     # Workspace 6
-    - commands: ["move --workspace 6"]
+    - commands: ["move --workspace 6", "focus --workspace 6"]
       match:
           - window_process: { equals: "bambu-studio" }
     # Workspace 7

@@ -106,7 +106,7 @@ return {
                 nerdfont = {
                     module = "blink-nerdfont",
                     name = "Nerd Fonts",
-                    score_offset = 0, -- Tune by preference
+                    score_offset = 1, -- Tune by preference
                     opts = { insert = true }, -- Insert nerdfont icon (default) or complete its name
                 },
                 spell = {

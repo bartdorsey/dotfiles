@@ -1,5 +1,5 @@
 {...}: {
-  services.rpcbind.enable = true; # needed for NFS
+  services.rpcbind.enable = false; # needed for NFS
   systemd.mounts = let
     commonNFSMountOptions = {
       type = "nfs";

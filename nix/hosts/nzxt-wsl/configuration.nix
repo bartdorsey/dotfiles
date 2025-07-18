@@ -39,7 +39,7 @@
     ];
   };
 
-  services.rpcbind.enable = true;
+  services.rpcbind.enable = false;
 
   services.mpd = {
     enable = true;

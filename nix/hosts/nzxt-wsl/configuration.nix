@@ -10,11 +10,11 @@
   wsl.defaultUser = "echo";
   wsl.wslConf.interop.appendWindowsPath = false;
   wsl.wslConf.network.hostname = "nzxt-wsl";
-  wsl.wslConf.network.generateResolvConf = false;
+  wsl.wslConf.network.generateResolvConf = true;
   wsl.useWindowsDriver = true;
   wsl.startMenuLaunchers = true;
 
-  networking.nameservers = ["10.0.0.3" "10.0.0.4"];
+  # networking.nameservers = ["10.0.0.3" "10.0.0.4"];
   networking.domain = "home";
 
   fileSystems."/home/echo/nixos-home" = {

@@ -1,11 +1,32 @@
 #!/usr/bin/env zsh
-shopt -s expand_aliases
 
 function cyan() {
     local CYAN="\033[0;36m"
     local RESET="\033[0m"
     echo -e "${CYAN}$1${RESET}"
 }
+
+# Check for required dependencies
+check_dependencies() {
+    local missing_deps=()
+    
+    for cmd in git stow; do
+        if ! command -v "$cmd" >/dev/null 2>&1; then
+            missing_deps+=("$cmd")
+        fi
+    done
+    
+    if [[ ${#missing_deps[@]} -gt 0 ]]; then
+        cyan "❌ Missing required dependencies: ${missing_deps[*]}"
+        cyan "Please install them first:"
+        cyan "  Ubuntu/Debian: sudo apt install ${missing_deps[*]}"
+        cyan "  macOS: brew install ${missing_deps[*]}"
+        cyan "  Arch: sudo pacman -S ${missing_deps[*]}"
+        exit 1
+    fi
+}
+
+check_dependencies
 
 cyan "--------------------"
 cyan "Updating Git Modules"
@@ -51,11 +72,11 @@ if [ ! -d "$HOME/.config/firefox" ]; then
     mkdir -vp "$HOME/.config/firefox"
 fi
 
-if [ ! -d "$HOME/config/systemd/user/default.target.wants" ]; then
+if [ ! -d "$HOME/.config/systemd/user/default.target.wants" ]; then
     mkdir -p -v "$HOME/.config/systemd/user/default.target.wants"
 fi
 
-if [ ! -d "$HOME/config/git" ]; then
+if [ ! -d "$HOME/.config/git" ]; then
     mkdir -vp "$HOME/.config/git"
 fi
 

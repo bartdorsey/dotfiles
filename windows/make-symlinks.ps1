@@ -8,8 +8,9 @@ New-Link $HOME/.dotfiles/windows/Microsoft.PowerShell_profile.ps1 $PROFILE
 New-Link $HOME/.dotfiles/ssh/.ssh/config $HOME/.ssh/config
 New-Link $HOME/.dotfiles/lazygit/.config/lazygit $HOME/.config/lazygit
 New-Link $HOME/.dotfiles/helix/.config/helix $env:APPDATA/helix
-New-Link $HOME/.dotfiles/firefox/user.js $HOME/scoop/persist/firefox/profile/user.js
-New-Link $HOME/.dotfiles/firefox/userChrome.css $HOME/scoop/persist/firefox/profile/chrome/userChrome.css
+New-Link $HOME/.dotfiles/firefox/user.js $env:APPDATA/Mozilla/Firefox/Profiles/echo/user.js
+New-Link $HOME/.dotfiles/firefox/prefs.js $env:APPDATA/Mozilla/Firefox/Profiles/echo/prefs.js
+New-Link $HOME/.dotfiles/firefox/chrome/userChrome.css $env:APPDATA/Mozilla/Firefox/echo/chrome/userChrome.css
 New-Link $HOME/.dotfiles/wezterm/.config/wezterm $HOME/.config/wezterm
 New-Link $HOME/.dotfiles/oh-my-posh/.config/oh-my-posh $HOME/.config/oh-my-posh
 New-Link $HOME/.dotfiles/vscode/.config/Code/User/settings.json $env:APPDATA/Code/User/settings.json

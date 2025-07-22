@@ -98,6 +98,7 @@
       ocamlPackages.findlib
       ocamlPackages.ocaml-lsp
       ocamlformat
+      opencode
       optinix
       p7zip
       parted

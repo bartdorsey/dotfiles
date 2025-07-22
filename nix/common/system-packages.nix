@@ -155,6 +155,5 @@
     ])
     ++ (with pkgs-unstable; [
       claude-code
-      opencode
     ]);
 }

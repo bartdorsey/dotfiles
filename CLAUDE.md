@@ -38,12 +38,20 @@ stow -v -n -R <package-name> -t "$HOME"
 # Format Lua code (used for Neovim configs)
 stylua .
 
+# Lint Lua code (uses selene.toml config)
+selene .
+
 # Format shell scripts
 shfmt -w -i 4 <file>
 
 # Enable development mode (affects Neovim plugin loading)
 touch ~/.config/devmode
 export DEVMODE=1
+
+# Test Docker environment
+docker compose up --build -d homedir
+docker compose exec homedir zsh
+docker compose down
 ```
 
 ## Architecture
@@ -97,3 +105,19 @@ The install script automatically skips:
 - **Zsh**: Vi mode, Starship prompt, extensive tool integration (mise, direnv, zoxide)
 - **Git**: Comprehensive aliases and modern workflow tools
 - **Development**: Multi-language LSP support, formatters, linters, debuggers
+
+## Code Quality Tools
+
+### Lua Configuration
+- **Stylua**: Code formatter with configuration in `.stylua.toml` (80 columns, 4 spaces)
+- **Selene**: Lua linter configured for Vim/Neovim with `selene.toml`
+- **Lazy.nvim**: Plugin manager bootstraps automatically, imports from `plugins/` directory
+
+### Shell Scripts
+- **shfmt**: Shell script formatter with 4-space indentation
+- Scripts use `#!/usr/bin/env zsh` for maximum compatibility
+
+### Development Workflow
+- DEVMODE environment variable affects plugin loading behavior
+- Git submodules used for external plugin dependencies
+- XDG Base Directory compliance throughout configuration

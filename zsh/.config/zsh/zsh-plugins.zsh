@@ -38,10 +38,19 @@ run_plugin zsh-autosuggestions zsh-autosuggestions.zsh
 run_plugin fast-syntax-highlighting fast-syntax-highlighting.plugin.zsh
 
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+# Arrow keys for history substring search (universal compatibility)
+bindkey '^[[A'    history-substring-search-up      # Most terminals
+bindkey '^[OA'    history-substring-search-up      # Application mode
+bindkey '^P'      history-substring-search-up      # Emacs fallback
+bindkey '^[[B'    history-substring-search-down    # Most terminals  
+bindkey '^[OB'    history-substring-search-down    # Application mode
+bindkey '^N'      history-substring-search-down    # Emacs fallback
+
+# Terminfo-based bindings (if available)
+[[ -n "$terminfo[kcuu1]" ]] && bindkey "$terminfo[kcuu1]" history-substring-search-up
+[[ -n "$terminfo[kcud1]" ]] && bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# Vi command mode bindings
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 

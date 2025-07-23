@@ -1,5 +1,6 @@
 return {
     "HiPhish/rainbow-delimiters.nvim",
+    ft = { "lua", "python", "javascript", "typescript", "rust", "go", "java", "cpp", "c", "json", "yaml", "toml", "vim", "bash", "zsh", "html", "css", "scss" },
     main = "rainbow-delimiters.setup",
     config = true,
     init = function()

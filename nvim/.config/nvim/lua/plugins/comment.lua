@@ -1,5 +1,10 @@
 return {
     "numtostr/Comment.nvim",
+    keys = {
+        { "gcc", mode = "n", desc = "Comment line" },
+        { "gc", mode = { "n", "v" }, desc = "Comment" },
+        { "<C-_>", mode = { "n", "v" }, desc = "Comment" },
+    },
     opts = {
         mappings = {
             basic = true,

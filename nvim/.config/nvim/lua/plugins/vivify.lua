@@ -1,1 +1,4 @@
-return { "jannis-baum/vivify.vim" }
+return { 
+    "jannis-baum/vivify.vim",
+    cmd = { "Vivify" },
+}

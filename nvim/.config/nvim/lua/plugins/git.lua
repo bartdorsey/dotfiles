@@ -6,6 +6,10 @@ return {
         cond = os.getenv("DEVMODE") ~= nil,
         enabled = true,
         "TimUntersberger/neogit",
+        cmd = { "Neogit" },
+        keys = {
+            { "<leader>gs", "<cmd>Neogit<cr>", desc = "Git Status" },
+        },
         dependencies = {
             "sindrets/diffview.nvim",
             "nvim-lua/plenary.nvim",

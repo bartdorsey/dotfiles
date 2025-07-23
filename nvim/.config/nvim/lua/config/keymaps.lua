@@ -24,19 +24,11 @@ vim.keymap.set(
     { desc = "Make horizontal split larger" }
 )
 
--- Let you move visual blocks with J and K
-vim.keymap.set(
-    "v",
-    "J",
-    ":m '>+1<cr>gv=gv",
-    { desc = "Move selected lines up" }
-) -- up
-vim.keymap.set(
-    "v",
-    "K",
-    ":m '<-2<cr>gv=gv",
-    { desc = "move selected lines down" }
-) -- down
+-- Move lines with Shift+Up/Down (works in both normal and visual mode)
+vim.keymap.set("n", "<S-Down>", ":m .+1<cr>==", { desc = "Move line down" })
+vim.keymap.set("n", "<S-Up>", ":m .-2<cr>==", { desc = "Move line up" })
+vim.keymap.set("v", "<S-Down>", ":m '>+1<cr>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "<S-Up>", ":m '<-2<cr>gv=gv", { desc = "Move selection up" })
 
 -- Easier reach to beginning and end of lines
 vim.keymap.set(
@@ -72,10 +64,10 @@ vim.keymap.set(
 )
 
 -- TIP: Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set("n", "<left>", "<nop>")
+vim.keymap.set("n", "<right>", "<nop>")
+vim.keymap.set("n", "<up>", "<nop>")
+vim.keymap.set("n", "<down>", "<nop>")
 
 -- Paste over without losing what's in your clipboard
 vim.keymap.set("x", "<leader>P", '"_dP')

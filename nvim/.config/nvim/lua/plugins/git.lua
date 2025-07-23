@@ -30,14 +30,4 @@ return {
             numhl = true,
         },
     },
-    -- lazygit.nvim
-    {
-        "kdheepak/lazygit.nvim",
-        enabled = false,
-        cmd = { "LazyGit" },
-        keys = {
-            { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-        },
-        config = true,
-    },
 }

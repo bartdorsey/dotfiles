@@ -33,12 +33,12 @@ require("lazy").setup({
     },
     ui = {},
     checker = {
-        enabled = true,
-        notify = true,
+        enabled = false,  -- Disable auto-checking for faster startup
+        notify = false,
     },
     change_detection = {
-        enabled = true,
-        notify = true,
+        enabled = false,  -- Major Windows performance improvement
+        notify = false,
     },
     install = {
         missing = true,

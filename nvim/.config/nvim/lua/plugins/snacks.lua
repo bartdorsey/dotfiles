@@ -17,11 +17,10 @@ local neovim = [[
 return {
     "folke/snacks.nvim",
     enabled = true,
-    priority = 1000,
+    event = "VeryLazy",
     dependencies = {
         "folke/persistence.nvim",
     },
-    lazy = false,
     keys = {
         {
             "<leader>lg",

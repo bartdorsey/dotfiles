@@ -1,6 +1,6 @@
 return {
     "otavioschwanck/arrow.nvim",
-    lazy = false,
+    keys = { { ";", desc = "Arrow navigation" } },
     opts = {
         always_show_path = true,
         leader_key = ";",

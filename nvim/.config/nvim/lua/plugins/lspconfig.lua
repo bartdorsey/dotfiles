@@ -221,12 +221,37 @@ return {
         capabilities.textDocument.completion.completionItem.snippetSupport =
             true
 
-        -- Main loop to initialize the servers
-        for name, config in pairs(servers) do
-            if lsp_binary_exists(lsp[name]) then
-                config.capabilities = capabilities
-                lsp[name].setup(config)
+        -- Defer LSP setup until needed - only check binaries when opening relevant files
+        local function setup_lsp_on_demand(server_name, server_config)
+            -- Get filetypes for this LSP server
+            local filetypes = server_config.filetypes or lsp[server_name].document_config.default_config.filetypes or {}
+            
+            if #filetypes == 0 then
+                -- Fallback: setup immediately if no filetypes specified
+                if lsp_binary_exists(lsp[server_name]) then
+                    server_config.capabilities = capabilities
+                    lsp[server_name].setup(server_config)
+                end
+                return
             end
+            
+            -- Create autocmd to setup LSP when opening relevant filetypes
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = filetypes,
+                once = false, -- Allow multiple files of same type
+                callback = function()
+                    -- Only setup if not already done and binary exists
+                    if not lsp[server_name].manager and lsp_binary_exists(lsp[server_name]) then
+                        server_config.capabilities = capabilities
+                        lsp[server_name].setup(server_config)
+                    end
+                end,
+            })
+        end
+
+        -- Setup all servers with deferred loading
+        for name, config in pairs(servers) do
+            setup_lsp_on_demand(name, config)
         end
 
         local _border = "single"

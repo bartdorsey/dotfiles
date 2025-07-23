@@ -5,7 +5,7 @@ return {
         "j-hui/fidget.nvim",
         "windwp/nvim-ts-autotag",
     },
-    event = { "BufReadPre" },
+    event = { "BufRead", "BufNewFile" },
     config = function()
         -- [[ Configure Treesitter ]]
         -- See `:help nvim-treesitter`

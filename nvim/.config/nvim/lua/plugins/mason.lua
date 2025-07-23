@@ -2,11 +2,14 @@ return {
     {
         "williamboman/mason.nvim",
         cond = os.getenv("DEVMODE") ~= nil,
+        event = { "BufReadPost", "BufNewFile" },
+        cmd = { "Mason", "MasonInstall", "MasonLog", "MasonUninstall", "MasonUpdate" },
         opts = true,
     },
     {
         "williamboman/mason-lspconfig.nvim",
         cond = os.getenv("DEVMODE") ~= nil,
+        event = { "BufReadPost", "BufNewFile" },
         opts = {
             ensure_installed = {
                 "ansiblels",
@@ -38,6 +41,7 @@ return {
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         cond = os.getenv("DEVMODE") ~= nil,
+        event = { "BufReadPost", "BufNewFile" },
         opts = {
             ensure_installed = {
                 "prettierd",

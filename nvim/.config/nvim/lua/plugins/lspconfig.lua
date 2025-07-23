@@ -21,6 +21,7 @@ end
 return {
     "neovim/nvim-lspconfig",
     cond = os.getenv("DEVMODE") ~= nil,
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         -- Completion
         {

@@ -34,6 +34,7 @@
     "loglevel=3"
     "rd.systemd.show_status=false"
     "udev.log_priority=3"
+    "video=Virtual-1:1920x1080@60"
   ];
 
   networking.hostName = "nixos-vm"; # Define your hostname.

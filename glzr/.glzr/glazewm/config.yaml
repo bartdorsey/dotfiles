@@ -171,6 +171,7 @@ window_rules:
     - commands: ["move --workspace 6", "focus --workspace 6"]
       match:
           - window_process: { equals: "bambu-studio" }
+          - window_process: { regex: "[Vv][Mm]ware"}
     # Workspace 7
     - commands: ["move --workspace 7"]
       match:

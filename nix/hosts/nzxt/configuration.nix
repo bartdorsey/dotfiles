@@ -17,6 +17,12 @@
       gfxmodeEfi = "1920x1080";
       gfxmodeBios = "1920x1080";
       default = "saved";
+      extraEntries = ''
+        menuentry "Bazzite" {
+            search --set=root --fs-uuid 01BE-9670
+            chainloader /EFI/fedora/grubx64.efi
+        }
+      '';
     };
     efi = {
       efiSysMountPoint = "/boot/efi";

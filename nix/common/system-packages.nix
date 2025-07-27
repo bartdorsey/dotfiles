@@ -99,6 +99,7 @@
       ocamlPackages.ocaml-lsp
       ocamlformat
       opencode
+      os-prober
       optinix
       p7zip
       parted

@@ -11,8 +11,9 @@ config.color_scheme = "Catppuccin Mocha"
 
 local tabline =
     wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
-local domains =
-    wezterm.plugin.require("https://github.com/DavidRR-F/quick_domains.wezterm")
+local domains = wezterm.plugin.require(
+    "https://github.com/bartdorsey/quick_domains.wezterm"
+)
 
 wezterm.on("toggle-ligature", function(window, _)
     local overrides = window:get_config_overrides() or {}
@@ -330,9 +331,14 @@ domains.apply_to_config(config, {
             tbl = "",
         },
     },
+    ui = {
+        group_by_type = true,
+        sort_by_name = true,
+    },
     auto = {
         -- disable ssh multiplex auto config
         ssh_ignore = true,
+        sshmux_ignore = true,
         -- disable exec domain auto configs
         exec_ignore = {
             ssh = true,

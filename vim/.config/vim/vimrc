@@ -207,7 +207,7 @@ else
         autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
     augroup END
 
-    let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+    " let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 
     call plug#begin()
 

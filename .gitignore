@@ -13,8 +13,12 @@ aerc/.config/aerc/accounts.conf
 *.token
 *.zwc
 vscode/.config/*
-!vscode/.config/Code/User/*.json
+!vscode/.config/Code/
+vscode/.config/Code/*
+!vscode/.config/Code/User/
 !vscode/.config/Code/extensions.txt
+vscode/.config/Code/User/*
+!vscode/.config/Code/User/*.json
 !vscode/.config/Code/User/snippets/
 vim/.config/vim/plugged
 tmp*

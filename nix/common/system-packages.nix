@@ -128,6 +128,7 @@
       stow
       superfile
       syncthing
+      systemctl-tui
       sysz
       texlive.combined.scheme-full
       tmux

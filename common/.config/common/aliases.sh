@@ -81,3 +81,9 @@ if [ ! -d /nix/store ];then
         alias butts="VIMINIT= NVIM_APPNAME=alphakeks nvim"
     fi
 fi
+
+if command_exists systemctl; then
+    alias sctl='systemctl --no-lengend --plain'
+    alias sls='systemctl list-units --all --type=service --no-legend --plain'
+    alias sus='systemctl list-units --all --user --type=service --no-legend --plain'
+fi

@@ -1,3 +1,6 @@
+# Source common path
+source $HOME/.config/common/path.sh
+
 # Nodejs
 if type fnm > /dev/null; then
     eval "$(fnm env --shell=zsh --use-on-cd)"

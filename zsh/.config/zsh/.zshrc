@@ -103,13 +103,11 @@ fi
 stty stop undef
 
 # Path
-source $HOME/.config/common/path.sh
 source $ZDOTDIR/path.zsh
 
 # Devtools
 if [[ $DEVMODE ]]; then
     source $ZDOTDIR/devtools.zsh
-    source $HOME/.config/common/devtools.sh
 fi
 
 # WSL

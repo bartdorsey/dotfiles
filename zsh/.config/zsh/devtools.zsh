@@ -1,3 +1,6 @@
+# Source common devtools
+source $HOME/.config/common/devtools.sh
+
 # Mise
 if command_exists mise; then
     eval "$(mise activate zsh)"

@@ -45,6 +45,9 @@ return {
             {
                 "jvgrootveld/telescope-zoxide",
             },
+            {
+                "nvim-telescope/telescope-symbols.nvim",
+            },
         },
         cmd = { "Telescope" },
         keys = {
@@ -133,6 +136,11 @@ return {
                     require("telescope").extensions.zoxide.list({})
                 end,
                 desc = "Find Files with Zoxide",
+            },
+            {
+                "<leader>fe",
+                "<cmd>Telescope symbols<CR>",
+                desc = "Find Symbols",
             },
         },
         config = function()

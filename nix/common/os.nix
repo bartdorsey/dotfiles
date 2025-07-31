@@ -86,4 +86,8 @@
     XDG_STATE_HOME = "$HOME/.local/state";
     XDG_CACHE_HOME = "$HOME/.cache";
   };
+
+  nix.settings.trusted-users = [
+    "@wheel"
+  ];
 }

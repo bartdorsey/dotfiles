@@ -9,7 +9,6 @@ return {
         "moyiz/blink-emoji.nvim",
         "MahanRahmati/blink-nerdfont.nvim",
         "ribru17/blink-cmp-spell",
-        "olimorris/codecompanion.nvim",
     },
     -- use a release tag to download pre-built binaries
     version = "1.*",
@@ -74,7 +73,6 @@ return {
                 "buffer",
                 "cmdline",
                 "omni",
-                "codecompanion",
                 "copilot",
                 "emoji",
                 "lazydev",

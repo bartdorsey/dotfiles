@@ -1,5 +1,5 @@
 return {
-    "olimorris/codecompanion.nvim",
+    "olimorris/codecompanion.nvim"
     cond = os.getenv("DEVMODE") ~= nil,
     opts = {
         strategies = {

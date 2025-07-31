@@ -1,7 +1,6 @@
 return {
     "echasnovski/mini.nvim",
     version = "*",
-    event = "VeryLazy",
     config = function()
         -- Icons
         require("mini.icons").setup({})

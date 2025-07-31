@@ -1,27 +1,3 @@
-local function fuzzily_search()
-    -- You can pass additional configuration to telescope to change theme, layout, etc.
-    require("telescope.builtin").current_buffer_fuzzy_find(
-        require("telescope.themes").get_dropdown({
-            winblend = 10,
-            previewer = false,
-            flip_columns = nil,
-        })
-    )
-end
-
-local function open_file_browser()
-    require("telescope").extensions.file_browser.file_browser()
-end
-
--- local function open_command()
---     local in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
---     if in_wsl then
---         return "wsl-open"
---     else
---         return "xdg-open"
---     end
--- end
-
 return {
     {
         "nvim-telescope/telescope.nvim",
@@ -65,11 +41,6 @@ return {
                 "<leader>ff",
                 "<cmd>Telescope find_files sort_mru=true sort_lastused=true<cr>",
                 desc = "Search Files",
-            },
-            {
-                "<leader>f/",
-                fuzzily_search,
-                desc = "[/] Fuzzily search in current buffer",
             },
             {
                 "<leader>fh",
@@ -217,47 +188,6 @@ return {
             require("telescope").load_extension("messages")
             require("telescope").load_extension("repo")
             require("telescope").load_extension("zoxide")
-        end,
-    },
-    {
-        "sudormrfbin/cheatsheet.nvim",
-        keys = {
-            {
-                "<leader>cht",
-                "<cmd>Telescope cheatsheet<cr>",
-                desc = "Cheatsheet",
-            },
-        },
-        dependencies = { "nvim-lua/popup.nvim" },
-        config = function()
-            pcall(require("telescope").load_extension, "cheatsheet")
-        end,
-    },
-    {
-        "nvim-telescope/telescope-file-browser.nvim",
-        keys = {
-            { "<leader>fb", open_file_browser, desc = "File Browser" },
-        },
-        config = function()
-            pcall(require("telescope").load_extension, "file_browser")
-        end,
-    },
-    {
-        "nvim-telescope/telescope-dap.nvim",
-        keys = {},
-        config = function() end,
-    },
-    {
-        "nvim-telescope/telescope-media-files.nvim",
-        keys = {
-            {
-                "<leader>fm",
-                "<cmd>Telescope media_files<cr>",
-                desc = "Find Media Files",
-            },
-        },
-        config = function()
-            require("telescope").load_extension("media_files")
         end,
     },
 }

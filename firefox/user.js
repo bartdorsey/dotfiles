@@ -277,6 +277,7 @@ user_pref("gfx.canvas.accelerated", true);
 
 // Disable restore window state
 user_pref("browser.restoreWindowState.disabled", true);
+user_pref("browser.sessionstore.resume_from_crash", false);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *

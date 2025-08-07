@@ -52,7 +52,7 @@
     "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.inlayHints.functionReturnTypes": true,
     "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[django-html]": {
         "editor.defaultFormatter": "monosans.djlint"
@@ -138,7 +138,7 @@
     "basedpyright.analysis.typeCheckingMode": "standard",
     "editor.lineHeight": 0,
     "editor.fontSize": 15,
-    "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
+    "editor.fontFamily": "Iosevka Nerd Font",
     "editor.codeLensFontSize": 14,
     "editor.inlayHints.fontSize": 14,
     "editor.codeLensFontFamily": "Iosevka",
@@ -211,8 +211,8 @@
             "annotationColor": "#ababab"
         }
     },
-    "editor.inlayHints.enabled": "off",
     "vim.vimrc.path": "$HOME/.config/vim/vimrc",
     "vim.vimrc.enable": true,
-    "vim.neovimUseConfigFile": true
+    "vim.neovimUseConfigFile": true,
+    "editor.inlayHints.enabled": "offUnlessPressed"
 }

@@ -36,7 +36,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
     config.win32_system_backdrop = "Mica"
     config.window_background_opacity = 0.9
     config.exec_domains = {
-        wezterm.exec_domain("powershell", function(cmd)
+        wezterm.exec_domain("pwsh", function(cmd)
             wezterm.log_info(cmd)
             cmd.args = { "pwsh.exe", "-NoLogo" }
             return cmd

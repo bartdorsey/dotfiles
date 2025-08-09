@@ -4,3 +4,7 @@ __pycache__/
 .nvim
 .mypy_cache/
 .venv/
+
+**/.claude/settings.local.json
+
+**/.claude/settings.local.json

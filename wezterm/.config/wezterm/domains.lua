@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 local M = {}
 
-local function get_ssh_hosts()
+function M.get_ssh_hosts()
     local filtered_hosts = {}
 
     for host, _ in pairs(wezterm.enumerate_ssh_hosts()) do
@@ -17,7 +17,7 @@ local function get_ssh_hosts()
     return filtered_hosts
 end
 
-local function get_domain_entries()
+function M.get_launch_menu()
     local entries = {}
 
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
@@ -52,7 +52,7 @@ local function get_domain_entries()
         })
     end
 
-    for _, ssh_host in ipairs(get_ssh_hosts()) do
+    for _, ssh_host in ipairs(M.get_ssh_hosts()) do
         table.insert(entries, {
             label = wezterm.nerdfonts.fa_server .. " " .. ssh_host.hostname,
             args = {},
@@ -63,10 +63,10 @@ local function get_domain_entries()
     return entries
 end
 
-local function get_ssh_domains()
+function M.get_ssh_domains()
     local ssh_domains = {}
 
-    for _, ssh_host in ipairs(get_ssh_hosts()) do
+    for _, ssh_host in ipairs(M.get_ssh_hosts()) do
         table.insert(ssh_domains, {
             name = ssh_host.domain_name,
             remote_address = ssh_host.hostname,
@@ -111,13 +111,4 @@ function M.create_split_selector(direction)
     }
 end
 
-function M.get_launch_menu()
-    return get_domain_entries()
-end
-
-function M.get_ssh_domains()
-    return get_ssh_domains()
-end
-
 return M
-

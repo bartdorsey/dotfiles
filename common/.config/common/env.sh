@@ -64,7 +64,7 @@ export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 
 # FZF Config
 if type fzf > /dev/null 2>&1; then
-    export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
+    export FZF_DEFAULT_COMMAND='fdfind --type f --color=never --hidden'
     export FZF_DEFAULT_OPTS='--no-height'
 fi
 

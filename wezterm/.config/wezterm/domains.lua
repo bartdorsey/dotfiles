@@ -46,7 +46,7 @@ local function get_domain_entries()
             domain = { DomainName = "local" },
         })
         table.insert(entries, {
-            label = wezterm.nerdfonts.dev_terminal_cmd .. " bash",
+            label = wezterm.nerdfonts.dev_terminal .. " bash",
             args = { "bash", "-l" },
             domain = { DomainName = "local" },
         })

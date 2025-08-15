@@ -42,6 +42,14 @@ if [ -f "$HOME/.config/devmode" ]; then
     export DEVMODE=1
 fi
 
+cyan "--------------------------"
+cyan "Fixing SSH key permissions"
+cyan "--------------------------"
+
+chmod -v 700 ssh/.ssh
+chmod -v 600 ssh/.ssh/id*
+chmod -v 644 ssh/.ssh/*.pub
+
 cyan "-------------------------"
 cyan "Bootstrapping directories"
 cyan "-------------------------"
@@ -160,3 +168,5 @@ fi
 # while IFS= read -r extension; do
 #     code --install-extension "$extension"
 # done < "vscode/.config/Code/extensions.txt"
+#
+git-crypt unlock

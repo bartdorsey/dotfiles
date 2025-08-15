@@ -15,7 +15,7 @@ function M.apply_appearance_config(config)
     }
 
     config.cursor_thickness = "2pt"
-    config.cursor_blink_rate = 600
+    config.cursor_blink_rate = 0
     config.cursor_blink_ease_in = "Constant"
     config.cursor_blink_ease_out = "Constant"
     config.force_reverse_video_cursor = false
@@ -46,4 +46,3 @@ function M.apply_appearance_config(config)
 end
 
 return M
-

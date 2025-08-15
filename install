@@ -148,12 +148,6 @@ if type nvim 2>/dev/null; then
     cyan "-------------------------"
     nvim --headless +"Lazy! clean" +qa
     nvim --headless +"Lazy! restore" +qa
-
-    cyan "------------------------------------"
-    cyan "Installing neovim treesitter plugins"
-    cyan "------------------------------------"
-    # Install treesitter plugins
-    nvim --headless +TSUpdate +qa
 fi
 
 if [[ -v WSL_DISTRO_NAME ]]; then

@@ -214,5 +214,7 @@
     "vim.vimrc.path": "$HOME/.config/vim/vimrc",
     "vim.vimrc.enable": true,
     "vim.neovimUseConfigFile": true,
-    "editor.inlayHints.enabled": "offUnlessPressed"
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "docker.extension.enableComposeLanguageServer": false,
+    "vim.insertModeKeyBindings": []
 }

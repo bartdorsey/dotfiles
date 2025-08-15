@@ -47,7 +47,7 @@
       gcc
       gh
       git
-      git
+      git-crypt
       git-lfs
       gita
       glab

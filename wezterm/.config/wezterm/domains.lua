@@ -78,7 +78,7 @@ function M.get_ssh_domains()
 end
 
 function M.create_split_selector(direction)
-    local entries = get_domain_entries()
+    local entries = M.get_launch_menu()
     local choices = {}
 
     for i, entry in ipairs(entries) do

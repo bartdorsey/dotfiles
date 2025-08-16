@@ -38,6 +38,7 @@
       docker-buildx
       dune_3
       dust
+      efibootmgr
       emacs-nox
       fastfetch
       fd
@@ -87,6 +88,7 @@
       mpc-cli
       mpdris2
       mtr
+      mokutil
       ncmpcpp
       nfs-utils
       nh
@@ -98,7 +100,6 @@
       ocamlPackages.findlib
       ocamlPackages.ocaml-lsp
       ocamlformat
-      opencode
       os-prober
       optinix
       p7zip
@@ -121,6 +122,7 @@
       ruff
       rustup
       samba
+      sbctl
       sqlite
       starship
       starship

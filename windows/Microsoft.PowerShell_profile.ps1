@@ -41,5 +41,5 @@ Invoke-Expression (&scoop-search --hook)
 
 
 if ($Host.Name -eq 'ConsoleHost') {
-	fastfetch -l Windows --disk-show-external false
+	fastfetch -l Windows
 }

@@ -23,8 +23,8 @@ function M.apply_platform_config(config)
         config.window_background_opacity = 0.8
         config.default_prog = { os.getenv("SHELL") }
         config.front_end = "WebGpu"
+        config.font_size = 16
     end
 end
 
 return M
-

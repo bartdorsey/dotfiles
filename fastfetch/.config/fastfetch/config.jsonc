@@ -23,7 +23,25 @@
     "gpu",
     "memory",
     "swap",
-    "disk",
+    {
+      "type": "disk",
+      "keyIcon": "",
+      "showRegular": true,
+      "showExternal": false,
+      "showHidden": false,
+      "showSubvolumes": false,
+      "showReadOnly": true,
+      "showUnknown": false,
+      "folders": "",
+      "hideFolders": "/efi:/boot:/boot/efi:/boot/firmware",
+      "hideFS": "",
+      "useAvailable": false,
+      "percent": {
+        "green": 50,
+        "yellow": 80,
+        "type": 0
+      }
+    },
     "localip",
     "battery",
     "poweradapter",

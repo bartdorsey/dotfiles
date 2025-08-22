@@ -7,10 +7,27 @@ function Get-Disk-Free
 }
 
 # Set PS to Emacs mode
-Set-PSReadlineOption -EditMode Emacs
+Set-PSReadlineOption -EditMode Vi
+Set-PSReadLineOption -ViModeIndicator Cursor
+
+# Menu Completion
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineOption -BellStyle None
+
+# Predictive text
+Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadLineOption -PredictionViewStyle InlineView
+
+# Up arrow, Down Arrow history search
+Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 # Sets control-D to exit the shell
 Set-PSReadLineKeyHandler -Key 'Ctrl+d' -Function DeleteCharOrExit
+
+# Try to not show the too many items prompt
+Set-PSReadLineOption -CompletionQueryItems 9999
+
 
 $env:EDITOR = "code"
 $env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"

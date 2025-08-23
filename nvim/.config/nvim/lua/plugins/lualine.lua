@@ -103,7 +103,8 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {
-            "catppuccin/nvim",
+            -- "catppuccin/nvim",
+            "ellisonleao/gruvbox.nvim",
             "AndreM222/copilot-lualine",
         },
         init = function()
@@ -112,7 +113,7 @@ return {
         end,
         opts = {
             options = {
-                theme = "catppuccin",
+                theme = "gruvbox",
                 component_separators = "│",
                 section_separators = { left = "┃", right = "┃" },
                 globalstatus = false,

@@ -18,6 +18,7 @@ function M.apply_platform_config(config)
         config.font_size = 14
         config.default_prog = { os.getenv("SHELL") }
         config.front_end = "WebGpu"
+        config.font = wezterm.font("AtkynsonMono NF", { weight = "Regular" })
     else
         config.macos_window_background_blur = 80
         config.window_background_opacity = 0.8

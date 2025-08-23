@@ -42,14 +42,6 @@ if [ -f "$HOME/.config/devmode" ]; then
     export DEVMODE=1
 fi
 
-cyan "--------------------------"
-cyan "Fixing SSH key permissions"
-cyan "--------------------------"
-
-chmod -v 700 ssh/.ssh
-chmod -v 600 ssh/.ssh/id*
-chmod -v 644 ssh/.ssh/*.pub
-
 cyan "-------------------------"
 cyan "Bootstrapping directories"
 cyan "-------------------------"
@@ -113,6 +105,14 @@ if type stow 2>/dev/null; then
     done
 
 fi
+
+cyan "--------------------------"
+cyan "Fixing SSH key permissions"
+cyan "--------------------------"
+
+chmod -v 700 ./ssh/.ssh
+chmod -v 600 ./ssh/.ssh/id*
+chmod -v 644 ./ssh/.ssh/*.pub
 
 # Install tmux plugin manager if it's not installed
 if [[ ! -d "$HOME/.config/tmux/plugins/tpm" ]]; then

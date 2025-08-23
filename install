@@ -106,14 +106,6 @@ if type stow 2>/dev/null; then
 
 fi
 
-cyan "--------------------------"
-cyan "Fixing SSH key permissions"
-cyan "--------------------------"
-
-chmod -v 700 ./ssh/.ssh
-chmod -v 600 ./ssh/.ssh/id*
-chmod -v 644 ./ssh/.ssh/*.pub
-
 # Install tmux plugin manager if it's not installed
 if [[ ! -d "$HOME/.config/tmux/plugins/tpm" ]]; then
     cyan "------------------------------"
@@ -156,11 +148,16 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     }
 fi
 
-# cyan "----------------------------"
-# cyan "Installing VSCode extensions"
-# cyan "----------------------------"
-# while IFS= read -r extension; do
-#     code --install-extension "$extension"
-# done < "vscode/.config/Code/extensions.txt"
-#
-git-crypt unlock
+if type git-crypt 2>/dev/null; then
+    cyan '--------------------------------'
+    cyan 'Trying to unlock encrypted files'
+    cyan '--------------------------------'
+    git-crypt unlock
+
+cyan "--------------------------"
+cyan "Fixing SSH key permissions"
+cyan "--------------------------"
+
+chmod -v 700 ./ssh/.ssh
+chmod -v 600 ./ssh/.ssh/id*
+chmod -v 644 ./ssh/.ssh/*.pub

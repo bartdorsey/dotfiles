@@ -108,7 +108,7 @@
     "python.analysis.diagnosticMode": "workspace",
     "python.analysis.inlayHints.callArgumentNames": "all",
     "python.analysis.inlayHints.pytestParameters": true,
-    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.iconTheme": "gruvbox-material-icon-theme",
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.renderSideBySide": false,
     "editor.accessibilitySupport": "off",
@@ -121,7 +121,6 @@
     "database-client.autoSync": true,
     "remote.SSH.useExecServer": false,
     "github.copilot.editor.enableAutoCompletions": true,
-    "workbench.colorTheme": "Gruvbox Dark Hard",
     "markdown-preview-enhanced.previewTheme": "github-dark.css",
     "markdown-preview-enhanced.mermaidTheme": "dark",
     "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
@@ -215,5 +214,6 @@
     "vim.neovimUseConfigFile": true,
     "editor.inlayHints.enabled": "offUnlessPressed",
     "docker.extension.enableComposeLanguageServer": false,
-    "vim.insertModeKeyBindings": []
+    "vim.insertModeKeyBindings": [],
+    "workbench.colorTheme": "Mayukai Mirage Gruvbox Darktooth"
 }

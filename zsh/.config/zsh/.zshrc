@@ -152,6 +152,11 @@ if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
     source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
+# Allow root apps to display
+if [ -n "$DISPLAY" ]; then
+    xhost +local:root >/dev/null 2>&1
+fi
+
 # MOTD
 source $HOME/.config/common/fetch.sh
 

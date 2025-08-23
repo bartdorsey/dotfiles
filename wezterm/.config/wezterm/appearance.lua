@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local M = {}
 
 function M.apply_appearance_config(config)
-    config.color_scheme = "Catppuccin Mocha"
+    config.color_scheme = "GruvboxDark"
 
     config.set_environment_variables = {
         TERM = "wezterm",

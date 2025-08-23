@@ -10,7 +10,7 @@ function M.setup_tabline(config)
     tabline.setup({
         options = {
             icons_enabled = true,
-            theme = "Catppuccin Mocha",
+            theme = "GruvboxDark",
             tabs_enabled = true,
             theme_overrides = {},
             section_separators = {
@@ -77,4 +77,3 @@ function M.setup_tabline(config)
 end
 
 return M
-

@@ -121,7 +121,7 @@
     "database-client.autoSync": true,
     "remote.SSH.useExecServer": false,
     "github.copilot.editor.enableAutoCompletions": true,
-    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
     "markdown-preview-enhanced.previewTheme": "github-dark.css",
     "markdown-preview-enhanced.mermaidTheme": "dark",
     "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,

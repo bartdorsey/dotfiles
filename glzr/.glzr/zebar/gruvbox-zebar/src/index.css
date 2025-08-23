@@ -1,0 +1,122 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+:root {
+    /* Gruvbox Dark color palette */
+    --gruvbox-bg0: #282828;
+    --gruvbox-bg1: #3c3836;
+    --gruvbox-bg2: #504945;
+    --gruvbox-bg3: #665c54;
+    --gruvbox-bg4: #7c6f64;
+    --gruvbox-fg0: #fbf1c7;
+    --gruvbox-fg1: #ebdbb2;
+    --gruvbox-fg2: #d5c4a1;
+    --gruvbox-fg3: #bdae93;
+    --gruvbox-fg4: #a89984;
+    --gruvbox-red: #fb4934;
+    --gruvbox-green: #b8bb26;
+    --gruvbox-yellow: #fabd2f;
+    --gruvbox-blue: #83a598;
+    --gruvbox-purple: #d3869b;
+    --gruvbox-aqua: #8ec07c;
+    --gruvbox-orange: #fe8019;
+    --gruvbox-gray: #928374;
+    --gruvbox-red-dim: #cc241d;
+    --gruvbox-green-dim: #98971a;
+    --gruvbox-yellow-dim: #d79921;
+    --gruvbox-blue-dim: #458588;
+    --gruvbox-purple-dim: #b16286;
+    --gruvbox-aqua-dim: #689d6a;
+    --gruvbox-orange-dim: #d65d0e;
+}
+
+body {
+    background-color: var(--gruvbox-bg0);
+    color: var(--gruvbox-fg1);
+    font-family: "JetBrainsMono Nerd Font Mono", ui-monospace, monospace;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+html,
+body,
+#root {
+    height: 100vh;
+}
+
+div,
+span {
+    white-space: nowrap;
+}
+
+.nf {
+    line-height: 1rem;
+}
+
+.app {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 100%;
+    gap: 1.2rem;
+}
+
+.left,
+.center,
+.right {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.center {
+    justify-content: center;
+}
+
+.right {
+    container-name: right;
+    container-type: inline-size;
+    justify-content: end;
+}
+
+.left {
+    container-name: left;
+    container-type: inline-size;
+    justify-content: start;
+}
+
+.high i {
+    color: var(--gruvbox-red);
+}
+
+.medium i {
+    color: var(--gruvbox-yellow);
+}
+
+.low i {
+    color: var(--gruvbox-green);
+}
+
+/* @container right (width < 400px) {
+    .media {
+        display: none;
+    }
+    .network {
+        display: none;
+    }
+} */
+
+.workspaces i {
+    color: var(--gruvbox-purple);
+}
+
+.binding-mode,
+.tiling-direction {
+    cursor: pointer;
+}

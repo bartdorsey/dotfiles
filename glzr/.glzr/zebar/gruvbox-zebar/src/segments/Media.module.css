@@ -1,0 +1,29 @@
+.media {
+    justify-content: right;
+}
+
+.container {
+    overflow: hidden;
+    max-width: 20rem;
+}
+
+.title {
+    animation: scroll 10s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@container right (width < 400px) {
+    .media {
+        display: none;
+    }
+}

@@ -1,0 +1,48 @@
+.segment {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.right {
+    flex-direction: row-reverse;
+}
+
+.left {
+    flex-direction: row;
+}
+
+.icon {
+    color: var(--gruvbox-blue);
+    line-height: 1rem;
+    font-style: normal;
+    font-size: 0.8rem;
+}
+
+.pill {
+    background: var(--gruvbox-bg1);
+    color: var(--gruvbox-fg1);
+    padding: 0.2rem 0.6rem;
+    border: 0;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+    box-shadow: 0.75px 0.75px 1px var(--gruvbox-bg0),
+        -0.5px -0.5px 1px var(--gruvbox-bg3);
+}
+
+.active {
+    background: var(--gruvbox-blue);
+    color: var(--gruvbox-bg0);
+    box-shadow: 0.75px 0.75px 1px var(--gruvbox-bg0),
+        -0.5px -0.5px 1px var(--gruvbox-fg1);
+}
+
+.clickable {
+    cursor: pointer;
+    &:hover {
+        background: var(--gruvbox-orange);
+        color: var(--gruvbox-bg0);
+        box-shadow: 0.75px 0.75px 1px var(--gruvbox-bg0),
+            -0.5px -0.5px 1px var(--gruvbox-fg1);
+    }
+}

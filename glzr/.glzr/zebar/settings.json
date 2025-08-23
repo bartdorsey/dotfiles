@@ -2,8 +2,8 @@
     "$schema": "https://github.com/glzr-io/zebar/raw/v3.1.0/resources/settings-schema.json",
     "startupConfigs": [
         {
-            "pack": "catppuccin-zebar",
-            "widget": "catppuccin",
+            "pack": "gruvbox-zebar",
+            "widget": "gruvbox",
             "preset": "default"
         }
     ]

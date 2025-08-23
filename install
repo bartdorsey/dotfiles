@@ -153,6 +153,7 @@ if type git-crypt 2>/dev/null; then
     cyan 'Trying to unlock encrypted files'
     cyan '--------------------------------'
     git-crypt unlock
+fi
 
 cyan "--------------------------"
 cyan "Fixing SSH key permissions"
@@ -161,3 +162,4 @@ cyan "--------------------------"
 chmod -v 700 ./ssh/.ssh
 chmod -v 600 ./ssh/.ssh/id*
 chmod -v 644 ./ssh/.ssh/*.pub
+

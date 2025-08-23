@@ -14,29 +14,31 @@
 }
 
 #workspaces {
-    border-radius: 0px 1rem 1rem 0px;
+    border-radius: 0px 0.5rem 0.5rem 0px;
     margin: 5px 0;
     background-color: @surface0;
+    border: 2px solid @overlay0;
+    border-left: none;
 }
 
 #workspaces button {
     background: transparent;
     color: @lavender;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     border: none;
     padding: 0;
     margin: 0;
 }
 
 #workspaces button.active {
-    color: @sky;
-    border-radius: 1rem;
+    color: @text;
+    border-radius: 0.5rem;
 }
 
 #workspaces button:hover {
-    color: @sapphire;
+    color: @text;
     background-color: @surface1;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 }
 
 
@@ -64,39 +66,50 @@
 
 #window {
     margin-left: 10px;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 }
 
 #clock {
-    color: @blue;
-    border-radius: 0px 1rem 1rem 0px;
-    margin-right: 1rem;
+    color: @lavender;
+    border-radius: 0px 0.5rem 0.5rem 0px;
 }
 
 #memory {
-    color: @red;
+    color: @flamingo;
+    border-top: 2px solid @overlay0;
+    border-bottom: 2px solid @overlay0;
 }
 
 #cpu {
-    border-radius: 1rem 0px 0px 1rem;
-    margin-left: 1rem;
+    border-radius: 0.5rem 0px 0px 0.5rem;
     color: @yellow;
+    border: 2px solid @overlay0;
+    border-right: none;
 }
 
 #network {
-    border-radius: 0px 1rem 1rem 0px;
-    margin-right: 1rem;
-    color: @blue;
+    border-radius: 0px;
+    color: @lavender;
+    border-top: 2px solid @overlay0;
+    border-bottom: 2px solid @overlay0;
 }
 
 #idle_inhibitor {
-    border-radius: 1rem 0rem 0rem 1rem;
-    margin-left: 1rem;
+    border-radius: 0px;
     color: @green;
+    border-top: 2px solid @overlay0;
+    border-bottom: 2px solid @overlay0;
+}
+
+#temperature {
+    border-top: 2px solid @overlay0;
+    border-bottom: 2px solid @overlay0;
 }
 
 #battery {
     color: @green;
+    border-top: 2px solid @overlay0;
+    border-bottom: 2px solid @overlay0;
 }
 
 #battery.charging {
@@ -104,7 +117,7 @@
 }
 
 #battery.warning:not(.charging) {
-    color: @red;
+    color: @flamingo;
 }
 
 #backlight {
@@ -117,36 +130,48 @@
 }
 
 #pulseaudio {
-    color: @maroon;
-    border-radius: 1rem 0px 0px 1rem;
-    margin-left: 1rem;
+    color: @flamingo;
+    border-radius: 0px;
+    border-top: 2px solid @overlay0;
+    border-bottom: 2px solid @overlay0;
 }
 
 #custom-music {
-    color: @mauve;
-    border-radius: 1rem;
-    margin-left: 1rem;
+    color: @pink;
+    border-radius: 0.5rem;
 }
 
 #custom-lock {
     color: @lavender;
+    border-top: 2px solid @overlay0;
+    border-bottom: 2px solid @overlay0;
+    border-radius: 0px;
 }
 
 #custom-power {
-    margin-right: 1rem;
-    border-radius: 0px 1rem 1rem 0px;
-    color: @red;
+    border-radius: 0px 0.5rem 0.5rem 0px;
+    color: @flamingo;
 }
 
 #custom-date-central {
-    border-radius: 1rem 0px 0px 1rem;
+    border-radius: 0.5rem 0px 0px 0.5rem;
+    border: 2px solid @overlay0;
+    border-right: none;
+}
+
+#custom-date {
+    border-top: 2px solid @overlay0;
+    border-bottom: 2px solid @overlay0;
 }
 
 #custom-date-pacific {
-    border-radius: 0px 1rem 1rem 0px;
+    border-radius: 0px 0.5rem 0.5rem 0px;
+    border: 2px solid @overlay0;
+    border-left: none;
 }
 
 #tray {
-    margin-right: 1rem;
-    border-radius: 1rem;
+    border-radius: 0px;
+    border-top: 2px solid @overlay0;
+    border-bottom: 2px solid @overlay0;
 }

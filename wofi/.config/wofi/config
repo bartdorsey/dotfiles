@@ -1,5 +1,5 @@
 show=drun
-width=750
+width=500
 height=400
 always_parse_args=true
 show_all=true
@@ -8,4 +8,4 @@ hide_scroll=true
 print_command=true
 insensitive=true
 prompt=
-columns=2
+columns=1

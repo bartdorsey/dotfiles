@@ -1,83 +1,49 @@
-@define-color	rosewater #f5e0dc;
-@define-color	rosewater-rgb rgb(245, 224, 220);
-@define-color	flamingo #f2cdcd;
-@define-color	flamingo-rgb rgb(242, 205, 205);
-@define-color	pink #f5c2e7;
-@define-color	pink-rgb rgb(245, 194, 231);
-@define-color	mauve #cba6f7;
-@define-color	mauve-rgb rgb(203, 166, 247);
-@define-color	red #f38ba8;
-@define-color	red-rgb rgb(243, 139, 168);
-@define-color	maroon #eba0ac;
-@define-color	maroon-rgb rgb(235, 160, 172);
-@define-color	peach #fab387;
-@define-color	peach-rgb rgb(250, 179, 135);
-@define-color	yellow #f9e2af;
-@define-color	yellow-rgb rgb(249, 226, 175);
-@define-color	green #a6e3a1;
-@define-color	green-rgb rgb(166, 227, 161);
-@define-color	teal #94e2d5;
-@define-color	teal-rgb rgb(148, 226, 213);
-@define-color	sky #89dceb;
-@define-color	sky-rgb rgb(137, 220, 235);
-@define-color	sapphire #74c7ec;
-@define-color	sapphire-rgb rgb(116, 199, 236);
-@define-color	blue #89b4fa;
-@define-color	blue-rgb rgb(137, 180, 250);
-@define-color	lavender #b4befe;
-@define-color	lavender-rgb rgb(180, 190, 254);
-@define-color	text #cdd6f4;
-@define-color	text-rgb rgb(205, 214, 244);
-@define-color	subtext1 #bac2de;
-@define-color	subtext1-rgb rgb(186, 194, 222);
-@define-color	subtext0 #a6adc8;
-@define-color	subtext0-rgb rgb(166, 173, 200);
-@define-color	overlay2 #9399b2;
-@define-color	overlay2-rgb rgb(147, 153, 178);
-@define-color	overlay1 #7f849c;
-@define-color	overlay1-rgb rgb(127, 132, 156);
-@define-color	overlay0 #6c7086;
-@define-color	overlay0-rgb rgb(108, 112, 134);
-@define-color	surface2 #585b70;
-@define-color	surface2-rgb rgb(88, 91, 112);
-@define-color	surface1 #45475a;
-@define-color	surface1-rgb rgb(69, 71, 90);
-@define-color	surface0 #313244;
-@define-color	surface0-rgb rgb(49, 50, 68);
-@define-color	base #1e1e2e;
-@define-color	base-rgb rgb(30, 30, 46);
-@define-color	mantle #181825;
-@define-color	mantle-rgb rgb(24, 24, 37);
-@define-color	crust #11111b;
-@define-color	crust-rgb rgb(17, 17, 27);
+@define-color	rosewater #d5c4a1;
+@define-color	flamingo #fe8019;
+@define-color	pink #d3869b;
+@define-color	mauve #b16286;
+@define-color	red #cc241d;
+@define-color	maroon #a54242;
+@define-color	peach #fe8019;
+@define-color	yellow #d79921;
+@define-color	green #98971a;
+@define-color	teal #689d6a;
+@define-color	sky #458588;
+@define-color	sapphire #076678;
+@define-color	blue #458588;
+@define-color	lavender #83a598;
+@define-color	text #ebdbb2;
+@define-color	subtext1 #d5c4a1;
+@define-color	subtext0 #bdae93;
+@define-color	overlay2 #a89984;
+@define-color	overlay1 #928374;
+@define-color	overlay0 #7c6f64;
+@define-color	surface2 #665c54;
+@define-color	surface1 #504945;
+@define-color	surface0 #3c3836;
+@define-color	base #282828;
+@define-color	mantle #1d2021;
+@define-color	crust #1d2021;
 
 * {
     font-family: 'JetBrainsMono Nerd Font', monospace;
     font-size: 16px;
 }
 
-/* Window */
 window {
     margin: 0px;
-    padding: 10px;
-    border: 0.16em solid @lavender;
-    border-radius: 1em;
+    padding: 5px;
+    border: 2px solid @yellow;
+    border-radius: 8px;
     background-color: @base;
     animation: slideIn 0.1s ease-in-out both;
 }
 
-/* Slide In */
 @keyframes slideIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-/* Inner Box */
 #inner-box {
     margin: 5px;
     padding: 10px;
@@ -86,18 +52,11 @@ window {
     animation: fadeIn 0.1s ease-in-out both;
 }
 
-/* Fade In */
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-/* Outer Box */
 #outer-box {
     margin: 5px;
     padding: 10px;
@@ -105,55 +64,68 @@ window {
     background-color: @base;
 }
 
-/* Scroll */
 #scroll {
     margin: 0px;
     padding: 10px;
     border: none;
     background-color: @base;
+    overflow-x: hidden;
 }
 
-/* Input */
 #input {
-    margin: 5px 20px;
-    padding: 10px;
-    border: none;
-    border-radius: 0.1em;
+    margin: 5px 10px;
+    padding: 8px;
+    border: 1px solid @overlay0;
+    border-radius: 4px;
     color: @text;
-    background-color: @base;
+    background-color: @surface0;
     animation: fadeIn 0.1s ease-in-out both;
+    width: auto;
+    min-width: 0;
 }
 
 #input image {
     border: none;
-    color: @red;
+    color: @yellow;
 }
 
 #input * {
     outline: 4px solid @red !important;
 }
 
-/* Text */
 #text {
     margin: 5px;
     border: none;
     color: @text;
     animation: fadeIn 0.1s ease-in-out both;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
 }
 
 #entry {
     background-color: @base;
+    margin: 2px;
+    padding: 4px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: calc(100% - 4px);
 }
 
 #entry arrow {
     border: none;
-    color: @lavender;
+    color: @green;
 }
 
-/* Selected Entry */
 #entry:selected {
-    border: 0.11em solid @lavender;
-    border-radius: 1rem;
+    border: 1px solid @yellow;
+    border-radius: 6px;
+    background-color: @mantle;
+    margin: 2px;
+    box-sizing: border-box;
+    max-width: calc(100% - 6px);
 }
 
 #entry:selected #text {

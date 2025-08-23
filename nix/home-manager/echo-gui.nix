@@ -3,8 +3,6 @@
   config,
   ...
 }: {
-  catppuccin.enable = true;
-
   # home.packages = with zen-browser; [
   #   packages."${system}".default
   # ];

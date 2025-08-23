@@ -11,7 +11,6 @@
     nixoswsl.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    catppuccin.url = "github:catppuccin/nix";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +22,6 @@
     nixoswsl,
     nixpkgs-unstable,
     home-manager,
-    catppuccin,
     zen-browser,
     nixos-hardware,
     ...
@@ -49,7 +47,6 @@
           ./common/gui.nix
           ./users/echo.nix
           ./users/echo-gui.nix
-          catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
@@ -65,7 +62,6 @@
               imports = [
                 ./home-manager/echo.nix
                 ./home-manager/echo-gui.nix
-                catppuccin.homeModules.catppuccin
               ];
             };
           }
@@ -85,7 +81,6 @@
           ./common/system-packages.nix
           ./users/echo.nix
           ./users/echo-gui.nix
-          catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
@@ -101,7 +96,6 @@
               imports = [
                 ./home-manager/echo.nix
                 ./home-manager/echo-gui.nix
-                catppuccin.homeModules.catppuccin
               ];
             };
           }

@@ -4,9 +4,6 @@
   lib,
   ...
 }: {
-  catppuccin.enable = true;
-  catppuccin.flavor = "mocha";
-
   services.displayManager = {
     defaultSession = "hyprland-uwsm";
     ly = {
@@ -125,7 +122,6 @@
       _1password-gui
       adwaita-icon-theme
       appimage-run
-      catppuccin-kde
       cava
       chromium
       cliphist

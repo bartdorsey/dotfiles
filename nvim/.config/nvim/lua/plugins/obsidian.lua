@@ -8,23 +8,23 @@ return {
     keys = {
         {
             "<leader>os",
-            "<cmd>ObsidianSearch<cr>",
-            desc = "Obsidian Search",
+            "<cmd>Obsidian search<cr>",
+            desc = "Obsidian search",
         },
         {
             "<leader>ot",
-            "<cmd>ObsidianTags<cr>",
-            desc = "Obsidian Tag Search",
+            "<cmd>Obsidian tags<cr>",
+            desc = "Obsidian tags",
         },
         {
             "<leader>od",
-            "<cmd>ObsidianToday<cr>",
-            desc = "Obsidian Daily Note",
+            "<cmd>Obsidian today<cr>",
+            desc = "Obsidian today",
         },
         {
             "<leader>on",
-            "<cmd>ObsidianNew<cr>",
-            desc = "Obsidian New Note",
+            "<cmd>Obsidian new<cr>",
+            desc = "Obsidian new",
         },
     },
 
@@ -43,6 +43,7 @@ return {
         -- see below for full list of optional dependencies 👇
     },
     opts = {
+        legacy_commands = false,
         ui = {
             enable = false,
         },

@@ -27,8 +27,18 @@ vim.keymap.set(
 -- Move lines with Shift+Up/Down (works in both normal and visual mode)
 vim.keymap.set("n", "<S-Down>", ":m .+1<cr>==", { desc = "Move line down" })
 vim.keymap.set("n", "<S-Up>", ":m .-2<cr>==", { desc = "Move line up" })
-vim.keymap.set("v", "<S-Down>", ":m '>+1<cr>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "<S-Up>", ":m '<-2<cr>gv=gv", { desc = "Move selection up" })
+vim.keymap.set(
+    "v",
+    "<S-Down>",
+    ":m '>+1<cr>gv=gv",
+    { desc = "Move selection down" }
+)
+vim.keymap.set(
+    "v",
+    "<S-Up>",
+    ":m '<-2<cr>gv=gv",
+    { desc = "Move selection up" }
+)
 
 -- Easier reach to beginning and end of lines
 vim.keymap.set(

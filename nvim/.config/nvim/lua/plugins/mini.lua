@@ -12,6 +12,11 @@ return {
         require("mini.ai").setup({})
         -- Pairs
         require("mini.pairs").setup({})
+        -- Sessions
+        require("mini.sessions").setup({
+            directory = "~/.local/share/nvim/sessions/",
+            file = "",
+        })
         -- Starter
         local starter = require("mini.starter")
         starter.setup({

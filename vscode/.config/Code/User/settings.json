@@ -2,7 +2,7 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.typeCheckingMode": "strict",
     "vim.leader": "<space>",
     "vim.highlightedyank.enable": true,
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -108,7 +108,7 @@
     "python.analysis.diagnosticMode": "workspace",
     "python.analysis.inlayHints.callArgumentNames": "all",
     "python.analysis.inlayHints.pytestParameters": true,
-    "workbench.iconTheme": "gruvbox-material-icon-theme",
+    "workbench.iconTheme": "gruvbox-icon-theme",
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.renderSideBySide": false,
     "editor.accessibilitySupport": "off",
@@ -123,7 +123,6 @@
     "github.copilot.editor.enableAutoCompletions": true,
     "markdown-preview-enhanced.previewTheme": "github-dark.css",
     "markdown-preview-enhanced.mermaidTheme": "dark",
-    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
     "plpgsqlLanguageServer.database": "book_store",
     "plpgsqlLanguageServer.password": "postgres",
     "plpgsqlLanguageServer.user": "postgres",
@@ -215,5 +214,8 @@
     "editor.inlayHints.enabled": "offUnlessPressed",
     "docker.extension.enableComposeLanguageServer": false,
     "vim.insertModeKeyBindings": [],
-    "workbench.colorTheme": "Mayukai Mirage Gruvbox Darktooth"
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "customizeUI.font.regular": "AtkynsonMono NF",
+    "customizeUI.font.monospace": "AtkynsonMono NF",
+    "remote.autoForwardPortsSource": "hybrid"
 }

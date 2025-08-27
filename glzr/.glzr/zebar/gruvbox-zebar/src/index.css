@@ -4,8 +4,13 @@
  */
 @import "https://www.nerdfonts.com/assets/css/webfont.css";
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     /* Gruvbox Dark color palette */
+    --gruvbox-bg0-trans: #28282895;
     --gruvbox-bg0: #282828;
     --gruvbox-bg1: #3c3836;
     --gruvbox-bg2: #504945;
@@ -34,9 +39,9 @@
 }
 
 body {
-    background-color: var(--gruvbox-bg0);
+    background-color: var(--gruvbox-bg0-trans);
     color: var(--gruvbox-fg1);
-    font-family: "JetBrainsMono Nerd Font Mono", ui-monospace, monospace;
+    font-family: "Iosevka Nerd Font", ui-monospace, monospace;
     font-size: 14px;
     overflow: hidden;
 }

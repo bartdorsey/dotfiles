@@ -22,7 +22,7 @@
     }
 }
 
-@container right (width < 400px) {
+@container right (width < 600px) {
     .media {
         display: none;
     }

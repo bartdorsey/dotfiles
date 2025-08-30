@@ -159,6 +159,7 @@ window_rules:
       match:
           - window_title: { regex: "YouTubePWA" }
           - window_title: { regex: "VacuumTube" }
+          - window_title: { regex: "TwitchPWA" }
     # Workspace 5
     - commands: ["move --workspace 5", "focus --workspace 5"]
       match:

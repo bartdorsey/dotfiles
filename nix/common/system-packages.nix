@@ -160,5 +160,6 @@
     ])
     ++ (with pkgs-unstable; [
       claude-code
+      cryptsetup
     ]);
 }

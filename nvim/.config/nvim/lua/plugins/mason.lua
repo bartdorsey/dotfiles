@@ -3,7 +3,13 @@ return {
         "williamboman/mason.nvim",
         cond = os.getenv("DEVMODE") ~= nil,
         event = { "BufReadPost", "BufNewFile" },
-        cmd = { "Mason", "MasonInstall", "MasonLog", "MasonUninstall", "MasonUpdate" },
+        cmd = {
+            "Mason",
+            "MasonInstall",
+            "MasonLog",
+            "MasonUninstall",
+            "MasonUpdate",
+        },
         opts = true,
     },
     {
@@ -17,7 +23,6 @@ return {
                 "bashls",
                 "cssls",
                 "cssmodules_ls",
-                "denols",
                 "docker_compose_language_service",
                 "dockerls",
                 "emmet_language_server",

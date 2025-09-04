@@ -169,7 +169,6 @@ return {
             cssls = {},
             cssmodules_ls = {},
             tailwindcss = {},
-            denols = {},
             html = {
                 settings = {
                     html = {

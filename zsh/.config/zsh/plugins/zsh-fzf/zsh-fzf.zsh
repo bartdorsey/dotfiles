@@ -14,7 +14,9 @@ if type fzf > /dev/null;then
         fi
     done
 
-    source "$FZF_SCRIPT_DIR/key-bindings.zsh"
+    if [ -f "$FZF_SCRIPT_DIR/key-bindings.zsh" ]; then
+        source "$FZF_SCRIPT_DIR/key-bindings.zsh"
+    fi
 
     function fzf_cd() {
         cd $(fd --type d --hidden | fzf)

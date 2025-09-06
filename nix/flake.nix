@@ -7,7 +7,7 @@
     };
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixoswsl.url = "github:nix-community/NixOS-WSL";
+    nixoswsl.url = "github:nix-community/nixos-wsl/release-25.05";
     nixoswsl.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

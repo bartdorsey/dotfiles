@@ -1,3 +1,24 @@
+local function lsp_binary_exists(server_config)
+    local valid_config = server_config.document_config
+        and server_config.document_config.default_config
+        and type(server_config.document_config.default_config.cmd) == "table"
+        and #server_config.document_config.default_config.cmd >= 1
+
+    if not valid_config then
+        return false
+    end
+
+    local binary = server_config.document_config.default_config.cmd[1]
+
+    local found = vim.fn.executable(binary) == 1
+
+    if not found then
+        vim.notify("Missing LSP:" .. binary)
+    end
+
+    return found
+end
+
 return {
     "neovim/nvim-lspconfig",
     cond = os.getenv("DEVMODE") ~= nil,
@@ -81,8 +102,8 @@ return {
                     },
                 },
             },
-            gopls = {},
-            gleam = {},
+            -- gopls = {},
+            -- gleam = {},
             perlnavigator = {
                 perlimportsTidyEnabled = true,
                 perlimportsLineEnabled = true,
@@ -180,7 +201,7 @@ return {
             },
             eslint = {},
             dockerls = {},
-            ocamllsp = {},
+            -- ocamllsp = {},
             vimls = {},
             intelephense = {},
             sqlls = {},
@@ -197,8 +218,10 @@ return {
 
         -- Setup all servers
         for name, config in pairs(servers) do
-            vim.lsp.config(name, config)
-            vim.lsp.enable(name)
+            if lsp_binary_exists(config) then
+                vim.lsp.config(name, config)
+                vim.lsp.enable(name)
+            end
         end
 
         local _border = "single"

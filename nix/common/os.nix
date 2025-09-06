@@ -68,14 +68,14 @@
 
   services.tailscale.enable = false;
 
-  security.pam.services.sshd.allowNullPassword = true;
   services.openssh = {
     enable = true;
     openFirewall = true;
     settings = {
-      PermitRootLogin = "yes";
-      PasswordAuthentication = true;
-      PermitEmptyPasswords = "yes";
+      PermitRootLogin = "no";
+      KbdInteractiveAuthentication = false;
+      PasswordAuthentication = false;
+      PermitEmptyPasswords = "no";
     };
   };
 

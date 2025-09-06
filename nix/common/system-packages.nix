@@ -116,6 +116,7 @@
       pulseaudio
       pulsemixer
       pyright
+      refind
       restic
       ripgrep
       rmpc

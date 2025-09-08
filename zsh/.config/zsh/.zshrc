@@ -1,5 +1,7 @@
 zmodload zsh/zprof
 
+fpath=($HOME/.config/zsh/completions $fpath)
+
 # --- Setup a sane default prompt ---
 
 # Load vcs_info

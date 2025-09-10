@@ -65,7 +65,7 @@ window_effects:
         corner_style:
             enabled: true
             # Allowed values: 'square', 'rounded', 'small_rounded'.
-            style: "rounded"
+            style: "small_rounded"
 
     # Visual effects to apply to non-focused windows.
     other_windows:
@@ -76,7 +76,7 @@ window_effects:
             enabled: false
         corner_style:
             enabled: true
-            style: "rounded"
+            style: "small_rounded"
         # transparency:
         #     enabled: false
         #     opacity: "90%"
@@ -92,10 +92,10 @@ window_behavior:
     state_defaults:
         floating:
             # Whether to center floating windows by default.
-            centered: true
+            centered: false
 
             # Whether to show floating windows as always on top.
-            shown_on_top: true
+            shown_on_top: false
 
         fullscreen:
             # Maximize the window if possible. If the window doesn't have a
@@ -182,20 +182,19 @@ window_rules:
     # Workspace 8
     - commands: ["move --workspace 8", "focus --workspace 8"]
       match:
-          - window_process: { equals: "ksnip" }
           - window_title: { regex: "Galvanize SIS" }
-    - commands: ["move --workspace 9", "set-fullscreen", "focus --workspace 9"]
+    - commands: ["move --workspace 9", "set-floating", "focus --workspace 9"]
       match:
           - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
     # Ignore
     - commands: ["set-floating"]
       match:
           - window_class: { regex: "^ZPFloat" }
+          - window_process: { regex: "TeraCopy" }
     - commands: ["ignore"]
       match:
           - window_class: { regex: "^Avalonia" }
           - window_process: { equals: "msrdc" }
-          - window_process: { regex: "TeraCopy" }
           # Ignores any Zebar windows.
           - window_process: { equals: "zebar" }
           # Ignore rules for various 3rd-party apps.

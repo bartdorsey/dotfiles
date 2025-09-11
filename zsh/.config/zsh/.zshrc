@@ -159,6 +159,9 @@ if [ -n "$DISPLAY" ]; then
     xhost +local:root >/dev/null 2>&1
 fi
 
+# FZF
+source $HOME/.config/common/fzf.sh
+
 # MOTD
 source $HOME/.config/common/fetch.sh
 

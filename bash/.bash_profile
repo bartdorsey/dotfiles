@@ -18,6 +18,9 @@ if [[ $DEVMODE ]]; then
     source $HOME/.config/common/devtools.sh
 fi
 
+# Fzf
+source $HOME/.config/common/fzf.sh
+
 if type starship > /dev/null; then
     eval "$(starship init bash)"
 fi

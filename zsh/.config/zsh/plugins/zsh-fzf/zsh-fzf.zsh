@@ -1,22 +1,9 @@
 # FZF Functions
 if type fzf > /dev/null;then
 
-    if type fzf-share > /dev/null; then
-        fzf_dir_list=$(fzf-share)
-    else
-        fzf_dir_list=("/usr/share/fzf/" "/usr/share/doc/fzf/examples/" "/opt/local/share/fzf/shell/" "/opt/homebrew/opt/fzf/shell/")
-    fi
+    # Shell integration
+    source <(fzf --zsh)
 
-    for dir in "${fzf_dir_list[@]}"; do
-        if [[ -d "$dir" ]]; then
-            FZF_SCRIPT_DIR="$dir"
-            break
-        fi
-    done
-
-    if [ -f "$FZF_SCRIPT_DIR/key-bindings.zsh" ]; then
-        source "$FZF_SCRIPT_DIR/key-bindings.zsh"
-    fi
 
     function fzf_cd() {
         cd $(fd --type d --hidden | fzf)

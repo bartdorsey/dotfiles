@@ -3,7 +3,7 @@ source $HOME/.config/common/devtools.sh
 
 # Mise
 if command_exists mise; then
-    eval "$(mise activate zsh)"
+    eval "$(mise activate --shims zsh)"
 fi
 
 # Python

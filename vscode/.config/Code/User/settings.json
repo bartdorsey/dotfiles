@@ -2,7 +2,7 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.typeCheckingMode": "standard",
     "vim.leader": "<space>",
     "vim.highlightedyank.enable": true,
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -108,7 +108,6 @@
     "python.analysis.diagnosticMode": "workspace",
     "python.analysis.inlayHints.callArgumentNames": "all",
     "python.analysis.inlayHints.pytestParameters": true,
-    "workbench.iconTheme": "gruvbox-icon-theme",
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.renderSideBySide": false,
     "editor.accessibilitySupport": "off",
@@ -217,5 +216,12 @@
     "workbench.colorTheme": "Gruvbox Dark Medium",
     "customizeUI.font.regular": "AtkynsonMono NF",
     "customizeUI.font.monospace": "AtkynsonMono NF",
-    "remote.autoForwardPortsSource": "hybrid"
+    "remote.autoForwardPortsSource": "hybrid",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "workbench.iconTheme": "gruvbox-material-icons",
+    "git.autofetch": true,
+    "chat.tools.terminal.autoApprove": {
+        "python": true
+    },
+    "makefile.configureOnOpen": false
 }

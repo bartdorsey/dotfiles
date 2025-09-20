@@ -3,9 +3,6 @@
   config,
   ...
 }: {
-  # home.packages = with zen-browser; [
-  #   packages."${system}".default
-  # ];
   fonts.fontconfig.enable = true;
 
   services.cliphist = {

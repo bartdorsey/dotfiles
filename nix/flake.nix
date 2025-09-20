@@ -28,7 +28,6 @@
   }: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
-
     pkgs-unstable = import nixpkgs-unstable {
       config.allowUnfree = true;
       inherit system;
@@ -71,6 +70,8 @@
         inherit system;
         specialArgs = {
           inherit pkgs-unstable;
+          inherit zen-browser;
+          inherit system;
         };
         modules = [
           ./hosts/nzxt/configuration.nix
@@ -85,7 +86,6 @@
           {
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
-              inherit zen-browser;
               inherit system;
             };
             nixpkgs.config.allowUnfree = true;

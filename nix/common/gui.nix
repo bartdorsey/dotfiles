@@ -2,6 +2,8 @@
   pkgs,
   pkgs-unstable,
   lib,
+  zen-browser,
+  system,
   ...
 }: {
   services.displayManager = {
@@ -87,8 +89,8 @@
   programs.zoom-us.enable = false;
 
   services.desktopManager = {
-    cosmic.enable = true;
-    plasma6.enable = true;
+    cosmic.enable = false;
+    plasma6.enable = false;
   };
 
   # Configure keymap in X11
@@ -113,7 +115,8 @@
   };
 
   environment.systemPackages =
-    (with pkgs-unstable; [
+    [zen-browser.packages."${system}".default]
+    ++ (with pkgs-unstable; [
       firefoxpwa
       wezterm
     ])

@@ -12,7 +12,7 @@
       enable = false;
     };
     sddm = {
-      enable = true;
+      enable = false;
       wayland.enable = true;
     };
     cosmic-greeter.enable = false;
@@ -23,7 +23,7 @@
       xterm.enable = false;
     };
     displayManager = {
-      startx.enable = true;
+      startx.enable = false;
       lightdm.enable = false;
     };
     enable = true;
@@ -178,6 +178,7 @@
       rofi
       slack
       slurp
+      syncthingtray
       terminus_font_ttf
       vesktop
       vieb

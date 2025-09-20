@@ -6,7 +6,7 @@ function M.apply_platform_config(config)
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         config.default_domain = "WSL:Ubuntu"
         config.front_end = "OpenGL"
-        config.font = wezterm.font("AtkynsonMono NF", { weight = "DemiBold" })
+        config.font = wezterm.font("Iosevka Nerd Font", { weight = "DemiBold" })
         config.font_size = 14
         config.win32_system_backdrop = "Auto"
         config.window_background_opacity = 0.9

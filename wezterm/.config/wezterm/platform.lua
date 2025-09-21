@@ -25,6 +25,7 @@ function M.apply_platform_config(config)
         config.default_prog = { os.getenv("SHELL") }
         config.front_end = "WebGpu"
         config.font_size = 16
+        config.font = wezterm.font("Iosevka Nerd Font", { weight = "Regular" })
     end
 end
 

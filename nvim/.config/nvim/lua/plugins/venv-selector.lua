@@ -10,7 +10,6 @@ return {
         },
     },
     cmd = { "VenvSelect" },
-    branch = "regexp", -- This is the regexp branch, use this for the new version
     opts = {
         settings = {
             options = {

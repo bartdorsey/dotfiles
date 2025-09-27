@@ -31,16 +31,16 @@
     ];
   };
 
-  fileSystems."/home/echo/projects" = {
-    device = "/dev/disk/by-uuid/1816d42e-528e-479b-8f16-8e5073cd961a";
-    fsType = "btrfs";
-    options = [
-      "noauto"
-      "nofail"
-      "x-systemd.automount"
-      "x-systemd.device-timeout=10"
-    ];
-  };
+  # fileSystems."/home/echo/projects" = {
+  #   device = "/dev/disk/by-uuid/1816d42e-528e-479b-8f16-8e5073cd961a";
+  #   fsType = "btrfs";
+  #   options = [
+  #     "noauto"
+  #     "nofail"
+  #     "x-systemd.automount"
+  #     "x-systemd.device-timeout=10"
+  #   ];
+  # };
 
   services.rpcbind.enable = false;
 

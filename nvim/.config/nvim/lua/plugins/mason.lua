@@ -19,7 +19,6 @@ return {
         opts = {
             ensure_installed = {
                 "ansiblels",
-                "basedpyright",
                 "bashls",
                 "cssls",
                 "cssmodules_ls",

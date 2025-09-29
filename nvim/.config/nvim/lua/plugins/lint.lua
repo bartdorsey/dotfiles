@@ -18,9 +18,9 @@ return {
             if which("mypy") then
                 table.insert(linters, "mypy")
             end
-            if which("flake8") then
-                table.insert(linters, "flake8")
-            end
+            -- if which("flake8") then
+            --     table.insert(linters, "flake8")
+            -- end
             return linters
         end
 
@@ -37,7 +37,8 @@ return {
                 vim.notify("Loading markdown-link-check")
 
                 -- Check if config file exists, otherwise use default args
-                local config_file = vim.fn.getcwd() .. "/.markdown-link-check.json"
+                local config_file = vim.fn.getcwd()
+                    .. "/.markdown-link-check.json"
                 local args = { "--quiet" }
                 if vim.fn.filereadable(config_file) == 1 then
                     table.insert(args, "--config")
@@ -81,7 +82,9 @@ return {
                                             lnum = line_num, -- Line number (0-based)
                                             col = col_start - 1, -- Column number (0-based)
                                             end_lnum = line_num,
-                                            end_col = col_start + #broken_link - 1,
+                                            end_col = col_start
+                                                + #broken_link
+                                                - 1,
                                             severity = vim.diagnostic.severity.ERROR,
                                             source = "markdown-link-check",
                                             message = "Broken link: "
@@ -112,7 +115,7 @@ return {
 
         -- Set up linters dynamically when files are opened
         local lint_module = require("lint")
-        
+
         -- Initialize with empty tables to avoid the function error
         lint_module.linters_by_ft = {
             python = {},
@@ -139,47 +142,70 @@ return {
         vim.api.nvim_create_user_command("LintStatus", function()
             local which = require("util").which
             local lint = require("lint")
-            
+
             -- Update linters to get current status
             update_linters()
-            
+
             local report = {}
             table.insert(report, "=== NVIM-LINT STATUS REPORT ===")
             table.insert(report, "")
-            
+
             -- Check DEVMODE status
             local devmode = os.getenv("DEVMODE")
-            table.insert(report, "DEVMODE: " .. (devmode and "✓ Enabled" or "✗ Disabled (plugin won't load)"))
+            table.insert(
+                report,
+                "DEVMODE: "
+                    .. (
+                        devmode and "✓ Enabled"
+                        or "✗ Disabled (plugin won't load)"
+                    )
+            )
             table.insert(report, "")
-            
+
             -- Check configured linters by filetype
             table.insert(report, "Configured linters by filetype:")
             for ft, linters in pairs(lint.linters_by_ft) do
                 local linter_count = #linters
-                table.insert(report, string.format("  %s: %d linter%s", ft, linter_count, linter_count == 1 and "" or "s"))
+                table.insert(
+                    report,
+                    string.format(
+                        "  %s: %d linter%s",
+                        ft,
+                        linter_count,
+                        linter_count == 1 and "" or "s"
+                    )
+                )
                 for _, linter in ipairs(linters) do
                     table.insert(report, "    - " .. linter)
                 end
             end
             table.insert(report, "")
-            
+
             -- Check tool availability
             table.insert(report, "Tool availability:")
             local tools = {
-                python = {"ruff", "mypy", "flake8"},
-                markdown = {"cspell", "markdownlint", "markdownlint-cli", "markdown-link-check"}
+                python = { "ruff", "mypy", "flake8" },
+                markdown = {
+                    "cspell",
+                    "markdownlint",
+                    "markdownlint-cli",
+                    "markdown-link-check",
+                },
             }
-            
+
             for category, tool_list in pairs(tools) do
                 table.insert(report, string.format("  %s tools:", category))
                 for _, tool in ipairs(tool_list) do
                     local available = which(tool)
                     local status = available and "✓" or "✗"
-                    table.insert(report, string.format("    %s %s", status, tool))
+                    table.insert(
+                        report,
+                        string.format("    %s %s", status, tool)
+                    )
                 end
                 table.insert(report, "")
             end
-            
+
             -- Check current buffer linters
             local current_ft = vim.bo.filetype
             if current_ft and current_ft ~= "" then
@@ -191,25 +217,31 @@ return {
                         table.insert(report, "    - " .. linter)
                     end
                 else
-                    table.insert(report, "  No linters available (tools not installed)")
+                    table.insert(
+                        report,
+                        "  No linters available (tools not installed)"
+                    )
                 end
                 table.insert(report, "")
             end
-            
+
             -- Check config files
             table.insert(report, "Configuration files:")
             local config_files = {
-                {".markdown-link-check.json", "markdown-link-check config"}
+                { ".markdown-link-check.json", "markdown-link-check config" },
             }
-            
+
             for _, config in ipairs(config_files) do
                 local file, description = config[1], config[2]
                 local path = vim.fn.getcwd() .. "/" .. file
                 local exists = vim.fn.filereadable(path) == 1
                 local status = exists and "✓" or "✗"
-                table.insert(report, string.format("  %s %s (%s)", status, file, description))
+                table.insert(
+                    report,
+                    string.format("  %s %s (%s)", status, file, description)
+                )
             end
-            
+
             -- Display the report
             vim.cmd("new")
             vim.api.nvim_buf_set_lines(0, 0, -1, false, report)

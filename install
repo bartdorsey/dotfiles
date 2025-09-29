@@ -106,6 +106,22 @@ if type stow 2>/dev/null; then
 
 fi
 
+if type git-crypt 2>/dev/null; then
+    cyan '--------------------------------'
+    cyan 'Trying to unlock encrypted files'
+    cyan '--------------------------------'
+    git-crypt unlock
+fi
+
+cyan "--------------------------"
+cyan "Fixing SSH key permissions"
+cyan "--------------------------"
+
+chmod -v 700 ./ssh/.ssh
+chmod -v 600 ./ssh/.ssh/id*
+chmod -v 644 ./ssh/.ssh/*.pub
+
+
 # Install tmux plugin manager if it's not installed
 if [[ ! -d "$HOME/.config/tmux/plugins/tpm" ]]; then
     cyan "------------------------------"
@@ -148,18 +164,6 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     }
 fi
 
-if type git-crypt 2>/dev/null; then
-    cyan '--------------------------------'
-    cyan 'Trying to unlock encrypted files'
-    cyan '--------------------------------'
-    git-crypt unlock
+if type mise 2>/dev/null; then
+    mise install
 fi
-
-cyan "--------------------------"
-cyan "Fixing SSH key permissions"
-cyan "--------------------------"
-
-chmod -v 700 ./ssh/.ssh
-chmod -v 600 ./ssh/.ssh/id*
-chmod -v 644 ./ssh/.ssh/*.pub
-

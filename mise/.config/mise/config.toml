@@ -2,6 +2,7 @@
 go = "latest"
 node = "latest"
 bun = "latest"
+black = "latest"
 pnpm = "latest"
 python = "latest"
 deno = "latest"
@@ -20,6 +21,8 @@ opencode = "latest"
 uv = "latest"
 ripgrep = "latest"
 gum = "latest"
+yazi = "latest"
+superfile = "latest"
 
 [alias]
 

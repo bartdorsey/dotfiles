@@ -96,9 +96,17 @@ if type stow 2>/dev/null; then
         ignore_directories+=("git/")
         cyan "Detected NixOS, skipping configs handled by home manager..."
     fi
+    
+    if [ -n "$OMARCH_PATH"]; then
+        cyan "Detected Omarchy, using omarchy configs for hyprland and waybar"
+        ignore_directories+=("hypr/" "waybar/" "fastfetch/" "btop/")
+    else
+        ignore_directories+=("omarchy/")
+    fi
 
     for i in */; do
         if [[ " ${ignore_directories[@]} " =~ " $i " ]]; then
+            cyan "Ignoring $i"
             continue
         fi
         stow -v -R "$i" -t "$HOME" 2>&1 | grep "WARNING"

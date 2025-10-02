@@ -1,0 +1,30 @@
+[2025-09-26 14:42:40.130] [info] Using configuration file /home/echo/.config/waybar/config.jsonc
+[2025-09-26 14:42:40.132] [info] Discovered appearance 'dark'
+[2025-09-26 14:42:40.147] [info] Using CSS file /home/echo/.config/waybar/style.css
+[2025-09-26 14:42:40.151] [info] Hyprland IPC starting
+[2025-09-26 14:42:40.151] [info] Loading persistent workspaces from Waybar config
+[2025-09-26 14:42:40.152] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-09-26 14:42:40.161] [warning] No batteries.
+[2025-09-26 14:42:40.177] [info] Loading persistent workspaces from Waybar config
+[2025-09-26 14:42:40.177] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-09-26 14:42:40.187] [warning] No batteries.
+[2025-09-26 14:42:40.190] [info] Loading persistent workspaces from Waybar config
+[2025-09-26 14:42:40.190] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-09-26 14:42:40.206] [warning] No batteries.
+
+(waybar:40021): Gtk-CRITICAL **: 14:42:40.443: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:40021): Gtk-CRITICAL **: 14:42:40.443: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:40021): Gtk-CRITICAL **: 14:42:40.444: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:40021): Gtk-CRITICAL **: 14:42:40.444: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:40021): Gtk-CRITICAL **: 14:42:40.444: gtk_widget_set_accel_path: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+
+(waybar:40021): Gtk-CRITICAL **: 14:42:40.444: gtk_widget_add_accelerator: assertion 'GTK_IS_ACCEL_GROUP (accel_group)' failed
+[2025-09-26 14:42:40.621] [info] Bar configured (width: 1440, height: 26) for output: DP-1
+[2025-09-26 14:42:40.624] [info] Bar configured (width: 1920, height: 26) for output: HDMI-A-1
+[2025-09-26 14:42:40.627] [info] Bar configured (width: 2560, height: 26) for output: DP-3
+[2025-09-26 14:42:43.979] [info] Quitting.
+[2025-09-26 14:42:43.996] [info] Hyprland IPC stopping...

@@ -6,7 +6,6 @@ function M.setup_tabline(config)
     local tabline = wezterm.plugin.require(
         "https://github.com/michaelbrusegard/tabline.wez"
     )
-
     local tab_config = {
         {
             "index",
@@ -30,9 +29,14 @@ function M.setup_tabline(config)
         options = {
             icons_enabled = true,
             icons_only = false,
-            theme = "GruvboxDark",
             tabs_enabled = true,
-            theme_overrides = {},
+            theme = "GruvboxDarkHard",
+            theme_overrides = {
+                tab = {
+                    active = { fg = "#fabd2f" },
+                    inactive = { fg = "#665c54" },
+                },
+            },
             section_separators = {
                 left = " ",
                 right = " ",
@@ -52,8 +56,15 @@ function M.setup_tabline(config)
             tabline_c = { "" },
             tab_active = tab_config,
             tab_inactive = tab_config,
-            tabline_x = { "ram", "cpu" },
-            tabline_y = { { "datetime", style = "%I:%M %p" } },
+            tabline_x = {
+                "ram",
+                "cpu",
+                {
+                    "datetime",
+                    style = "%I:%M %p",
+                },
+            },
+            tabline_y = {},
             tabline_z = {},
         },
         extensions = {},

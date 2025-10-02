@@ -27,7 +27,7 @@ function M.apply_appearance_config(config)
     config.disable_default_key_bindings = false
     config.audible_bell = "Disabled"
     config.enable_tab_bar = true
-    config.tab_bar_at_bottom = false
+    config.tab_bar_at_bottom = true
     config.warn_about_missing_glyphs = false
     config.window_close_confirmation = "NeverPrompt"
     config.adjust_window_size_when_changing_font_size = false

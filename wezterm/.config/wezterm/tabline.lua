@@ -7,60 +7,54 @@ function M.setup_tabline(config)
         "https://github.com/michaelbrusegard/tabline.wez"
     )
 
+    local tab_config = {
+        {
+            "index",
+            padding = 0,
+        },
+        {
+            "process",
+            process_to_icon = {
+                ["lg"] = wezterm.nerdfonts.dev_git,
+                ["lazygit"] = wezterm.nerdfonts.dev_git,
+            },
+        },
+        {
+            "cwd",
+            icon = wezterm.nerdfonts.cod_folder,
+            padding = 0,
+            max_length = 10,
+        },
+    }
     tabline.setup({
         options = {
             icons_enabled = true,
+            icons_only = false,
             theme = "GruvboxDark",
             tabs_enabled = true,
             theme_overrides = {},
             section_separators = {
-                left = wezterm.nerdfonts.pl_left_hard_divider,
-                right = wezterm.nerdfonts.pl_right_hard_divider,
+                left = " ",
+                right = " ",
             },
             component_separators = {
-                left = wezterm.nerdfonts.pl_left_soft_divider,
-                right = wezterm.nerdfonts.pl_right_soft_divider,
+                left = " ",
+                right = " ",
             },
             tab_separators = {
-                left = wezterm.nerdfonts.pl_left_hard_divider,
-                right = wezterm.nerdfonts.pl_right_hard_divider,
+                left = " ",
+                right = " ",
             },
         },
         sections = {
-            tabline_a = { "mode" },
+            tabline_a = { "" },
             tabline_b = { "" },
             tabline_c = { "" },
-            tab_active = {
-                {
-                    "index",
-                    padding = 0,
-                    fmt = function(string)
-                        return string .. " "
-                    end,
-                },
-                { "zoomed", padding = 0 },
-                {
-                    "process",
-                    process_to_icon = {
-                        ["lg"] = wezterm.nerdfonts.dev_git,
-                        ["lazygit"] = wezterm.nerdfonts.dev_git,
-                    },
-                },
-            },
-            tab_inactive = {
-                {
-                    "index",
-                    padding = 0,
-                    fmt = function(string)
-                        return string .. " "
-                    end,
-                },
-                { "zoomed", padding = 0 },
-                { "process" },
-            },
+            tab_active = tab_config,
+            tab_inactive = tab_config,
             tabline_x = { "ram", "cpu" },
             tabline_y = { { "datetime", style = "%I:%M %p" } },
-            tabline_z = { "hostname" },
+            tabline_z = {},
         },
         extensions = {},
     })

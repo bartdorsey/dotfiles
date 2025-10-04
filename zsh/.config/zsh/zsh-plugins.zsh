@@ -4,6 +4,8 @@ BASE_SCRIPT_PATH="${HOME}/.config/zsh/zshrc.d/"
 function run_plugin {
     if [[ -d "${HOME}/.local/share/zsh/plugins/${1}" ]]; then
         source "${HOME}/.local/share/zsh/plugins/${1}/${2}"
+    else
+        echo "Couldn't find zsh plugin ${1}/${2}..."
     fi
 }
 

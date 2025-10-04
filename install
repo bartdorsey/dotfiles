@@ -210,6 +210,10 @@ install_zsh_plugin "zdharma-continuum/fast-syntax-highlighting"
 install_zsh_plugin "zsh-users/zsh-completions"
 install_zsh_plugin "RobSis/zsh-completion-generator" 
 install_zsh_plugin "Aloxaf/fzf-tab"
+install_zsh_plugin "sunlei/zsh-ssh"
+install_zsh_plugin "RobSis/zsh-completion-generator"
+install_zsh_plugin "marlonrichert/zsh-autocomplete"
+install_zsh_plugin "MichaelAquilina/zsh-auto-notify"
 
 if [[ -v WSL_DISTRO_NAME ]]; then
     code() {

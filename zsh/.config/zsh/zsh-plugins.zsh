@@ -2,8 +2,8 @@ BASE_SNIPPET_URL="https://raw.githubusercontent.com/bartdorsey/dotfiles/main/zsh
 BASE_SCRIPT_PATH="${HOME}/.config/zsh/zshrc.d/"
 
 function run_plugin {
-    if [[ -d "${ZDOTDIR}/plugins/${1}" ]]; then
-        source "${ZDOTDIR}/plugins/${1}/${2}"
+    if [[ -d "${HOME}/.local/share/zsh/plugins/${1}" ]]; then
+        source "${HOME}/.local/share/zsh/plugins/${1}/${2}"
     fi
 }
 

@@ -182,6 +182,35 @@ if type nvim &>/dev/null; then
     nvim --headless +"Lazy! restore" +qa
 fi
 
+# Install zsh plugins
+install_zsh_plugin() {
+    local plugin="$1"
+    local ZSH_PLUGIN_DIR="$HOME/.local/share/zsh/plugins"
+    
+    # Create directory if it doesn't exist
+    mkdir -p "$ZSH_PLUGIN_DIR"
+    
+    # Extract repo name (everything after last /)
+    local repo_name="${plugin##*/}"
+    local plugin_path="$ZSH_PLUGIN_DIR/$repo_name"
+    
+    if [[ -d "$plugin_path" ]]; then
+        cyan "Plugin $repo_name already exists, updating..."
+        git -C "$plugin_path" pull
+    else
+        cyan "Cloning $plugin..."
+        git clone "https://github.com/$plugin.git" "$plugin_path"
+    fi
+}
+
+# ZSH Plugins
+install_zsh_plugin "zsh-users/zsh-autosuggestions"
+install_zsh_plugin "zsh-users/zsh-syntax-highlighting"
+install_zsh_plugin "zdharma-continuum/fast-syntax-highlighting"
+install_zsh_plugin "zsh-users/zsh-completions"
+install_zsh_plugin "RobSis/zsh-completion-generator" 
+install_zsh_plugin "Aloxaf/fzf-tab"
+
 if [[ -v WSL_DISTRO_NAME ]]; then
     code() {
         /mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code "$@"

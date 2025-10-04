@@ -84,7 +84,7 @@ if [ ! -d "$HOME/.claude" ]; then
     mkdir -vp "$HOME/.claude"
 fi
 
-if type stow 2>/dev/null; then
+if type stow &>/dev/null; then
 
     cyan "-------------------------"
     cyan "Symlinking in dotfiles..."
@@ -94,11 +94,15 @@ if type stow 2>/dev/null; then
     if [ -f /etc/NIXOS ]; then
         ignore_directories+=("zshenv/")
         ignore_directories+=("git/")
+        cyan "-----------------------------------------------------------"
         cyan "Detected NixOS, skipping configs handled by home manager..."
+        cyan "-----------------------------------------------------------"
     fi
     
-    if [ -n "$OMARCH_PATH"]; then
+    if [ -n "$OMARCH_PATH" ]; then
+        cyan "---------------------------------------------------------------"
         cyan "Detected Omarchy, using omarchy configs for hyprland and waybar"
+        cyan "---------------------------------------------------------------"
         ignore_directories+=("hypr/" "waybar/" "fastfetch/" "btop/")
     else
         ignore_directories+=("omarchy/")
@@ -114,7 +118,19 @@ if type stow 2>/dev/null; then
 
 fi
 
-if type git-crypt 2>/dev/null; then
+if type mise &>/dev/null && [ ! -d "/etc/nixos" ]; then
+
+    cyan "--------------------------"
+    cyan "Installing tools with mise"
+    cyan "--------------------------"
+    mise install
+else
+    cyan "----------------------"
+    cyan "Skipping mise installs"
+    cyan "----------------------"
+fi
+
+if type git-crypt &>/dev/null; then
     cyan '--------------------------------'
     cyan 'Trying to unlock encrypted files'
     cyan '--------------------------------'
@@ -149,7 +165,7 @@ cyan "-----------------------"
 fi
 
 # Install vim plugins
-if type vim 2>/dev/null; then
+if type vim &>/dev/null; then
     cyan "-------------------------"
     cyan "Installing vim plugins"
     cyan "-------------------------"
@@ -158,7 +174,7 @@ if type vim 2>/dev/null; then
 fi
 
 # Install neovim plugins
-if type nvim 2>/dev/null; then
+if type nvim &>/dev/null; then
     cyan "-------------------------"
     cyan "Installing neovim plugins"
     cyan "-------------------------"
@@ -172,6 +188,3 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     }
 fi
 
-if type mise 2>/dev/null; then
-    mise install
-fi

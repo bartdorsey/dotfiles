@@ -66,7 +66,7 @@ run_plugin zsh-ssh zsh-ssh.zsh
 run_plugin zsh-fzf zsh-fzf.zsh
 
 if type python3 > /dev/null;then
-    run_plugin zsh-completion-generator/zsh-completion-generator.plugin.zsh;
+    run_plugin zsh-completion-generator zsh-completion-generator.plugin.zsh;
     # Completions
 
     zstyle :plugin:zsh-completion-generator programs \

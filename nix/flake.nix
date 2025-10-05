@@ -44,6 +44,7 @@
           inherit inputs;
         };
         modules = [
+          ./hosts/nzxt/bootloader.nix
           ./hosts/nzxt/configuration.nix
           ./hosts/nzxt/hardware-configuration.nix
           ./hosts/nzxt/nvidia.nix

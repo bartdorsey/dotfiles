@@ -2,39 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {...}: {
-  # Bootloader.
-  boot.loader = {
-    grub = {
-      enable = true;
-      useOSProber = true;
-      efiSupport = true;
-      device = "nodev";
-      gfxmodeEfi = "1920x1080";
-      gfxmodeBios = "1920x1080";
-      default = "saved";
-      # extraEntries = ''
-      #   menuentry "Bazzite" {
-      #       search --set=root --fs-uuid 01BE-9670
-      #       chainloader /EFI/fedora/grubx64.efi
-      #   }
-      # '';
-    };
-    efi = {
-      efiSysMountPoint = "/boot/efi";
-      canTouchEfiVariables = true;
-    };
-  };
-
   security.polkit.enable = true;
-
-  boot.kernelParams = [
-    "video=1920x1080"
-    "splash"
-    "boot.shell_on_fail"
-    "loglevel=3"
-    "rd.systemd.show_status=false"
-    "udev.log_priority=3"
-  ];
 
   networking.hostName = "nzxt"; # Define your hostname.
 

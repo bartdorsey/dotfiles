@@ -49,6 +49,7 @@
           ./hosts/nzxt/hardware-configuration.nix
           ./hosts/nzxt/nvidia.nix
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+          ./common/theme.nix
           ./common/os.nix
           ./common/mounts.nix
           ./common/gui.nix

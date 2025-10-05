@@ -1,4 +1,5 @@
 {...}: {
+  console.earlySetup = true;
   console.colors = [
     "282828" # black (bg)
     "cc241d" # red

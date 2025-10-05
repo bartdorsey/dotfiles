@@ -1,6 +1,10 @@
 {pkgs, ...}: {
+  # console font
+  console.font = "Lat2-Terminus16";
+
   # Bootloader.
   boot = {
+    consoleLogLevel = 3;
     loader = {
       grub = {
         enable = true;
@@ -17,29 +21,31 @@
         #   }
         # '';
       };
-      initrd = {
-        enable = true;
-        verbose = false;
-      };
       efi = {
         efiSysMountPoint = "/boot/efi";
         canTouchEfiVariables = true;
       };
     };
+    initrd = {
+      enable = true;
+      verbose = false;
+    };
     plymouth = {
       enable = true;
       font = "${pkgs.jetbrains-mono}/share/fonts/truetype/JetBrainsMono-Regular.ttf";
-      themePackages = [pkgs.catppuccin-plymouth];
-      theme = "catppuccin-macchiato";
     };
 
     kernelParams = [
       "video=1920x1080"
+      "quiet"
       "splash"
       "boot.shell_on_fail"
       "loglevel=3"
-      "rd.systemd.show_status=false"
-      "udev.log_priority=3"
+      "systemd.show_status=auto"
+      "rd.udev.log_priority=3"
+      "fbcon=nodefer"
+      "usbcore.autosuspend=-1"
+      "video4linux"
     ];
   };
 }

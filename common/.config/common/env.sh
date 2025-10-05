@@ -66,6 +66,9 @@ export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/pass"
 # Default editor
 export EDITOR="nvim"
 
+# Default Terminal
+export TERMINAL="wezterm start"
+
 # vimrc location
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 

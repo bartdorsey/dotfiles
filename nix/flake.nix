@@ -45,6 +45,8 @@
         };
         modules = [
           ./hosts/nzxt/configuration.nix
+          ./hosts/nzxt/hardware-configuration.nix
+          ./hosts/nzxt/nvidia.nix
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           ./common/os.nix
           ./common/mounts.nix

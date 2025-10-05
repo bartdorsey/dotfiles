@@ -74,17 +74,6 @@
     displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --mode 2560x1440 --pos 0x0 --rotate left --output HDMI-0 --mode 1920x1080 --pos 1440x1952 --rotate normal --output DP-4 --primary --mode 2560x1440 --pos 1440x512 --rotate normal";
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
   hardware.openrazer = {
     users = ["echo"];
     enable = true;

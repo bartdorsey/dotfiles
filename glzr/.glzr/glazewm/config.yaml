@@ -172,7 +172,7 @@ window_rules:
     - commands: ["move --workspace 6", "focus --workspace 6"]
       match:
           - window_process: { equals: "bambu-studio" }
-          - window_process: { regex: "[Vv][Mm]ware"}
+          - window_process: { regex: "[Vv][Mm]ware" }
     # Workspace 7
     - commands: ["move --workspace 7"]
       match:
@@ -296,7 +296,7 @@ keybindings:
 
     # Close focused window.
     - commands: ["close"]
-      bindings: ["alt+shift+q"]
+      bindings: ["alt+w"]
 
     # Kill GlazeWM process safely.
     - commands: ["wm-exit"]
@@ -316,6 +316,19 @@ keybindings:
     - commands: ["shell-exec %ProgramFiles%/Wezterm/wezterm-gui.exe"]
       bindings: ["alt+enter"]
 
+    - commands:
+          [
+              'shell-exec %ProgramFiles%/Wezterm/wezterm.exe cli --prefer-mux spawn --new-window --domain-name "local" -- sudo btop',
+          ]
+      bindings: ["alt+p"]
+    - commands:
+          [
+              'shell-exec %ProgramFiles%/Wezterm/wezterm.exe cli --prefer-mux spawn --new-window --domain-name "local" -- C:\Program Files\PowerShell\7\pwsh.exe',
+          ]
+      bindings: ["alt+shift+enter"]
+
+    - commands: ["shell-exec %ProgramFiles%/Zen Browser/zen.exe"]
+      bindings: ["alt+b"]
     # Focus the next/previous workspace defined in `workspaces` config.
     # - commands: ["focus --next-workspace"]
     #   bindings: ["alt+s"]

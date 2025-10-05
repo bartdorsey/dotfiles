@@ -1,5 +1,5 @@
 configuration{
-    modi: "run,window,combi";
+    modi: "drun";
     icon-theme: "Oranchelo";
     show-icons: true;
     terminal: "wezterm";
@@ -7,10 +7,8 @@ configuration{
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-combi: " 🖥️  All ";
-    display-run: " 🏃  Run ";
-    display-window: " 🪟  Window";
-    sidebar-mode: true;
+    sidebar-mode: false;
+    display-drun: "";
 }
 
-@theme "catppuccin-mocha"
+@theme "gruvbox"

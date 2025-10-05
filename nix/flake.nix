@@ -15,6 +15,7 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
   outputs = {
@@ -25,7 +26,7 @@
     zen-browser,
     nixos-hardware,
     ...
-  }: let
+  } @ inputs: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs-unstable = import nixpkgs-unstable {
@@ -34,44 +35,13 @@
     };
   in {
     nixosConfigurations = {
-      nixos-vm = lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit pkgs-unstable;
-        };
-        modules = [
-          ./hosts/nixos-vm/configuration.nix
-          ./common/os.nix
-          ./common/system-packages.nix
-          ./common/gui.nix
-          ./users/echo.nix
-          ./users/echo-gui.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = {
-              inherit pkgs-unstable;
-              inherit zen-browser;
-              inherit system;
-            };
-            nixpkgs.config.allowUnfree = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.echo = {
-              imports = [
-                ./home-manager/echo.nix
-                ./home-manager/echo-gui.nix
-              ];
-            };
-          }
-        ];
-      };
       nzxt = lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit pkgs-unstable;
           inherit zen-browser;
           inherit system;
+          inherit inputs;
         };
         modules = [
           ./hosts/nzxt/configuration.nix

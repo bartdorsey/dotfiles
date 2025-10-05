@@ -179,6 +179,7 @@ window_rules:
           - window_process: { regex: "^[Vv]esktop" }
           - window_process: { regex: "^[Ss]lack" }
           - window_process: { regex: "^[Zz]oom" }
+          - window_process: { regex: "^Signal"}
     # Workspace 8
     - commands: ["move --workspace 8", "focus --workspace 8"]
       match:

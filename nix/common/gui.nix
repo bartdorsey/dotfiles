@@ -76,16 +76,6 @@
     autoStart = true; # optional
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    withUWSM = true;
-  };
-
-  programs.waybar = {
-    enable = true;
-  };
-
   programs.zoom-us.enable = false;
 
   services.desktopManager = {
@@ -149,11 +139,6 @@
       google-chrome
       grim
       grimblast
-      hypridle
-      hyprlock
-      hyprpaper
-      hyprpolkitagent
-      hyprshot
       iosevka
       kitty
       libnotify

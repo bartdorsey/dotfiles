@@ -182,20 +182,6 @@ if type nvim &>/dev/null; then
     nvim --headless +"Lazy! restore" +qa
 fi
 
-cyan "------------------------------------"
-cyan "installing and updating omarchy repo"
-cyan "------------------------------------"
-
-mkdir -p "$HOME/.local/share" &> /dev/null
-if [[ -d "$HOME/.local/share/omarchy" ]]; then
-    cyan "Updating omarchy"
-    git -C "$HOME/.local/share/omarchy" pull
-else
-    cyan "Cloning omarchy"
-    git clone "https://github.com/basecamp/omarchy.git" "$HOME/.local/share/omarchy"
-fi
-
-
 # Install zsh plugins
 install_zsh_plugin() {
     local plugin="$1"

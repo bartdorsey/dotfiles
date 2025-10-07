@@ -27,3 +27,5 @@
 	diff = auto
 	interactive = auto
 	status = auto
+[push]
+	followTags = true

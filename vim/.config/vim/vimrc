@@ -165,7 +165,7 @@ else
     command! ConfigDir execute 'cd ~/.dotfiles/vim/.config/vim/' | execute 'Ex ~/.dotfiles/vim/.config/vim/'
 
     command! DotFiles execute 'cd ~/.dotfiles' | execute 'Ex ~/.dotfiles'
-    let g:lightline = { 'colorscheme': 'catppuccin_mocha' }
+    let g:lightline = { 'colorscheme': 'gruvbox' }
 
     let g:highlightedyank_highlight_duration = 200
 
@@ -214,6 +214,7 @@ else
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-commentary'
     Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+    Plug 'morhetz/gruvbox'
     Plug 'Donaldttt/fuzzyy'
     Plug 'tpope/vim-vinegar'
     Plug 'mhinz/vim-startify'
@@ -229,7 +230,8 @@ else
     inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+    set background=dark
 
-    colorscheme catppuccin_mocha
+    colorscheme gruvbox
 end
 

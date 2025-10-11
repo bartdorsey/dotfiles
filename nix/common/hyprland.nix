@@ -15,7 +15,6 @@
   services.hypridle.enable = true;
 
   environment.systemPackages = with pkgs; [
-    pyprland
     hyprpicker
     hyprcursor
     hyprlock
@@ -24,17 +23,11 @@
     hyprshot
     hyprsunset
     hyprpolkitagent
-
     inputs.wezterm.packages.${pkgs.system}.default
-    kitty
-    cool-retro-term
-
-    starship
-    helix
-
-    qutebrowser
-    zathura
     mpv
+    mako
     imv
+    satty
+    walker
   ];
 }

@@ -65,14 +65,16 @@
               inherit system;
             };
             nixpkgs.config.allowUnfree = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.echo = {
-              imports = [
-                ./home-manager/echo.nix
-                ./home-manager/echo-gui.nix
-              ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              users.echo = {
+                imports = [
+                  ./home-manager/echo.nix
+                  ./home-manager/echo-gui.nix
+                ];
+              };
             };
           }
         ];
@@ -97,18 +99,12 @@
             };
 
             nixpkgs.config.allowUnfree = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.echo = {
-              imports = [
-                ./home-manager/echo.nix
-              ];
-            };
-            home-manager.users.guest = {
-              imports = [
-                ./home-manager/guest.nix
-              ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              users.echo = import ./home-manager/echo.nix;
+              users.guest = import ./home-manager/guest.nix;
             };
           }
         ];
@@ -129,12 +125,11 @@
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
             };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.echo = {
-              imports = [
-                ./home-manager/echo.nix
-              ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              users.echo = import ./home-manager/echo.nix;
             };
           }
         ];

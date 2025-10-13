@@ -141,10 +141,6 @@
     source = ../../direnv/.config/direnv;
     recursive = true;
   };
-  xdg.configFile."mise" = {
-    source = ../../mise/.config/mise;
-    recursive = true;
-  };
   xdg.configFile."lazygit" = {
     source = ../../lazygit/.config/lazygit;
     recursive = true;

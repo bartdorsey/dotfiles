@@ -80,4 +80,113 @@
   };
 
   home.file.".config/xdg-settings/default-web-browser".text = "firefox.desktop";
+
+  # Desktop environments and window managers
+  xdg.configFile."hypr" = {
+    source = ../../hypr/.config/hypr;
+    recursive = true;
+  };
+  xdg.configFile."i3" = {
+    source = ../../i3/.config/i3;
+    recursive = true;
+  };
+  xdg.configFile."awesome" = {
+    source = ../../awesome/.config/awesome;
+    recursive = true;
+  };
+  xdg.configFile."cosmic" = {
+    source = ../../cosmic/.config/cosmic;
+    recursive = true;
+  };
+
+  # Bars and panels
+  xdg.configFile."waybar" = {
+    source = ../../waybar/.config/waybar;
+    recursive = true;
+  };
+  xdg.configFile."polybar" = {
+    source = ../../polybar/.config/polybar;
+    recursive = true;
+  };
+  xdg.configFile."sketchybar" = {
+    source = ../../sketchybar/.config/sketchybar;
+    recursive = true;
+  };
+
+  # Application launchers
+  xdg.configFile."rofi" = {
+    source = ../../rofi/.config/rofi;
+    recursive = true;
+  };
+  xdg.configFile."wofi" = {
+    source = ../../wofi/.config/wofi;
+    recursive = true;
+  };
+  xdg.configFile."walker" = {
+    source = ../../walker/.config/walker;
+    recursive = true;
+  };
+
+  # Notifications
+  xdg.configFile."dunst" = {
+    source = ../../dunst/.config/dunst;
+    recursive = true;
+  };
+
+  # Screenshots
+  xdg.configFile."flameshot" = {
+    source = ../../flameshot/.config/flameshot;
+    recursive = true;
+  };
+
+  # macOS specific
+  xdg.configFile."aerospace" = {
+    source = ../../aerospace/.config/aerospace;
+    recursive = true;
+  };
+
+  # VS Code
+  xdg.configFile."Code/User" = {
+    source = ../../vscode/.config/Code/User;
+    recursive = true;
+  };
+
+  # Web browsers
+  xdg.configFile."zen" = {
+    source = ../../zen/.config/zen;
+    recursive = true;
+  };
+
+  # Theme frameworks
+  xdg.configFile."omarchy" = {
+    source = ../../omarchy/.config/omarchy;
+    recursive = true;
+  };
+
+  # Fonts
+  xdg.dataFile."fonts" = {
+    source = ../../fonts/.local/share/fonts;
+    recursive = true;
+  };
+
+  # Wallpapers
+  xdg.dataFile."wallpapers" = {
+    source = ../../wallpaper/.local/share/wallpapers;
+    recursive = true;
+  };
+
+  # Art (ASCII art)
+  xdg.configFile."art" = {
+    source = ../../art/.config/art;
+    recursive = true;
+  };
+
+  # Logos
+  xdg.dataFile."logos" = {
+    source = ../../logos/.local/share/logos;
+    recursive = true;
+  };
+
+  # X11 startup
+  home.file.".xinitrc".source = ../../startx/.xinitrc;
 }

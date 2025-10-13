@@ -225,6 +225,16 @@
     recursive = true;
   };
 
+  # Zsh plugins (git-tracked ones)
+  xdg.dataFile."zsh/plugins/zsh-better-vi" = {
+    source = ../../zsh/.local/share/zsh/plugins/zsh-better-vi;
+    recursive = true;
+  };
+  xdg.dataFile."zsh/plugins/zsh-fzf" = {
+    source = ../../zsh/.local/share/zsh/plugins/zsh-fzf;
+    recursive = true;
+  };
+
 
   # Systemd user services
   xdg.configFile."systemd/user" = {

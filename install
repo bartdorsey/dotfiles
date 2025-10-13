@@ -93,7 +93,7 @@ elif type stow &>/dev/null; then
     cyan "-------------------------"
     cyan "Symlinking in dotfiles..."
     cyan "-------------------------"
-    ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "glzr/" "syncthing/")
+    ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "syncthing/")
 
     if [ -n "$OMARCH_PATH" ]; then
         cyan "---------------------------------------------------------------"

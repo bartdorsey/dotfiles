@@ -32,6 +32,7 @@ require("lazy").setup({
         { import = "plugins" },
     },
     ui = {},
+    lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
     checker = {
         enabled = false,  -- Disable auto-checking for faster startup
         notify = false,

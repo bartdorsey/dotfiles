@@ -183,14 +183,14 @@ fi
 install_zsh_plugin() {
     local plugin="$1"
     local ZSH_PLUGIN_DIR="$HOME/.local/share/zsh/plugins"
-    
+
     # Create directory if it doesn't exist
     mkdir -p "$ZSH_PLUGIN_DIR"
-    
+
     # Extract repo name (everything after last /)
     local repo_name="${plugin##*/}"
     local plugin_path="$ZSH_PLUGIN_DIR/$repo_name"
-    
+
     if [[ -d "$plugin_path" ]]; then
         cyan "Plugin $repo_name already exists, updating..."
         git -C "$plugin_path" pull
@@ -201,12 +201,21 @@ install_zsh_plugin() {
 }
 
 # ZSH Plugins
-install_zsh_plugin "zsh-users/zsh-autosuggestions"
-install_zsh_plugin "zsh-users/zsh-syntax-highlighting"
-install_zsh_plugin "zdharma-continuum/fast-syntax-highlighting"
-install_zsh_plugin "zsh-users/zsh-completions"
-install_zsh_plugin "Aloxaf/fzf-tab"
-install_zsh_plugin "marlonrichert/zsh-autocomplete"
+if [ -f /etc/NIXOS ]; then
+    cyan "----------------------------------------------------------------"
+    cyan "Detected NixOS, skipping zsh plugins (using home-manager instead)..."
+    cyan "----------------------------------------------------------------"
+else
+    cyan "-------------------------"
+    cyan "Installing zsh plugins..."
+    cyan "-------------------------"
+    install_zsh_plugin "zsh-users/zsh-autosuggestions"
+    install_zsh_plugin "zsh-users/zsh-syntax-highlighting"
+    install_zsh_plugin "zdharma-continuum/fast-syntax-highlighting"
+    install_zsh_plugin "zsh-users/zsh-completions"
+    install_zsh_plugin "Aloxaf/fzf-tab"
+    install_zsh_plugin "marlonrichert/zsh-autocomplete"
+fi
 
 if [[ -v WSL_DISTRO_NAME ]]; then
     code() {

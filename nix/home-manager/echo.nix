@@ -1,4 +1,8 @@
-{...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.username = "echo";
   home.homeDirectory = "/home/echo";
 
@@ -234,6 +238,15 @@
     source = ../../zsh/.local/share/zsh/plugins/zsh-fzf;
     recursive = true;
   };
+
+  # Zsh plugins (from nixpkgs)
+  # Note: These are managed by home-manager using nixpkgs packages
+  xdg.dataFile."zsh/plugins/zsh-autosuggestions".source = "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
+  xdg.dataFile."zsh/plugins/zsh-syntax-highlighting".source = "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
+  xdg.dataFile."zsh/plugins/fast-syntax-highlighting".source = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
+  xdg.dataFile."zsh/plugins/zsh-completions".source = "${pkgs.zsh-completions}/share/zsh/site-functions";
+  xdg.dataFile."zsh/plugins/fzf-tab".source = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
+  xdg.dataFile."zsh/plugins/zsh-autocomplete".source = "${pkgs.zsh-autocomplete}/share/zsh-autocomplete";
 
 
   # Systemd user services

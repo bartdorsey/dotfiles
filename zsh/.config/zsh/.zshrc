@@ -1,6 +1,13 @@
 zmodload zsh/zprof
 
-fpath=($HOME/.config/zsh/completions $fpath)
+# Add zsh-completions to fpath
+# On NixOS/home-manager: completions are directly in the plugin directory
+# On manual clone: completions are in the src/ subdirectory
+if [[ -d "$HOME/.local/share/zsh/plugins/zsh-completions/src" ]]; then
+  fpath=($HOME/.config/zsh/completions $HOME/.local/share/zsh/plugins/zsh-completions/src $fpath)
+else
+  fpath=($HOME/.config/zsh/completions $HOME/.local/share/zsh/plugins/zsh-completions $fpath)
+fi
 
 # --- Setup a sane default prompt ---
 

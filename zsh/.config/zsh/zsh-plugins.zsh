@@ -56,25 +56,5 @@ bindkey '^N'      history-substring-search-down    # Emacs fallback
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-# ZSH completions
-run_plugin zsh-completions zsh-completions.plugin.zsh
-
-# SSH completion
-run_plugin zsh-ssh zsh-ssh.zsh
-
 # My custom FZF plugin
 run_plugin zsh-fzf zsh-fzf.zsh
-
-if type python3 > /dev/null;then
-    run_plugin zsh-completion-generator zsh-completion-generator.plugin.zsh;
-    # Completions
-
-    zstyle :plugin:zsh-completion-generator programs \
-        lsd \
-        bat \
-        cargo \
-        rustup \
-        node \
-        rg \
-        fd
-fi

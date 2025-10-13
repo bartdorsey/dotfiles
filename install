@@ -84,21 +84,17 @@ if [ ! -d "$HOME/.claude" ]; then
     mkdir -vp "$HOME/.claude"
 fi
 
-if type stow &>/dev/null; then
+if [ -f /etc/NIXOS ]; then
+    cyan "-------------------------------------------------------------"
+    cyan "Detected NixOS, skipping stow (using home-manager instead)..."
+    cyan "-------------------------------------------------------------"
+elif type stow &>/dev/null; then
 
     cyan "-------------------------"
     cyan "Symlinking in dotfiles..."
     cyan "-------------------------"
     ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "glzr/" "syncthing/")
 
-    if [ -f /etc/NIXOS ]; then
-        ignore_directories+=("zshenv/")
-        ignore_directories+=("git/")
-        cyan "-----------------------------------------------------------"
-        cyan "Detected NixOS, skipping configs handled by home manager..."
-        cyan "-----------------------------------------------------------"
-    fi
-    
     if [ -n "$OMARCH_PATH" ]; then
         cyan "---------------------------------------------------------------"
         cyan "Detected Omarchy, using omarchy configs for hyprland and waybar"

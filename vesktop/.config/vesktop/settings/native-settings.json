@@ -1,0 +1,11 @@
+{
+    "plugins": {},
+    "customCspRules": {
+        "https": [
+            "connect-src",
+            "img-src",
+            "style-src",
+            "font-src"
+        ]
+    }
+}

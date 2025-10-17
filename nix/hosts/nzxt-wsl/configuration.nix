@@ -68,11 +68,6 @@
     wslu
   ];
 
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-tty;
-  };
-
   services.syslog-ng = {
     enable = true;
     extraConfig = ''

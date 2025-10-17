@@ -90,4 +90,8 @@
   nix.settings.trusted-users = [
     "@wheel"
   ];
+
+  programs.gnupg.agent = {
+    enable = true;
+  };
 }

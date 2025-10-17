@@ -189,4 +189,9 @@
 
   # X11 startup
   home.file.".xinitrc".source = ../../startx/.xinitrc;
+  # Vesktop
+  xdg.configFile."vesktop" = {
+    source = ../../vesktop/.config/vesktop;
+    recursive = true;
+  };
 }

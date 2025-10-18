@@ -162,7 +162,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             require("telescope.builtin").lsp_dynamic_workspace_symbols,
             { desc = "Workspace Symbols" }
         )
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
         vim.keymap.set(
             "n",
             "C-k",

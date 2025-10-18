@@ -224,28 +224,6 @@ return {
             end
         end
 
-        local _border = "single"
-
-        -- --- @param err? lsp.ResponseError
-        -- --- @param result any
-        -- --- @param ctx any
-        -- --- @param config? table
-        -- vim.lsp.handlers["textDocument/hover"] = function(
-        --     err,
-        --     result,
-        --     ctx,
-        --     config
-        -- )
-        --     config = config or {}
-        --     config.border = _border
-        --     vim.lsp.handlers.hover(err, result, ctx, config)
-        -- end
-
-        -- vim.lsp.handlers["textDocument/signatureHelp"] =
-        --     vim.lsp.with(vim.lsp.handlers.signature_help, {
-        --         border = _border,
-        --     })
-
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("LspConfig", {}),
 

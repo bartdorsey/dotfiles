@@ -52,3 +52,6 @@ vim.diagnostic.config({
     },
     virtual_lines = false,
 })
+
+-- Window borders
+vim.o.winborder = "single";

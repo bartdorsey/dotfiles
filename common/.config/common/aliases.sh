@@ -83,3 +83,17 @@ if command_exists systemctl; then
     alias sls='systemctl list-units --all --type=service --no-legend --plain'
     alias sus='systemctl list-units --all --user --type=service --no-legend --plain'
 fi
+
+# Zoxide
+if command_exists zoxide; then
+    # Set exlude dirs for zoxide
+    export _ZO_EXCLUDE_DIRS="$HOME/.cache/*"
+    # Initialize zoxide
+    if [ -n "$ZSH_VERSION" ]; then
+        eval "$(zoxide init --cmd cd zsh)"
+    else
+        eval "$(zoxide init --cmd cd bash)"
+    fi
+    alias j=z
+    alias z=cd
+fi

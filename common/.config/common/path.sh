@@ -56,20 +56,6 @@ if [ -f "/mnt/c/Users/bart/scoop/apps/wezterm-nightly/current/wezterm.exe" ];the
     export PATH="/mnt/c/Users/bart/scoop/apps/wezterm-nightly/current:$PATH"
 fi
 
-# Zoxide
-if command_exists zoxide; then
-    # Set exlude dirs for zoxide
-    export _ZO_EXCLUDE_DIRS="$HOME/.cache/*"
-    # Initialize zoxide
-    if [ -n "$ZSH_VERSION" ]; then
-        eval "$(zoxide init --cmd cd zsh)"
-    else
-        eval "$(zoxide init --cmd cd bash)"
-    fi
-    alias j=z
-    alias z=cd
-fi
-
 # 1Password
 if command_exists op; then
    function 1p {

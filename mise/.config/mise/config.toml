@@ -28,6 +28,7 @@ fd = "latest"
 rust = "latest"
 sqlite = "latest"
 zoxide = "latest"
+ruff = "latest"
 
 [alias]
 

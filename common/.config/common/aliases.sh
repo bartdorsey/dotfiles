@@ -70,16 +70,12 @@ if command_exists superfile; then
     alias spf=superfile
 fi
 
-if [ ! -d /nix/store ];then
-    if command_exists vim; then
-        alias vi=$(which vim)
-    fi
+if command_exists vim; then
+    alias vi=$(which vim)
+fi
 
-    if command_exists nvim;then
-        alias vim=$(which nvim)
-        alias nvchad="VIMINIT= NVIM_APPNAME=nvchad nvim"
-        alias butts="VIMINIT= NVIM_APPNAME=alphakeks nvim"
-    fi
+if command_exists nvim;then
+    alias vim=$(which nvim)
 fi
 
 if command_exists systemctl; then

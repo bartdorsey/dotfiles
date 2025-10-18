@@ -1,10 +1,10 @@
 [tools]
 go = "latest"
-node = "latest"
+node = "24"
 bun = "latest"
 black = "latest"
 pnpm = "latest"
-python = "latest"
+python = "3.13"
 deno = "latest"
 usage = "latest"
 claude-code = "latest"

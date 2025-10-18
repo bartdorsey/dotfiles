@@ -23,6 +23,11 @@ ripgrep = "latest"
 gum = "latest"
 yazi = "latest"
 superfile = "latest"
+tmux = "latest"
+fd = "latest"
+rust = "latest"
+sqlite = "latest"
+zoxide = "latest"
 
 [alias]
 

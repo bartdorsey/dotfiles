@@ -119,6 +119,11 @@ if [[ $DEVMODE ]]; then
     source $ZDOTDIR/devtools.zsh
 fi
 
+# Mise
+if command_exists mise; then
+    eval "$(mise activate --shims zsh)"
+fi
+
 # WSL
 source $ZDOTDIR/wsl.zsh
 

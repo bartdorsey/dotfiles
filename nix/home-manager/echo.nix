@@ -244,13 +244,6 @@
   xdg.dataFile."zsh/plugins/fzf-tab".source = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
   xdg.dataFile."zsh/plugins/zsh-autocomplete".source = "${pkgs.zsh-autocomplete}/share/zsh-autocomplete";
 
-
-  # Systemd user services
-  xdg.configFile."systemd/user" = {
-    source = ../../systemd/.config/systemd/user;
-    recursive = true;
-  };
-
   # Terminfo
   xdg.configFile."terminfo" = {
     source = ../../terminfo/.config/terminfo;
@@ -274,5 +267,4 @@
     source = ../../claude/.claude;
     recursive = true;
   };
-
 }

@@ -37,6 +37,7 @@ stylua = "latest"
 lazyjournal = "latest"
 "npm:prettier" = "latest"
 jq = "latest"
+pipx = "latest"
 
 [alias]
 

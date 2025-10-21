@@ -47,9 +47,9 @@ return {
         {
             "echasnovski/mini.nvim",
         },
-        {
-            "williamboman/mason.nvim",
-        },
+        -- {
+        --     "williamboman/mason.nvim",
+        -- },
     },
     config = function()
         --- @type { [string]: vim.lsp.Config }
@@ -125,6 +125,18 @@ return {
                 init_options = {
                     settings = {
                         lineLength = 80,
+                    },
+                },
+            },
+            pyright = {
+                settings = {
+                    python = {
+                        analysis = {
+                            typeCheckingMode = "recommended",
+                            autoSearchPaths = true,
+                            diagnosticMode = "workspace",
+                            useLibraryCodeForTypes = true,
+                        },
                     },
                 },
             },
@@ -218,10 +230,10 @@ return {
 
         -- Setup all servers
         for name, config in pairs(servers) do
-            if lsp_binary_exists(config) then
-                vim.lsp.config(name, config)
-                vim.lsp.enable(name)
-            end
+            -- if lsp_binary_exists(config) then
+            vim.lsp.config(name, config)
+            vim.lsp.enable(name)
+            -- end
         end
 
         vim.api.nvim_create_autocmd("LspAttach", {

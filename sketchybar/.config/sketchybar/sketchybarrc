@@ -59,7 +59,7 @@ sketchybar --default "${default[@]}"
 #   sketchybar --add space space."$sid" left --set space."$sid" "${space[@]}"
 # done
 
-WORKSPACE_LABELS=("" "Web" "Code" "Video" "Misc" "Games" "Chat")
+WORKSPACE_LABELS=("" "Web" "Code" "Video" "Notes" "Games" "Chat")
 
 sketchybar --add event aerospace_workspace_change
 

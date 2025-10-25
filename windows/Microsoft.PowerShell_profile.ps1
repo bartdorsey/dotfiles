@@ -14,12 +14,8 @@ Set-PSReadLineOption -ViModeIndicator Cursor
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 # Predictive text
-Set-PSReadLineOption -PredictionSource HistoryAndPlugin
-# Set-PSReadLineOption -PredictionViewStyle InlineView
-
-# Up arrow, Down Arrow history search
-Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+# Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadLineOption -PredictionViewStyle InlineView
 
 # Sets control-D to exit the shell
 Set-PSReadLineKeyHandler -Key 'Ctrl+d' -Function DeleteCharOrExit

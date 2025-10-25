@@ -192,6 +192,7 @@ window_rules:
       match:
           - window_class: { regex: "^ZPFloat" }
           - window_process: { regex: "TeraCopy" }
+          - window_process: { regex: "1Password" }
     - commands: ["ignore"]
       match:
           - window_class: { regex: "^Avalonia" }

@@ -194,7 +194,7 @@
     "editor.wordWrap": "wordWrapColumn",
     "editor.wrappingStrategy": "advanced",
     "tinymist.lint.enabled": true, // new API for indent guides. The old one is: "editor.renderIndentGuides": false,
-    "editor.guides.bracketPairs": false, // advanced indent guides (But only for brackets) (This does not turn off editor.bracketPairColorization)
+    "editor.guides.bracketPairs": true, // advanced indent guides (But only for brackets) (This does not turn off editor.bracketPairColorization)
     "diffEditor.wordWrap": "off",
     "workbench.colorCustomizations": {
         // ...
@@ -213,12 +213,11 @@
     "editor.inlayHints.enabled": "offUnlessPressed",
     "docker.extension.enableComposeLanguageServer": false,
     "vim.insertModeKeyBindings": [],
-    "workbench.colorTheme": "Gruvbox Dark Medium",
     "customizeUI.font.regular": "AtkynsonMono NF",
     "customizeUI.font.monospace": "AtkynsonMono NF",
     "remote.autoForwardPortsSource": "hybrid",
     "github.copilot.nextEditSuggestions.enabled": true,
-    "workbench.iconTheme": "gruvbox-material-icons",
+    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
     "git.autofetch": true,
     "chat.tools.terminal.autoApprove": {
         "python": true
@@ -238,5 +237,23 @@
     },
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
-    }
+    },
+    "workbench.editor.labelFormat": "short",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.bracketPairColorization.enabled": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/.venv": true,
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/.vscode": false
+    },
+    "terminal.integrated.scrollback": 10000,
+    "javascript.suggest.autoImports": false,
+    "typescript.suggest.autoImports": false,
+    "python.analysis.autoImportCompletions": false
 }

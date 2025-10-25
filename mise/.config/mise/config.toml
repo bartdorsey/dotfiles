@@ -38,6 +38,7 @@ lazyjournal = "latest"
 "npm:prettier" = "latest"
 jq = "latest"
 pipx = "latest"
+btop = "latest"
 
 [alias]
 

@@ -1,0 +1,21 @@
+general.import = [ "~/.config/omarchy/current/theme/alacritty.toml" ]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "Iosevka Nerd Font Mono" }
+bold = { family = "Iosevka Nerd Font Mono" }
+italic = { family = "Iosevka Nerd Font Mono" }
+size = 16
+
+[window]
+padding.x = 14
+padding.y = 14
+decorations = "None"
+
+[keyboard]
+bindings = [
+{ key = "F11", action = "ToggleFullscreen" },
+{ key = "Insert", mods = "Shift", action = "Paste" }
+]

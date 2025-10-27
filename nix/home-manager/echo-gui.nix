@@ -86,10 +86,15 @@
   };
 
   home.pointerCursor = {
-    x11.enable = true;
+    enable = true;
+    x11 = {
+      enable = true;
+    };
     gtk.enable = true;
+    hyprcursor = {
+      enable = true;
+    };
     name = "Capitaine Cursors (Gruvbox)";
-    size = 128;
     package = pkgs.capitaine-cursors-themed;
   };
 

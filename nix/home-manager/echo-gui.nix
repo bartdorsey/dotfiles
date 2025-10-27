@@ -1,5 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   fonts.fontconfig.enable = true;
+
+  programs.wezterm = {
+    enable = true;
+    package = inputs.wezterm.packages.${pkgs.system}.default;
+  };
 
   services.cliphist = {
     allowImages = true;

@@ -18,7 +18,7 @@
     wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
-  outputs = {
+  outputs = inputs @ {
     nixpkgs,
     nixoswsl,
     nixpkgs-unstable,
@@ -26,7 +26,7 @@
     zen-browser,
     nixos-hardware,
     ...
-  } @ inputs: let
+  }: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs-unstable = import nixpkgs-unstable {
@@ -63,6 +63,7 @@
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
               inherit system;
+              inherit inputs;
             };
             nixpkgs.config.allowUnfree = true;
             home-manager = {

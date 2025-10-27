@@ -146,7 +146,6 @@
       vim
       vimpc
       vtm
-      wezterm
       wget
       wget
       xdg-desktop-portal-termfilechooser

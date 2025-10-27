@@ -11,7 +11,7 @@ function M.apply_platform_config(config)
         config.win32_system_backdrop = "Auto"
         config.window_background_opacity = 0.9
     elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
-        config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
+        -- config.window_decorations = "RESIZE"
         config.enable_wayland = false
         config.kde_window_background_blur = true
         config.window_background_opacity = 0.8

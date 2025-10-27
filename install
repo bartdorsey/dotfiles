@@ -95,11 +95,11 @@ elif type stow &>/dev/null; then
     cyan "-------------------------"
     ignore_directories=("metadata/" "firefox/" "windows/" "nix/" "syncthing/")
 
-    if [ -n "$OMARCH_PATH" ]; then
+    if [[ -n "$OMARCHY_PATH" ]]; then
         cyan "---------------------------------------------------------------"
         cyan "Detected Omarchy, using omarchy configs for hyprland and waybar"
         cyan "---------------------------------------------------------------"
-        ignore_directories+=("hypr/" "waybar/" "fastfetch/" "btop/")
+        ignore_directories+=("hypr/" "waybar/" "fastfetch/" "btop/" "walker/")
     else
         ignore_directories+=("omarchy/")
     fi

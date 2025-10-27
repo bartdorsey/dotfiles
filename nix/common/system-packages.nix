@@ -149,11 +149,13 @@
       wezterm
       wget
       wget
+      xdg-desktop-portal-termfilechooser
       xdg-utils
       xh
       yarn
       yazi
       yt-dlp
+      zenity
       zip
       zip
       zoxide

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   fonts.fontconfig.enable = true;
 
   services.cliphist = {
@@ -58,9 +54,6 @@
 
   dconf.enable = true;
   dconf.settings = {
-    "org/gnome/desktop/background" = {
-      picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
-    };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
@@ -69,17 +62,29 @@
     enable = true;
     gtk2.extraConfig = "gtk-application-prefer-dark-theme = true";
     gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
+    theme = {
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-gtk-theme;
+    };
+    iconTheme = {
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+    };
+    cursorTheme = {
+      name = "Capitaine Cursors (Gruvbox)";
+      package = pkgs.capitaine-cursors-themed;
+    };
   };
 
   home.pointerCursor = {
     x11.enable = true;
     gtk.enable = true;
-    name = "Vanilla-DMZ";
-    size = 64;
-    package = pkgs.vanilla-dmz;
+    name = "Capitaine Cursors (Gruvbox)";
+    size = 128;
+    package = pkgs.capitaine-cursors-themed;
   };
 
-  home.file.".config/xdg-settings/default-web-browser".text = "firefox.desktop";
+  home.file.".config/xdg-settings/default-web-browser".text = "zen.desktop";
 
   # Desktop environments and window managers
   xdg.configFile."hypr" = {

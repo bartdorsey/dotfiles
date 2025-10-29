@@ -1,4 +1,35 @@
-mise activate pwsh | Out-String | Invoke-Expression
+$env:PATH = @(
+    "C:\Users\bart\scoop\apps\mise\current\bin"
+    
+    # Windows essentials
+    "C:\Windows\system32"
+    "C:\Windows"
+    "C:\Windows\System32\Wbem"
+    "C:\Windows\System32\WindowsPowerShell\v1.0\"
+    "C:\Windows\System32\OpenSSH\"
+    
+    # Scoop (ONCE - remove duplicate!)
+    "C:\Users\bart\scoop\shims"
+    
+    # Development tools
+    "C:\Program Files\PowerShell\7"
+    "C:\Program Files\Git\cmd"
+    "C:\Program Files\Docker\Docker\resources\bin"
+    "C:\Program Files\dotnet\"
+    "C:\Program Files\WezTerm"
+    
+    # Other tools
+    "C:\Users\bart\.local\bin"
+    "C:\Users\bart\scoop\apps\rustup\current\.cargo\bin"
+    "C:\Users\bart\AppData\Local\Programs\Microsoft VS Code\bin"
+    "C:\Users\bart\AppData\Local\Microsoft\WindowsApps\"
+    "C:\Users\bart\scoop\apps\gnupg\current\bin"
+    "C:\Users\bart\AppData\Local\Microsoft\WinGet\Links"
+    "C:\Program Files\Tailscale\"
+    
+) -join ';'
+
+mise activate --shims pwsh | Out-String | Invoke-Expression
 
 Import-Module "Microsoft.WinGet.CommandNotFound"
 Import-Module "scoop-completion"
@@ -27,6 +58,7 @@ $env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
 $env:HOME = $env:USERPROFILE
 $env:DEVMODE = 1
 $env:VIMINIT = "source ~/.config/vim/vimrc"
+
 # Aliases
 
 @{
@@ -46,7 +78,7 @@ $env:VIMINIT = "source ~/.config/vim/vimrc"
 
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 Invoke-Expression (&starship init powershell)
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/pure.omp.json" | Invoke-Expression
+#oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/pure.omp.json" | Invoke-Expression
 Invoke-Expression (&scoop-search --hook)
 
 

@@ -282,7 +282,7 @@ keybindings:
 
     # Change the focused window to be floating.
     - commands: ["toggle-floating --centered"]
-      bindings: ["alt+shift+space"]
+      bindings: ["alt+shift+f"]
 
     # Change the focused window to be tiling.
     - commands: ["toggle-tiling"]

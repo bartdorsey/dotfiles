@@ -43,6 +43,7 @@ function M.apply_appearance_config(config)
 
     config.status_update_interval = 1000
     config.unix_domains = { { name = "unix" } }
+    config.line_height = 1.2
 end
 
 return M

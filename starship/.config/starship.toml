@@ -1,49 +1,79 @@
 add_newline = true
 
 format = """\
- [╭╴](238) $os $all\
- [╰─](238) $shell$direnv$character"""
+ $os\
+ $hostname\
+ $line_break\
+ $shell\
+ $all\
+ $direnv\
+ $line_break\
+ $character"""
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
 
 [container]
 disabled = true
 
 [character]
-success_symbol = "[ ](bold blue)"
-error_symbol = "[ ](bold red)"
-vimcmd_symbol = "[ ](bold green)"
-vimcmd_visual_symbol = "[ ](bold green)"
+success_symbol = "[󱉸](color_fg1)"
+error_symbol = "[󱉸](color_red)"
+vimcmd_symbol = "[󱉸](color_green)"
+vimcmd_visual_symbol = "[󱉸](color_green)"
+
+[line_break]
+disabled = false
 
 [hostname]
 ssh_only = true
-style = 'blue'
-ssh_symbol = ' '
+style = 'color_fg1'
+ssh_symbol = '󰒄 '
+format = '   [$ssh_symbol$hostname]($style)'
 
 [shell]
 disabled = false
-style = 'bold yellow'
-zsh_indicator =  ' '
-bash_indicator = ' '
-pwsh_indicator = ' '
+style = 'color_orange'
+zsh_indicator =  'zsh  '
+bash_indicator = 'bash  '
+pwsh_indicator = 'pwsh  '
 
 [os]
 disabled = false
-style = "bold blue"
-format = "[$symbol$name]($style)"
+style = "color_fg0"
+format = "[$symbol $name]($style)"
 
 [os.symbols]
-Arch = "[ ](bold blue)"
-Linux = "[ ](bold yellow)"
-Ubuntu = "[ ](bold orange)"
-Debian = "[ ](bold red)"
-Windows = "[ ](bold blue)"
-Raspbian = "[ ](bold red)"
-Fedora = "[ ](bold blue)"
-Macos = "[ ](bold red)"
+Arch = " "
+Linux = " "
+Ubuntu = " "
+Debian = " "
+Windows = " "
+Raspbian = " "
+Fedora = " "
+Macos = " "
+NixOS = " "
+
+[git_branch]
+symbol = " "
+style = "color_aqua"
 
 [git_commit]
 #tag_symbol = " tag "
 
 [git_status]
+style = "color_yellow"
 #ahead = ">"
 #behind = "<"
 #diverged = "<>"
@@ -67,7 +97,8 @@ symbol = " "
 symbol = " "
 
 [directory]
-read_only = " "
+style = "color_green"
+read_only = ""
 truncate_to_repo = false
 truncation_length = 2
 
@@ -80,8 +111,6 @@ symbol = " "
 [elm]
 symbol = " "
 
-[git_branch]
-symbol = " "
 
 [golang]
 symbol = " "

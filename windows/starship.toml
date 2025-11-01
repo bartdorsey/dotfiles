@@ -1,0 +1,157 @@
+add_newline = true
+
+format = """\
+ [╭╴](238) Powershell $all\
+ [╰─](238) $shell$character"""
+
+[container]
+disabled = true
+
+[cmd_duration]
+min_time = 10_000
+
+[character]
+success_symbol = "[ ](bold blue)"
+error_symbol = "[ ](bold red)"
+vimcmd_symbol = "[ ](bold green)"
+vimcmd_visual_symbol = "[ ](bold green)"
+
+[hostname]
+ssh_only = true
+style = 'blue'
+ssh_symbol = ' '
+
+[shell]
+disabled = false
+style = 'bold yellow'
+zsh_indicator =  'zsh  '
+bash_indicator = 'bash  '
+pwsh_indicator = 'pwsh  '
+
+[os]
+disabled = true
+style = "bold blue"
+format = "[$symbol$name]($style)"
+
+[os.symbols]
+Arch = "[ ](bold blue)"
+Linux = "[ ](bold yellow)"
+Ubuntu = "[ ](bold orange)"
+Debian = "[ ](bold red)"
+Windows = "[ ](bold blue)"
+Raspbian = "[ ](bold red)"
+Fedora = "[ ](bold blue)"
+Macos = "[ ](bold red)"
+
+[git_commit]
+disabled = true
+#tag_symbol = " tag "
+
+[git_status]
+disabled = true
+#ahead = ">"
+#behind = "<"
+#diverged = "<>"
+#renamed = "r"
+#deleted = "x"
+
+[aws]
+symbol = "  "
+disabled = true
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " "
+truncate_to_repo = false
+truncation_length = 2
+
+[docker_context]
+symbol = "  "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+disabled = true
+symbol = " "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "  "
+
+# [meson]
+# symbol = "喝  "
+
+[nim]
+symbol = "  "
+
+[nix_shell]
+symbol = "  "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[python]
+symbol = "  "
+
+[rlang]
+symbol = "ﳒ  "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
+
+[direnv]
+disabled = true
+format = '[$loaded$allowed $rc_path]($style) '
+detect_files = ['.envrc', '.env']
+symbol = ''
+style = 'bold green'
+allowed_msg = ''
+not_allowed_msg = ' '
+loaded_msg = ' '
+unloaded_msg = ''
+denied_msg = ' '
+

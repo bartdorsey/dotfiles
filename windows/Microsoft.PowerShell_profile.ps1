@@ -78,7 +78,7 @@ $env:VIMINIT = "source ~/.config/vim/vimrc"
 
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 Invoke-Expression (&starship init powershell)
-#oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/pure.omp.json" | Invoke-Expression
+# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/pure.omp.json" | Invoke-Expression
 Invoke-Expression (&scoop-search --hook)
 
 

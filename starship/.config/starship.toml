@@ -2,6 +2,7 @@ add_newline = true
 
 format = """\
  $os\
+ $username\
  $hostname\
  $line_break\
  $shell\
@@ -36,11 +37,16 @@ vimcmd_visual_symbol = "[󱉸](color_green)"
 [line_break]
 disabled = false
 
+[username]
+style_user = "color_yellow"
+style_root = "color_red"
+format = ' [ $user]($style)'
+
 [hostname]
 ssh_only = true
 style = 'color_yellow'
 ssh_symbol = '󰒄 '
-format = '   [$ssh_symbol$hostname]($style)'
+format = ' [$ssh_symbol$hostname]($style)'
 
 [shell]
 disabled = false

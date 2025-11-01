@@ -30,21 +30,25 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     # fi
 
     # WSL aliases
-    alias clip='/mnt/c/Windows/system32/clip.exe'
+    # alias clip='/mnt/c/Windows/system32/clip.exe'
     alias open='/mnt/c/Windows/explorer.exe'
-    alias wsl='/mnt/c/Windows/system32/wsl.exe'
-    alias pwsh='/mnt/c/Program\ Files/PowerShell/7/pwsh.exe'
-    alias neovide="/mnt/c/Users/bart/scoop/apps/neovide/current/neovide.exe --wsl --"
+    # alias wsl='/mnt/c/Windows/system32/wsl.exe'
+    # alias pwsh='/mnt/c/Program\ Files/PowerShell/7/pwsh.exe'
+    alias neovide="/mnt/c/Users/bart/scoop/apps/neovide/current/neovide.exe --wsl --neovim-bin /home/echo/.local/share/mise/installs/neovim/latest/nvim-linux-x86_64/bin/nvim --"
 
-    code() {
-      /mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code "$@"
-    }
+    # code() {
+    #   /mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code "$@"
+    # }
 
-    if [ -d "/mnt/c/Users/bart/AppData/Local/Programs/cursor" ]; then 
-        function cursor {
-            DONT_PROMPT_WSL_INSTALL=1 /mnt/c/Users/bart/AppData/Local/Programs/cursor/Cursor.exe --remote wsl+default $1
-        }
-    fi
+    # if [ -d "/mnt/c/Users/bart/AppData/Local/Programs/cursor" ]; then 
+    #     function cursor {
+    #         DONT_PROMPT_WSL_INSTALL=1 /mnt/c/Users/bart/AppData/Local/Programs/cursor/Cursor.exe --remote wsl+default $1
+    #     }
+    # fi
 
     notify-send() { wsl-notify-send.exe --category $WSL_DISTRO_NAME "${@}"; }
+
+    export PATH="/mnt/c/Windows:/mnt/c/Windows/System32:/mnt/c/Users/bart/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/bart/scoop/apps/neovide/current:/mnt/c/Program Files/PowerShell/7:$PATH"
+
+    export DISPLAY=:0
 fi

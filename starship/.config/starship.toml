@@ -46,7 +46,7 @@ format = ' [ $user]($style)'
 ssh_only = true
 style = 'color_yellow'
 ssh_symbol = '󰒄 '
-format = ' [$ssh_symbol$hostname]($style)'
+format = ' [$hostname$ssh_symbol]($style)'
 
 [shell]
 disabled = false

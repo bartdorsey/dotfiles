@@ -7,6 +7,9 @@ format = """\
  $line_break\
  $shell\
  $all\
+ $git_branch\
+ $git_status\
+ $git_metrics\
  $direnv\
  $line_break\
  $character"""
@@ -73,18 +76,29 @@ NixOS = "[ ](fg:color_blue bg:color_bg1)"
 
 [git_branch]
 symbol = " "
-style = "color_aqua"
+format = 'on [$symbol$branch(:$remote_branch)]($style)'
+style = "fg:color_aqua"
 
 [git_commit]
 #tag_symbol = " tag "
 
 [git_status]
-style = "color_yellow"
-#ahead = ">"
-#behind = "<"
-#diverged = "<>"
-#renamed = "r"
-#deleted = "x"
+format = '[ $all_status$ahead_behind ]($style)'
+style = "fg:color_yellow"
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"
+stashed = "s"
+modified = "m"
+conflicted = "!"
+
+[git_metrics]
+format = '[+$added]($added_style) [-$deleted]($deleted_style) '
+disabled = false
+added_style = "fg:color_green"
+deleted_style = "fg:color_red"
 
 [aws]
 symbol = "  "

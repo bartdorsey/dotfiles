@@ -51,19 +51,19 @@ pwsh_indicator = 'pwsh  '
 
 [os]
 disabled = false
-style = "color_fg0"
-format = "[$symbol $name]($style)"
+style = "bg:color_bg1"
+format = "[](color_bg1)[$symbol $name]($style)[](color_bg1)"
 
 [os.symbols]
-Arch = " "
-Linux = " "
-Ubuntu = " "
-Debian = " "
-Windows = " "
-Raspbian = " "
-Fedora = " "
+Arch = "[ ](fg:color_blue bg:color_bg1)"
+Linux = "[ ](fg:color_yellow bg:color_bg1)"
+Ubuntu = "[ ](fg:color_orange bg:color_bg1)"
+Debian = "[ ](fg:color_red bg:color_bg1)"
+Windows = "[ ](fg:color_blue bg:color_bg1)"
+Raspbian = "[ ](fg:color_red bg:color_bg1)"
+Fedora = "[ ](fg:color_blue bg:color_bg1)"
 Macos = " "
-NixOS = " "
+NixOS = "[ ](fg:color_blue bg:color_bg1)"
 
 [git_branch]
 symbol = " "

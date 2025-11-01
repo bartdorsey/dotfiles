@@ -40,7 +40,7 @@ disabled = false
 [username]
 style_user = "color_yellow"
 style_root = "color_red"
-format = ' [ $user]($style)'
+format = ' [  $user]($style)'
 
 [hostname]
 ssh_only = true

@@ -1,59 +1,114 @@
 add_newline = true
 
 format = """\
- [╭╴](238) Powershell $all\
- [╰─](238) $shell$character"""
+ $os\
+ $username\
+ $hostname\
+ $line_break\
+ $shell\
+ $all\
+ $git_branch\
+ $git_status\
+ $git_metrics\
+ $git_state\
+ $git_commit\
+ $direnv\
+ $line_break\
+ $character"""
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
 
 [container]
 disabled = true
 
-[cmd_duration]
-min_time = 10_000
-
 [character]
-success_symbol = "[ ](bold blue)"
-error_symbol = "[ ](bold red)"
-vimcmd_symbol = "[ ](bold green)"
-vimcmd_visual_symbol = "[ ](bold green)"
+success_symbol = "[󱉸](color_fg1)"
+error_symbol = "[󱉸](color_red)"
+vimcmd_symbol = "[󱉸](color_green)"
+vimcmd_visual_symbol = "[󱉸](color_green)"
+
+[line_break]
+disabled = false
+
+[username]
+style_user = "color_yellow"
+style_root = "color_red"
+format = ' [  $user]($style)'
 
 [hostname]
 ssh_only = true
-style = 'blue'
-ssh_symbol = ' '
+style = 'color_yellow'
+ssh_symbol = '󰒃 '
+format = ' [$hostname $ssh_symbol]($style)'
 
 [shell]
 disabled = false
-style = 'bold yellow'
+style = 'color_orange'
 zsh_indicator =  'zsh  '
 bash_indicator = 'bash  '
 pwsh_indicator = 'pwsh  '
 
 [os]
-disabled = true
-style = "bold blue"
-format = "[$symbol$name]($style)"
+disabled = false
+style = "bg:color_bg1"
+format = "[](color_bg1)[$symbol $name]($style)[](color_bg1)"
 
 [os.symbols]
-Arch = "[ ](bold blue)"
-Linux = "[ ](bold yellow)"
-Ubuntu = "[ ](bold orange)"
-Debian = "[ ](bold red)"
-Windows = "[ ](bold blue)"
-Raspbian = "[ ](bold red)"
-Fedora = "[ ](bold blue)"
-Macos = "[ ](bold red)"
+Arch = "[ ](fg:color_blue bg:color_bg1)"
+Linux = "[ ](fg:color_yellow bg:color_bg1)"
+Ubuntu = "[ ](fg:color_orange bg:color_bg1)"
+Debian = "[ ](fg:color_red bg:color_bg1)"
+Windows = "[ ](fg:color_blue bg:color_bg1)"
+Raspbian = "[ ](fg:color_red bg:color_bg1)"
+Fedora = "[ ](fg:color_blue bg:color_bg1)"
+Macos = " "
+NixOS = "[ ](fg:color_blue bg:color_bg1)"
+
+[git_branch]
+disabled = true
+symbol = " "
+format = 'on [$symbol$branch(:$remote_branch)]($style)'
+style = "fg:color_aqua"
+
+[git_state]
+disabled = true
+style = "color_yellow"
 
 [git_commit]
 disabled = true
-#tag_symbol = " tag "
+only_detached = false
+style = "color_bg3"
+format = '[#$hash$tag]($style) '
 
 [git_status]
 disabled = true
-#ahead = ">"
-#behind = "<"
-#diverged = "<>"
-#renamed = "r"
-#deleted = "x"
+format = '[ $all_status$ahead_behind ]($style)'
+style = "fg:color_yellow"
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"
+stashed = "s"
+modified = "m"
+conflicted = "!"
+
+[git_metrics]
+disabled = true
+added_style = "fg:color_green"
+deleted_style = "fg:color_red"
 
 [aws]
 symbol = "  "
@@ -72,7 +127,8 @@ symbol = " "
 symbol = " "
 
 [directory]
-read_only = " "
+style = "color_green"
+read_only = ""
 truncate_to_repo = false
 truncation_length = 2
 
@@ -85,9 +141,6 @@ symbol = " "
 [elm]
 symbol = " "
 
-[git_branch]
-disabled = true
-symbol = " "
 
 [golang]
 symbol = " "
@@ -144,7 +197,7 @@ symbol = " "
 symbol = "🅢 "
 
 [direnv]
-disabled = true
+disabled = false
 format = '[$loaded$allowed $rc_path]($style) '
 detect_files = ['.envrc', '.env']
 symbol = ''

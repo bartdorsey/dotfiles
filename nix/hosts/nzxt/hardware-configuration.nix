@@ -55,7 +55,39 @@
   };
 
   fileSystems."/mnt/c" = {
-    device= "/dev/disk/by-partuuid/117889dc-9ffd-4b53-bb17-5f047ef3f8cb";
+    device = "/dev/disk/by-partuuid/117889dc-9ffd-4b53-bb17-5f047ef3f8cb";
+    fsType = "ntfs";
+    options = [
+      "ro"
+    ];
+  };
+
+  fileSystems."/mnt/mac-drive" = {
+    device = "/dev/disk/by-partuuid/c3ae2008-d9e8-46cc-9e78-477b123eab42";
+    fsType = "ntfs";
+    options = [
+      "ro"
+    ];
+  };
+
+  fileSystems."/mnt/fast-games" = {
+    device = "/dev/disk/by-partuuid/15e5c54c-86c7-11ef-82ee-b89a2a7252ad";
+    fsType = "ntfs";
+    options = [
+      "ro"
+    ];
+  };
+
+  fileSystems."/mnt/slow-games" = {
+    device = "/dev/disk/by-partuuid/29f1b79f-fcfd-11ee-8291-244bfe48601b";
+    fsType = "ntfs";
+    options = [
+      "ro"
+    ];
+  };
+
+  fileSystems."/mnt/slow-games-and-docs" = {
+    device = "/dev/disk/by-partuuid/913be62b-79c5-40ab-9836-3a0ce0a3beff";
     fsType = "ntfs";
     options = [
       "ro"

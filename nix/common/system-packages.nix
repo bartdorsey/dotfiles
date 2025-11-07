@@ -134,6 +134,7 @@
       sysz
       texlive.combined.scheme-full
       tmux
+      trash-cli
       transcrypt
       tree
       tree-sitter

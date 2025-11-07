@@ -207,4 +207,12 @@
     source = ../../vesktop/.config/vesktop;
     recursive = true;
   };
+  xdg.configFile."goxlr-utility" = {
+    source = ../../goxlr-utility/.config/goxlr-utility;
+    recursive = true;
+  };
+  xdg.dataFile."goxlr-utility" = {
+    source = ../../goxlr-utility/.local/share/goxlr-utility;
+    recursive = true;
+  };
 }

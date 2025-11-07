@@ -163,6 +163,7 @@
       rofi
       slack
       slurp
+      streamcontroller
       syncthingtray
       terminus_font_ttf
       vesktop

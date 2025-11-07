@@ -83,7 +83,6 @@
       luarocks
       mc
       micro
-      mise
       mosh
       mpc-cli
       mpdris2

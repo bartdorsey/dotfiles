@@ -82,7 +82,6 @@
       luarocks
       mc
       micro
-      mise
       mosh
       mtr
       nh

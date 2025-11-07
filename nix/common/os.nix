@@ -7,6 +7,22 @@
     "tail7974e.ts.net"
   ];
 
+  # Enable udisks2 service (required for mounting)
+  services.udisks2.enable = true;
+
+  users.groups.storage = {};
+
+  # Allow users in storage group to mount internal drives
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if ((action.id == "org.freedesktop.udisks2.filesystem-mount-system" ||
+           action.id == "org.freedesktop.udisks2.filesystem-mount") &&
+          subject.isInGroup("storage")) {
+        return polkit.Result.YES;
+      }
+    });
+  '';
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Set your time zone.

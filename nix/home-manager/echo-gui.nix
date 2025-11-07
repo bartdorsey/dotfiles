@@ -164,12 +164,6 @@
     recursive = true;
   };
 
-  # VS Code
-  xdg.configFile."Code/User" = {
-    source = ../../vscode/.config/Code/User;
-    recursive = true;
-  };
-
   # Web browsers
   xdg.configFile."zen" = {
     source = ../../zen/.config/zen;

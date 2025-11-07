@@ -175,7 +175,6 @@
       wl-clipboard # Command-line copy/paste utilities for Wayland
       wofi
       wtype
-      xfce.thunar
       xorg.xhost
       xss-lock
     ]);
@@ -202,6 +201,22 @@
     package = pkgs-unstable.firefox;
     nativeMessagingHosts.packages = [pkgs-unstable.firefoxpwa];
   };
+
+  # Thunar
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+  programs.xfconf.enable = true;
+  services.gvfs.enable = true; # Mount, trash, and other functionalities
+  services.tumbler.enable = true; # Thumbnail support for images
+
+  services.dbus.packages = with pkgs; [
+    xfce.xfconf
+  ];
 
   nix.settings = {
     substituters = ["https://wezterm.cachix.org"];

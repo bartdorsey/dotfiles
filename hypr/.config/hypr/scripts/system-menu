@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+RESULT=$(echo -e "Logout\nReboot\nShutdown" | rofi -dmenu -no-show-icons)
+
+case $RESULT in
+    Logout)
+        hyprctl dispatch exit
+        ;;
+    Reboot)
+        reboot
+        ;;
+    Shutdown)
+        halt
+        ;;
+    *)
+        ;;
+esac
+
+
+

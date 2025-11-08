@@ -137,10 +137,6 @@
     source = ../../rofi/.config/rofi;
     recursive = true;
   };
-  xdg.configFile."wofi" = {
-    source = ../../wofi/.config/wofi;
-    recursive = true;
-  };
   xdg.configFile."walker" = {
     source = ../../walker/.config/walker;
     recursive = true;

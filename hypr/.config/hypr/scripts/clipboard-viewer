@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+cliphist list | rofi -dmenu -display-columns 2 -no-show-icons | cliphist decode | wl-copy

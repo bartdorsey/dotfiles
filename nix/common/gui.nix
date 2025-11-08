@@ -136,7 +136,6 @@
       google-chrome
       grim
       grimblast
-      iosevka
       kitty
       libnotify
       lora

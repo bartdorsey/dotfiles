@@ -5,11 +5,20 @@ local M = {}
 function M.apply_platform_config(config)
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         config.default_domain = "WSL:Ubuntu"
-        config.front_end = "OpenGL"
+        config.front_end = "WebGpu"
+        config.webgpu_power_preference = "HighPerformance"
+        config.webgpu_preferred_adapter = {
+            backend= "Dx12",
+            device= 7812,
+            device_type= "DiscreteGpu",
+            driver= "32.0.15.8157",
+            name= "NVIDIA GeForce RTX 2070 SUPER",
+            vendor= 4318,
+        }
         config.font = wezterm.font("Iosevka Nerd Font", { weight = "DemiBold" })
         config.font_size = 14
         config.win32_system_backdrop = "Acrylic"
-        config.window_background_opacity = 0.9
+        config.window_background_opacity = 0.8
     elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
         -- config.window_decorations = "RESIZE"
         config.enable_wayland = false

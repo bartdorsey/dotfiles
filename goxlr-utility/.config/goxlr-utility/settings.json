@@ -1,1 +1,98 @@
-/nix/store/nhxbh98cyirsygxkjhnx928q1z9gy0gy-home-manager-files/.config/goxlr-utility/settings.json
+{
+  "show_tray_icon": true,
+  "selected_locale": null,
+  "tts_enabled": false,
+  "allow_network_access": true,
+  "macos_handle_aggregates": true,
+  "profile_directory": null,
+  "mic_profile_directory": null,
+  "samples_directory": null,
+  "presets_directory": null,
+  "icons_directory": null,
+  "logs_directory": null,
+  "backup_directory": null,
+  "log_level": "Info",
+  "open_ui_on_launch": false,
+  "activate": null,
+  "firmware_source": "Live",
+  "devices": {
+    "S220205968DI7": {
+      "profile": "Default",
+      "mic_profile": "DEFAULT",
+      "hold_delay": 500,
+      "sampler_pre_buffer": null,
+      "chat_mute_mutes_mic_to_chat": true,
+      "lock_faders": false,
+      "enable_monitor_with_fx": false,
+      "sampler_reset_on_clear": true,
+      "vod_mode": "Routable",
+      "shutdown_commands": [
+        {
+          "SaveProfile": []
+        },
+        {
+          "SaveMicProfile": []
+        },
+        {
+          "LoadMicProfile": [
+            "DEFAULT",
+            false
+          ]
+        },
+        {
+          "LoadProfile": [
+            "Default",
+            false
+          ]
+        },
+        {
+          "LoadProfileColours": "Default"
+        }
+      ],
+      "sleep_commands": [
+        {
+          "SaveProfile": []
+        },
+        {
+          "SaveMicProfile": []
+        },
+        {
+          "LoadMicProfile": [
+            "DEFAULT",
+            false
+          ]
+        },
+        {
+          "LoadProfile": [
+            "Default",
+            false
+          ]
+        },
+        {
+          "LoadProfileColours": "Default"
+        }
+      ],
+      "wake_commands": [
+        {
+          "ReloadSettings": []
+        },
+        {
+          "LoadMicProfile": [
+            "DEFAULT",
+            false
+          ]
+        },
+        {
+          "LoadProfile": [
+            "Default",
+            false
+          ]
+        },
+        {
+          "LoadProfileColours": "Default"
+        }
+      ]
+    }
+  },
+  "sample_gain": null
+}

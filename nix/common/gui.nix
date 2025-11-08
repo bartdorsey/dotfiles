@@ -54,6 +54,8 @@
     enable = true;
   };
 
+  programs.streamcontroller.enable = true;
+
   programs.appimage = {
     enable = true;
     binfmt = true;
@@ -70,11 +72,6 @@
   };
 
   services.autorandr.enable = true;
-
-  programs.streamdeck-ui = {
-    enable = true;
-    autoStart = true; # optional
-  };
 
   programs.zoom-us.enable = false;
 
@@ -163,7 +160,6 @@
       rofi
       slack
       slurp
-      streamcontroller
       syncthingtray
       terminus_font_ttf
       vesktop

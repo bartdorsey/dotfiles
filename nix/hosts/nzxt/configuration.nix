@@ -25,11 +25,6 @@
     dedicatedServer.openFirewall = true;
   };
 
-  programs.streamdeck-ui = {
-    enable = true;
-    autoStart = true; # optional
-  };
-
   services.mpd = {
     enable = true;
     user = "echo";

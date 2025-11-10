@@ -1,0 +1,12 @@
+[Unit]
+Description=Mount projects btrfs filesystem
+What=UUID=1816d42e-528e-479b-8f16-8e5073cd961a
+Where=/home/echo/projects
+Type=btrfs
+Options=defaults
+
+[Mount]
+What=UUID=1816d42e-528e-479b-8f16-8e5073cd961a
+Where=/home/echo/projects
+Type=btrfs
+Options=defaults,subvol=/projects

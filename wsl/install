@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+sudo cp *.mount *.automount  /etc/systemd/system
+

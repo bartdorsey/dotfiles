@@ -121,7 +121,7 @@ fi
 
 # Mise
 if command_exists mise; then
-    eval "$(mise activate --shims zsh)"
+    eval "$(mise activate zsh)"
 fi
 
 # WSL

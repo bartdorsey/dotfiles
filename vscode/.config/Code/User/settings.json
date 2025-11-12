@@ -257,5 +257,6 @@
     "typescript.inlayHints.variableTypes.enabled": true,
     "workbench.colorTheme": "Alabaster Dark",
     "dimmer.enabled": true,
-    "editor.fontFamily": "Iosevka"
+    "editor.fontFamily": "Iosevka Nerd Font",
+    "notebook.lineNumbers": "on"
 }

@@ -1,0 +1,8 @@
+#zen-workspaces-button {
+  & toolbarbutton {
+    & .zen-workspace-icon {
+      font-size: 1.75rem !important;
+    }
+  }
+}
+

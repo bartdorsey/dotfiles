@@ -6,3 +6,19 @@
   }
 }
 
+.zen-essentials-container .tabbrowser-tab {
+  --tab-min-height: 4rem;
+  & .tab-icon-image {
+    min-height: 2rem;
+    min-width: 2rem;
+  }
+}
+
+.tab-group-label-container {
+  --tab-min-height: 2.1rem;
+}
+
+.tabbrowser-tab {
+  --tab-min-height: 2.1rem;
+} 
+

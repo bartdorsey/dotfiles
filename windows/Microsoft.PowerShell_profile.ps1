@@ -67,7 +67,6 @@ $env:VIMINIT = "source ~/.config/vim/vimrc"
     w      = 'whoami'
     df     = 'Get-Disk-Free'
     venv   = 'Build-Python-Virtual-Environment'
-    which  = 'Get-Command'
     vim    = 'nvim'
     dsetup = 'Build-Django-Project-Setup'
     lg     = 'lazygit'
@@ -87,3 +86,12 @@ if ($Host.Name -eq 'ConsoleHost') {
 }
 
 Import-Module -Name Microsoft.WinGet.CommandNotFound
+
+function which ($command) {
+    $cmd = Get-Command -Name $command -ErrorAction SilentlyContinue
+    if ($cmd) {
+        if ($cmd.Path) { $cmd.Path }
+        else { "$($cmd.CommandType): $($cmd.Name)" }
+    }
+}
+

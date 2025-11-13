@@ -50,11 +50,11 @@ user_pref("browser.contentblocking.category", "strict");
 /** TRACKING PROTECTION ***/
 user_pref(
     "urlclassifier.trackingSkipURLs",
-    "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com",
+    "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"
 );
 user_pref(
     "urlclassifier.features.socialtracking.skipURLs",
-    "*.instagram.com, *.twitter.com, *.twimg.com",
+    "*.instagram.com, *.twitter.com, *.twimg.com"
 );
 user_pref("privacy.partition.bloburl_per_partition_key", true);
 user_pref("browser.uitour.enabled", false);
@@ -127,7 +127,7 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref(
     "geo.provider.network.url",
-    "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%",
+    "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%"
 );
 user_pref("permissions.manager.defaultsUrl", "");
 user_pref("webchannel.allowObject.urlWhitelist", "");

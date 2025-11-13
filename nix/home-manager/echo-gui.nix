@@ -161,9 +161,21 @@
   };
 
   # Web browsers
-  xdg.configFile."zen" = {
-    source = ../../zen/.config/zen;
+  xdg.configFile."zen/chrome" = {
+    source = ../../zen/.config/zen/chrome;
     recursive = true;
+  };
+
+  xdg.configFile."zen/user.js" = {
+    source = ../../zen/.config/zen/user.js;
+  };
+
+  xdg.configFile."zen/containers.json" = {
+    source = ../../zen/.config/zen/containers.json;
+  };
+
+  xdg.configFile."zen/zen-keyboard-shortcuts.json" = {
+    source = ../../zen/.config/zen/zen-keyboard-shortcuts.json;
   };
 
   # Theme frameworks

@@ -111,6 +111,7 @@
       postgresql
       postgresql.lib
       prettierd
+      procs
       pulseaudio-ctl
       pulseaudio
       pulsemixer

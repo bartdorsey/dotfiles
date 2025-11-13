@@ -255,7 +255,7 @@
     "typescript.inlayHints.parameterTypes.enabled": true,
     "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
     "typescript.inlayHints.variableTypes.enabled": true,
-    "workbench.colorTheme": "Alabaster Dark",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
     "dimmer.enabled": true,
     "editor.fontFamily": "Iosevka Nerd Font",
     "notebook.lineNumbers": "on"

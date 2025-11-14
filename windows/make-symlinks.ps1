@@ -29,3 +29,4 @@ New-Link $HOME/.dotfiles/zen/.config/zen/zen-theme.json $HOME/.config/zen/zen-th
 New-Link $HOME/.dotfiles/zen/.config/zen/containers.json $HOME/.config/zen/containers.json
 New-Link $HOME/.dotfiles/zen/.config/zen/chrome $HOME/.config/zen/chrome
 New-Link $HOME/.dotfiles/fastfetch/.config/fastfetch $HOME/.config/fastfetch
+New-Link $HOME/.dotfiles/vesktop/.config/vesktop/themes $HOME/AppData/Roaming/vesktop/themes

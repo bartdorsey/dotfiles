@@ -58,9 +58,9 @@ body {
 
     /* transparency/blur options */
     /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
-    --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
-    --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
-    --panel-blur: off; /* off: no changes, on: blur the background of panels */
+    --transparency-tweaks: on; /* off: no changes, on: remove some elements for better transparency */
+    --remove-bg-layer: on; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --panel-blur: on; /* off: no changes, on: blur the background of panels */
     --blur-amount: 12px; /* amount of blur */
     --bg-floating: var(--bg-3); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
 
@@ -96,8 +96,8 @@ body {
     /* background and dark colors */
     --bg-1: #504945; /* dark buttons when clicked */
     --bg-2: #3c3836; /* dark buttons */
-    --bg-3: #32302f; /* spacing, secondary elements */
-    --bg-4: #282828; /* main background color */
+    --bg-3: rgba(0,0,0,0); /* #32302f; /* spacing, secondary elements */
+    --bg-4: rgba(0,0,0,0); /* #282828;  main background color */
     --hover: var(--bg-2); /* channels and buttons when hovered */
     --active: var(--bg-1); /* channels and buttons when clicked or selected */
     --active-2: #7c6f64; /* extra state for transparent buttons */

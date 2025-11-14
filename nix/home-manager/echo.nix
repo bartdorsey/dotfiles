@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   home.username = "echo";
   home.homeDirectory = "/home/echo";
 

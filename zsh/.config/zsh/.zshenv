@@ -1,3 +1,14 @@
+# XDG 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+export LC_ALL="C.UTF-8"
+
+# ZDOTDIR
+skip_global_compinit=1
+ZDOTDIR=$HOME/.config/zsh
+
 # History
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE

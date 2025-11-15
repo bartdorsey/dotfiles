@@ -68,7 +68,7 @@ set splitbelow
 set splitright
 
 " Enable mouse mode
-set mouse=a
+set mouse=
 
 " Enable break indent
 set breakindent

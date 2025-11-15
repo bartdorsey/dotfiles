@@ -3,8 +3,6 @@
   inputs,
   ...
 }: {
-  fonts.fontconfig.enable = true;
-
   programs.wezterm = {
     enable = true;
     package = inputs.wezterm.packages.${pkgs.system}.default;
@@ -210,11 +208,11 @@
 
   # X11 startup
   home.file.".xinitrc".source = ../../startx/.xinitrc;
-  # Vesktop
-  xdg.configFile."vesktop" = {
-    source = ../../vesktop/.config/vesktop;
-    recursive = true;
-  };
+  # # Vesktop
+  # xdg.configFile."vesktop" = {
+  #   source = ../../vesktop/.config/vesktop;
+  #   recursive = true;
+  # };
   xdg.configFile."goxlr-utility" = {
     source = ../../goxlr-utility/.config/goxlr-utility;
     recursive = true;

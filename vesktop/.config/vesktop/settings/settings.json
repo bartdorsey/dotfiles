@@ -2,14 +2,13 @@
     "autoUpdate": true,
     "autoUpdateNotification": true,
     "useQuickCss": true,
-    "themeLinks": [
-    ],
+    "themeLinks": [],
     "enabledThemes": [
         "system24-gruvbox.theme.css"
     ],
     "enableReactDevtools": true,
     "frameless": false,
-    "transparent": false,
+    "transparent": true,
     "winCtrlQ": false,
     "disableMinSize": true,
     "winNativeTitleBar": false,
@@ -821,5 +820,11 @@
         "useNative": "not-focused",
         "logLimit": 50
     },
-    "eagerPatches": false
+    "eagerPatches": false,
+    "cloud": {
+        "authenticated": false,
+        "url": "https://api.vencord.dev/",
+        "settingsSync": false,
+        "settingsSyncVersion": 1763177886305
+    }
 }

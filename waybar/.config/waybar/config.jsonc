@@ -69,16 +69,20 @@
         "spacing": 10
     },
     "cpu": {
+        "interval": 1,
         "format": "{usage}%  ",
         "tooltip": false
     },
     "memory": {
+        "interval" :1,
         "format": "{}%  "
     },
     "network": {
+        "interval": 1,
         "format": "{bandwidthDownBytes} 󰛳 "
     },
     "temperature": {
+        "interval": 1,
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
@@ -93,13 +97,14 @@
     "custom/music": {
         "format": "  {}",
         "escape": true,
-        "interval": 5,
+        "interval": 1,
         "tooltip": true,
         "exec": "/run/current-system/sw/bin/playerctl metadata --format='{{ artist }}|{{ title }}'",
         "on-click": "/run/current-system/sw/bin/playerctl play-pause",
         "max-length": 50
     },
     "clock": {
+        "interval": 1,
         "timezone": "Asia/Dubai",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": " {:%d/%m/%Y}",
@@ -119,12 +124,15 @@
         "on-click": "pavucontrol"
     },
     "custom/date-central": {
+        "interval": 1,
         "exec": "date '+%l:%M %p %Z'"
     },
     "custom/date-pacific": {
+        "interval": 1,
         "exec": "TZ='US/Pacific' date '+%l:%M %p %Z'"
     },
     "custom/date": {
+        "interval": 1,
         "exec": "date '+%A %B %e %Y'"
     },
     "custom/lock": {

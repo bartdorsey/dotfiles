@@ -12,14 +12,13 @@ local tabline = require("tabline")
 
 events.setup()
 
-platform.apply_platform_config(config)
 appearance.apply_appearance_config(config)
 keybindings.setup_keybindings(config, domains)
 mouse.setup_mouse_bindings(config)
 tabline.setup_tabline(config)
+platform.apply_platform_config(config)
 
 config.launch_menu = domains.get_launch_menu()
 config.ssh_domains = domains.get_ssh_domains()
 
 return config
-

@@ -3,6 +3,12 @@ local wezterm = require("wezterm")
 local M = {}
 
 function M.apply_platform_config(config)
+    config.window_padding = {
+        left = "2cell",
+        right = "2cell",
+        top = "1cell",
+        bottom = "1cell",
+    }
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         config.default_domain = "WSL:Ubuntu"
         -- config.front_end = "WebGpu"
@@ -35,6 +41,13 @@ function M.apply_platform_config(config)
         config.front_end = "WebGpu"
         config.font_size = 16
         config.font = wezterm.font("Iosevka Nerd Font", { weight = "Regular" })
+        -- macOS needs less space on bottom for some reason
+        config.window_padding = {
+            left = "2cell",
+            right = "2cell",
+            top = "1cell",
+            bottom = "0cell",
+        }
     end
 end
 

@@ -72,13 +72,6 @@ function M.setup_tabline(config)
 
     tabline.apply_to_config(config)
     config.use_fancy_tab_bar = false
-
-    config.window_padding = {
-        left = "2cell",
-        right = "2cell",
-        top = "1cell",
-        bottom = "1cell",
-    }
 end
 
 return M

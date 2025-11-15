@@ -94,6 +94,7 @@
       nix-output-monitor
       nixd
       nodejs_24
+      nwg-displays
       nvd
       ocaml
       ocamlPackages.findlib

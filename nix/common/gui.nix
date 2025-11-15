@@ -191,8 +191,16 @@
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
 
   fonts = {
+    fontconfig = {
+      antialias = true;
+      hinting.enable = true;
+      hinting.autohint = true;
+      hinting.style = "full";
+    };
     enableDefaultPackages = true;
     packages = with pkgs; [
+      corefonts
+      vista-fonts
       nerd-fonts.iosevka
       nerd-fonts.symbols-only
     ];

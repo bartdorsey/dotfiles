@@ -14,11 +14,13 @@
         "custom/date-pacific"
     ],
     "modules-right": [
+        "custom/weather",
         "cpu",
         "memory",
         "temperature",
         "network",
         "pulseaudio",
+        "custom/wireguard-manager",
         "tray",
         "idle_inhibitor",
         "custom/lock",
@@ -74,7 +76,7 @@
         "tooltip": false
     },
     "memory": {
-        "interval" :1,
+        "interval": 1,
         "format": "{}%  "
     },
     "network": {
@@ -139,5 +141,23 @@
         "tooltip": false,
         "on-click": "/run/current-system/sw/bin/hyprlock",
         "format": ""
+    },
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "wttrbar --fahrenheit --location 72032",
+        "return-type": "json"
+    },
+    "custom/wireguard-manager": {
+        "interval": 3,
+        "return-type": "json",
+        "format-icons": {
+            "connected": "<span color=\"#50fa7b\">VPN: 🔒</span>",
+            "disconnected": "<span color=\"#ff5555\">VPN: 🔓</span>"
+        },
+        "on-click": "exec ~/.config/waybar/wireguard-manager/wireguard-manager.sh -t",
+        "exec": "exec ~/.config/waybar/wireguard-manager/wireguard-manager.sh -s",
+        "format": "{icon}"
     }
 }

@@ -1,7 +1,7 @@
 @import "gruvbox.css";
 
 * {
-    font-family: "Iosevka Etoile";
+    font-family: "Iosevka Nerd Font";
     font-size: 12px;
     font-weight: bold;
     min-height: 0;
@@ -58,10 +58,17 @@
 #pulseaudio,
 #idle_inhibitor,
 #custom-lock,
+#custom-weather,
+#custom-wireguard-manager,
 #custom-power {
     background-color: @surface0;
     padding: 0.5rem 1rem;
     margin: 5px 0;
+}
+
+#custom-wireguard-manager {
+    border-top: 2px solid @overlay0;
+    border-bottom: 2px solid @overlay0;
 }
 
 #window {
@@ -81,13 +88,15 @@
 }
 
 #cpu {
-    border-radius: 0.5rem 0px 0px 0.5rem;
     color: @yellow;
     border: 2px solid @overlay0;
     border-right: none;
+    border-left: none;
+    min-width: 40px;
 }
 
 #network {
+    min-width: 80px;
     border-radius: 0px;
     color: @lavender;
     border-top: 2px solid @overlay0;
@@ -102,6 +111,7 @@
 }
 
 #temperature {
+    min-width: 40px;
     border-top: 2px solid @overlay0;
     border-bottom: 2px solid @overlay0;
 }
@@ -139,6 +149,15 @@
 #custom-music {
     color: @pink;
     border-radius: 0.5rem;
+    margin-left: 2px;
+    border: 2px solid @overlay0;
+}
+
+#custom-weather {
+    border-radius: 0.5rem 0px 0px 0.5rem;
+    color: @yellow;
+    border: 2px solid @overlay0;
+    border-right: none;
 }
 
 #custom-lock {

@@ -92,7 +92,6 @@
           ./hosts/nzxt-wsl/configuration.nix
           ./common/system-packages.nix
           ./users/echo.nix
-          ./users/guest.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {
@@ -105,7 +104,6 @@
               useUserPackages = true;
               backupFileExtension = "backup";
               users.echo = import ./home-manager/echo.nix;
-              users.guest = import ./home-manager/guest.nix;
             };
           }
         ];

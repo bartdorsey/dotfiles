@@ -122,9 +122,6 @@
     "github.copilot.editor.enableAutoCompletions": true,
     "markdown-preview-enhanced.previewTheme": "github-dark.css",
     "markdown-preview-enhanced.mermaidTheme": "dark",
-    "plpgsqlLanguageServer.database": "book_store",
-    "plpgsqlLanguageServer.password": "postgres",
-    "plpgsqlLanguageServer.user": "postgres",
     "css.styleSheets": [
         "**/*.css"
     ],
@@ -258,5 +255,19 @@
     "workbench.colorTheme": "Gruvbox Dark Hard",
     "dimmer.enabled": true,
     "editor.fontFamily": "Iosevka Nerd Font",
-    "notebook.lineNumbers": "on"
+    "notebook.lineNumbers": "on",
+    "plpgsqlLanguageServer.database": "my_database",
+    "plpgsqlLanguageServer.user": "postgres",
+    "plpgsqlLanguageServer.password": "postgres",
+    "plpgsqlLanguageServer.definitionFiles": [
+        // Support glob.
+        "**/*.sql",
+        "**/*.psql",
+        "**/*.pgsql"
+    ],
+    // The supported extention types are ['*.pgsql', '*.psql'].
+    // If you want to use this extension in '*.sql', add the following settings.
+    "files.associations": {
+        "*.sql": "postgres"
+    }
 }

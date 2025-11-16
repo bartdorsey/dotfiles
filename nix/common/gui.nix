@@ -105,7 +105,6 @@
     [zen-browser.packages."${system}".default]
     ++ (with pkgs-unstable; [
       firefoxpwa
-      wezterm
     ])
     ++ (with pkgs; [
       _1password-cli

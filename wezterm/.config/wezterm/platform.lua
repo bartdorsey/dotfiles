@@ -7,7 +7,7 @@ function M.apply_platform_config(config)
         left = "2cell",
         right = "2cell",
         top = "1cell",
-        bottom = "1cell",
+        bottom = "0cell",
     }
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         config.default_domain = "WSL:Ubuntu"
@@ -34,12 +34,6 @@ function M.apply_platform_config(config)
         config.default_prog = { os.getenv("SHELL") }
         config.front_end = "WebGpu"
         config.font = wezterm.font("Iosevka Nerd Font", { weight = "Regular" })
-        config.window_padding = {
-            left = "2cell",
-            right = "2cell",
-            top = "1cell",
-            bottom = "0cell",
-        }
     else
         config.macos_window_background_blur = 80
         config.window_background_opacity = 0.8
@@ -47,13 +41,6 @@ function M.apply_platform_config(config)
         config.front_end = "WebGpu"
         config.font_size = 16
         config.font = wezterm.font("Iosevka Nerd Font", { weight = "Regular" })
-        -- macOS needs less space on bottom for some reason
-        config.window_padding = {
-            left = "2cell",
-            right = "2cell",
-            top = "1cell",
-            bottom = "0cell",
-        }
     end
 end
 

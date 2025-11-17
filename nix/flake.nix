@@ -87,9 +87,9 @@
         };
         modules = [
           nixoswsl.nixosModules.wsl
+          ./hosts/nzxt-wsl/configuration.nix
           ./common/os.nix
           ./common/mounts.nix
-          ./hosts/nzxt-wsl/configuration.nix
           ./common/system-packages.nix
           ./users/echo.nix
           home-manager.nixosModules.home-manager

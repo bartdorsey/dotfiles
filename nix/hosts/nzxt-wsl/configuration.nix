@@ -6,6 +6,8 @@
 {pkgs, ...}: {
   imports = [];
 
+  security.polkit.enable = true;
+
   wsl.enable = true;
   wsl.defaultUser = "echo";
   wsl.wslConf.interop.appendWindowsPath = false;
@@ -13,6 +15,8 @@
   wsl.wslConf.network.generateResolvConf = true;
   wsl.useWindowsDriver = true;
   wsl.startMenuLaunchers = true;
+  wsl.usbip.enable = true;
+  wsl.usbip.autoAttach = ["1-2"];
 
   # networking.nameservers = ["10.0.0.3" "10.0.0.4"];
   networking.domain = "home";

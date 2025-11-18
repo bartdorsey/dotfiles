@@ -156,6 +156,7 @@
       yarn
       yazi
       yt-dlp
+      yubikey-personalization
       zenity
       zip
       zip

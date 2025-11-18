@@ -1,0 +1,11 @@
+[Unit]
+Description=gpg4win to WSL connector for GPG
+Requires=gpg-agent.socket
+
+[Service]
+Type=simple
+ExecStart=/home/echo/.local/bin/npiperelay_windows_amd64.exe -ep -ei -s -a 'C:/Users/bart/AppData/Local/gnupg/S.gpg-agent'
+StandardInput=socket
+
+[Install]
+WantedBy=default.target

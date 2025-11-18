@@ -15,8 +15,14 @@
   wsl.wslConf.network.generateResolvConf = true;
   wsl.useWindowsDriver = true;
   wsl.startMenuLaunchers = true;
-  wsl.usbip.enable = true;
-  wsl.usbip.autoAttach = ["1-2"];
+  # wsl.usbip.enable = true;
+  # wsl.usbip.autoAttach = ["1-2"];
+  #
+  # services.udev.packages = with pkgs; [
+  #   yubikey-personalization
+  # ];
+  #
+  # services.pcscd.enable = true;
 
   # networking.nameservers = ["10.0.0.3" "10.0.0.4"];
   networking.domain = "home";

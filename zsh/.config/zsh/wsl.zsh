@@ -32,6 +32,7 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     notify-send() { wsl-notify-send.exe --category $WSL_DISTRO_NAME "${@}"; }
 
     export PATH="/mnt/c/Windows:/mnt/c/Windows/System32:/mnt/c/Users/bart/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/PowerShell/7:/mnt/c/Users/bart/scoop/apps/gpg4win/current/GnuPG/bin:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH"
+    export BROWSER="pwsh.exe -noni -nop -c start"
 
     export DISPLAY=:0
 fi

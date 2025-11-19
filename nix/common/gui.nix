@@ -146,6 +146,7 @@
       nh
       nix-output-monitor
       nvd
+      nwg-displays
       obs-studio
       obsidian
       pavucontrol

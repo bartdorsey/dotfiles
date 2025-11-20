@@ -281,4 +281,8 @@
     source = ../../claude/.claude;
     recursive = true;
   };
+  xdg.configFile."yazi" = {
+    source = ../../yazi/.config/yazi;
+    recursive = true;
+  };
 }

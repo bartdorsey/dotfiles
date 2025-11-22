@@ -4,7 +4,7 @@ Requires=gpg-agent.socket
 
 [Service]
 Type=simple
-ExecStart=/home/echo/.local/bin/npiperelay_windows_amd64.exe -ep -ei -s -a 'C:/Users/bart/AppData/Local/gnupg/S.gpg-agent'
+ExecStart=socat STDIO /mnt/c/Users/bart/Apps/wsl2-ssh-pageant.exe -gpg S.gpg-agent -gpgConfigBasepath "C\:/Users/bart/AppData/Local/gnupg"
 StandardInput=socket
 
 [Install]

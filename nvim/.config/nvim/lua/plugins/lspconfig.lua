@@ -47,9 +47,9 @@ return {
         {
             "echasnovski/mini.nvim",
         },
-        -- {
-        --     "williamboman/mason.nvim",
-        -- },
+        {
+            "williamboman/mason.nvim",
+        },
     },
     config = function()
         --- @type { [string]: vim.lsp.Config }
@@ -110,6 +110,10 @@ return {
                 includePaths = { "./lib" },
             },
             perlls = {},
+            postgres_lsp = {
+                cmd = { "postgres-language-server", "lsp-proxy" },
+                root_markers = { "postgres-language-server.jsonc" },
+            },
             rust_analyzer = {
                 ["rust-analyzer"] = {
                     cargo = {

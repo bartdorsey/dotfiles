@@ -269,5 +269,6 @@
     // If you want to use this extension in '*.sql', add the following settings.
     "files.associations": {
         "*.sql": "postgres"
-    }
+    },
+    "terminal.integrated.sendKeybindingsToShell": true
 }

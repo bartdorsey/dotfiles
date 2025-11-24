@@ -21,6 +21,7 @@ $env:PATH = @(
     # Other tools
     "C:\Users\bart\.local\bin"
     "C:\Users\bart\scoop\apps\rustup\current\.cargo\bin"
+    "C:\Users\bart\scoop\apps\gpg4win\current\GnuPG\bin"
     "C:\Users\bart\AppData\Local\Programs\Microsoft VS Code\bin"
     "C:\Users\bart\AppData\Local\Microsoft\WindowsApps\"
     "C:\Users\bart\scoop\apps\gnupg\current\bin"

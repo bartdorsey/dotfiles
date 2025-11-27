@@ -105,6 +105,7 @@
     [zen-browser.packages."${system}".default]
     ++ (with pkgs-unstable; [
       firefoxpwa
+      zed-editor-fhs
     ])
     ++ (with pkgs; [
       _1password-cli

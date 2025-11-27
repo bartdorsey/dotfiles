@@ -1,0 +1,108 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "agent_ui_font_size": 18.0,
+  "agent_buffer_font_size": 18.0,
+  "restore_on_startup": "none",
+  "session": {
+    "restore_unsaved_buffers": true
+  },
+  "show_edit_predictions": false,
+  "debugger": {
+    "dock": "right"
+  },
+  "terminal": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "ui_font_weight": 400.0,
+  "inlay_hints": {
+    "enabled": false
+  },
+  "show_whitespaces": "selection",
+  "always_treat_brackets_as_autoclosed": false,
+  "indent_guides": {
+    "background_coloring": "indent_aware",
+    "coloring": "indent_aware"
+  },
+  "allow_rewrap": "in_selections",
+  "soft_wrap": "none",
+  "toolbar": {
+    "code_actions": false,
+    "breadcrumbs": true
+  },
+  "relative_line_numbers": true,
+  "auto_signature_help": true,
+  "context_servers": {},
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-latest"
+    },
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-latest"
+    },
+    "model_parameters": []
+  },
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "base_keymap": "VSCode",
+  "languages": {
+    "CSS": {
+      "formatter": "prettier"
+    },
+    "HTML": {
+      "formatter": "prettier",
+      "inlay_hints": {
+        "enabled": false
+      }
+    }
+  },
+  "prettier": {
+    "allowed": true
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "disable_ai": false,
+  "ui_font_family": "Iosevka Nerd Font",
+  "buffer_line_height": "comfortable",
+  "buffer_font_weight": 400.0,
+  "buffer_font_family": "Iosevka Nerd Font",
+  "wsl_connections": [
+    {
+      "distro_name": "Ubuntu",
+      "user": null,
+      "projects": [
+        {
+          "paths": ["/home/echo/projects/scratch_pad"]
+        }
+      ]
+    }
+  ],
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Warm Charmed Icons"
+  },
+  "vim_mode": true,
+  "ui_font_size": 18.0,
+  "buffer_font_size": 18.0,
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Light Hard",
+    "dark": "Gruvbox Baby"
+  }
+}

@@ -26,6 +26,7 @@ function M.apply_platform_config(config)
         config.win32_system_backdrop = "Acrylic"
         config.window_background_opacity = 0
     elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+        config.check_for_updates = false
         config.window_decorations = "NONE"
         config.enable_wayland = true
         config.kde_window_background_blur = true

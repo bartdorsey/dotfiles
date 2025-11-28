@@ -45,11 +45,11 @@ Set-PSReadlineOption -EditMode Vi
 Set-PSReadLineOption -ViModeIndicator Cursor
 
 # Menu Completion
-Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+# Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 # Predictive text
 # Set-PSReadLineOption -PredictionSource HistoryAndPlugin
-Set-PSReadLineOption -PredictionViewStyle InlineView
+# Set-PSReadLineOption -PredictionViewStyle InlineView
 
 # Sets control-D to exit the shell
 Set-PSReadLineKeyHandler -Key 'Ctrl+d' -Function DeleteCharOrExit

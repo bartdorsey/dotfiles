@@ -7,7 +7,24 @@ version = "1"
 [default]
 repository = "D:/restic"
 password-file = "password.txt"
+status-file = "C:/Users/bart/backup-status.json"
 
 [default.backup]
 verbose = true
+exclude-caches = true
+exclude-file = [ "exclude.txt" ]
 source = [ "C:/Users/bart" ]
+tag = [ "home" ]
+schedule = "*-*-* 00:00:00"
+schedule-permissions = "user_logged_on"
+schedule-priority = "background"
+schedule-log = "C:/Users/bart/restic.log"
+
+[default.forget]
+prune = true
+keep-latest = 3
+schedule = "*-*-* 06:00:00"
+schedule-permissions = "user_logged_on"
+schedule-priority = "background"
+schedule-log = "C:/Users/bart/restic-forget.log"
+

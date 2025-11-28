@@ -19,7 +19,7 @@ general:
     # workspace when focusing the current workspace.
     toggle_workspace_on_refocus: false
 
-    hide_method: "cloak"
+    hide_method: "hide"
 
     show_all_in_taskbar: true
 

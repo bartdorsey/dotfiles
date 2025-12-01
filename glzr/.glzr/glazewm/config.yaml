@@ -9,8 +9,8 @@ general:
     shutdown_commands: ['shell-exec C:\Users\bart\.glzr\glazewm\shutdown.vbs']
 
     # Commands to run after the WM config is reloaded.
-    config_reload_commands:
-        ['shell-exec C:\Users\bart\.glzr\glazewm\reload.vbs']
+    #config_reload_commands:
+    #    ['shell-exec C:\Users\bart\.glzr\glazewm\reload.vbs']
 
     # Whether to automatically focus windows underneath the cursor.
     focus_follows_cursor: true
@@ -193,6 +193,7 @@ window_rules:
           - window_class: { regex: "^ZPFloat" }
           - window_process: { regex: "TeraCopy" }
           - window_process: { regex: "1Password" }
+          - window_process: { equals: "bambu-studio" }
     - commands: ["ignore"]
       match:
           - window_class: { regex: "^Avalonia" }

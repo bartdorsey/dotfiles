@@ -22,7 +22,7 @@ schedule-log = "C:/Users/bart/restic.log"
 
 [default.forget]
 prune = true
-keep-latest = 3
+keep-last = 3
 schedule = "*-*-* 06:00:00"
 schedule-permissions = "user_logged_on"
 schedule-priority = "background"

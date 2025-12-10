@@ -111,10 +111,6 @@
     recursive = true;
   };
   home.file.".zshenv".source = ../../zsh/.zshenv;
-  home.file.".ssh" = {
-    source = ../../ssh/.ssh;
-    recursive = true;
-  };
   home.file.".bash_profile".source = ../../bash/.bash_profile;
   xdg.configFile."bash" = {
     source = ../../bash/.config/bash;

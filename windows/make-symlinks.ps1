@@ -21,7 +21,7 @@ New-Link $HOME/.dotfiles/vim/.config/vim $HOME/.config/vim
 New-Link $HOME/.dotfiles/glzr/.glzr $HOME/.glzr
 New-Link $HOME/.dotfiles/flameshot/.config/flameshot/flameshot.ini $env:APPDATA/flameshot/flameshot.ini
 New-Link $HOME/.dotfiles/emacs/.config/emacs $HOME/.config/emacs
-New-Link $HOME/.dotfiles/resticprofile/.config/resticprofile $env:APPDATA/resticprofile
+New-Link $HOME/.dotfiles/windows/resticprofile/ $env:APPDATA/resticprofile
 # Zen
 New-Link $HOME/.dotfiles/zen/.config/zen/prefs.js $HOME/.config/zen/prefs.js
 New-Link $HOME/.dotfiles/zen/.config/zen/user.js $HOME/.config/zen/user.js

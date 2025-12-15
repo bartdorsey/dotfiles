@@ -1,0 +1,10 @@
+[Unit]
+Description=Automount projects btrfs filesystem
+Where=/mnt/btrfs
+
+[Automount]
+Where=/mnt/btrfs
+TimeoutIdleSec=60
+
+[Install]
+WantedBy=multi-user.target

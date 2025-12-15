@@ -15,8 +15,9 @@ $env:PATH = @(
     "C:\Program Files\PowerShell\7"
     "C:\Program Files\Git\cmd"
     "C:\Program Files\Docker\Docker\resources\bin"
-    "C:\Program Files\dotnet\"
+    "C:\Program Files\dotnet"
     "C:\Program Files\WezTerm"
+    "C:\Program Files\YASB"
     
     # Other tools
     "C:\Users\bart\.local\bin"
@@ -30,7 +31,7 @@ $env:PATH = @(
     
 ) -join ';'
 
-mise activate --shims pwsh | Out-String | Invoke-Expression
+mise activate pwsh | Out-String | Invoke-Expression
 
 Import-Module "Microsoft.WinGet.CommandNotFound"
 Import-Module "scoop-completion"

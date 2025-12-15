@@ -4,39 +4,44 @@
 #
 version = "1"
 
-[ubuntu-home]
+[default]
 repository = "/mnt/d/restic-wsl"
 password-file = "password.txt"
-status-file = "/home/echo/.local/state/ubuntu-home-status.json"
+status-file = "/home/echo/.local/state/restic-status.json"
 
-[ubuntu-home.snapshots]
-tag = ["ubuntu-home"]
+[home]
+repository = "/mnt/d/restic-wsl"
+password-file = "password.txt"
+status-file = "/home/echo/.local/state/home-status.json"
 
-[ubuntu-home.backup]
+[home.snapshots]
+tag = ["home"]
+
+[home.backup]
 verbose = true
 exclude-caches = true
 exclude-file = [ "exclude.txt" ]
 one-file-system = true
 source = [ "/home/echo" ]
-tag = [ "ubuntu-home" ]
+tag = [ "home" ]
 schedule = "*-*-* 00:00:00"
 schedule-permissions = "user_logged_on"
 schedule-priority = "background"
-schedule-log = "/home/echo/.local/state/ubuntu-home-backup.log"
+schedule-log = "/home/echo/.local/state/home-backup.log"
 
 run-before = [
   "bash -c 'cd /home/echo/projects && ls > /dev/null'",
   "sleep 1"
 ]
 
-[ubuntu-home.forget]
+[home.forget]
 prune = true
 keep-last = 3
-tag = [ "ubuntu-home" ]
+tag = [ "home" ]
 schedule = "*-*-* 06:00:00"
 schedule-permissions = "user_logged_on"
 schedule-priority = "background"
-schedule-log = "/home/echo/.local/state/ubuntu-home-forget.log"
+schedule-log = "/home/echo/.local/state/home-forget.log"
 
 [projects]
 repository = "/mnt/d/restic-wsl"

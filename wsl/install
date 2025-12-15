@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 sudo cp *.mount *.automount  /etc/systemd/system
+sudo cp wsl.conf /etc/
 

@@ -40,11 +40,11 @@ jq = "latest"
 pipx = "latest"
 btop = "latest"
 
-[alias]
+[tool_alias]
 
-[alias.node]
+[tool_alias.node]
 
-[alias.node.versions]
+[tool_alias.node.versions]
 lts = "24"
 
 [settings]

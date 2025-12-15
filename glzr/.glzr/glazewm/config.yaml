@@ -2,11 +2,11 @@ general:
     # Commands to run when the WM has started. This is useful for running a
     # script or launching another application.
     # Example: The below command launches Zebar.
-    startup_commands: ['shell-exec C:\Users\bart\.glzr\glazewm\startup.vbs']
+#    startup_commands: ['shell-exec runas /trustlevel:0x20000 C:\Users\bart\projects\yasb\src\yasb.vbs']
 
     # Commands to run just before the WM is shutdown.
     # Example: The below command kills Zebar.
-    shutdown_commands: ['shell-exec C:\Users\bart\.glzr\glazewm\shutdown.vbs']
+#    shutdown_commands: ['shell-exec taskkill /IM yasb.exe /F']
 
     # Commands to run after the WM config is reloaded.
     #config_reload_commands:
@@ -19,7 +19,7 @@ general:
     # workspace when focusing the current workspace.
     toggle_workspace_on_refocus: false
 
-    hide_method: "hide"
+    hide_method: "cloak"
 
     show_all_in_taskbar: true
 
@@ -321,16 +321,11 @@ keybindings:
 
     - commands:
           [
-              'shell-exec %ProgramFiles%/Wezterm/wezterm.exe cli --prefer-mux spawn --new-window --domain-name "local" -- sudo btop',
-          ]
-      bindings: ["alt+p"]
-    - commands:
-          [
-              'shell-exec %ProgramFiles%/Wezterm/wezterm.exe cli --prefer-mux spawn --new-window --domain-name "local" -- C:\Program Files\PowerShell\7\pwsh.exe',
+        'shell-exec %ProgramFiles%/Wezterm/wezterm.exe cli --prefer-mux spawn --new-window --domain-name "local" -- C:\Program Files\PowerShell\7\pwsh.exe',
           ]
       bindings: ["alt+shift+enter"]
 
-    - commands: ["shell-exec %ProgramFiles%/Zen Browser/zen.exe"]
+    - commands: ["shell-exec runas /trustlevel:0x20000 %ProgramFiles%/Zen Browser/zen.exe"]
       bindings: ["alt+b"]
     # Focus the next/previous workspace defined in `workspaces` config.
     # - commands: ["focus --next-workspace"]

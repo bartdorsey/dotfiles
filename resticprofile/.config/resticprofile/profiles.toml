@@ -4,27 +4,72 @@
 #
 version = "1"
 
-[default]
-repository = "D:/restic"
+[ubuntu-home]
+repository = "/mnt/d/restic-wsl"
 password-file = "password.txt"
-status-file = "C:/Users/bart/backup-status.json"
+status-file = "/home/echo/.local/state/ubuntu-home-status.json"
 
-[default.backup]
+[ubuntu-home.snapshots]
+tag = ["ubuntu-home"]
+
+[ubuntu-home.backup]
 verbose = true
 exclude-caches = true
 exclude-file = [ "exclude.txt" ]
-source = [ "C:/Users/bart" ]
-tag = [ "home" ]
+one-file-system = true
+source = [ "/home/echo" ]
+tag = [ "ubuntu-home" ]
 schedule = "*-*-* 00:00:00"
 schedule-permissions = "user_logged_on"
 schedule-priority = "background"
-schedule-log = "C:/Users/bart/restic.log"
+schedule-log = "/home/echo/.local/state/ubuntu-home-backup.log"
 
-[default.forget]
+run-before = [
+  "bash -c 'cd /home/echo/projects && ls > /dev/null'",
+  "sleep 1"
+]
+
+[ubuntu-home.forget]
 prune = true
 keep-last = 3
+tag = [ "ubuntu-home" ]
 schedule = "*-*-* 06:00:00"
 schedule-permissions = "user_logged_on"
 schedule-priority = "background"
-schedule-log = "C:/Users/bart/restic-forget.log"
+schedule-log = "/home/echo/.local/state/ubuntu-home-forget.log"
+
+[projects]
+repository = "/mnt/d/restic-wsl"
+password-file = "password.txt"
+status-file = "/home/echo/.local/state/projects-backup-status.json"
+
+[projects.snapshots]
+tag = ["projects"]
+
+
+[projects.backup]
+verbose = true
+exclude-caches = true
+exclude-file = [ "exclude.txt" ]
+one-file-system = true
+source = [ "/home/echo/projects" ]
+tag = [ "projects" ]
+schedule = "*-*-* 00:00:00"
+schedule-permissions = "user_logged_on"
+schedule-priority = "background"
+schedule-log = "/home/echo/.local/state/projects-backup.log"
+
+run-before = [
+  "bash -c 'cd /home/echo/projects && ls > /dev/null'",
+  "sleep 1"
+]
+
+[projects.forget]
+prune = true
+keep-last = 3
+tag = [ "projects" ]
+schedule = "*-*-* 06:00:00"
+schedule-permissions = "user_logged_on"
+schedule-priority = "background"
+schedule-log = "/home/echo/.local/state/projects-forget.log"
 

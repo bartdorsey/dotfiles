@@ -270,5 +270,6 @@
     "files.associations": {
         "*.sql": "postgres"
     },
-    "terminal.integrated.sendKeybindingsToShell": true
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "claudeCode.preferredLocation": "panel"
 }

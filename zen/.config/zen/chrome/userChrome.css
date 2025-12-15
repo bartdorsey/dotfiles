@@ -1,3 +1,7 @@
+#PlacesToolbarItems {
+    justify-content: center !important;
+}
+
 #zen-workspaces-button {
   & toolbarbutton {
     & .zen-workspace-icon {

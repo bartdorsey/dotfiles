@@ -100,9 +100,5 @@
   "vim_mode": true,
   "ui_font_size": 18.0,
   "buffer_font_size": 18.0,
-  "theme": {
-    "mode": "dark",
-    "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Baby"
-  }
+  "theme": "Gruvbox Baby"
 }

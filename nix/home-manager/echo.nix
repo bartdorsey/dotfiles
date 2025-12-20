@@ -31,7 +31,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    dotDir = config.xdg.configHome + "nix-zsh";
+    dotDir = config.xdg.configHome + "/nix-zsh";
     plugins = [
       {
         name = "zsh-nix-shell";
@@ -257,8 +257,7 @@
   # Zsh plugins (from nixpkgs)
   # Note: These are managed by home-manager using nixpkgs packages
   xdg.dataFile."zsh/plugins/zsh-autosuggestions".source = "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions";
-  xdg.dataFile."zsh/plugins/zsh-syntax-highlighting".source = "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting";
-  xdg.dataFile."zsh/plugins/fast-syntax-highlighting".source = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
+  xdg.dataFile."zsh/plugins/fast-syntax-highlighting".source = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting";
   xdg.dataFile."zsh/plugins/zsh-completions".source = "${pkgs.zsh-completions}/share/zsh/site-functions";
   xdg.dataFile."zsh/plugins/fzf-tab".source = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
   xdg.dataFile."zsh/plugins/zsh-autocomplete".source = "${pkgs.zsh-autocomplete}/share/zsh-autocomplete";

@@ -3,13 +3,13 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-25.05";
+      url = "github:NixOS/nixpkgs/nixos-25.11";
     };
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixoswsl.url = "github:nix-community/nixos-wsl/release-25.05";
+    nixoswsl.url = "github:nix-community/nixos-wsl/release-25.11";
     nixoswsl.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

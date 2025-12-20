@@ -84,7 +84,7 @@
       mc
       micro
       mosh
-      mpc-cli
+      mpc
       mpdris2
       mtr
       mokutil
@@ -106,7 +106,7 @@
       pass
       pciutils
       php
-      pinentry
+      pinentry-curses
       pnpm
       postgresql
       postgresql.lib

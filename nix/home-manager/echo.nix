@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.username = "echo";
   home.homeDirectory = "/home/echo";
 
@@ -27,7 +31,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    dotDir = ".config/nix-zsh";
+    dotDir = config.xdg.configHome + "nix-zsh";
     plugins = [
       {
         name = "zsh-nix-shell";
@@ -44,34 +48,38 @@
 
   programs.git = {
     enable = true;
-    userName = "Bart Dorsey";
-    userEmail = "bart@bartdorsey.com";
-    aliases = {
-      co = "checkout";
-      st = "status";
-      ci = "commit";
-      br = "branch";
-    };
-    extraConfig = {
-      core = {
-        editor = "nvim";
+    settings = {
+      user = {
+        name = "Bart Dorsey";
+        email = "bart@bartdorsey.com";
       };
-      color = {
-        ui = "auto";
-        branch = "auto";
-        diff = "auto";
-        interactive = "auto";
-        status = "auto";
+      aliases = {
+        co = "checkout";
+        st = "status";
+        ci = "commit";
+        br = "branch";
       };
-      push = {
-        default = "simple";
-        followTags = true;
-      };
-      pull = {
-        rebase = true;
-      };
-      init = {
-        defaultBranch = "main";
+      extraConfig = {
+        core = {
+          editor = "nvim";
+        };
+        color = {
+          ui = "auto";
+          branch = "auto";
+          diff = "auto";
+          interactive = "auto";
+          status = "auto";
+        };
+        push = {
+          default = "simple";
+          followTags = true;
+        };
+        pull = {
+          rebase = true;
+        };
+        init = {
+          defaultBranch = "main";
+        };
       };
     };
     ignores = [
@@ -83,14 +91,15 @@
       ".venv/"
       "**/.claude/settings.local.json"
     ];
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        line-numbers = true;
-      };
-    };
     lfs.enable = true;
+  };
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      line-numbers = true;
+    };
   };
   # --- dotfiles ---
   # Core configs

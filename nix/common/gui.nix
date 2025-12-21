@@ -163,7 +163,6 @@
       syncthingtray
       terminus_font_ttf
       vesktop
-      vieb
       vivaldi
       vlc
       vscode

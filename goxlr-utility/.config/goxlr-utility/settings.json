@@ -25,6 +25,7 @@
       "lock_faders": false,
       "enable_monitor_with_fx": false,
       "sampler_reset_on_clear": true,
+      "sampler_fade_duration": 500,
       "vod_mode": "Routable",
       "shutdown_commands": [
         {

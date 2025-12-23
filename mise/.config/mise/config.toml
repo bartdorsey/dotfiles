@@ -39,12 +39,5 @@ jq = "latest"
 pipx = "latest"
 btop = "latest"
 
-[tool_alias]
-
-[tool_alias.node]
-
-[tool_alias.node.versions]
-lts = "24"
-
 [settings]
 idiomatic_version_file_enable_tools = ["python"]

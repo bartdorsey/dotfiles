@@ -12,6 +12,8 @@ return {
         require("mini.ai").setup({})
         -- Pairs
         require("mini.pairs").setup({})
+        -- Surround
+        require("mini.surround").setup({})
         -- Sessions
         require("mini.sessions").setup({
             directory = "~/.local/share/nvim/sessions/",
@@ -49,6 +51,10 @@ return {
                 -- Built-in completion
                 { mode = "i", keys = "<C-x>" },
 
+                -- Square brackets
+                { mode = "n", keys = "]" },
+                { mode = "n", keys = "[" },
+
                 -- `g` key
                 { mode = "n", keys = "g" },
                 { mode = "x", keys = "g" },
@@ -71,11 +77,16 @@ return {
                 -- `z` key
                 { mode = "n", keys = "z" },
                 { mode = "x", keys = "z" },
+
+                -- 's' key
+                { mode = "n", keys = "s" },
+                { mode = "x", keys = "s" },
             },
 
             clues = {
                 -- Enhance this by adding descriptions for <Leader> mapping groups
                 miniclue.gen_clues.builtin_completion(),
+                miniclue.gen_clues.square_brackets(),
                 miniclue.gen_clues.g(),
                 miniclue.gen_clues.marks(),
                 miniclue.gen_clues.registers(),

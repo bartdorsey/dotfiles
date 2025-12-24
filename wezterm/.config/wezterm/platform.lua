@@ -10,6 +10,14 @@ function M.apply_platform_config(config)
         bottom = "0cell",
     }
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+        local wsl_domains = wezterm.default_wsl_domains()
+
+        for idx, dom in ipairs(wsl_domains) do
+          if dom.name == 'WSL:Ubuntu-18.04' then
+            dom.default_cwd = { '~' }
+          end
+        end
+
         config.default_domain = "WSL:Debian"
         -- config.front_end = "WebGpu"
         -- config.webgpu_power_preference = "HighPerformance"

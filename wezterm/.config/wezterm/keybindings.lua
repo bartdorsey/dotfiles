@@ -15,9 +15,17 @@ function M.setup_keybindings(config, domains)
         {
             key = "c",
             mods = "LEADER",
-            action = wezterm.action.ShowLauncherArgs({
-                flags = "LAUNCH_MENU_ITEMS|FUZZY",
-            }),
+            -- action = wezterm.action.ShowLauncherArgs({
+            --     flags = "LAUNCH_MENU_ITEMS|FUZZY",
+            -- }),
+            action = wezterm.action_callback(function(window, pane)
+                window:perform_action(
+                    wezterm.action.InputSelector(
+                        domains.create_selector("tab", pane)
+                    ),
+                    pane
+                )
+            end),
         },
 
         {
@@ -37,7 +45,7 @@ function M.setup_keybindings(config, domains)
             action = wezterm.action_callback(function(window, pane)
                 window:perform_action(
                     wezterm.action.InputSelector(
-                        domains.create_split_selector("horizontal")
+                        domains.create_selector("horizontal", pane)
                     ),
                     pane
                 )
@@ -49,7 +57,7 @@ function M.setup_keybindings(config, domains)
             action = wezterm.action_callback(function(window, pane)
                 window:perform_action(
                     wezterm.action.InputSelector(
-                        domains.create_split_selector("vertical")
+                        domains.create_selector("vertical", pane)
                     ),
                     pane
                 )
@@ -100,4 +108,3 @@ function M.setup_keybindings(config, domains)
 end
 
 return M
-

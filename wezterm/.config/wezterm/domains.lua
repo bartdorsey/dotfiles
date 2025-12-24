@@ -17,7 +17,7 @@ function M.get_ssh_hosts()
     return filtered_hosts
 end
 
-function M.get_launch_menu()
+function M.get_launch_menu(pane)
     local entries = {}
 
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
@@ -31,12 +31,18 @@ function M.get_launch_menu()
             args = { "sudo.exe", "pwsh.exe", "-NoLogo" },
             domain = { DomainName = "local" },
         })
-
+        local current_domain = pane:get_domain_name()
         for _, wsl_domain in ipairs(wezterm.default_wsl_domains()) do
+            local cwd = "~"
+            if current_domain == wsl_domain.name then
+                cwd = nil
+            end
+            wezterm.log_error(cwd)
             table.insert(entries, {
                 label = wezterm.nerdfonts.linux_tux .. " " .. wsl_domain.name,
                 args = {},
                 domain = { DomainName = wsl_domain.name },
+                cwd = cwd,
             })
         end
     else
@@ -77,8 +83,8 @@ function M.get_ssh_domains()
     return ssh_domains
 end
 
-function M.create_split_selector(direction)
-    local entries = M.get_launch_menu()
+function M.create_selector(type, pane)
+    local entries = M.get_launch_menu(pane)
     local choices = {}
 
     for i, entry in ipairs(entries) do
@@ -89,23 +95,35 @@ function M.create_split_selector(direction)
     end
 
     return {
-        title = direction == "horizontal" and "Split Horizontal"
-            or "Split Vertical",
+        title = type == "horizontal" and "Split Horizontal" or "Split Vertical",
         choices = choices,
         fuzzy = true,
         action = wezterm.action_callback(function(window, pane, id)
             local entry = entries[tonumber(id)]
             if entry then
-                local action = direction == "horizontal"
-                        and wezterm.action.SplitHorizontal({
-                            domain = entry.domain,
-                            args = entry.args,
-                        })
-                    or wezterm.action.SplitVertical({
-                        domain = entry.domain,
-                        args = entry.args,
-                    })
-                window:perform_action(action, pane)
+                local spawn_config = {
+                    domain = entry.domain,
+                    args = entry.args,
+                    cwd = entry.cwd,
+                }
+                if type == "horizontal" then
+                    window:perform_action(
+                        wezterm.action.SplitHorizontal(spawn_config),
+                        pane
+                    )
+                elseif type == "vertical" then
+                    window:perform_action(
+                        wezterm.action.SplitVertical(spawn_config),
+                        pane
+                    )
+                elseif type == "tab" then
+                    window:perform_action(
+                        wezterm.action.SpawnCommandInNewTab(spawn_config),
+                        pane
+                    )
+                else
+                    return
+                end
             end
         end),
     }

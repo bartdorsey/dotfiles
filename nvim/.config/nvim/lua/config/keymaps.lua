@@ -1,4 +1,5 @@
 -- Resizing windows
+
 vim.keymap.set(
     "n",
     "<A-l>",
@@ -129,7 +130,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set(
             "n",
             "gd",
-            vim.lsp.buf.definition,
+            require("telescope.builtin").lsp_definitions,
             { desc = "Goto Definition" }
         )
         vim.keymap.set(
@@ -147,7 +148,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set(
             "n",
             "<leader>D",
-            vim.lsp.buf.type_definition,
+            require("telescope.builtin").lsp_type_definitions,
             { desc = "Goto Type Definition" }
         )
         vim.keymap.set(
@@ -164,7 +165,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         )
         vim.keymap.set(
             "n",
-            "C-k",
+            "<leader>k",
             vim.lsp.buf.signature_help,
             { desc = "LSP Signaure Help" }
         )
@@ -193,13 +194,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 count = 1,
             })
         end, { desc = "Goto Next Diagnostic" })
+
         vim.keymap.set("n", "gp", function()
             vim.diagnostic.jump({
                 count = -1,
             })
         end, { desc = "Goto Previous Diagnostic" })
+
         vim.keymap.set("n", "<leader>wl", function()
-            require("notify")(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+            local folders = vim.lsp.buf.list_workspace_folders()
+            vim.notify("\nWorkspace Folders:\n" .. table.concat(folders, "\n"))
         end, { desc = "Workspace List Folders" })
 
         vim.keymap.set("", "<leader>dt", function()

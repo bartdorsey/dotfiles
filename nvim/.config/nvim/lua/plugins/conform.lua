@@ -6,10 +6,11 @@ return {
             formatters_by_ft = {
                 lua = { "stylua" },
                 python = { "black" },
-                javascript = { "prettierd" },
-                typescript = { "prettierd" },
-                typescriptreact = { "prettierd" },
-                javascriptreact = { "prettierd" },
+                html = { "prettier" },
+                javascript = { "prettier" },
+                typescript = { "prettier" },
+                typescriptreact = { "prettier" },
+                javascriptreact = { "prettier" },
                 json = { "prettierd" },
                 markdown = { "markdownlint" },
                 ocaml = { "ocamlformat" },
@@ -17,12 +18,15 @@ return {
                 nix = { "alejandra" },
                 yaml = { "yamlfmt" },
                 sh = { "beautysh" },
+                ["*"] = { "trim_whitespace", "codespell" },
             },
             format_on_save = {
                 -- These options will be passed to conform.format()
                 timeout_ms = 500,
                 lsp_format = "fallback",
             },
+            notify_on_error = false,
+            inherit = true,
         })
         vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,

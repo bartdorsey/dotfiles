@@ -156,6 +156,9 @@ return {
                     },
                 },
             },
+            superhtml = {
+                filetypes = { "superhtml", "html" },
+            },
             ansiblels = {},
             yamlls = {
                 settings = {

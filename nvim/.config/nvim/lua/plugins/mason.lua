@@ -36,6 +36,7 @@ return {
                 "ruff",
                 "rust_analyzer",
                 "sqlls",
+                "superhtml",
                 "tailwindcss",
                 "tinymist",
                 "ts_ls",

@@ -1,5 +1,3 @@
-zmodload zsh/zprof
-
 # Add zsh-completions to fpath
 # On NixOS/home-manager: completions are directly in the plugin directory
 # On manual clone: completions are in the src/ subdirectory
@@ -9,6 +7,9 @@ else
   fpath=($HOME/.config/zsh/completions $HOME/.local/share/zsh/plugins/zsh-completions $fpath)
 fi
 
+
+
+autoload -Uz add-zsh-hook
 # --- Setup a sane default prompt ---
 
 # Load vcs_info
@@ -19,7 +20,7 @@ autoload -Uz tetriscurses
 alias tetris=tetriscurses
 
 # Hook vcs_info into the precmd (executed before every prompt)
-precmd() { vcs_info }
+add-zsh-hook precmd vcs_info
 
 # Enable vcs_info for git
 zstyle ':vcs_info:*' enable git
@@ -28,14 +29,12 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '%F{green}(staged)%f'
 zstyle ':vcs_info:*' unstagedstr '%F{red}(modified)%f'
 
-# Customize the format for git info
-
 # Ensure the prompt is re-evaluated
 setopt prompt_subst
 
 # Update your prompt to include the vcs_info message
 PS1='${vcs_info_msg_0_}
-%F{green}%/%f
+%F{green}%~/%f
 %F{yellow}%#%f '
 
 # --- End prompt setup ---
@@ -52,9 +51,6 @@ bindkey -v
 autoload -Uz run-help run-help-git run-help-ip run-help-openssl run-help-p4 run-help-sudo run-help-svk run-help-svn
 (( ${+aliases[run-help]} )) && unalias run-help
 alias help=run-help
-
-# Skip global compinit initialization in Ubuntu
-skip_global_compinit=1
 
 # Load utils
 source $HOME/.config/common/utils.sh
@@ -92,7 +88,7 @@ zstyle ':completion:*' complete-options true
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 # partial completion suggestions
 zstyle ':completion:*' list-suffixes
-zstyle ':completion:*' expand prefix sufix
+zstyle ':completion:*' expand prefix suffix
 zmodload zsh/complist
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 _comp_options+=(globdots)
@@ -151,7 +147,6 @@ source $ZDOTDIR/ssh-agent.zsh
 # VSCode Integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
-autoload -Uz add-zsh-hook
 
 function reset_broken_terminal () {
 	printf '%b' '\e[0m\e(B\e)0\017\e[?5l\e7\e[0;0r\e8'

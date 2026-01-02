@@ -33,9 +33,9 @@ zstyle ':vcs_info:*' unstagedstr '%F{red}(modified)%f'
 setopt prompt_subst
 
 # Update your prompt to include the vcs_info message
-PS1='${vcs_info_msg_0_}
-%F{green}%~/%f
-%F{yellow}%#%f '
+PROMPT='${vcs_info_msg_0_}
+%F{yellow}%~/%f
+%F{green}%#%f '
 
 # --- End prompt setup ---
 

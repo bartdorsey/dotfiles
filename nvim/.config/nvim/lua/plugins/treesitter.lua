@@ -1,6 +1,7 @@
 return {
     -- Highlight, edit, and navigate code
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",
     dependencies = {
         "j-hui/fidget.nvim",
         "windwp/nvim-ts-autotag",

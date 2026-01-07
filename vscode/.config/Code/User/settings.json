@@ -271,5 +271,6 @@
         "*.sql": "postgres"
     },
     "terminal.integrated.sendKeybindingsToShell": true,
-    "claudeCode.preferredLocation": "panel"
+    "claudeCode.preferredLocation": "panel",
+    "vs64.showWelcome": false
 }

@@ -28,7 +28,10 @@ $env:PATH = @(
     "C:\Users\bart\scoop\apps\gnupg\current\bin"
     "C:\Users\bart\AppData\Local\Microsoft\WinGet\Links"
     "C:\Program Files\Tailscale\"
-    
+
+    # Java
+    "C:\Program Files\Java\jdk-21\bin"
+
 ) -join ';'
 
 mise activate pwsh | Out-String | Invoke-Expression

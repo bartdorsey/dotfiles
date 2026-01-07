@@ -165,6 +165,7 @@ window_rules:
       match:
           - window_process: { regex: "^[Ss]team" }
           - window_process: { regex: "^NMS" }
+          - window_process: { regex: "x64sc" }
     - commands: ["move --workspace 5", "set-fullscreen"]
       match:
           - window_process: { regex: "^NMS" }
@@ -173,6 +174,8 @@ window_rules:
       match:
           - window_process: { equals: "bambu-studio" }
           - window_process: { regex: "[Vv][Mm]ware" }
+          - window_process: { regex: "[Ff]astmail" }
+          - window_process: { regex: "[Tt]hunderbird" }
     # Workspace 7
     - commands: ["move --workspace 7"]
       match:

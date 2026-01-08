@@ -48,6 +48,48 @@
           ./hosts/nzxt/configuration.nix
           ./hosts/nzxt/hardware-configuration.nix
           ./hosts/nzxt/nvidia.nix
+          ./common/theme.nix
+          ./common/os.nix
+          ./common/mounts.nix
+          ./common/gui.nix
+          ./common/display-manager.nix
+          ./common/hyprland.nix
+          ./common/system-packages.nix
+          ./users/echo.nix
+          ./users/echo-gui.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {
+              inherit pkgs-unstable;
+              inherit system;
+              inherit inputs;
+            };
+            nixpkgs.config.allowUnfree = true;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              users.echo = {
+                imports = [
+                  ./home-manager/echo.nix
+                  ./home-manager/echo-gui.nix
+                ];
+              };
+            };
+          }
+        ];
+      };
+      nixos-vm = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit pkgs-unstable;
+          inherit zen-browser;
+          inherit system;
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/nixos-vm/configuration.nix
+          ./hosts/nixos-vm/vm-hardware-configuration.nix
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           ./common/theme.nix
           ./common/os.nix

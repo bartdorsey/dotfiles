@@ -18,11 +18,6 @@
     device = "/dev/disk/by-uuid/af6f9f3e-d501-4a0b-a4a3-519ec4260ad2";
     fsType = "ext4";
   };
-
-  swapDevices = [
-    {device = "/dev/disk/by-uuid/4fb3ab6c-cbd9-4042-996a-5662a956e1a2";}
-  ];
-
   services.xserver.videoDrivers = ["vmware"];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

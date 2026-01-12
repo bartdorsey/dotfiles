@@ -38,6 +38,7 @@ lazyjournal = "latest"
 jq = "latest"
 pipx = "latest"
 btop = "latest"
+dust = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python"]

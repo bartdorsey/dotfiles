@@ -162,6 +162,7 @@
       slurp
       syncthingtray
       terminus_font_ttf
+      v4l-utils
       vesktop
       vivaldi
       vlc
@@ -174,6 +175,7 @@
       wtype
       xorg.xhost
       xss-lock
+      zoom-us
     ]);
 
   services.udev.packages = with pkgs; [

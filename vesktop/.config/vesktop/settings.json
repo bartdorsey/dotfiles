@@ -7,7 +7,7 @@
     "transparencyOption": "none",
     "disableMinSize": false,
     "splashColor": "rgb(235, 219, 178)",
-    "splashBackground": "rgba(0, 0, 0, 0)",
+    "splashBackground": "rgba(40, 40, 40, 0.333)",
     "staticTitle": false,
     "splashTheming": true,
     "spellCheckLanguages": [

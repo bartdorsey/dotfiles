@@ -1,16 +1,17 @@
 $env:PATH = @(
     "C:\Users\bart\scoop\apps\mise\current\bin"
-    
+    "C:\Users\bart\scoop\apps\qemu\current\"
+
     # Windows essentials
     "C:\Windows\system32"
     "C:\Windows"
     "C:\Windows\System32\Wbem"
     "C:\Windows\System32\WindowsPowerShell\v1.0\"
     "C:\Windows\System32\OpenSSH\"
-    
+
     # Scoop (ONCE - remove duplicate!)
     "C:\Users\bart\scoop\shims"
-    
+
     # Development tools
     "C:\Program Files\PowerShell\7"
     "C:\Program Files\Git\cmd"
@@ -18,7 +19,7 @@ $env:PATH = @(
     "C:\Program Files\dotnet"
     "C:\Program Files\WezTerm"
     "C:\Program Files\YASB"
-    
+
     # Other tools
     "C:\Users\bart\.local\bin"
     "C:\Users\bart\scoop\apps\rustup\current\.cargo\bin"

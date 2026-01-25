@@ -1,0 +1,44 @@
+[tools]
+go = "latest"
+node = "24"
+bun = "latest"
+black = "latest"
+pnpm = "latest"
+python = "3.12"
+deno = "latest"
+usage = "latest"
+claude-code = "latest"
+fzf = "latest"
+neovim = "latest"
+lazygit = "latest"
+lazydocker = "latest"
+1password-cli = "latest"
+bat = "latest"
+opencode = "latest"
+uv = "latest"
+ripgrep = "latest"
+gum = "latest"
+yazi = "latest"
+fd = "latest"
+rust = "latest"
+zoxide = "latest"
+ruff = "latest"
+fastfetch = "latest"
+starship = "latest"
+lsd = "latest"
+lua-language-server = "latest"
+stylua = "latest"
+"npm:typescript-language-server" = "latest"
+"npm:pyright" = "latest"
+"npm:prettier" = "latest"
+jq = "latest"
+
+[tool_alias]
+
+[tool_alias.node]
+
+[tool_alias.node.versions]
+lts = "24"
+
+[settings]
+idiomatic_version_file_enable_tools = ["python"]

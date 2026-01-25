@@ -88,8 +88,6 @@ if ($Host.Name -eq 'ConsoleHost') {
 	fastfetch -l Windows
 }
 
-Import-Module -Name Microsoft.WinGet.CommandNotFound
-
 function which ($command) {
     $cmd = Get-Command -Name $command -ErrorAction SilentlyContinue
     if ($cmd) {

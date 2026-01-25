@@ -37,9 +37,6 @@ $env:PATH = @(
 
 mise activate pwsh | Out-String | Invoke-Expression
 
-Import-Module "Microsoft.WinGet.CommandNotFound"
-Import-Module "scoop-completion"
-
 function Get-Disk-Free
 {
 	Get-PSDrive -PSProvider FileSystem

@@ -31,4 +31,5 @@ New-Link $HOME/.dotfiles/zen/.config/zen/containers.json $HOME/.config/zen/conta
 New-Link $HOME/.dotfiles/zen/.config/zen/chrome $HOME/.config/zen/chrome
 New-Link $HOME/.dotfiles/fastfetch/.config/fastfetch $HOME/.config/fastfetch
 New-Link $HOME/.dotfiles/vesktop/.config/vesktop/themes $HOME/AppData/Roaming/vesktop/themes
+New-Link $HOME/.dotfiles/windows/mise-config.toml $HOME/.config/mise/config.toml
 

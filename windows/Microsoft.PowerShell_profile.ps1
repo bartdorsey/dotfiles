@@ -1,6 +1,6 @@
 $env:PATH = @(
-    "C:\Users\bart\scoop\apps\mise\current\bin"
-    "C:\Users\bart\scoop\apps\qemu\current\"
+    "$env:USERPROFILE\scoop\apps\mise\current\bin"
+    "$env:USERPROFILE\scoop\apps\qemu\current\"
 
     # Windows essentials
     "C:\Windows\system32"
@@ -10,7 +10,7 @@ $env:PATH = @(
     "C:\Windows\System32\OpenSSH\"
 
     # Scoop (ONCE - remove duplicate!)
-    "C:\Users\bart\scoop\shims"
+    "$env:USERPROFILE\scoop\shims"
 
     # Development tools
     "C:\Program Files\PowerShell\7"
@@ -21,13 +21,13 @@ $env:PATH = @(
     "C:\Program Files\YASB"
 
     # Other tools
-    "C:\Users\bart\.local\bin"
-    "C:\Users\bart\scoop\apps\rustup\current\.cargo\bin"
-    "C:\Users\bart\scoop\apps\gpg4win\current\GnuPG\bin"
-    "C:\Users\bart\AppData\Local\Programs\Microsoft VS Code\bin"
-    "C:\Users\bart\AppData\Local\Microsoft\WindowsApps\"
-    "C:\Users\bart\scoop\apps\gnupg\current\bin"
-    "C:\Users\bart\AppData\Local\Microsoft\WinGet\Links"
+    "$env:USERPROFILE\.local\bin"
+    "$env:USERPROFILE\scoop\apps\rustup\current\.cargo\bin"
+    "$env:USERPROFILE\scoop\apps\gpg4win\current\GnuPG\bin"
+    "$env:USERPROFILE\AppData\Local\Programs\Microsoft VS Code\bin"
+    "$env:USERPROFILE\AppData\Local\Microsoft\WindowsApps\"
+    "$env:USERPROFILE\scoop\apps\gnupg\current\bin"
+    "$env:USERPROFILE\AppData\Local\Microsoft\WinGet\Links"
     "C:\Program Files\Tailscale\"
 
     # Java

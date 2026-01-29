@@ -108,7 +108,7 @@ body {
   --bg-1: #504945; /* dark buttons when clicked */
   --bg-2: #3c3836; /* dark buttons */
   --bg-3: #32302f; /* spacing, secondary elements */
-  --bg-4: #28282855; /* main background color */
+  --bg-4: #282828; /* main background color */
   --hover: var(--bg-2); /* channels and buttons when hovered */
   --active: var(--bg-1); /* channels and buttons when clicked or selected */
   --active-2: #7c6f64; /* extra state for transparent buttons */

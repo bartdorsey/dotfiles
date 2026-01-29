@@ -99,10 +99,10 @@
   home.file.".config/xdg-settings/default-web-browser".text = "zen.desktop";
 
   # Desktop environments and window managers
-    #xdg.configFile."hypr" = {
-    #source = ../../hypr/.config/hypr;
-    #recursive = true;
-    #};
+  #xdg.configFile."hypr" = {
+  #source = ../../hypr/.config/hypr;
+  #recursive = true;
+  #};
   xdg.configFile."i3" = {
     source = ../../i3/.config/i3;
     recursive = true;
@@ -117,10 +117,10 @@
   };
 
   # Bars and panels
-  xdg.configFile."waybar" = {
-    source = ../../waybar/.config/waybar;
-    recursive = true;
-  };
+  # xdg.configFile."waybar" = {
+  #   source = ../../waybar/.config/waybar;
+  #   recursive = true;
+  # };
   xdg.configFile."polybar" = {
     source = ../../polybar/.config/polybar;
     recursive = true;

@@ -35,13 +35,14 @@
                 2,
                 3,
                 4,
-                5
-            ],
-            "DP-1": [
+                5,
                 6
             ],
-            "HDMI-A-1": [
+            "DP-1": [
                 7
+            ],
+            "HDMI-A-1": [
+                8
             ]
         },
         "format": " {name}:{icon} ",
@@ -50,10 +51,11 @@
             "1": "Web",
             "2": "Code",
             "3": "Notes",
-            "4": "Games",
-            "5": "Misc",
-            "6": "Secondary",
-            "7": "Aux"
+            "4": "Video",
+            "5": "Games",
+            "6": "Misc",
+            "7": "Chat",
+            "8": "Aux"
         }
     },
     "idle_inhibitor": {

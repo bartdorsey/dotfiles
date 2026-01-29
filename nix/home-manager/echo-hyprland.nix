@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  services.cliphist = {
+    allowImages = true;
+    enable = true;
+  };
   services.hyprpaper.enable = true;
   services.hypridle = {
     enable = true;
@@ -38,5 +42,30 @@
     };
     name = "Capitaine Cursors (Gruvbox)";
     package = pkgs.capitaine-cursors-themed;
+  };
+
+  gtk = {
+    enable = true;
+    gtk2.extraConfig = "gtk-application-prefer-dark-theme = true";
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
+    theme = {
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-gtk-theme;
+    };
+    iconTheme = {
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+    };
+    cursorTheme = {
+      name = "Capitaine Cursors (Gruvbox)";
+      package = pkgs.capitaine-cursors-themed;
+    };
+  };
+
+  dconf.enable = true;
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
 }

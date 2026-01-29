@@ -52,8 +52,7 @@
           ./common/os.nix
           ./common/mounts.nix
           ./common/gui.nix
-          ./common/display-manager.nix
-          ./common/hyprland.nix
+          ./common/cosmic.nix
           ./common/system-packages.nix
           ./users/echo.nix
           ./users/echo-gui.nix

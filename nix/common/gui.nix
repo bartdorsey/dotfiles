@@ -6,53 +6,9 @@
   system,
   ...
 }: {
-  services.displayManager = {
-    defaultSession = "hyprland-uwsm";
-    ly = {
-      enable = false;
-    };
-    sddm = {
-      enable = false;
-      wayland.enable = true;
-    };
-    cosmic-greeter.enable = false;
-  };
-
-  services.xserver = {
-    desktopManager = {
-      xterm.enable = false;
-    };
-    displayManager = {
-      startx.enable = false;
-      lightdm.enable = false;
-    };
-    enable = true;
-    dpi = 96;
-
-    windowManager.awesome = {
-      enable = false;
-      luaModules = with pkgs.luaPackages; [
-        luarocks
-        luadbi-mysql
-      ];
-    };
-
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs-unstable.i3-rounded;
-      extraPackages = with pkgs-unstable; [
-        i3status # gives you the default i3 status bar
-        i3lock #default i3 screen locker
-        i3blocks #if you are planning on using i3blocks over i3status
-        polybarFull
-        xscreensaver
-        lxappearance
-      ];
-    };
-  };
-  programs.uwsm = {
-    enable = true;
-  };
+  # programs.uwsm = {
+  #   enable = true;
+  # };
 
   programs.streamcontroller.enable = true;
 
@@ -74,11 +30,6 @@
   services.autorandr.enable = true;
 
   programs.zoom-us.enable = false;
-
-  services.desktopManager = {
-    cosmic.enable = false;
-    plasma6.enable = false;
-  };
 
   # Configure keymap in X11
   services.xserver.xkb = {

@@ -118,7 +118,6 @@
       vivaldi
       vlc
       vscode
-      waybar
       wayland-utils # Wayland utilities
       wl-clipboard # Command-line copy/paste utilities for Wayland
       wttrbar

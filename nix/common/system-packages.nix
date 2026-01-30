@@ -145,6 +145,7 @@
       unzip
       usbutils
       uv
+      vice
       vim
       vimpc
       vtm

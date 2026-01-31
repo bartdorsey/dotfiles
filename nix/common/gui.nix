@@ -62,7 +62,6 @@
     ++ (with pkgs; [
       _1password-gui
       _1password-cli
-      adwaita-icon-theme
       appimage-run
       cava
       chromium
@@ -79,21 +78,14 @@
       flameshot
       ghostty
       gimp
-      glib
-      gnome-software
-      gnome-tweaks
       gparted
-      gnomeExtensions.appindicator
-      gnomeExtensions.dash-to-panel
       google-chrome
       grim
       grimblast
       gruvbox-dark-icons-gtk
       gruvbox-plus-icons
-      kitty
       libnotify
       lora
-      lxappearance
       maim
       mpv
       neovide
@@ -105,8 +97,6 @@
       obs-studio
       obsidian
       pavucontrol
-      pcmanfm
-      picom-pijulius
       plattenalbum
       playerctl
       plexamp
@@ -132,10 +122,10 @@
       zoom-us
     ]);
 
-  services.udev.packages = with pkgs; [
-    gnome-settings-daemon
-    gnome2.GConf
-  ];
+  # services.udev.packages = with pkgs; [
+  #   gnome-settings-daemon
+  #   gnome2.GConf
+  # ];
 
   # Vivaldi stuff
   nixpkgs.config = {
@@ -181,9 +171,9 @@
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
 
-  services.dbus.packages = with pkgs; [
-    xfce.xfconf
-  ];
+  # services.dbus.packages = with pkgs; [
+  #   xfce.xfconf
+  # ];
 
   nix.settings = {
     substituters = ["https://wezterm.cachix.org"];

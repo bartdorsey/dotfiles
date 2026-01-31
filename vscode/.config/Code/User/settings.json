@@ -1,10 +1,107 @@
 {
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+    "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+    "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
+    "workbench.tree.indent": 20,
+    "workbench.editor.labelFormat": "short",
+    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "explorer.compactFolders": false,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "editor.rulers": [
+        80
+    ],
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wrappingStrategy": "advanced",
+    "editor.fontFamily": "Iosevka Nerd Font",
+    "git.openRepositoryInParentFolders": "always",
+    "git.autofetch": true,
+    "chat.disableAIFeatures": false,
+    "errorLens.problemRangeDecorationEnabled": true,
+    "errorLens.gutterIconSet": "square",
+    "errorLens.followCursor": "closestProblem",
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/.venv": true,
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/.vscode": false
     },
+    "markdown-mermaid.lightModeTheme": "dark",
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "emmet.includeLanguages": {
+        "django-html": "html",
+        "jinja-html": "html",
+        "javascript": "javascriptreact"
+    },
+    "terminal.integrated.scrollback": 10000,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.suggest.autoImports": false,
+    "typescript.suggest.autoImports": false,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.inlayHints.parameterNames.enabled": "all",
+    "javascript.inlayHints.parameterTypes.enabled": true,
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "javascript.inlayHints.variableTypes.enabled": true,
+    "typescript.inlayHints.enumMemberValues.enabled": true,
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "typescript.inlayHints.variableTypes.enabled": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "totalTypeScript.hideAllTips": false,
+    "totalTypeScript.hideBasicTips": false,
+    "python.analysis.autoImportCompletions": false,
     "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.generateWithTypeAnnotation": true,
+    "python.analysis.inlayHints.callArgumentNames": "all",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.typeEvaluation.strictDictionaryInference": true,
+    "python.analysis.typeEvaluation.strictListInference": true,
+    "python.analysis.typeEvaluation.strictSetInference": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "html.format.indentInnerHtml": true,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vim.vimrc.path": "$HOME/.config/vim/vimrc",
+    "vim.vimrc.enable": true,
+    "vim.neovimUseConfigFile": true,
     "vim.leader": "<space>",
     "vim.highlightedyank.enable": true,
+    "vim.useSystemClipboard": true,
+    "vim.sneak": true,
+    "vim.sneakReplacesF": true,
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -48,229 +145,6 @@
                 "workbench.action.showAllEditors"
             ]
         }
-    ],
-    "python.analysis.inlayHints.variableTypes": true,
-    "python.analysis.inlayHints.functionReturnTypes": true,
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[django-html]": {
-        "editor.defaultFormatter": "monosans.djlint"
-    },
-    "explorer.compactFolders": false,
-    "workbench.tree.indent": 20,
-    "emmet.includeLanguages": {
-        "django-html": "html",
-        "jinja-html": "html",
-        "javascript": "javascriptreact"
-    },
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "redhat.telemetry.enabled": false,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
-    },
-    "markdown-mermaid.lightModeTheme": "dark",
-    "mermaid-editor.preview.backgroundColor": "black",
-    "vim.useSystemClipboard": true,
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "window.zoomLevel": 1,
-    "remote.SSH.remotePlatform": {
-        "*.gitpod.io": "linux",
-        "nixos-dev": "linux",
-        "python-test.devpod": "linux"
-    },
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
-    "git.openRepositoryInParentFolders": "always",
-    "workbench.startupEditor": "none",
-    "database-client.highlightSQLBlock": true,
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "totalTypeScript.hideAllTips": true,
-    "totalTypeScript.hideBasicTips": false,
-    "editor.gotoLocation.multipleDefinitions": "gotoAndPeek",
-    "editor.gotoLocation.multipleTypeDefinitions": "gotoAndPeek",
-    "editor.minimap.enabled": false,
-    "cmake.showOptionsMovedNotification": false,
-    "python.analysis.autoFormatStrings": true,
-    "python.analysis.completeFunctionParens": true,
-    "python.analysis.diagnosticMode": "workspace",
-    "python.analysis.inlayHints.callArgumentNames": "all",
-    "python.analysis.inlayHints.pytestParameters": true,
-    "diffEditor.hideUnchangedRegions.enabled": true,
-    "diffEditor.renderSideBySide": false,
-    "editor.accessibilitySupport": "off",
-    "vim.sneak": true,
-    "vim.sneakReplacesF": true,
-    "open-in-vim.useNeovim": true,
-    "djlint.showInstallError": false,
-    "security.promptForRemoteFileProtocolHandling": false,
-    "lldb.suppressUpdateNotifications": true,
-    "database-client.autoSync": true,
-    "remote.SSH.useExecServer": false,
-    "github.copilot.editor.enableAutoCompletions": true,
-    "markdown-preview-enhanced.previewTheme": "github-dark.css",
-    "markdown-preview-enhanced.mermaidTheme": "dark",
-    "css.styleSheets": [
-        "**/*.css"
-    ],
-    "html.format.indentInnerHtml": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "basedpyright.analysis.diagnosticMode": "workspace",
-    "basedpyright.analysis.typeCheckingMode": "standard",
-    "errorLens.problemRangeDecorationEnabled": true,
-    "errorLens.gutterIconSet": "square",
-    "errorLens.followCursor": "closestProblem",
-    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-    "javascript.inlayHints.parameterNames.enabled": "all",
-    "javascript.inlayHints.parameterTypes.enabled": true,
-    "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
-    "javascript.inlayHints.variableTypes.enabled": true,
-    "python.analysis.generateWithTypeAnnotation": true,
-    "python.analysis.typeEvaluation.strictDictionaryInference": true,
-    "python.analysis.typeEvaluation.strictListInference": true,
-    "python.analysis.typeEvaluation.strictSetInference": true,
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "svelte.enable-ts-plugin": true,
-    "vim.enableNeovim": true,
-    "[nix]": {
-        "editor.defaultFormatter": "jnoortheen.nix-ide"
-    },
-    "explorer.fileNesting.patterns": {
-        "*.ts": "${capture}.js",
-        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
-        "*.jsx": "${capture}.js",
-        "*.tsx": "${capture}.ts",
-        "tsconfig.json": "tsconfig.*.json",
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
-        "*.sqlite": "${capture}.${extname}-*",
-        "*.db": "${capture}.${extname}-*",
-        "*.sqlite3": "${capture}.${extname}-*",
-        "*.db3": "${capture}.${extname}-*",
-        "*.sdb": "${capture}.${extname}-*",
-        "*.s3db": "${capture}.${extname}-*"
-    },
-    "latex-workshop.view.pdf.invert": 1,
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false,
-        "css": false
-    },
-    "editor.rulers": [
-        80
-    ],
-    "workbench.editor.empty.hint": "hidden",
-    "workbench.editorAssociations": {
-        "*.copilotmd": "vscode.markdown.preview.editor",
-        "*.pdf": "latex-workshop-pdf-hook"
-    },
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wrappingStrategy": "advanced",
-    "tinymist.lint.enabled": true, // new API for indent guides. The old one is: "editor.renderIndentGuides": false,
-    "editor.guides.bracketPairs": true, // advanced indent guides (But only for brackets) (This does not turn off editor.bracketPairColorization)
-    "diffEditor.wordWrap": "off",
-    "workbench.colorCustomizations": {
-        // ...
-        "editor.lineHighlightBorder": "#9fced11f",
-        "editor.lineHighlightBackground": "#1073cf2d"
-    },
-    "assorted-biscuits.languageSettings": {
-        "python": {
-            "annotationCursorLineOnly": "on",
-            "annotationColor": "#ababab"
-        }
-    },
-    "vim.vimrc.path": "$HOME/.config/vim/vimrc",
-    "vim.vimrc.enable": true,
-    "vim.neovimUseConfigFile": true,
-    "editor.inlayHints.enabled": "offUnlessPressed",
-    "docker.extension.enableComposeLanguageServer": false,
-    "vim.insertModeKeyBindings": [],
-    "customizeUI.font.regular": "AtkynsonMono NF",
-    "customizeUI.font.monospace": "AtkynsonMono NF",
-    "remote.autoForwardPortsSource": "hybrid",
-    "github.copilot.nextEditSuggestions.enabled": true,
-    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
-    "git.autofetch": true,
-    "chat.tools.terminal.autoApprove": {
-        "python": true
-    },
-    "makefile.configureOnOpen": false,
-    "tailwind-fold.unfoldIfLineSelected": true,
-    "[dockercompose]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2,
-        "editor.autoIndent": "advanced",
-        "editor.quickSuggestions": {
-            "other": true,
-            "comments": false,
-            "strings": true
-        },
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "[github-actions-workflow]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "workbench.editor.labelFormat": "short",
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true,
-    "editor.bracketPairColorization.enabled": true,
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
-    "files.insertFinalNewline": true,
-    "files.exclude": {
-        "**/.venv": true,
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "**/node_modules": true,
-        "**/.vscode": false
-    },
-    "terminal.integrated.scrollback": 10000,
-    "javascript.suggest.autoImports": false,
-    "typescript.suggest.autoImports": false,
-    "python.analysis.autoImportCompletions": false,
-    "chat.disableAIFeatures": true,
-    "typescript.inlayHints.enumMemberValues.enabled": true,
-    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-    "typescript.inlayHints.parameterNames.enabled": "all",
-    "typescript.inlayHints.parameterTypes.enabled": true,
-    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
-    "typescript.inlayHints.variableTypes.enabled": true,
-    "workbench.colorTheme": "Gruvbox Dark Hard",
-    "dimmer.enabled": true,
-    "editor.fontFamily": "Iosevka Nerd Font",
-    "notebook.lineNumbers": "on",
-    "plpgsqlLanguageServer.database": "my_database",
-    "plpgsqlLanguageServer.user": "postgres",
-    "plpgsqlLanguageServer.password": "postgres",
-    "plpgsqlLanguageServer.definitionFiles": [
-        // Support glob.
-        "**/*.sql",
-        "**/*.psql",
-        "**/*.pgsql"
-    ],
-    // The supported extention types are ['*.pgsql', '*.psql'].
-    // If you want to use this extension in '*.sql', add the following settings.
-    "files.associations": {
-        "*.sql": "postgres"
-    },
-    "terminal.integrated.sendKeybindingsToShell": true,
-    "claudeCode.preferredLocation": "panel",
-    "vs64.showWelcome": false
+    ]
+
 }

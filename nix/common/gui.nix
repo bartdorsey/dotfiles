@@ -57,10 +57,10 @@
     ++ (with pkgs-unstable; [
       firefoxpwa
       zed-editor-fhs
-      _1password-gui-beta
       vscode
     ])
     ++ (with pkgs; [
+      _1password-gui
       _1password-cli
       adwaita-icon-theme
       appimage-run

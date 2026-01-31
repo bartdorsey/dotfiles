@@ -108,6 +108,7 @@
       php
       pinentry-curses
       pnpm
+      podman
       postgresql
       postgresql.lib
       prettierd
@@ -135,6 +136,7 @@
       systemctl-tui
       sysz
       texlive.combined.scheme-full
+      toolbox
       tmux
       trash-cli
       transcrypt

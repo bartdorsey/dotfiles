@@ -57,10 +57,11 @@
     ++ (with pkgs-unstable; [
       firefoxpwa
       zed-editor-fhs
+      _1password-gui-beta
+      vscode
     ])
     ++ (with pkgs; [
       _1password-cli
-      _1password-gui
       adwaita-icon-theme
       appimage-run
       cava
@@ -119,7 +120,6 @@
       vice
       vivaldi
       vlc
-      vscode
       wayland-utils # Wayland utilities
       wl-clipboard # Command-line copy/paste utilities for Wayland
       wttrbar

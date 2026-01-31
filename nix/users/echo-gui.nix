@@ -8,6 +8,10 @@
     extraGroups = ["networkmanager" "wheel" "docker" "audio"];
   };
 
+  environment.sessionVariables = {
+    GTK_THEME = "Gruvbox-Dark";
+  };
+
   xdg = {
     portal = {
       enable = true;

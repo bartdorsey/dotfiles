@@ -11,8 +11,6 @@
         useOSProber = true;
         efiSupport = true;
         device = "nodev";
-        gfxmodeEfi = "1920x1080";
-        gfxmodeBios = "1920x1080";
         default = "saved";
         # extraEntries = ''
         #   menuentry "Bazzite" {

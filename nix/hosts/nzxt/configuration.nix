@@ -28,6 +28,13 @@
     dedicatedServer.openFirewall = true;
   };
 
+  services.snapper.configs = {
+    projects = {
+      SUBVOLUME = "/home/echo/projects";
+      ALLOW_USERS = ["echo"];
+    };
+  };
+
   services.mpd = {
     enable = true;
     user = "echo";

@@ -29,7 +29,7 @@
 
   services.autorandr.enable = true;
 
-  programs.zoom-us.enable = false;
+  programs.zoom-us.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -100,8 +100,10 @@
       plattenalbum
       playerctl
       plexamp
+      podman-desktop
       qutebrowser
       rofi
+      signal-desktop
       slack
       slurp
       syncthingtray
@@ -119,7 +121,6 @@
       wtype
       xorg.xhost
       xss-lock
-      zoom-us
     ]);
 
   # services.udev.packages = with pkgs; [

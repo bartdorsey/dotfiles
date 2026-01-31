@@ -1,14 +1,6 @@
 {pkgs, ...}: {
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
-    };
-  };
-
-  users.users.echo = {
-    extraGroups = ["libvirtd"];
-  };
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["echo"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
 }

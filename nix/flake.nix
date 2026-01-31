@@ -54,6 +54,7 @@
           ./common/gui.nix
           ./common/cosmic.nix
           ./common/system-packages.nix
+          ./common/virtual-machines.nix
           ./users/echo.nix
           ./users/echo-gui.nix
           home-manager.nixosModules.home-manager

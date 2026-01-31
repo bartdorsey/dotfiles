@@ -26,6 +26,45 @@
     };
   };
 
+  gtk = {
+    enable = true;
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    theme = {
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-gtk-theme;
+    };
+    iconTheme = {
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+    };
+    cursorTheme = {
+      name = "Capitaine Cursors (Gruvbox)";
+      package = pkgs.capitaine-cursors-themed;
+    };
+  };
+
+  home.sessionVariables.GTK_THEME = "Gruvbox-Dark";
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+  };
+
   # home.file.".config/xdg-settings/default-web-browser".text = "zen.desktop";
 
   # Desktop environments and window managers

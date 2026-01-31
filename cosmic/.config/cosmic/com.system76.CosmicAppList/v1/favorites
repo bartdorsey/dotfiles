@@ -1,5 +1,5 @@
 [
-    "zen-beta",
+    "zen",
     "firefox",
     "com.system76.CosmicFiles",
     "com.system76.CosmicSettings",
@@ -8,4 +8,5 @@
     "code",
     "1password",
     "vice-org-x64sc",
+    "com.fastmail.Fastmail",
 ]

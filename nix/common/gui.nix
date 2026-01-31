@@ -113,8 +113,10 @@
       slurp
       syncthingtray
       terminus_font_ttf
+      thunderbird
       v4l-utils
       vesktop
+      vice
       vivaldi
       vlc
       vscode

@@ -88,6 +88,8 @@
       google-chrome
       grim
       grimblast
+      gruvbox-dark-icons-gtk
+      gruvbox-plus-icons
       kitty
       libnotify
       lora

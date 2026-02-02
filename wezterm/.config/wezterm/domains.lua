@@ -22,32 +22,32 @@ local function distro_icon(name)
     if string.find(name, "Debian") then
         return wezterm.format({
             { Foreground = { AnsiColor = "Red" } },
-            { Text = wezterm.nerdfonts.linux_debian },
+            { Text = wezterm.nerdfonts.linux_debian .. " " },
         })
     elseif string.find(name, "Ubuntu") then
         return wezterm.format({
             { Foreground = { Color = "orange" } },
-            { Text = wezterm.nerdfonts.linux_ubuntu },
+            { Text = wezterm.nerdfonts.linux_ubuntu .. " " },
         })
     elseif string.find(name, "NixOS") then
         return wezterm.format({
             { Foreground = { Color = "slateblue" } },
-            { Text = wezterm.nerdfonts.linux_nixos },
+            { Text = wezterm.nerdfonts.linux_nixos .. " " },
         })
     elseif string.find(name, "Arch") then
         return wezterm.format({
             { Foreground = { Color = "lightblue" } },
-            { Text = wezterm.nerdfonts.linux_archlinux },
+            { Text = wezterm.nerdfonts.linux_archlinux .. " " },
         })
     elseif string.find(name, "Fedora") then
         return wezterm.format({
             { Foreground = { Color = "lightblue" } },
-            { Text = wezterm.nerdfonts.linux_fedora },
+            { Text = wezterm.nerdfonts.linux_fedora .. " " },
         })
     else
         return wezterm.format({
             { Foreground = { Color = "yellow" } },
-            { Text = wezterm.nerdfonts.linux_tux },
+            { Text = wezterm.nerdfonts.linux_tux .. " " },
         })
     end
 end
@@ -63,30 +63,30 @@ function M.get_launch_menu(pane)
                 cwd = nil
             end
             table.insert(entries, {
-                label = distro_icon(wsl_domain.name) .. "  " .. wsl_domain.name,
+                label = distro_icon(wsl_domain.name) .. " " .. wsl_domain.name,
                 args = {},
                 domain = { DomainName = wsl_domain.name },
                 cwd = cwd,
             })
         end
         table.insert(entries, {
-            label = wezterm.nerdfonts.md_powershell .. "  Powershell",
+            label = wezterm.nerdfonts.md_powershell .. " Powershell",
             args = { "pwsh.exe", "-NoLogo" },
             domain = { DomainName = "local" },
         })
         table.insert(entries, {
-            label = wezterm.nerdfonts.md_shield_crown .. "  Powershell (Admin)",
+            label = wezterm.nerdfonts.md_shield_crown .. " Powershell (Admin)",
             args = { "sudo.exe", "pwsh.exe", "-NoLogo" },
             domain = { DomainName = "local" },
         })
     else
         table.insert(entries, {
-            label = wezterm.nerdfonts.dev_terminal .. "  zsh",
+            label = wezterm.nerdfonts.dev_terminal .. " zsh",
             args = { "zsh", "-l" },
             domain = { DomainName = "local" },
         })
         table.insert(entries, {
-            label = wezterm.nerdfonts.dev_terminal .. "  bash",
+            label = wezterm.nerdfonts.dev_terminal .. " bash",
             args = { "bash", "-l" },
             domain = { DomainName = "local" },
         })
@@ -94,7 +94,7 @@ function M.get_launch_menu(pane)
 
     for _, ssh_host in ipairs(M.get_ssh_hosts()) do
         table.insert(entries, {
-            label = wezterm.nerdfonts.fa_server .. "  " .. ssh_host.hostname,
+            label = wezterm.nerdfonts.fa_server .. " " .. ssh_host.hostname,
             args = {},
             domain = { DomainName = ssh_host.domain_name },
         })

@@ -21,6 +21,19 @@ function M.get_launch_menu(pane)
     local entries = {}
 
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+        local current_domain = pane:get_domain_name()
+        for _, wsl_domain in ipairs(wezterm.default_wsl_domains()) do
+            local cwd = "~"
+            if current_domain == wsl_domain.name then
+                cwd = nil
+            end
+            table.insert(entries, {
+                label = wezterm.nerdfonts.linux_tux .. " " .. wsl_domain.name,
+                args = {},
+                domain = { DomainName = wsl_domain.name },
+                cwd = cwd,
+            })
+        end
         table.insert(entries, {
             label = wezterm.nerdfonts.md_powershell .. " Powershell",
             args = { "pwsh.exe", "-NoLogo" },
@@ -31,20 +44,6 @@ function M.get_launch_menu(pane)
             args = { "sudo.exe", "pwsh.exe", "-NoLogo" },
             domain = { DomainName = "local" },
         })
-        local current_domain = pane:get_domain_name()
-        for _, wsl_domain in ipairs(wezterm.default_wsl_domains()) do
-            local cwd = "~"
-            if current_domain == wsl_domain.name then
-                cwd = nil
-            end
-            wezterm.log_error(cwd)
-            table.insert(entries, {
-                label = wezterm.nerdfonts.linux_tux .. " " .. wsl_domain.name,
-                args = {},
-                domain = { DomainName = wsl_domain.name },
-                cwd = cwd,
-            })
-        end
     else
         table.insert(entries, {
             label = wezterm.nerdfonts.dev_terminal .. " zsh",
@@ -69,20 +68,6 @@ function M.get_launch_menu(pane)
     return entries
 end
 
-function M.get_ssh_domains()
-    local ssh_domains = {}
-
-    for _, ssh_host in ipairs(M.get_ssh_hosts()) do
-        table.insert(ssh_domains, {
-            name = ssh_host.domain_name,
-            remote_address = ssh_host.hostname,
-            multiplexing = "None",
-        })
-    end
-
-    return ssh_domains
-end
-
 function M.create_selector(type, pane)
     local entries = M.get_launch_menu(pane)
     local choices = {}
@@ -90,7 +75,7 @@ function M.create_selector(type, pane)
     for i, entry in ipairs(entries) do
         table.insert(choices, {
             id = tostring(i),
-            label = entry.label,
+            label = string.format("%3i %s", i, entry.label),
         })
     end
 

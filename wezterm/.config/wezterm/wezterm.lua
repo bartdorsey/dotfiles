@@ -18,6 +18,4 @@ mouse.setup_mouse_bindings(config)
 tabline.setup_tabline(config)
 platform.apply_platform_config(config)
 
-config.ssh_domains = domains.get_ssh_domains()
-
 return config

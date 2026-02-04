@@ -24,3 +24,4 @@ vim/.config/vim/plugged
 tmp*
 *.pem
 *.backup
+cosmic/.config/cosmic/com.championpeak87.cosmic-ext-classic-menu/v1/recent_applications

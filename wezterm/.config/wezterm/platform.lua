@@ -25,8 +25,15 @@ function M.apply_platform_config(config)
         -- }
         config.font = wezterm.font("Iosevka Nerd Font", { weight = "DemiBold" })
         config.font_size = 14
-        config.win32_system_backdrop = "Acrylic"
-        config.window_background_opacity = 0
+        config.win32_system_backdrop = "Tabbed"
+        config.window_background_opacity = 0.5
+        config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
+        config.window_frame = {
+            font = wezterm.font("Iosevka Nerd Font", { weight = "DemiBold" }),
+            font_size = 14,
+            active_titlebar_bg = "#1d2021",
+            inactive_titlebar_bg = "#1d2021",
+        }
     elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
         config.check_for_updates = false
         config.window_decorations = "NONE"

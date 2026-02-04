@@ -27,10 +27,39 @@
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
 
-  services.udev.extraRules = ''
-    # Grant access to GoXLRMin device over USB
-    SUBSYSTEM=="usb", ATTR{idVendor}=="1220", ATTR{idProduct}=="8fe4", MODE="0660", GROUP="audio"
-  '';
+  # services.udev.extraRules = ''
+  #   # Grant access to GoXLRMin device over USB
+  #   SUBSYSTEM=="usb", ATTR{idVendor}=="1220", ATTR{idProduct}=="8fe4", MODE="0660", GROUP="audio"
+  # '';
+  services.udev.extraRules = let
+    mkRule = as: lib.concatStringsSep ", " as;
+    mkRules = rs: lib.concatStringsSep "\n" rs;
+  in
+    mkRules [
+      (mkRule [
+        ''ACTION=="add|change"''
+        ''SUBSYSTEM=="block"''
+        ''KERNEL=="sd[a-z]"''
+        ''ATTR{queue/rotational}=="1"''
+        ''RUN+="${pkgs.hdparm}/bin/hdparm -B 90 -S 41 /dev/%k"''
+      ])
+      (mkRule [
+        ''SUBSYSTEM=="usb"''
+        ''ATTR{idVendor}=="1220"''
+        ''ATTR{idProduct}=="8fe4"''
+        ''MODE="0660"''
+        ''GROUP="audio"''
+      ])
+    ];
+
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "schedutil";
+    powertop.enable = true;
+  };
+
+  hardware.system76.power-daemon.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   fileSystems."/boot/efi" = {
     device = "/dev/disk/by-uuid/95AE-6CA5";

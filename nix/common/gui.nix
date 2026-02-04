@@ -63,6 +63,7 @@
       _1password-gui
       _1password-cli
       appimage-run
+      bambu-studio
       cava
       chromium
       cliphist
@@ -79,6 +80,7 @@
       ghostty
       gimp
       gparted
+      gnome-tweaks
       google-chrome
       grim
       grimblast
@@ -96,6 +98,7 @@
       nwg-displays
       obs-studio
       obsidian
+      orca-slicer
       pavucontrol
       plattenalbum
       playerctl

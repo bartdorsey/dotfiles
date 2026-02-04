@@ -125,14 +125,14 @@ workspaces:
       display_name: "Misc"
       bind_to_monitor: 1
     - name: "7"
-      display_name: "Secondary"
+      display_name: "Left"
       bind_to_monitor: 0
     - name: "8"
-      display_name: "Aux"
+      display_name: "Bottom"
       bind_to_monitor: 2
     - name: "9"
-      display_name: "PIP"
-      bind_to_monitor: 2
+      display_name: "Right"
+      bind_to_monitor: 3
 
 window_rules:
     # Workspace 1

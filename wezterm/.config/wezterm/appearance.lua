@@ -3,8 +3,6 @@ local wezterm = require("wezterm")
 local M = {}
 
 function M.apply_appearance_config(config)
-    config.color_scheme = "GruvboxDark"
-
     config.set_environment_variables = {
         TERM = "wezterm",
     }
@@ -14,11 +12,20 @@ function M.apply_appearance_config(config)
         brightness = 0.4,
     }
 
+    local scheme = wezterm.get_builtin_color_schemes()["GruvboxDarkHard"]
+    scheme.compose_cursor = "#333333"
+
+    config.color_schemes = {
+        ["GruvboxDarkHard"] = scheme,
+    }
+
+    config.color_scheme = "GruvboxDarkHard"
+
     config.cursor_thickness = "2pt"
     config.cursor_blink_rate = 0
     config.cursor_blink_ease_in = "Constant"
     config.cursor_blink_ease_out = "Constant"
-    config.force_reverse_video_cursor = false
+    config.force_reverse_video_cursor = true
 
     config.initial_rows = 35
     config.initial_cols = 100

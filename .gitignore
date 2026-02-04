@@ -25,3 +25,4 @@ tmp*
 *.pem
 *.backup
 cosmic/.config/cosmic/com.championpeak87.cosmic-ext-classic-menu/v1/recent_applications
+cosmic/.config/cosmic/com.vintagetechie.CosmicExtAppletTempest/v1/last_updated

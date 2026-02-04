@@ -1,0 +1,5 @@
+(
+    padding: Suggested,
+    spacing: 5.0,
+    inner_spacing: 2.5,
+)

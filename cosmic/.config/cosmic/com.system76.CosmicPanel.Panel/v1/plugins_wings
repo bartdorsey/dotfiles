@@ -3,6 +3,7 @@ Some(([
     "com.system76.CosmicAppletWorkspaces",
     "com.system76.CosmicAppletTiling",
 ], [
+    "io.github.Aviral_Omar.cosmic-ext-applet-bitrate",
     "io.github.cosmic_utils.minimon-applet",
     "net.tropicbliss.CosmicExtAppletCaffeine",
     "com.system76.CosmicAppletInputSources",

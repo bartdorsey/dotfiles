@@ -1,0 +1,22 @@
+(
+    cpu: (
+        update_interval: 1000,
+        sampling_window: 60,
+    ),
+    mem: (
+        update_interval: 2000,
+        sampling_window: 30,
+    ),
+    net: (
+        update_interval: 2000,
+        sampling_window: 30,
+    ),
+    disk: (
+        update_interval: 1000,
+        sampling_window: 60,
+    ),
+    gpu: (
+        update_interval: 2000,
+        sampling_window: 30,
+    ),
+)

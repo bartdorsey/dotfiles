@@ -1,0 +1,36 @@
+[
+    Cpu([
+        RunChart(
+            color: accent_blue,
+            aspect_ratio: 1.5,
+        ),
+    ]),
+    Mem([
+        RunChart(
+            color_back: accent_green,
+            color_front: accent_purple,
+            aspect_ratio: 1.5,
+        ),
+    ]),
+    Disk([
+        RunChart(
+            color_back: accent_pink,
+            color_front: accent_orange,
+            aspect_ratio: 1.5,
+        ),
+    ]),
+    Net([
+        RunChart(
+            color_back: accent_red,
+            color_front: accent_yellow,
+            aspect_ratio: 1.5,
+        ),
+    ]),
+    Gpu([
+        RunChart(
+            color_back: accent_warm_grey,
+            color_front: accent_indigo,
+            aspect_ratio: 1.5,
+        ),
+    ]),
+]

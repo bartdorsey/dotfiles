@@ -145,6 +145,20 @@
                 "workbench.action.showAllEditors"
             ]
         }
-    ]
+    ],
+    "vs64.showWelcome": false,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "css": false
+    },
+    "vs64.kickInstallDir": "E:\\c64\\coding\\KickAssembler",
+    "vs64.acmeInstallDir": "E:\\c64\\coding",
+    "vs64.viceExecutable": "E:\\GTK3VICE-3.10-win64\\bin\\x64sc.exe",
+    "vs64.llvmInstallDir": "E:\\c64\\coding\\llvm-mos",
+    "vs64.cc65InstallDir": "C:\\Users\\bart\\scoop\\apps\\cc65\\current",
+    "vs64.oscar64InstallDir": "C:\\Program Files\\Oscar64"
 
 }

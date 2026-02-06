@@ -159,6 +159,26 @@
     "vs64.viceExecutable": "E:\\GTK3VICE-3.10-win64\\bin\\x64sc.exe",
     "vs64.llvmInstallDir": "E:\\c64\\coding\\llvm-mos",
     "vs64.cc65InstallDir": "C:\\Users\\bart\\scoop\\apps\\cc65\\current",
-    "vs64.oscar64InstallDir": "C:\\Program Files\\Oscar64"
+    "vs64.oscar64InstallDir": "C:\\Program Files\\Oscar64",
+    "window.border": "off",
+    "window.controlsStyle": "custom",
+    "window.density.editorTabHeight": "compact",
+    "window.dialogStyle": "custom",
+    "window.menuStyle": "custom",
+    "workbench.activityBar.location": "top",
+    "workbench.tips.enabled": false,
+    "breadcrumbs.enabled": false,
+    "workbench.editor.showTabIndex": true,
+    "workbench.settings.alwaysShowAdvancedSettings": true,
+    "window.title": "${rootName}${separator}${profileName}",
+    "editor.autoIndentOnPaste": true,
+    "editor.experimental.preferTreeSitter.css": true,
+    "editor.experimental.preferTreeSitter.ini": true,
+    "editor.experimental.preferTreeSitter.regex": true,
+    "editor.experimental.preferTreeSitter.typescript": true,
+    "editor.experimental.treeSitterTelemetry": true,
+    "editor.experimentalGpuAcceleration": "on",
+    "window.commandCenter": false,
+    "chat.mcp.gallery.enabled": true
 
 }

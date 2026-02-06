@@ -157,9 +157,6 @@ window_rules:
     # Workspace 4
     - commands: ["move --workspace 4", "focus --workspace 4"]
       match:
-          - window_title: { regex: "YouTubePWA" }
-          - window_title: { regex: "VacuumTube" }
-          - window_title: { regex: "TwitchPWA" }
     # Workspace 5
     - commands: ["move --workspace 5", "focus --workspace 5"]
       match:
@@ -184,12 +181,17 @@ window_rules:
           - window_process: { regex: "^[Zz]oom" }
           - window_process: { regex: "^Signal"}
     # Workspace 8
-    - commands: ["move --workspace 8", "focus --workspace 8"]
-      match:
-          - window_title: { regex: "Galvanize SIS" }
-    - commands: ["move --workspace 9", "set-floating", "focus --workspace 9"]
+    - commands: ["move --workspace 8","set-floating", "focus --workspace 9"]
       match:
           - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
+    - commands: ["move --workspace 8", "focus --workspace 8"]
+      match:
+          - window_title: { regex: "YouTubePWA" }
+          - window_title: { regex: "VacuumTube" }
+          - window_title: { regex: "TwitchPWA" }
+    - commands: ["move --workspace 9", "focus --workspace 9"]
+      match:
+          - window_title: { regex: "Galvanize SIS" }
     # Ignore
     - commands: ["set-floating"]
       match:

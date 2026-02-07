@@ -1,184 +1,156 @@
 {
-    "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
-    "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
-    "workbench.tree.indent": 20,
-    "workbench.editor.labelFormat": "short",
-    "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
-    "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Gruvbox Dark Hard",
-    "explorer.compactFolders": false,
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": true,
-    "editor.inlayHints.enabled": "offUnlessPressed",
-    "editor.rulers": [
-        80
-    ],
-    "editor.minimap.enabled": false,
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wrappingStrategy": "advanced",
-    "editor.fontFamily": "Iosevka Nerd Font",
-    "git.openRepositoryInParentFolders": "always",
-    "git.autofetch": true,
-    "chat.disableAIFeatures": false,
-    "errorLens.problemRangeDecorationEnabled": true,
-    "errorLens.gutterIconSet": "square",
-    "errorLens.followCursor": "closestProblem",
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
-    "files.insertFinalNewline": true,
-    "files.exclude": {
-        "**/.venv": true,
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "**/node_modules": true,
-        "**/.vscode": false
+  "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+  "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
+  "workbench.tree.indent": 20,
+  "workbench.editor.labelFormat": "short",
+  "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "explorer.compactFolders": false,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.rulers": [80],
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wrappingStrategy": "advanced",
+  "editor.fontFamily": "Iosevka Nerd Font",
+  "git.openRepositoryInParentFolders": "always",
+  "git.autofetch": true,
+  "chat.disableAIFeatures": false,
+  "errorLens.problemRangeDecorationEnabled": true,
+  "errorLens.gutterIconSet": "square",
+  "errorLens.followCursor": "closestProblem",
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.venv": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/.vscode": false,
+  },
+  "markdown-mermaid.lightModeTheme": "dark",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "emmet.includeLanguages": {
+    "django-html": "html",
+    "jinja-html": "html",
+    "javascript": "javascriptreact",
+  },
+  "terminal.integrated.scrollback": 10000,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.suggest.autoImports": false,
+  "typescript.suggest.autoImports": false,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "totalTypeScript.hideAllTips": false,
+  "totalTypeScript.hideBasicTips": false,
+  "python.analysis.autoImportCompletions": false,
+  "python.analysis.typeCheckingMode": "standard",
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.generateWithTypeAnnotation": true,
+  "python.analysis.inlayHints.callArgumentNames": "all",
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.typeEvaluation.strictDictionaryInference": true,
+  "python.analysis.typeEvaluation.strictListInference": true,
+  "python.analysis.typeEvaluation.strictSetInference": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+  },
+  "html.format.indentInnerHtml": true,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "vim.vimrc.path": "$HOME/.config/vim/vimrc",
+  "vim.vimrc.enable": true,
+  "vim.neovimUseConfigFile": true,
+  "vim.leader": "<space>",
+  "vim.highlightedyank.enable": true,
+  "vim.useSystemClipboard": true,
+  "vim.sneak": true,
+  "vim.sneakReplacesF": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "/"],
+      "after": ["<leader>", "<leader>", "s"],
     },
-    "markdown-mermaid.lightModeTheme": "dark",
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["television.ToggleFileFinder"],
     },
-    "emmet.includeLanguages": {
-        "django-html": "html",
-        "jinja-html": "html",
-        "javascript": "javascriptreact"
+    {
+      "before": ["<leader>", "f", "r"],
+      "commands": ["television.ToggleTextFinder"],
     },
-    "terminal.integrated.scrollback": 10000,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "javascript.suggest.autoImports": false,
-    "typescript.suggest.autoImports": false,
-    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-    "javascript.inlayHints.parameterNames.enabled": "all",
-    "javascript.inlayHints.parameterTypes.enabled": true,
-    "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
-    "javascript.inlayHints.variableTypes.enabled": true,
-    "typescript.inlayHints.enumMemberValues.enabled": true,
-    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-    "typescript.inlayHints.parameterNames.enabled": "all",
-    "typescript.inlayHints.parameterTypes.enabled": true,
-    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
-    "typescript.inlayHints.variableTypes.enabled": true,
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    {
+      "before": ["<leader>", "<space>"],
+      "commands": ["workbench.action.showAllEditors"],
     },
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "totalTypeScript.hideAllTips": false,
-    "totalTypeScript.hideBasicTips": false,
-    "python.analysis.autoImportCompletions": false,
-    "python.analysis.typeCheckingMode": "standard",
-    "python.analysis.diagnosticMode": "workspace",
-    "python.analysis.completeFunctionParens": true,
-    "python.analysis.generateWithTypeAnnotation": true,
-    "python.analysis.inlayHints.callArgumentNames": "all",
-    "python.analysis.inlayHints.functionReturnTypes": true,
-    "python.analysis.inlayHints.variableTypes": true,
-    "python.analysis.typeEvaluation.strictDictionaryInference": true,
-    "python.analysis.typeEvaluation.strictListInference": true,
-    "python.analysis.typeEvaluation.strictSetInference": true,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
-    },
-    "html.format.indentInnerHtml": true,
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "vim.vimrc.path": "$HOME/.config/vim/vimrc",
-    "vim.vimrc.enable": true,
-    "vim.neovimUseConfigFile": true,
-    "vim.leader": "<space>",
-    "vim.highlightedyank.enable": true,
-    "vim.useSystemClipboard": true,
-    "vim.sneak": true,
-    "vim.sneakReplacesF": true,
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<leader>",
-                "/"
-            ],
-            "after": [
-                "<leader>",
-                "<leader>",
-                "s"
-            ]
-        }
-    ],
-    "vim.normalModeKeyBindings": [
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "f"
-            ],
-            "commands": [
-                "television.ToggleFileFinder"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "r"
-            ],
-            "commands": [
-                "television.ToggleTextFinder"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "<space>"
-            ],
-            "commands": [
-                "workbench.action.showAllEditors"
-            ]
-        }
-    ],
-    "vs64.showWelcome": false,
-    "github.copilot.enable": {
-        "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false,
-        "css": false
-    },
-    "vs64.kickInstallDir": "E:\\c64\\coding\\KickAssembler",
-    "vs64.acmeInstallDir": "E:\\c64\\coding",
-    "vs64.viceExecutable": "E:\\GTK3VICE-3.10-win64\\bin\\x64sc.exe",
-    "vs64.llvmInstallDir": "E:\\c64\\coding\\llvm-mos",
-    "vs64.cc65InstallDir": "C:\\Users\\bart\\scoop\\apps\\cc65\\current",
-    "vs64.oscar64InstallDir": "C:\\Program Files\\Oscar64",
-    "window.border": "off",
-    "window.controlsStyle": "custom",
-    "window.density.editorTabHeight": "compact",
-    "window.dialogStyle": "custom",
-    "window.menuStyle": "custom",
-    "workbench.activityBar.location": "top",
-    "workbench.tips.enabled": false,
-    "breadcrumbs.enabled": false,
-    "workbench.editor.showTabIndex": true,
-    "workbench.settings.alwaysShowAdvancedSettings": true,
-    "window.title": "${rootName}${separator}${profileName}",
-    "editor.autoIndentOnPaste": true,
-    "editor.experimental.preferTreeSitter.css": true,
-    "editor.experimental.preferTreeSitter.ini": true,
-    "editor.experimental.preferTreeSitter.regex": true,
-    "editor.experimental.preferTreeSitter.typescript": true,
-    "editor.experimental.treeSitterTelemetry": true,
-    "editor.experimentalGpuAcceleration": "on",
-    "window.commandCenter": false,
-    "chat.mcp.gallery.enabled": true
-
+  ],
+  "vs64.showWelcome": false,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "css": false,
+  },
+  "vs64.kickInstallDir": "E:\\c64\\coding\\KickAssembler",
+  "vs64.acmeInstallDir": "E:\\c64\\coding",
+  "vs64.viceExecutable": "E:\\GTK3VICE-3.10-win64\\bin\\x64sc.exe",
+  "vs64.llvmInstallDir": "E:\\c64\\coding\\llvm-mos",
+  "vs64.cc65InstallDir": "C:\\Users\\bart\\scoop\\apps\\cc65\\current",
+  "vs64.oscar64InstallDir": "C:\\Program Files\\Oscar64",
+  "window.border": "off",
+  "window.controlsStyle": "custom",
+  "window.density.editorTabHeight": "compact",
+  "window.dialogStyle": "custom",
+  "window.menuStyle": "custom",
+  "workbench.activityBar.location": "top",
+  "workbench.tips.enabled": false,
+  "breadcrumbs.enabled": false,
+  "workbench.editor.showTabIndex": true,
+  "workbench.settings.alwaysShowAdvancedSettings": true,
+  "window.title": "${rootName}${separator}${profileName}",
+  "editor.autoIndentOnPaste": true,
+  "editor.experimental.preferTreeSitter.css": true,
+  "editor.experimental.preferTreeSitter.ini": true,
+  "editor.experimental.preferTreeSitter.regex": true,
+  "editor.experimental.preferTreeSitter.typescript": true,
+  "editor.experimental.treeSitterTelemetry": true,
+  "window.commandCenter": false,
+  "chat.mcp.gallery.enabled": true,
 }

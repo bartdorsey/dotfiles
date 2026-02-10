@@ -7,7 +7,6 @@ pnpm = "latest"
 python = "3.12"
 deno = "latest"
 usage = "latest"
-claude-code = "latest"
 fzf = "latest"
 neovim = "latest"
 lazygit = "latest"
@@ -40,6 +39,7 @@ pipx = "latest"
 btop = "latest"
 dust = "latest"
 act = "latest"
+claude-code = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python"]

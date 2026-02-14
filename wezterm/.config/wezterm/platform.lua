@@ -50,6 +50,9 @@ function M.apply_platform_config(config)
         config.default_prog = { os.getenv("SHELL") }
         config.front_end = "WebGpu"
         config.font_size = 16
+        config.window_decorations =
+            "MACOS_FORCE_ENABLE_SHADOW | RESIZE | INTEGRATED_BUTTONS"
+        config.use_fancy_tab_bar = false
         config.font = wezterm.font("Iosevka Nerd Font", { weight = "Regular" })
     end
 end

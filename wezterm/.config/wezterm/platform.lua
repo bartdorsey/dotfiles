@@ -7,7 +7,7 @@ function M.apply_platform_config(config)
         left = "2cell",
         right = "2cell",
         top = "1cell",
-        bottom = "1cell",
+        bottom = "0cell",
     }
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         local wsl_domains = wezterm.default_wsl_domains()
@@ -36,15 +36,26 @@ function M.apply_platform_config(config)
         }
     elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
         config.check_for_updates = false
-        config.window_decorations = "RESIZE"
         config.enable_wayland = true
+        config.window_decorations = "RESIZE"
         config.kde_window_background_blur = true
         config.window_background_opacity = 0.8
         config.font_size = 12
         config.default_prog = { os.getenv("SHELL") }
         config.front_end = "WebGpu"
+        config.integrated_title_button_style = "Gnome"
         config.font = wezterm.font("Iosevka Nerd Font", { weight = "Regular" })
         config.use_fancy_tab_bar = false
+        config.window_frame = {
+            border_left_width = "1cell",
+            border_right_width = "1cell",
+            border_bottom_height = "2cell",
+            border_top_height = "0cell",
+            font = wezterm.font("Iosevka Nerd Font", { weight = "DemiBold" }),
+            font_size = 14,
+            active_titlebar_bg = "#1d2021",
+            inactive_titlebar_bg = "#1d2021",
+        }
     else
         config.macos_window_background_blur = 80
         config.window_background_opacity = 0.8

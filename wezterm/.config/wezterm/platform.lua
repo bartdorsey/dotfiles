@@ -44,6 +44,7 @@ function M.apply_platform_config(config)
         config.default_prog = { os.getenv("SHELL") }
         config.front_end = "WebGpu"
         config.font = wezterm.font("Iosevka Nerd Font", { weight = "Regular" })
+        config.use_fancy_tab_bar = false
     else
         config.macos_window_background_blur = 80
         config.window_background_opacity = 0.8

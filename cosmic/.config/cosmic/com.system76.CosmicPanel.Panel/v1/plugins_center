@@ -1,5 +1,4 @@
 Some([
-    "dev.DBrox.CosmicPrivacyIndicator",
-    "com.vintagetechie.CosmicExtAppletTempest",
+    "com.system76.CosmicPanelWorkspacesButton",
     "com.system76.CosmicAppletTime",
 ])

@@ -1,17 +1,10 @@
 Some(([
-    "com.system76.CosmicPanelWorkspacesButton",
     "com.system76.CosmicAppletWorkspaces",
     "com.system76.CosmicAppletTiling",
 ], [
-    "io.github.Aviral_Omar.cosmic-ext-applet-bitrate",
-    "io.github.cosmic_utils.minimon-applet",
-    "net.tropicbliss.CosmicExtAppletCaffeine",
-    "com.system76.CosmicAppletInputSources",
     "com.system76.CosmicAppletStatusArea",
-    "com.system76.CosmicAppletAudio",
     "com.system76.CosmicAppletNetwork",
-    "com.system76.CosmicAppletBattery",
-    "com.system76.CosmicAppletNotifications",
     "com.system76.CosmicAppletBluetooth",
-    "com.system76.CosmicAppletPower",
+    "com.system76.CosmicAppletAudio",
+    "com.system76.CosmicAppletNotifications",
 ]))

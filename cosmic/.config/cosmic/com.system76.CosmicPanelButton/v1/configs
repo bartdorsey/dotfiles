@@ -1,6 +1,6 @@
 {
     "Panel": (
-        force_presentation: None,
+        force_presentation: Some(Icon),
     ),
     "Dock": (
         force_presentation: Some(Icon),

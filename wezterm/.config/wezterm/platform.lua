@@ -7,7 +7,7 @@ function M.apply_platform_config(config)
         left = "2cell",
         right = "2cell",
         top = "1cell",
-        bottom = "0cell",
+        bottom = "1cell",
     }
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         local wsl_domains = wezterm.default_wsl_domains()

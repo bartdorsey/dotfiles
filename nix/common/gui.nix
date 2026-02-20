@@ -58,9 +58,9 @@
       firefoxpwa
       zed-editor-fhs
       vscode
+      _1password-gui
     ])
     ++ (with pkgs; [
-      _1password-gui
       _1password-cli
       appimage-run
       bambu-studio

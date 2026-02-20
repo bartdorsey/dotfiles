@@ -43,8 +43,8 @@ function M.apply_appearance_config(config)
 
     config.command_palette_bg_color = "#1e1e2e"
     config.command_palette_fg_color = "#cdd6f4"
-    config.command_palette_font_size = 16.0
-    config.command_palette_font = wezterm.font("JetBrains Mono")
+    -- config.command_palette_font_size = 16.0
+    -- config.command_palette_font = wezterm.font("JetBrains Mono")
     config.char_select_bg_color = "#313244"
     config.char_select_fg_color = "#cdd6f4"
 

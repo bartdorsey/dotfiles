@@ -72,7 +72,7 @@ function M.setup_tabline(config)
 
     tabline.apply_to_config(config)
     config.use_fancy_tab_bar = true
-    config.show_close_tab_button_in_tabs = true
+    -- config.show_close_tab_button_in_tabs = true
 end
 
 return M

@@ -93,6 +93,7 @@
       nh
       nix-output-monitor
       nixd
+      nix-search-cli
       nodejs_24
       nvd
       ocaml
@@ -101,6 +102,7 @@
       ocamlformat
       os-prober
       optinix
+      optnix
       p7zip
       parted
       pass

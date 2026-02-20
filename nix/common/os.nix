@@ -134,4 +134,8 @@
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
+
+  services.nixos-cli = {
+    enable = true;
+  };
 }

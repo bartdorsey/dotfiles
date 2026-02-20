@@ -11,6 +11,7 @@
     nixoswsl.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-cli.url = "github:nix-community/nixos-cli";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +24,7 @@
     nixoswsl,
     nixpkgs-unstable,
     home-manager,
+    nixos-cli,
     zen-browser,
     nixos-hardware,
     ...
@@ -58,6 +60,7 @@
           ./users/echo.nix
           ./users/echo-gui.nix
           home-manager.nixosModules.home-manager
+          nixos-cli.nixosModules.nixos-cli
           {
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
@@ -101,6 +104,7 @@
           ./users/echo.nix
           ./users/echo-gui.nix
           home-manager.nixosModules.home-manager
+          nixos-cli.nixosModules.nixos-cli
           {
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
@@ -135,6 +139,7 @@
           ./common/system-packages.nix
           ./users/echo.nix
           home-manager.nixosModules.home-manager
+          nixos-cli.nixosModules.nixos-cli
           {
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
@@ -161,6 +166,7 @@
           ./common/system-packages.nix
           ./users/echo.nix
           home-manager.nixosModules.home-manager
+          nixos-cli.nixosModules.nixos-cli
           {
             nixpkgs.config.allowUnfree = true;
             home-manager.extraSpecialArgs = {

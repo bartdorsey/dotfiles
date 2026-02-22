@@ -30,15 +30,15 @@ if [[ -v WSL_DISTRO_NAME ]]; then
     # WSL aliases
     # alias clip='/mnt/c/Windows/system32/clip.exe'
     alias open='/mnt/c/Windows/explorer.exe'
-    # alias wsl='/mnt/c/Windows/system32/wsl.exe'
-    # alias pwsh='/mnt/c/Program\ Files/PowerShell/7/pwsh.exe'
+    alias wsl='/mnt/c/Windows/system32/wsl.exe'
+    alias pwsh='/mnt/c/Program\ Files/PowerShell/7/pwsh.exe'
     alias neovide="/mnt/c/Users/bart/scoop/apps/neovide/current/neovide.exe --wsl --neovim-bin /home/echo/.local/share/mise/installs/neovim/latest/nvim-linux-x86_64/bin/nvim --"
 
-    # code() {
-    #   /mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code "$@"
-    # }
+    code() {
+      /mnt/c/Users/bart/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code "$@"
+    }
 
-    # if [ -d "/mnt/c/Users/bart/AppData/Local/Programs/cursor" ]; then 
+    # if [ -d "/mnt/c/Users/bart/AppData/Local/Programs/cursor" ]; then
     #     function cursor {
     #         DONT_PROMPT_WSL_INSTALL=1 /mnt/c/Users/bart/AppData/Local/Programs/cursor/Cursor.exe --remote wsl+default $1
     #     }
@@ -46,8 +46,14 @@ if [[ -v WSL_DISTRO_NAME ]]; then
 
     notify-send() { wsl-notify-send.exe --category $WSL_DISTRO_NAME "${@}"; }
 
-    export PATH="/mnt/c/Windows:/mnt/c/Windows/System32:/mnt/c/Users/bart/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/PowerShell/7:/mnt/c/Users/bart/scoop/apps/gpg4win/current/GnuPG/bin:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Users/bart/AppData/Local/Programs/Zed/bin:$PATH"
-    export BROWSER="pwsh.exe -noni -nop -c start"
+    # export PATH="/mnt/c/Windows:$PATH"
+    # export PATH="/mnt/c/Windows/System32:$PATH"
+    # export PATH="/mnt/c/Users/bart/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
+    # export PATH="/mnt/c/Program Files/PowerShell/7:$PATH"
+    # export PATH="/mnt/c/Users/bart/scoop/apps/gpg4win/current/GnuPG/bin:$PATH"
+    # export PATH="/mnt/c/Windows/System32/WindowsPowerShell/v1.0:$PATH"
+    # export PATH="/mnt/c/Users/bart/AppData/Local/Programs/Zed/bin:$PATH"
+    export BROWSER="/mnt/c/Program Files/PowerShell/7/pwsh.exe -noni -nop -c start"
 
     export DISPLAY=:0
 fi

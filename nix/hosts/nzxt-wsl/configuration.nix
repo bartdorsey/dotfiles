@@ -30,19 +30,8 @@
   # Add entopy for GPG
   services.haveged.enable = true;
 
-  fileSystems."/home/echo/nixos-home" = {
-    device = "/dev/disk/by-uuid/2d7c255f-2e84-4127-9205-12c2086b8a34";
-    fsType = "btrfs";
-    options = [
-      "noauto"
-      "nofail"
-      "x-systemd.automount"
-      "x-systemd.device-timeout=10"
-    ];
-  };
-
-  # fileSystems."/home/echo/projects" = {
-  #   device = "/dev/disk/by-uuid/1816d42e-528e-479b-8f16-8e5073cd961a";
+  # fileSystems."/home/echo/nixos-home" = {
+  #   device = "/dev/disk/by-uuid/2d7c255f-2e84-4127-9205-12c2086b8a34";
   #   fsType = "btrfs";
   #   options = [
   #     "noauto"
@@ -51,6 +40,18 @@
   #     "x-systemd.device-timeout=10"
   #   ];
   # };
+  #
+  fileSystems."/home/echo/projects" = {
+    device = "/dev/disk/by-uuid/1816d42e-528e-479b-8f16-8e5073cd961a";
+    fsType = "btrfs";
+    options = [
+      "noauto"
+      "nofail"
+      "x-systemd.automount"
+      "x-systemd.device-timeout=10"
+      "subvol=/projects"
+    ];
+  };
 
   services.rpcbind.enable = false;
 

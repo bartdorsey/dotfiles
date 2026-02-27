@@ -162,6 +162,7 @@
       yazi
       yt-dlp
       yubikey-personalization
+      zellij
       zenity
       zip
       zip

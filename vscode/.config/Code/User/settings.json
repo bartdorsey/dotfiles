@@ -3,7 +3,7 @@
   "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
   "workbench.tree.indent": 20,
   "workbench.editor.labelFormat": "short",
-  "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-auto",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
   "workbench.colorTheme": "Gruvbox Dark Hard",
   "explorer.compactFolders": false,
@@ -153,4 +153,5 @@
   "editor.experimental.treeSitterTelemetry": true,
   "window.commandCenter": false,
   "chat.mcp.gallery.enabled": true,
+  "chat.viewSessions.orientation": "stacked",
 }

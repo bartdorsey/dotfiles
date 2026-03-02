@@ -199,6 +199,7 @@ window_rules:
           - window_process: { regex: "TeraCopy" }
           - window_process: { regex: "1Password" }
           - window_process: { equals: "bambu-studio" }
+          - window_process: { regex: "eufymake"}
     - commands: ["ignore"]
       match:
           - window_class: { regex: "^Avalonia" }

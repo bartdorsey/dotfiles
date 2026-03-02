@@ -116,7 +116,7 @@ workspaces:
       display_name: "Notes"
       bind_to_monitor: 1
     - name: "4"
-      display_name: "Video"
+      display_name: "Email"
       bind_to_monitor: 1
     - name: "5"
       display_name: "Games"
@@ -157,6 +157,8 @@ window_rules:
     # Workspace 4
     - commands: ["move --workspace 4", "focus --workspace 4"]
       match:
+          - window_process: { regex: "[Ff]astmail" }
+          - window_process: { regex: "[Tt]hunderbird" }
     # Workspace 5
     - commands: ["move --workspace 5", "focus --workspace 5"]
       match:
@@ -171,8 +173,7 @@ window_rules:
       match:
           - window_process: { equals: "bambu-studio" }
           - window_process: { regex: "[Vv][Mm]ware" }
-          - window_process: { regex: "[Ff]astmail" }
-          - window_process: { regex: "[Tt]hunderbird" }
+          - window_process: { regex: "eufymake"}
     # Workspace 7
     - commands: ["move --workspace 7"]
       match:

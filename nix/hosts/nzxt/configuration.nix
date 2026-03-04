@@ -28,13 +28,17 @@
     dedicatedServer.openFirewall = true;
   };
 
-  services.snapper.configs = {
-    projects = {
-      SUBVOLUME = "/home/echo/projects";
-      ALLOW_USERS = ["echo"];
-    };
-  };
-
+  # services.snapper = {
+  #   snapshotInterval = "daily";
+  #   configs = {
+  #     projects = {
+  #       SUBVOLUME = "/home/echo/projects";
+  #       ALLOW_USERS = ["echo"];
+  #     };
+  #   };
+  #   cleanupInterval = "1h";
+  # };
+  #
   services.mpd = {
     enable = true;
     user = "echo";

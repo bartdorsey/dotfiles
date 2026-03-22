@@ -59,6 +59,7 @@
       zed-editor-fhs
       vscode
       _1password-gui
+      rustdesk-flutter
     ])
     ++ (with pkgs; [
       _1password-cli

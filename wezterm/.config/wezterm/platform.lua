@@ -38,7 +38,7 @@ function M.apply_platform_config(config)
         config.check_for_updates = false
         config.enable_wayland = true
         config.window_decorations = "TITLE | RESIZE"
-        config.kde_window_background_blur = true
+        -- config.kde_window_background_blur = true
         config.window_background_opacity = 0.8
         config.font_size = 12
         config.default_prog = { os.getenv("SHELL") }

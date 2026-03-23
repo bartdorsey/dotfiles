@@ -320,10 +320,6 @@
             "ignoreChannels": "",
             "ignoreGuilds": ""
         },
-        "MessageTags": {
-            "enabled": false,
-            "clyde": true
-        },
         "MoreCommands": {
             "enabled": true
         },
@@ -816,6 +812,10 @@
         },
         "MoreQuickReactions": {
             "enabled": false
+        },
+        "CustomCommands": {
+            "enabled": false,
+            "clyde": true
         }
     },
     "notifications": {
@@ -829,7 +829,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1769653165134
+        "settingsSyncVersion": 1774223428211
     },
     "uiElements": {
         "chatBarButtons": {},

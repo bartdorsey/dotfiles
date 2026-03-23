@@ -12,7 +12,6 @@
           black
           pipx
           ipython
-          bpython
           pgcli
           mypy
           vdirsyncer

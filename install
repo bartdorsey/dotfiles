@@ -111,18 +111,6 @@ if type stow &>/dev/null; then
 
 fi
 
-if type mise &>/dev/null && [ ! -d "/etc/nixos" ]; then
-
-    cyan "--------------------------"
-    cyan "Installing tools with mise"
-    cyan "--------------------------"
-    mise install
-else
-    cyan "----------------------"
-    cyan "Skipping mise installs"
-    cyan "----------------------"
-fi
-
 if type git-crypt &>/dev/null; then
     cyan '--------------------------------'
     cyan 'Trying to unlock encrypted files'
@@ -138,42 +126,6 @@ chmod -v 700 ./ssh/.ssh
 chmod -v 600 ./ssh/.ssh/id*
 chmod -v 644 ./ssh/.ssh/*.pub
 
-
-# Install tmux plugin manager if it's not installed
-if [[ ! -d "$HOME/.config/tmux/plugins/tpm" ]]; then
-    cyan "------------------------------"
-    cyan "Installing Tmux Plugin Manager"
-    cyan "------------------------------"
-    git clone https://github.com/tmux-plugins/tpm $HOME/.config/tmux/plugins/tpm
-fi
-
-# Clean Install tmux plugins, and update them
-if [[ -d "$HOME/.config/tmux/plugins/tpm" ]]; then
-    cyan "-----------------------"
-    cyan "Installing tmux plugins"
-cyan "-----------------------"
-    $HOME/.config/tmux/plugins/tpm/bin/clean_plugins
-    $HOME/.config/tmux/plugins/tpm/bin/install_plugins
-    $HOME/.config/tmux/plugins/tpm/bin/update_plugins all
-fi
-
-# Install vim plugins
-if type vim &>/dev/null; then
-    cyan "-------------------------"
-    cyan "Installing vim plugins"
-    cyan "-------------------------"
-
-    vim +PlugInstall +qa
-fi
-
-# Install neovim plugins
-if type nvim &>/dev/null; then
-    cyan "-------------------------"
-    cyan "Installing neovim plugins"
-    cyan "-------------------------"
-    nvim --headless +"Lazy! clean" +qa
-    nvim --headless +"Lazy! restore" +qa
-fi
 
 # Install zsh plugins
 install_zsh_plugin() {

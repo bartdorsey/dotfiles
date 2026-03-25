@@ -1,0 +1,18 @@
+{
+    "general": {
+        "app-launches": 75,
+        "show-donate-window": false,
+        "default-font": {
+            "font-family": "DejaVu Sans",
+            "font-size": 15.0,
+            "font-weight": 400,
+            "font-style": "normal"
+        }
+    },
+    "store": {
+        "responsibility-notes-agreed": true
+    },
+    "system": {
+        "keep-running": true
+    }
+}

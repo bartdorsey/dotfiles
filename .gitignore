@@ -26,3 +26,8 @@ tmp*
 *.backup
 cosmic/.config/cosmic/com.championpeak87.cosmic-ext-classic-menu/v1/recent_applications
 cosmic/.config/cosmic/com.vintagetechie.CosmicExtAppletTempest/v1/last_updated
+/streamcontroller/.var/app/com.core447.StreamController/data/Store/cache
+/streamcontroller/.var/app/com.core447.StreamController/data/icons
+/streamcontroller/.var/app/com.core447.StreamController/data/plugins
+/streamcontroller/.var/app/com.core447.StreamController/data/wallpapers/
+/streamcontroller/.var/app/com.core447.StreamController/data/settings/plugins/de_gensyn_HomeAssistantPlugin

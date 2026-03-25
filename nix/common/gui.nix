@@ -60,6 +60,7 @@
       vscode
       _1password-gui
       rustdesk-flutter
+      fastmail-desktop
     ])
     ++ (with pkgs; [
       _1password-cli

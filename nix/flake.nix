@@ -54,7 +54,8 @@
           ./common/os.nix
           ./common/mounts.nix
           ./common/gui.nix
-          ./common/cosmic.nix
+          # ./common/cosmic.nix
+          ./common/plasma.nix
           ./common/system-packages.nix
           ./common/virtual-machines.nix
           ./users/echo.nix

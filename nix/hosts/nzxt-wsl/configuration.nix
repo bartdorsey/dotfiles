@@ -10,9 +10,17 @@
 
   wsl.enable = true;
   wsl.defaultUser = "echo";
-  wsl.wslConf.interop.appendWindowsPath = false;
-  wsl.wslConf.network.hostname = "nzxt-wsl";
-  wsl.wslConf.network.generateResolvConf = true;
+  wsl.wslConf = {
+    interop.appendWindowsPath = false;
+    network = {
+      hostname = "nzxt-wsl";
+      generateResolvConf = true;
+    };
+    boot = {
+      systemd = true;
+      initTimeout = 40000;
+    };
+  };
   wsl.useWindowsDriver = true;
   wsl.startMenuLaunchers = true;
   # wsl.usbip.enable = true;

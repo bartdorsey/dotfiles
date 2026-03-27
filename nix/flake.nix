@@ -52,6 +52,7 @@
           ./hosts/nzxt/nvidia.nix
           ./common/theme.nix
           ./common/os.nix
+          ./common/tailscale.nix
           ./common/mounts.nix
           ./common/gui.nix
           # ./common/cosmic.nix
@@ -136,6 +137,7 @@
           nixoswsl.nixosModules.wsl
           ./hosts/nzxt-wsl/configuration.nix
           ./common/os.nix
+          ./common/tailscale.nix
           ./common/mounts.nix
           ./common/system-packages.nix
           ./users/echo.nix

@@ -80,10 +80,10 @@
                                 "customization.text": []
                             },
                             "event-assignments": {
-                                "Key Up": "None",
-                                "Key Short Up": "None",
-                                "Key Hold Start": "None",
-                                "Key Hold Stop": "None"
+                                "Key Up": null,
+                                "Key Short Up": null,
+                                "Key Hold Start": null,
+                                "Key Hold Stop": null
                             }
                         }
                     ],
@@ -162,10 +162,10 @@
                                 "customization.text": []
                             },
                             "event-assignments": {
-                                "Key Up": "None",
-                                "Key Short Up": "None",
-                                "Key Hold Start": "None",
-                                "Key Hold Stop": "None"
+                                "Key Up": null,
+                                "Key Short Up": null,
+                                "Key Hold Start": null,
+                                "Key Hold Stop": null
                             }
                         }
                     ],

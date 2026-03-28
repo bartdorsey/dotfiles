@@ -17,6 +17,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     wezterm.url = "github:wez/wezterm?dir=nix";
+    wasabi375 = {
+      url = "github:Wasabi375/nix-wasabipkgs/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    cos-cli = {
+      url = "github:estin/cos-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -27,6 +35,8 @@
     nixos-cli,
     zen-browser,
     nixos-hardware,
+    wasabi375,
+    cos-cli,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -35,15 +45,18 @@
       config.allowUnfree = true;
       inherit system;
     };
+    pkgs-wasabi = wasabi375.legacyPackages.x86_64-linux;
   in {
     nixosConfigurations = {
       nzxt = lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit pkgs-unstable;
+          inherit pkgs-wasabi;
           inherit zen-browser;
           inherit system;
           inherit inputs;
+          inherit cos-cli;
         };
         modules = [
           ./hosts/nzxt/bootloader.nix
@@ -55,8 +68,8 @@
           ./common/tailscale.nix
           ./common/mounts.nix
           ./common/gui.nix
-          # ./common/cosmic.nix
-          ./common/plasma.nix
+          ./common/cosmic.nix
+          # ./common/plasma.nix
           ./common/system-packages.nix
           ./common/virtual-machines.nix
           ./users/echo.nix

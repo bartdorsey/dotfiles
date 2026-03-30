@@ -1,4 +1,4 @@
-GRC="$(which grc)"
+GRC="$(type grc 2>/dev/null)"
 if tty -s && [ -n "$TERM" ] && [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
     alias colourify="$GRC -es"
     alias blkid='colourify blkid'

@@ -179,6 +179,7 @@
         modules = [
           ./hosts/nixos-dev/configuration.nix
           ./common/os.nix
+          ./common/tailscale.nix
           ./common/system-packages.nix
           ./users/echo.nix
           home-manager.nixosModules.home-manager

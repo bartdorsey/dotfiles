@@ -70,7 +70,7 @@ export EDITOR="nvim"
 export TERMINAL="wezterm start"
 
 # vimrc location
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+export VIMINIT="source ~/.config/vim/vimrc"
 
 # Postgres
 export PGHOST=postgres.home

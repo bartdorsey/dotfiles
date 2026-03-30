@@ -79,6 +79,11 @@ function M.get_launch_menu(pane)
             args = { "sudo.exe", "pwsh.exe", "-NoLogo" },
             domain = { DomainName = "local" },
         })
+        table.insert(entries, {
+            label = wezterm.nerdfonts.dev_terminal .. " Git Bash",
+            args = { "C:\\Program Files\\git\\bin\\bash.exe", "--login", "-i" },
+            domain = { DomainName = "local" },
+        })
     else
         table.insert(entries, {
             label = wezterm.nerdfonts.dev_terminal .. " zsh",

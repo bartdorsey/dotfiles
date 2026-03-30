@@ -1,5 +1,0 @@
-#!/bin/sh
-
-echo "Updating fzf-tab"
-git subtree pull --prefix zsh/.config/zsh/plugins/fzf-tab git@github.com:Aloxaf/fzf-tab.git master
-

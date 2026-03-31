@@ -6,6 +6,12 @@
     "os",
     "host",
     "kernel",
+    {
+      "type": "command",
+      "key": "Kernel Update",
+      "keyIcon": "󰒓",
+      "text": "bash $HOME/.config/fastfetch/kernel-update.sh"
+    },
     "uptime",
     "shell",
     "display",

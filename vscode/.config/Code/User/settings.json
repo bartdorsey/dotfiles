@@ -14,9 +14,7 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
   "editor.inlayHints.enabled": "offUnlessPressed",
-  "editor.rulers": [
-    80
-  ],
+  "editor.rulers": [80],
   "editor.minimap.enabled": false,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wrappingStrategy": "advanced",
@@ -28,7 +26,7 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "css": false
+    "css": false,
   },
   "chat.disableAIFeatures": false,
   "errorLens.problemRangeDecorationEnabled": true,
@@ -42,16 +40,16 @@
     "**/.git": true,
     "**/.DS_Store": true,
     "**/node_modules": true,
-    "**/.vscode": false
+    "**/.vscode": false,
   },
   "markdown-mermaid.lightModeTheme": "dark",
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "emmet.includeLanguages": {
     "django-html": "html",
     "jinja-html": "html",
-    "javascript": "javascriptreact"
+    "javascript": "javascriptreact",
   },
   "terminal.integrated.scrollback": 10000,
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -70,16 +68,16 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "totalTypeScript.hideAllTips": false,
   "totalTypeScript.hideBasicTips": false,
@@ -95,11 +93,11 @@
   "python.analysis.typeEvaluation.strictListInference": true,
   "python.analysis.typeEvaluation.strictSetInference": true,
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter",
   },
   "html.format.indentInnerHtml": true,
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "vim.vimrc.path": "$HOME/.config/vim/vimrc",
   "vim.vimrc.enable": true,
@@ -111,52 +109,29 @@
   "vim.sneakReplacesF": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<leader>",
-        "/"
-      ],
-      "after": [
-        "<leader>",
-        "<leader>",
-        "s"
-      ]
-    }
+      "before": ["<leader>", "/"],
+      "after": ["<leader>", "<leader>", "s"],
+    },
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "<leader>",
-        "f",
-        "f"
-      ],
-      "commands": [
-        "television.ToggleFileFinder"
-      ]
+      "before": ["<leader>", "f", "f"],
+      "commands": ["television.ToggleFileFinder"],
     },
     {
-      "before": [
-        "<leader>",
-        "f",
-        "r"
-      ],
-      "commands": [
-        "television.ToggleTextFinder"
-      ]
+      "before": ["<leader>", "f", "r"],
+      "commands": ["television.ToggleTextFinder"],
     },
     {
-      "before": [
-        "<leader>",
-        "<space>"
-      ],
-      "commands": [
-        "workbench.action.showAllEditors"
-      ]
-    }
+      "before": ["<leader>", "<space>"],
+      "commands": ["workbench.action.showAllEditors"],
+    },
   ],
   "vs64.kickInstallDir": "E:\\c64\\coding\\KickAssembler",
   "vs64.acmeInstallDir": "E:\\c64\\coding",
   "vs64.viceExecutable": "E:\\GTK3VICE-3.10-win64\\bin\\x64sc.exe",
   "vs64.llvmInstallDir": "E:\\c64\\coding\\llvm-mos",
   "vs64.cc65InstallDir": "C:\\Users\\bart\\scoop\\apps\\cc65\\current",
-  "vs64.oscar64InstallDir": "C:\\Program Files\\Oscar64"
+  "vs64.oscar64InstallDir": "C:\\Program Files\\Oscar64",
+  "claudeCode.useTerminal": true,
 }

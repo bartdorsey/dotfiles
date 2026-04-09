@@ -1,3 +1,7 @@
+* {
+  font-family: "Noto Sans" !important;
+}
+
 #PlacesToolbarItems {
     justify-content: center !important;
 }
@@ -24,4 +28,4 @@
 
 .tabbrowser-tab {
   --tab-min-height: 2.1rem;
-} 
+}

@@ -1,4 +1,4 @@
 (
     save_location: Clipboard,
-    choice: Output(Some("DP-2")),
+    choice: Rectangle,
 )

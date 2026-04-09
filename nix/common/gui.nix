@@ -149,9 +149,28 @@
       hinting.enable = true;
       hinting.autohint = true;
       hinting.style = "full";
+      subpixel.rgba = "rgb";
+      defaultFonts = {
+        serif = ["Noto Serif"];
+        sansSerif = ["Noto Sans"];
+        monospace = ["Iosevka"];
+      };
+      localConf = ''
+        <?xml version="1.0"?>
+        <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+        <fontconfig>
+          <match target="pattern">
+            <edit name="dpi" mode="assign">
+            <double>163</double>
+            </edit>
+          </match>
+        </fontconfig>
+      '';
     };
     enableDefaultPackages = true;
     packages = with pkgs; [
+      liberation_ttf
+      ubuntu-classic
       corefonts
       vista-fonts
       nerd-fonts.iosevka

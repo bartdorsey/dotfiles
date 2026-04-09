@@ -28,6 +28,10 @@
 
   gtk = {
     enable = true;
+    font = {
+      name = "Noto Sans";
+      size = 18;
+    };
     gtk3.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1

@@ -5,16 +5,13 @@ Zips important profile data for migration to another computer.
 Skips cache, temp files, and symlinks managed by dotfiles.
 
 Usage:
-    python backup-profile.py [output.zip]
+    python backup-profile.py <profile_dir> [output.zip]
 """
 
-import os
 import sys
 import zipfile
 from datetime import datetime
 from pathlib import Path
-
-PROFILE_DIR = Path(__file__).parent.resolve()
 
 # Files/dirs to include. Symlinks are skipped automatically.
 ITEMS = [
@@ -108,33 +105,48 @@ def add_to_zip(zf: zipfile.ZipFile, path: Path, base: Path):
 
 
 def main():
+    if len(sys.argv) < 2:
+        print(
+            "Usage: backup-zen-profile.py <profile_dir> [output.zip]", file=sys.stderr
+        )
+        sys.exit(1)
+
+    profile_dir = Path(sys.argv[1]).resolve()
+    if not profile_dir.is_dir():
+        print(f"Error: profile directory not found: {profile_dir}", file=sys.stderr)
+        sys.exit(1)
+
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     default_output = Path.home() / f"zen-profile-backup-{timestamp}.zip"
-    output = Path(sys.argv[1]) if len(sys.argv) > 1 else default_output
+    output = Path(sys.argv[2]) if len(sys.argv) > 2 else default_output
 
-    print(f"Backing up Zen profile from: {PROFILE_DIR}")
+    print(f"Backing up Zen profile from: {profile_dir}")
     print(f"Output: {output}\n")
 
     added = 0
     skipped_symlinks = 0
     missing = 0
 
-    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as zf:
+    with zipfile.ZipFile(
+        output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6
+    ) as zf:
         for item_name in ITEMS:
-            path = PROFILE_DIR / item_name
+            path = profile_dir / item_name
             if path.is_symlink():
                 print(f"  [skip symlink] {item_name}")
                 skipped_symlinks += 1
             elif path.exists():
                 print(f"  [adding]       {item_name}")
-                add_to_zip(zf, path, PROFILE_DIR)
+                add_to_zip(zf, path, profile_dir)
                 added += 1
             else:
                 print(f"  [missing]      {item_name}")
                 missing += 1
 
     size_mb = output.stat().st_size / (1024 * 1024)
-    print(f"\nDone. {added} items added, {missing} missing, {skipped_symlinks} symlinks skipped.")
+    print(
+        f"\nDone. {added} items added, {missing} missing, {skipped_symlinks} symlinks skipped."
+    )
     print(f"Archive size: {size_mb:.1f} MB")
     print(f"Saved to: {output}")
     print()

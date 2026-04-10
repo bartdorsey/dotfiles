@@ -26,17 +26,15 @@
     };
     initrd = {
       enable = true;
-      verbose = false;
+      verbose = true;
     };
     plymouth = {
-      enable = true;
+      enable = false;
       font = "${pkgs.jetbrains-mono}/share/fonts/truetype/JetBrainsMono-Regular.ttf";
     };
 
     kernelParams = [
       "video=1920x1080"
-      "quiet"
-      "splash"
       "boot.shell_on_fail"
       "loglevel=3"
       "systemd.show_status=auto"

@@ -10,7 +10,11 @@
   networking.networkmanager.enable = true;
 
   # Wireguard
-  # networking.wg-quick.interfaces.protonvpn.configFile = "/etc/protonvpn.conf";
+  networking.wg-quick.interfaces.protonvpn = {
+    autostart = false;
+    dns = ["10.0.0.5"];
+    configFile = "/etc/protonvpn.conf";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

@@ -92,6 +92,7 @@
       lora
       maim
       mpv
+      modrinth-app
       neovide
       networkmanagerapplet
       nh

@@ -31,6 +31,11 @@
 
   programs.zoom-us.enable = true;
 
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -50,6 +55,20 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+  };
+
+  programs.chromium = {
+    enable = true;
+    extraOpts = {
+      "WebAppInstallForceList" = [
+        {
+          "url" = "https://www.youtube.com";
+          "custom_name" = "YouTube";
+          "default_launch_container" = "window";
+          "create_desktop_shortcut" = true;
+        }
+      ];
+    };
   };
 
   environment.systemPackages =

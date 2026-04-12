@@ -61,6 +61,7 @@
       _1password-gui
       rustdesk-flutter
       fastmail-desktop
+      modrinth-app
     ])
     ++ (with pkgs; [
       _1password-cli
@@ -92,7 +93,6 @@
       lora
       maim
       mpv
-      modrinth-app
       neovide
       networkmanagerapplet
       nh

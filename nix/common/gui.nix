@@ -155,6 +155,7 @@
       dust
       feh
       flameshot
+      fontpreview
       ghostty
       gimp
       gparted
@@ -224,14 +225,19 @@
   fonts = {
     fontconfig = {
       antialias = true;
-      hinting.enable = true;
-      hinting.autohint = true;
-      hinting.style = "full";
-      subpixel.rgba = "rgb";
+      hinting = {
+        enable = true;
+        autohint = true;
+        style = "slight";
+      };
+      subpixel = {
+        rgba = "rgb";
+        lcdfilter = "default";
+      };
       defaultFonts = {
-        serif = ["Ubuntu"];
-        sansSerif = ["Ubuntu"];
-        monospace = ["Ubuntu Mono"];
+        serif = ["Noto Serif"];
+        sansSerif = ["Noto Sans"];
+        monospace = ["Noto Sans Mono"];
       };
       localConf = ''
         <?xml version="1.0"?>

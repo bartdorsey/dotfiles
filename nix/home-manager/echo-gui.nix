@@ -77,6 +77,10 @@
     };
   };
 
+  services.cliphist = {
+    allowImages = true;
+    enable = true;
+  };
   # home.file.".config/xdg-settings/default-web-browser".text = "zen.desktop";
 
   # Desktop environments and window managers

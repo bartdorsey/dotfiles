@@ -26,8 +26,8 @@
 @define-color	crust #1d2021;
 
 * {
-    font-family: 'JetBrainsMono Nerd Font', monospace;
-    font-size: 16px;
+    font-family: monospace;
+    font-size: 14px;
 }
 
 window {
@@ -74,7 +74,7 @@ window {
 
 #input {
     margin: 5px 10px;
-    padding: 8px;
+    padding: 4px;
     border: 1px solid @overlay0;
     border-radius: 4px;
     color: @text;

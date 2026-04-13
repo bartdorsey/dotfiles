@@ -149,8 +149,11 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   environment.variables.LIBVA_DRIVER_NAME = "nvidia";
+  environment.variables.NVD_BACKEND = "direct";
+  environment.variables.GBM_BACKEND = "nvidia-drm";
+  environment.variables.__GLX_VENDOR_LIBRARY_NAME = "nvidia";
 
-  # If used with Firefox
+  # If used with Firefox/Zen
   environment.variables.MOZ_DISABLE_RDD_SANDBOX = "1";
 
   programs.firefox.preferences = let

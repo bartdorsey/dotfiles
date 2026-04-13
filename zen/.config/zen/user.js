@@ -50,11 +50,11 @@ user_pref("browser.contentblocking.category", "strict");
 /** TRACKING PROTECTION ***/
 user_pref(
     "urlclassifier.trackingSkipURLs",
-    "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com",
+    "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com"
 );
 user_pref(
     "urlclassifier.features.socialtracking.skipURLs",
-    "*.instagram.com, *.twitter.com, *.twimg.com",
+    "*.instagram.com, *.twitter.com, *.twimg.com"
 );
 user_pref("privacy.partition.bloburl_per_partition_key", true);
 user_pref("browser.uitour.enabled", false);
@@ -127,7 +127,7 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref(
     "geo.provider.network.url",
-    "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%",
+    "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%"
 );
 user_pref("permissions.manager.defaultsUrl", "");
 user_pref("webchannel.allowObject.urlWhitelist", "");
@@ -178,7 +178,7 @@ user_pref("permissions.default.desktop-notification", 0);
 user_pref("privacy.userContext.enabled", true);
 
 // PREF: enable GPU-accelerated Canvas2D [WINDOWS]
-user_pref("gfx.canvas.accelerated", true);
+// user_pref("gfx.canvas.accelerated", true);
 
 // Disable restore window state
 user_pref("browser.restoreWindowState.disabled", true);
@@ -229,6 +229,11 @@ user_pref("general.smoothScroll.stopDecelerationWeighting", "1");
 user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
 
 // My prefs
+// Hardware video decoding via VA-API (NVIDIA)
+user_pref("media.hardware-video-decoding.force-enabled", true);
+user_pref("media.ffmpeg.vaapi.enabled", true);
+user_pref("media.rdd-ffmpeg.enabled", true);
+user_pref("widget.dmabuf.force-enabled", false);
 user_pref("browser.warnOnQuitShortcut", false);
 user_pref("browser.tabs.firefox-view", false);
 user_pref("layout.css.devPixelsPerPx", "1.1");

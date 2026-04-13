@@ -229,9 +229,9 @@
       hinting.style = "full";
       subpixel.rgba = "rgb";
       defaultFonts = {
-        serif = ["Noto Serif"];
-        sansSerif = ["Noto Sans"];
-        monospace = ["Iosevka"];
+        serif = ["Ubuntu"];
+        sansSerif = ["Ubuntu"];
+        monospace = ["Ubuntu Mono"];
       };
       localConf = ''
         <?xml version="1.0"?>

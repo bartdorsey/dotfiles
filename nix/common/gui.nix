@@ -1,7 +1,6 @@
 {
   pkgs,
   pkgs-unstable,
-  lib,
   zen-browser,
   system,
   ...
@@ -44,7 +43,7 @@
 
   programs.kdeconnect.enable = true;
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   services.xserver.upscaleDefaultCursor = true;
 
@@ -59,7 +58,40 @@
 
   programs.chromium = {
     enable = true;
+    initialPrefs = {
+      "profile" = {
+        "name" = "Personal";
+      };
+      "distribution" = {
+        "skip_first_run_ui" = true;
+        "import_bookmarks" = false;
+        "import_history" = false;
+        "import_home_page" = false;
+        "import_search_engine" = false;
+        "show_welcome_page" = false;
+      };
+    };
+
+    # Enterprise policy settings (locked, can't be overridden)
     extraOpts = {
+      "BlockThirdPartyCookies" = true;
+      "DefaultNotificationsSetting" = 2;
+      "DefaultGeolocationSetting" = 2;
+      "DefaultCamerasSetting" = 2;
+      "DefaultMicrophoneSetting" = 2;
+      "DnsOverHttpsMode" = "automatic";
+      "DnsOverHttpsTemplates" = "https://10.0.0.5/dns-query";
+      "SyncDisabled" = true;
+      "MetricsReportingEnabled" = false;
+      "SafeBrowsingEnabled" = true;
+      "HttpsOnlyMode" = "force_enabled";
+      "SearchSuggestEnabled" = false;
+      "UrlKeyedAnonymizedDataCollectionEnabled" = false;
+      "SpellCheckServiceEnabled" = false;
+      "AutofillAddressEnabled" = false;
+      "AutofillCreditCardEnabled" = false;
+      "PasswordManagerEnabled" = false;
+      "ExtensionManifestV2Availability" = 2;
       "WebAppInstallForceList" = [
         {
           "url" = "https://www.youtube.com";
@@ -71,23 +103,47 @@
     };
   };
 
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        zen
+        vivaldi-bin
+      '';
+      mode = "0755";
+    };
+  };
+
+  programs._1password = {
+    enable = true;
+  };
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = ["echo"];
+  };
+
   environment.systemPackages =
     [zen-browser.packages."${system}".default]
     ++ (with pkgs-unstable; [
       firefoxpwa
       zed-editor-fhs
       vscode
-      _1password-gui
       rustdesk-flutter
       fastmail-desktop
-      modrinth-app
+      prismlauncher
     ])
     ++ (with pkgs; [
-      _1password-cli
       appimage-run
       bambu-studio
       cava
-      chromium
+      (chromium.override
+        {
+          commandLineArgs = [
+            "--disable-sync"
+            "--no-default-browser-check"
+            "--no-first-run"
+            "--disable-breakpad"
+          ];
+        })
       cliphist
       clipman
       darktable
@@ -161,7 +217,9 @@
     };
   };
 
-  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+  programs.ssh = {
+    askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+  };
 
   fonts = {
     fontconfig = {
@@ -219,6 +277,20 @@
   # services.dbus.packages = with pkgs; [
   #   xfce.xfconf
   # ];
+
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = ["graphical-session.target"];
+    wants = ["graphical-session.target"];
+    after = ["graphical-session.target"];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
 
   nix.settings = {
     substituters = ["https://wezterm.cachix.org"];

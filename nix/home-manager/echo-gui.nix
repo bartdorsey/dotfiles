@@ -57,6 +57,14 @@
       package = pkgs.capitaine-cursors-themed;
     };
   };
+  programs.chromium = {
+    enable = true;
+    extensions = [
+      "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1Password
+      "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
+      "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" # Privacy Badger
+    ];
+  };
 
   home.sessionVariables.GTK_THEME = "Gruvbox-Dark";
 

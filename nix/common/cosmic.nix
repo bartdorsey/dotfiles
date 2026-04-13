@@ -34,4 +34,9 @@
     # disable libadwaita theming for Firefox
     "widget.gtk.libadwaita-colors.enabled" = false;
   };
+  # Enable the GNOME Keyring service
+  services.gnome.gnome-keyring.enable = true;
+
+  # Tell PAM to unlock the keyring when you log in via cosmic-greeter
+  security.pam.services.cosmic-greeter.enableGnomeKeyring = true;
 }

@@ -1,3 +1,4 @@
 *, *::before, *::after {
    font-family: "Iosevka Nerd Font" !important;
+   font-weight: bolder;
 }

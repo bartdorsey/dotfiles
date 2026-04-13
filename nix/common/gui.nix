@@ -222,32 +222,51 @@
     askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
   };
 
+  # https://github.com/mikeldev0/macos-font-rendering/tree/master
+  environment.sessionVariables = {
+    FREETYPE_PROPERTIES = "autofitter:no-stem-darkening=0 autofitter:darkening-parameters=500,0,1000,500,2500,500,4000,0 cff:no-stem-darkening=0 type1:no-stem-darkening=0 t1cid:no-stem-darkening=0";
+    QT_NO_SYNTHESIZED_BOLD = 1;
+  };
+
   fonts = {
     fontconfig = {
       antialias = true;
       hinting = {
         enable = true;
-        autohint = true;
+        autohint = false;
         style = "slight";
       };
       subpixel = {
-        rgba = "rgb";
+        rgba = "none";
         lcdfilter = "default";
       };
       defaultFonts = {
         serif = ["Noto Serif"];
-        sansSerif = ["Noto Sans"];
-        monospace = ["Noto Sans Mono"];
+        sansSerif = ["DejaVu Sans"];
+        monospace = ["DejaVu Sans Mono"];
       };
       localConf = ''
         <?xml version="1.0"?>
         <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
         <fontconfig>
-          <match target="pattern">
-            <edit name="dpi" mode="assign">
-            <double>163</double>
-            </edit>
-          </match>
+          <match target="font">
+            <test name="pixelsize" compare="less">
+              <double>14.0</double>
+            </test>
+           <edit name="embolden" mode="assign">
+             <bool>true</bool>
+           </edit>
+         </match>
+         <match target="font">
+           <edit name="weight" mode="assign">
+             <const>medium</const>
+           </edit>
+         </match>
+         <match target="pattern">
+           <edit name="dpi" mode="assign">
+           <double>163</double>
+           </edit>
+         </match>
         </fontconfig>
       '';
     };
@@ -259,6 +278,8 @@
       vista-fonts
       nerd-fonts.iosevka
       nerd-fonts.symbols-only
+      inter
+      adwaita-fonts
     ];
   };
 

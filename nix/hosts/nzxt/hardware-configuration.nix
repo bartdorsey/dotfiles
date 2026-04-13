@@ -148,8 +148,38 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+  environment.variables.LIBVA_DRIVER_NAME = "nvidia";
+
+  # If used with Firefox
+  environment.variables.MOZ_DISABLE_RDD_SANDBOX = "1";
+
+  programs.firefox.preferences = let
+    ffVersion = config.programs.firefox.package.version;
+  in {
+    "media.ffmpeg.vaapi.enabled" = lib.versionOlder ffVersion "137.0.0";
+    "media.hardware-video-decoding.force-enabled" = lib.versionAtLeast ffVersion "137.0.0";
+    "media.rdd-ffmpeg.enabled" = lib.versionOlder ffVersion "97.0.0";
+
+    "gfx.x11-egl.force-enabled" = true;
+    "widget.dmabuf.force-enabled" = true;
+
+    # Set this to true if your GPU supports AV1.
+    #
+    # This can be determined by reading the output of the
+    # `vainfo` command, after the driver is enabled with
+    # the environment variable.
+    "media.av1.enabled" = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.nvidia
+    libva
+    libva-utils # gives you vainfo to test
+    (obs-studio-plugins.wlrobs or obs-studio-plugins.obs-vaapi)
+  ];
   hardware.graphics = {
     enable = true;
+    extraPackages = with pkgs; [nvidia-vaapi-driver];
   };
 
   services.xserver = {

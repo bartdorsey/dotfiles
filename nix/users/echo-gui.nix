@@ -3,11 +3,6 @@
   pkgs-unstable,
   ...
 }: {
-  # My user account, with gui specific packages
-  users.users.echo = {
-    extraGroups = ["networkmanager" "wheel" "docker" "audio"];
-  };
-
   environment.sessionVariables = {
     GTK_THEME = "Gruvbox-Dark";
   };

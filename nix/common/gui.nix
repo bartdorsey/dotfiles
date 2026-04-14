@@ -29,7 +29,7 @@
   services.autorandr.enable = true;
 
   programs.zoom-us = {
-    enable = true;
+    enable = false;
     package = pkgs-unstable.zoom-us;
   };
 

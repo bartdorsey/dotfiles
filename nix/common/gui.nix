@@ -209,6 +209,9 @@
       wtype
       xorg.xhost
       xss-lock
+    ])
+    ++ (with pkgs.kdePackages; [
+      calligra
     ]);
 
   # services.udev.packages = with pkgs; [

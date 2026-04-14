@@ -22,6 +22,9 @@
       cosmic-ext-ctl
       cosmic-ext-tweaks
       quick-webapps
+      gcr
+      libsForQt5.qtstyleplugin-kvantum # Qt6 kvantum
+      qt6Packages.qtstyleplugin-kvantum
     ])
     ++ (with pkgs-wasabi; [
       cosmic-conductor
@@ -34,9 +37,9 @@
     # disable libadwaita theming for Firefox
     "widget.gtk.libadwaita-colors.enabled" = false;
   };
-  # Enable the GNOME Keyring service
-  services.gnome.gnome-keyring.enable = true;
 
-  # Tell PAM to unlock the keyring when you log in via cosmic-greeter
-  security.pam.services.cosmic-greeter.enableGnomeKeyring = true;
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "kvantum";
+    QT_STYLE_OVERRIDE = "kvantum";
+  };
 }

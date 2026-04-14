@@ -93,8 +93,6 @@
 
   programs.dconf.enable = true;
 
-  qt.enable = true;
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;

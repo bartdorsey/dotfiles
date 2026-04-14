@@ -127,9 +127,9 @@
   environment.systemPackages =
     [zen-browser.packages."${system}".default]
     ++ (with pkgs-unstable; [
+      davinci-resolve
       firefoxpwa
       zed-editor-fhs
-      vscode
       rustdesk-flutter
       fastmail-desktop
       prismlauncher
@@ -172,6 +172,7 @@
       hunspellDicts.uk_UA
       hunspellDicts.th_TH
       inkscape
+      insomnia
       libreoffice-qt
       libnotify
       lora
@@ -199,6 +200,7 @@
       slurp
       syncthingtray
       terminus_font_ttf
+      thonny
       thunderbird
       v4l-utils
       vesktop

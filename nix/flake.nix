@@ -70,6 +70,7 @@
           ./common/gui.nix
           ./common/cosmic.nix
           ./common/obs-studio.nix
+          ./common/vscode.nix
           # ./common/plasma.nix
           ./common/system-packages.nix
           ./common/virtual-machines.nix

@@ -1,11 +1,7 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
-  environment.sessionVariables = {
-    GTK_THEME = "Gruvbox-Dark";
-  };
+{pkgs, ...}: {
+  # environment.sessionVariables = {
+  #   # GTK_THEME = "Gruvbox-Dark";
+  # };
 
   xdg = {
     portal = {
@@ -27,9 +23,9 @@
       };
     };
 
-    mime.defaultApplications = {
-      "inode/directory" = "yazi.desktop";
-      "inode/mount-point" = "yazi.desktop";
-    };
+    # mime.defaultApplications = {
+    #   "inode/directory" = "yazi.desktop";
+    #   "inode/mount-point" = "yazi.desktop";
+    # };
   };
 }

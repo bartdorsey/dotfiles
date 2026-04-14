@@ -141,7 +141,7 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  services.nixos-cli = {
+  programs.nixos-cli = {
     enable = true;
   };
 }

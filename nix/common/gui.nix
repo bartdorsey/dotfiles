@@ -165,6 +165,11 @@
       grimblast
       gruvbox-dark-icons-gtk
       gruvbox-plus-icons
+      hunspell
+      hunspellDicts.uk_UA
+      hunspellDicts.th_TH
+      inkscape
+      libreoffice-qt
       libnotify
       lora
       maim
@@ -177,6 +182,7 @@
       nwg-displays
       obs-studio
       obsidian
+      onlyoffice-desktopeditors
       orca-slicer
       pavucontrol
       plattenalbum

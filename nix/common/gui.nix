@@ -28,7 +28,10 @@
 
   services.autorandr.enable = true;
 
-  programs.zoom-us.enable = true;
+  programs.zoom-us = {
+    enable = true;
+    package = pkgs-unstable.zoom-us;
+  };
 
   programs.localsend = {
     enable = true;

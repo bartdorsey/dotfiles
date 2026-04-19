@@ -25,7 +25,7 @@ general:
 
     cursor_jump:
         # Whether to automatically move the cursor on the specified trigger.
-        enabled: false
+        enabled: true
 
         # Trigger for cursor jump:
         # - 'monitor_focus': Jump when focus changes between monitors.

@@ -4,11 +4,7 @@ return {
     enabled = true,
     dependencies = {
         "neovim/nvim-lspconfig",
-        {
-            "nvim-telescope/telescope.nvim",
-            branch = "0.1.x",
-            dependencies = { "nvim-lua/plenary.nvim" },
-        },
+        "nvim-telescope/telescope.nvim",
     },
     cmd = { "VenvSelect" },
     opts = {

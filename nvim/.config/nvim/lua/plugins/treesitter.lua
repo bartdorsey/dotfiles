@@ -81,39 +81,29 @@ return {
                 end
             end,
         })
-        -- local parser_config =
-        --     require("nvim-treesitter.parsers").get_parser_configs()
-        -- parser_config.gotmpl = {
-        --     install_info = {
-        --         url = "https://github.com/ngalaiko/tree-sitter-go-template",
-        --         files = { "src/parser.c" },
-        --     },
-        --     filetype = "gotmpl",
-        --     used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl" },
-        -- }
 
         -- -- Custom treesitter injections
-        -- vim.api.nvim_create_autocmd("User", {
-        --     pattern = "TSModuleInstalled",
-        --     callback = function(args)
-        --         if args.data == "python" then
-        --             vim.treesitter.query.set(
-        --                 "python",
-        --                 "injections",
-        --                 [[ (call function:
-        --             (attribute
-        --                 object: (identifier)
-        --                 attribute: (identifier) @method
-        --                     (#eq? @method "execute"))
-        --             arguments:
-        --             (argument_list
-        --                 (string
-        --                     (string_content) @injection.content
-        --                         (#set! injection.language "sql"))))
-        --             ]]
-        --             )
-        --         end
-        --     end,
-        -- })
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "TSModuleInstalled",
+            callback = function(args)
+                if args.data == "python" then
+                    vim.treesitter.query.set(
+                        "python",
+                        "injections",
+                        [[ (call function:
+                    (attribute
+                        object: (identifier)
+                        attribute: (identifier) @method
+                            (#eq? @method "execute"))
+                    arguments:
+                    (argument_list
+                        (string
+                            (string_content) @injection.content
+                                (#set! injection.language "sql"))))
+                    ]]
+                    )
+                end
+            end,
+        })
     end,
 }

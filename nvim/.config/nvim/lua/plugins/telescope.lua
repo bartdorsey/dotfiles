@@ -83,11 +83,6 @@ return {
                 desc = "Search Colorschemes",
             },
             {
-                "<leader>fp",
-                "<cmd>Telescope repo list<cr>",
-                desc = "Find Git Repos",
-            },
-            {
                 "<leader>fs",
                 "<cmd>Telescope lsp_workspace_symbols<cr>",
                 desc = "Find Symbols in Workspace",
@@ -172,15 +167,6 @@ return {
                 extensions = {
                     ["ui-select"] = {
                         require("telescope.themes").get_dropdown(),
-                    },
-                    repo = {
-                        list = {
-                            search_dirs = {
-                                "~/github",
-                                "~/gitlab",
-                                "~/projects",
-                            },
-                        },
                     },
                     zoxide = {
                         list_command = 'zoxide query -ls | sed "s|$HOME|~|"',

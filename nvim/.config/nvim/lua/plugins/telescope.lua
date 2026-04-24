@@ -15,15 +15,12 @@ return {
             {
                 "nvim-telescope/telescope-ui-select.nvim",
             },
-            -- {
-            --     "cljoly/telescope-repo.nvim",
-            -- },
-            -- {
-            --     "jvgrootveld/telescope-zoxide",
-            -- },
-            -- {
-            --     "nvim-telescope/telescope-symbols.nvim",
-            -- },
+            {
+                "jvgrootveld/telescope-zoxide",
+            },
+            {
+                "nvim-telescope/telescope-symbols.nvim",
+            },
             -- Useful for getting pretty icons, but requires a Nerd Font.
             { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
         },
@@ -120,82 +117,80 @@ return {
         config = function()
             local actions = require("telescope.actions")
             require("telescope").setup({
-                -- defaults = {
-                --     layout_strategy = "flex",
-                --     color_devicons = true,
-                --     dynamic_preview_title = true,
-                --     border = true,
-                --     theme = "ivy",
-                --     sorting_strategy = "descending",
-                --     layout_config = {
-                --         flex = {
-                --             flip_columns = 130,
-                --         },
-                --         prompt_position = "bottom",
-                --         height = {
-                --             padding = 0,
-                --         },
-                --         width = {
-                --             padding = 0,
-                --         },
-                --         horizontal = {
-                --             preview_width = 0.5,
-                --             mirror = false,
-                --         },
-                --         vertical = {
-                --             preview_height = 0.75,
-                --             mirror = false,
-                --         },
-                --     },
-                --     file_ignore_patterns = {
-                --         "^.git/",
-                --         "^node_modules/",
-                --         "^.venv/",
-                --     },
-                --     mappings = {
-                --         i = {
-                --             ["<esc>"] = actions.close,
-                --             ["<C-u>"] = false,
-                --             ["<C-d>"] = false,
-                --         },
-                --     },
-                -- },
-                -- pickers = {
-                --     live_grep = {
-                --         grep_open_files = false,
-                --         additional_args = { "--hidden" },
-                --     },
-                --     find_files = {
-                --         hidden = true,
-                --     },
-                --     colorscheme = {
-                --         enable_preview = true,
-                --     },
-                -- },
+                defaults = {
+                    layout_strategy = "flex",
+                    color_devicons = true,
+                    dynamic_preview_title = true,
+                    border = true,
+                    theme = "ivy",
+                    sorting_strategy = "descending",
+                    layout_config = {
+                        flex = {
+                            flip_columns = 130,
+                        },
+                        prompt_position = "bottom",
+                        height = {
+                            padding = 0,
+                        },
+                        width = {
+                            padding = 0,
+                        },
+                        horizontal = {
+                            preview_width = 0.5,
+                            mirror = false,
+                        },
+                        vertical = {
+                            preview_height = 0.75,
+                            mirror = false,
+                        },
+                    },
+                    file_ignore_patterns = {
+                        "^.git/",
+                        "^node_modules/",
+                        "^.venv/",
+                    },
+                    mappings = {
+                        i = {
+                            ["<esc>"] = actions.close,
+                            ["<C-u>"] = false,
+                            ["<C-d>"] = false,
+                        },
+                    },
+                },
+                pickers = {
+                    live_grep = {
+                        grep_open_files = false,
+                        additional_args = { "--hidden" },
+                    },
+                    find_files = {
+                        hidden = true,
+                    },
+                    colorscheme = {
+                        enable_preview = true,
+                    },
+                },
                 extensions = {
                     ["ui-select"] = {
                         require("telescope.themes").get_dropdown(),
                     },
-                    -- repo = {
-                    --     list = {
-                    --         search_dirs = {
-                    --             "~/github",
-                    --             "~/gitlab",
-                    --             "~/projects",
-                    --         },
-                    --     },
-                    -- },
-                    -- zoxide = {
-                    --     list_command = 'zoxide query -ls | sed "s|$HOME|~|"',
-                    -- },
+                    repo = {
+                        list = {
+                            search_dirs = {
+                                "~/github",
+                                "~/gitlab",
+                                "~/projects",
+                            },
+                        },
+                    },
+                    zoxide = {
+                        list_command = 'zoxide query -ls | sed "s|$HOME|~|"',
+                    },
                 },
             })
-            pcall(require("telescope").load_extension, "fzf")
-            pcall(require("telescope").load_extension, "ui-select")
-            -- require("telescope").load_extension("ui-select")
-            -- require("telescope").load_extension("messages")
-            -- require("telescope").load_extension("repo")
-            -- require("telescope").load_extension("zoxide")
+            require("telescope").load_extension("fzf")
+            require("telescope").load_extension("ui-select")
+            require("telescope").load_extension("messages")
+            require("telescope").load_extension("zoxide")
         end,
     },
 }

@@ -1,6 +1,6 @@
 return {
     "xiyaowong/nvim-transparent",
-    enabled = false,
+    enabled = true,
     init = function()
         vim.g.transparent_enabled = true
     end,

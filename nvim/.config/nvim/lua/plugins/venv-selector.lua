@@ -1,6 +1,7 @@
 return {
     "linux-cultist/venv-selector.nvim",
     cond = os.getenv("DEVMODE") ~= nil,
+    enabled = true,
     dependencies = {
         "neovim/nvim-lspconfig",
         {

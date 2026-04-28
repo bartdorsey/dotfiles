@@ -75,6 +75,7 @@
           # ./common/plasma.nix
           ./common/system-packages.nix
           ./common/virtual-machines.nix
+          ./users/root.nix
           ./users/echo.nix
           ./users/echo-gui.nix
           home-manager.nixosModules.home-manager
@@ -119,6 +120,7 @@
           ./common/display-manager.nix
           ./common/hyprland.nix
           ./common/system-packages.nix
+          ./users/root.nix
           ./users/echo.nix
           ./users/echo-gui.nix
           home-manager.nixosModules.home-manager
@@ -156,6 +158,7 @@
           ./common/tailscale.nix
           ./common/mounts.nix
           ./common/system-packages.nix
+          ./users/root.nix
           ./users/echo.nix
           home-manager.nixosModules.home-manager
           nixos-cli.nixosModules.nixos-cli
@@ -184,6 +187,7 @@
           ./common/os.nix
           ./common/tailscale.nix
           ./common/system-packages.nix
+          ./users/root.nix
           ./users/echo.nix
           home-manager.nixosModules.home-manager
           nixos-cli.nixosModules.nixos-cli

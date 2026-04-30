@@ -13,7 +13,7 @@ general:
     #    ['shell-exec C:\Users\bart\.glzr\glazewm\reload.vbs']
 
     # Whether to automatically focus windows underneath the cursor.
-    focus_follows_cursor: true
+    focus_follows_cursor: false
 
     # Whether to switch back and forth between the previously focused
     # workspace when focusing the current workspace.
@@ -25,7 +25,7 @@ general:
 
     cursor_jump:
         # Whether to automatically move the cursor on the specified trigger.
-        enabled: true
+        enabled: false
 
         # Trigger for cursor jump:
         # - 'monitor_focus': Jump when focus changes between monitors.
@@ -63,19 +63,19 @@ window_effects:
         # Change the corner style of the window's frame.
         # ** Exclusive to Windows 11 due to API limitations.
         corner_style:
-            enabled: true
+            enabled: false
             # Allowed values: 'square', 'rounded', 'small_rounded'.
             style: "small_rounded"
 
     # Visual effects to apply to non-focused windows.
     other_windows:
         border:
-            enabled: true
+            enabled: false
             color: "#7c6f64"
         hide_title_bar:
             enabled: false
         corner_style:
-            enabled: true
+            enabled: false
             style: "small_rounded"
         # transparency:
         #     enabled: false
@@ -103,36 +103,45 @@ window_behavior:
             maximized: false
 
             # Whether to show fullscreen windows as always on top.
-            shown_on_top: false
+            shown_on_top: true
 
 workspaces:
     - name: "1"
       display_name: "Web"
       bind_to_monitor: 2
+      keep_alive: true
     - name: "2"
       display_name: "Code"
       bind_to_monitor: 2
+      keep_alive: true
     - name: "3"
       display_name: "Notes"
       bind_to_monitor: 2
+      keep_alive: true
     - name: "4"
       display_name: "Email"
       bind_to_monitor: 2
+      keep_alive: true
     - name: "5"
       display_name: "Games"
       bind_to_monitor: 2
+      keep_alive: true
     - name: "6"
       display_name: "Misc"
       bind_to_monitor: 2
+      keep_alive: true
     - name: "7"
       display_name: "Left"
       bind_to_monitor: 0
+      keep_alive: true
     - name: "8"
       display_name: "Bottom"
       bind_to_monitor: 1
+      keep_alive: true
     - name: "9"
       display_name: "Right"
       bind_to_monitor: 3
+      keep_alive: true
 
 window_rules:
     # Workspace 1
@@ -200,7 +209,7 @@ window_rules:
           - window_process: { regex: "TeraCopy" }
           - window_process: { regex: "1Password" }
           - window_process: { equals: "bambu-studio" }
-          - window_process: { regex: "eufymake"}
+          # - window_process: { regex: "eufymake"}
     - commands: ["ignore"]
       match:
           - window_class: { regex: "^Avalonia" }
@@ -214,6 +223,7 @@ window_rules:
             window_title: { regex: ".*? - Peek" }
           - window_process: { equals: "Lively" }
             window_class: { regex: "HwndWrapper" }
+          - window_title: { regex: "Nextcloud" }
 
 binding_modes:
     # When enabled, the focused window can be resized via arrow keys or HJKL.

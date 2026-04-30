@@ -12,7 +12,7 @@ function M.apply_platform_config(config)
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         local wsl_domains = wezterm.default_wsl_domains()
 
-        config.default_domain = "WSL:Debian"
+        config.default_domain = "WSL:NixOS"
         -- config.front_end = "WebGpu"
         -- config.webgpu_power_preference = "HighPerformance"
         -- config.webgpu_preferred_adapter = {

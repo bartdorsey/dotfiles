@@ -153,7 +153,6 @@
       transcrypt
       trash-cli
       tree
-      tree-sitter
       typst
       unzip
       unzip
@@ -183,5 +182,6 @@
     ++ (with pkgs-unstable; [
       claude-code
       cryptsetup
+      tree-sitter
     ]);
 }

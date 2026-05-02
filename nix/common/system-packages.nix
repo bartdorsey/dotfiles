@@ -17,6 +17,8 @@
           vdirsyncer
         ]))
       alejandra
+      basedpyright
+      bash-language-server
       bat
       beautysh
       binutils
@@ -118,6 +120,7 @@
       podman
       postgresql
       postgresql.lib
+      postgres-language-server
       prettierd
       procs
       pulseaudio
@@ -140,6 +143,7 @@
       stow
       stylua
       superfile
+      superhtml
       syncthing
       systemctl-tui
       sysz

@@ -16,9 +16,6 @@ return {
             ft = "lua",
             config = true,
         },
-        {
-            "nvim-orgmode/orgmode",
-        },
         -- python
         {
             "linux-cultist/venv-selector.nvim",

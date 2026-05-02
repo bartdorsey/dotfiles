@@ -76,7 +76,9 @@
       iotop
       iotop-c
       iperf3
+      jdk21
       jq
+      julia
       khal
       killall
       kmod
@@ -115,6 +117,7 @@
       pass
       pciutils
       php
+      php83Packages.composer
       pinentry-curses
       pnpm
       podman

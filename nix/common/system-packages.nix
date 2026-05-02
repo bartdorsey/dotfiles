@@ -121,9 +121,10 @@
       pinentry-curses
       pnpm
       podman
+      postgres-language-server
       postgresql
       postgresql.lib
-      postgres-language-server
+      prettier
       prettierd
       procs
       pulseaudio

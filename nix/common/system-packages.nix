@@ -18,6 +18,7 @@
         ]))
       alejandra
       bat
+      beautysh
       binutils
       btop
       buku
@@ -26,6 +27,7 @@
       clang
       claude-code-bin
       cloc
+      codespell
       curl
       curl
       curlie
@@ -35,6 +37,7 @@
       direnv
       distrobox
       distrobox-tui
+      djlint
       docker-buildx
       dune_3
       dust
@@ -81,28 +84,30 @@
       lsd
       lua
       luarocks
+      markdownlint-cli
+      markdownlint-cli2
       mc
       micro
+      mokutil
       mosh
       mpc
       mpdris2
       mtr
-      mokutil
       ncmpcpp
       nfs-utils
       nh
       nix-output-monitor
-      nixd
       nix-search-cli
+      nixd
       nodejs_24
       nvd
       ocaml
       ocamlPackages.findlib
       ocamlPackages.ocaml-lsp
       ocamlformat
-      os-prober
       optinix
       optnix
+      os-prober
       p7zip
       parted
       pass
@@ -115,8 +120,8 @@
       postgresql.lib
       prettierd
       procs
-      pulseaudio-ctl
       pulseaudio
+      pulseaudio-ctl
       pulsemixer
       pyright
       refind
@@ -133,15 +138,16 @@
       starship
       stdenv.cc.cc
       stow
+      stylua
       superfile
       syncthing
       systemctl-tui
       sysz
       texlive.combined.scheme-full
-      toolbox
       tmux
-      trash-cli
+      toolbox
       transcrypt
+      trash-cli
       tree
       tree-sitter
       typst
@@ -158,6 +164,7 @@
       xdg-desktop-portal-termfilechooser
       xdg-utils
       xh
+      yamlfmt
       yarn
       yazi
       yt-dlp

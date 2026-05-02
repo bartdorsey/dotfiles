@@ -3,4 +3,6 @@
   users.groups.libvirtd.members = ["echo"];
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
+
+  users.users.echo.extraGroups = ["libvirtd"];
 }

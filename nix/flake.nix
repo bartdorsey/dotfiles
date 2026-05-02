@@ -75,6 +75,7 @@
           # ./common/plasma.nix
           ./common/system-packages.nix
           ./common/virtual-machines.nix
+          ./common/incus.nix
           ./users/echo.nix
           ./users/echo-gui.nix
           home-manager.nixosModules.home-manager

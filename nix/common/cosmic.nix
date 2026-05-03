@@ -1,7 +1,6 @@
 {
   pkgs,
-  pkgs-wasabi,
-  cos-cli,
+  inputs,
   ...
 }: {
   # Enable the COSMIC login manager
@@ -26,10 +25,10 @@
       libsForQt5.qtstyleplugin-kvantum # Qt6 kvantum
       qt6Packages.qtstyleplugin-kvantum
     ])
-    ++ (with pkgs-wasabi; [
+    ++ (with inputs.wasabi375.legacyPackages.${pkgs.stdenv.hostPlatform.system}; [
       cosmic-conductor
     ])
-    ++ [cos-cli.defaultPackage.x86_64-linux];
+    ++ [inputs.cos-cli.defaultPackage.${pkgs.stdenv.hostPlatform.system}];
 
   environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 

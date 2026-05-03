@@ -12,6 +12,7 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-cli.url = "github:nix-community/nixos-cli";
+    nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,10 +34,7 @@
     nixpkgs-unstable,
     home-manager,
     nixos-cli,
-    zen-browser,
     nixos-hardware,
-    wasabi375,
-    cos-cli,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -45,18 +43,13 @@
       config.allowUnfree = true;
       inherit system;
     };
-    pkgs-wasabi = wasabi375.legacyPackages.x86_64-linux;
   in {
     nixosConfigurations = {
       nzxt = lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit pkgs-unstable;
-          inherit pkgs-wasabi;
-          inherit zen-browser;
-          inherit system;
           inherit inputs;
-          inherit cos-cli;
         };
         modules = [
           ./hosts/nzxt/bootloader.nix
@@ -81,22 +74,16 @@
           home-manager.nixosModules.home-manager
           nixos-cli.nixosModules.nixos-cli
           {
-            home-manager.extraSpecialArgs = {
-              inherit pkgs-unstable;
-              inherit system;
-              inherit inputs;
-            };
             nixpkgs.config.allowUnfree = true;
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              users.echo = {
-                imports = [
-                  ./home-manager/echo.nix
-                  ./home-manager/echo-gui.nix
-                ];
-              };
+            home-manager.extraSpecialArgs = {inherit pkgs-unstable inputs;};
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.echo = {
+              imports = [
+                ./home-manager/echo.nix
+                ./home-manager/echo-gui.nix
+              ];
             };
           }
         ];
@@ -117,17 +104,12 @@
           home-manager.nixosModules.home-manager
           nixos-cli.nixosModules.nixos-cli
           {
-            home-manager.extraSpecialArgs = {
-              inherit pkgs-unstable;
-            };
-
             nixpkgs.config.allowUnfree = true;
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              users.echo = import ./home-manager/echo.nix;
-            };
+            home-manager.extraSpecialArgs = {inherit pkgs-unstable;};
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.echo = import ./home-manager/echo.nix;
           }
         ];
       };
@@ -146,15 +128,11 @@
           nixos-cli.nixosModules.nixos-cli
           {
             nixpkgs.config.allowUnfree = true;
-            home-manager.extraSpecialArgs = {
-              inherit pkgs-unstable;
-            };
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              users.echo = import ./home-manager/echo.nix;
-            };
+            home-manager.extraSpecialArgs = {inherit pkgs-unstable;};
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.echo = import ./home-manager/echo.nix;
           }
         ];
       };

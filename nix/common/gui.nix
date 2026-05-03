@@ -1,8 +1,7 @@
 {
   pkgs,
   pkgs-unstable,
-  zen-browser,
-  system,
+  inputs,
   ...
 }: {
   # programs.uwsm = {
@@ -125,7 +124,7 @@
   };
 
   environment.systemPackages =
-    [zen-browser.packages."${system}".default]
+    [inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default]
     ++ (with pkgs-unstable; [
       davinci-resolve
       firefoxpwa

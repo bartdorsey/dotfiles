@@ -2,9 +2,9 @@
   system.autoUpgrade.allowReboot = false;
 
   networking.search = [
+    "bigeye-cosmological.ts.net"
     "home"
     "heronshaven.online"
-    "tail7974e.ts.net"
   ];
 
   # Enable udisks2 service (required for mounting)

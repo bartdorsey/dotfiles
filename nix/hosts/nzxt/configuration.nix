@@ -14,8 +14,6 @@
 
   # Name servers
   networking.nameservers = ["100.100.100.100" "10.0.0.5" "10.0.0.3" "10.0.0.4"];
-  networking.search = ["bigeye-cosmological.ts.net" "home" "heronshaven.online"];
-
   # DNS
   services.resolved = {
     enable = true;

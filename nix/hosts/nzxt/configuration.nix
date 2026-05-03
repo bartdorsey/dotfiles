@@ -7,7 +7,10 @@
   networking.hostName = "nzxt"; # Define your hostname.
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    dns = "systemd-resolved";
+  };
 
   # Name servers
   networking.nameservers = ["100.100.100.100" "10.0.0.5" "10.0.0.3" "10.0.0.4"];
@@ -25,7 +28,14 @@
   # Wireguard
   networking.wg-quick.interfaces.protonvpn = {
     autostart = false;
-    dns = ["10.0.0.5"];
+    # dns = ["100.100.100.100" "10.0.0.5" "10.0.0.3" "10.0.0.4"];
+    postUp = ''
+      resolvectl dns protonvpn 100.100.100.100 10.0.0.5
+      resolvectl domain protonvpn ~.
+    '';
+    preDown = ''
+      resolvectl revert protonvpn
+    '';
     configFile = "/etc/protonvpn.conf";
   };
 

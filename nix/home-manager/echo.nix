@@ -3,10 +3,11 @@
   config,
   ...
 }: {
-  home.username = "echo";
-  home.homeDirectory = "/home/echo";
-
-  home.stateVersion = "23.11";
+  home = {
+    username = "echo";
+    homeDirectory = "/home/echo";
+    stateVersion = "23.11";
+  };
 
   programs.home-manager.enable = true;
 

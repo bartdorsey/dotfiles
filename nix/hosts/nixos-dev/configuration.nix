@@ -18,9 +18,10 @@ in {
     privileged = true;
   };
 
-  networking.nameservers = ["10.0.0.3" "10.0.0.4"];
-
-  networking.firewall.enable = false;
+  networking = {
+    nameservers = ["10.0.0.3" "10.0.0.4"];
+    firewall.enable = false;
+  };
   nixpkgs.config.permittedInsecurePackages = [
     "nix-2.16.2"
   ];

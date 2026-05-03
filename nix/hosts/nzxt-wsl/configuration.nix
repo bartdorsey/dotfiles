@@ -8,21 +8,23 @@
 
   security.polkit.enable = true;
 
-  wsl.enable = true;
-  wsl.defaultUser = "echo";
-  wsl.wslConf = {
-    interop.appendWindowsPath = false;
-    network = {
-      hostname = "nzxt-wsl";
-      generateResolvConf = true;
+  wsl = {
+    enable = true;
+    defaultUser = "echo";
+    wslConf = {
+      interop.appendWindowsPath = false;
+      network = {
+        hostname = "nzxt-wsl";
+        generateResolvConf = true;
+      };
+      boot = {
+        systemd = true;
+        initTimeout = 40000;
+      };
     };
-    boot = {
-      systemd = true;
-      initTimeout = 40000;
-    };
+    useWindowsDriver = true;
+    startMenuLaunchers = true;
   };
-  wsl.useWindowsDriver = true;
-  wsl.startMenuLaunchers = true;
   # wsl.usbip.enable = true;
   # wsl.usbip.autoAttach = ["1-2"];
   #

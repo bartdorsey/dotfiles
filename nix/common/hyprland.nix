@@ -51,7 +51,6 @@
     hyprshot
     hyprsunset
     hyprpolkitagent
-    # inputs.wezterm.packages.${pkgs.system}.default
     mpv
     mako
     imv

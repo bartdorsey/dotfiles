@@ -6,7 +6,7 @@
   # 1. Enable the service and the firewall
   services.tailscale = {
     enable = true;
-    interfaceName = "userspace-networking";
+    # interfaceName = "userspace-networking";
   };
   # networking.nftables.enable = true;
   # networking.firewall = {

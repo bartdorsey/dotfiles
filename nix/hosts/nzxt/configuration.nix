@@ -1,13 +1,26 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{...}: {
+{config, ...}: {
   security.polkit.enable = true;
 
   networking.hostName = "nzxt"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Name servers
+  networking.nameservers = ["100.100.100.100" "10.0.0.5" "10.0.0.3" "10.0.0.4"];
+  networking.search = ["bigeye-cosmological.ts.net" "home" "heronshaven.online"];
+
+  # DNS
+  services.resolved = {
+    enable = true;
+    dnssec = "allow-downgrade";
+    dnsovertls = "opportunistic";
+    domains = ["~."];
+    fallbackDns = config.networking.nameservers;
+  };
 
   # Wireguard
   networking.wg-quick.interfaces.protonvpn = {

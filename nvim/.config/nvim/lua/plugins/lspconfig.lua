@@ -133,7 +133,7 @@ return {
                 },
             },
             superhtml = {
-                filetypes = { "superhtml", "html" },
+                filetypes = { "html" },
             },
             ansiblels = {},
             yamlls = {

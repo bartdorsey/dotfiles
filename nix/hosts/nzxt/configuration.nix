@@ -42,10 +42,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "nix-2.16.2"
-  ];
-
   # environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
   # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

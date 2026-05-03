@@ -27,10 +27,8 @@
       bun
       cifs-utils
       clang
-      claude-code-bin
       cloc
       codespell
-      curl
       curl
       curlie
       deno
@@ -142,7 +140,6 @@
       socat
       sqlite
       starship
-      starship
       stdenv.cc.cc
       stow
       stylua
@@ -159,14 +156,12 @@
       tree
       typst
       unzip
-      unzip
       usbutils
       uv
       vice
       vim
       vimpc
       vtm
-      wget
       wget
       xdg-desktop-portal-termfilechooser
       xdg-utils
@@ -178,7 +173,6 @@
       yubikey-personalization
       zellij
       zenity
-      zip
       zip
       zoxide
       zsh

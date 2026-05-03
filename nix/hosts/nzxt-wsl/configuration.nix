@@ -80,10 +80,6 @@
     XDG_RUNTIME_DIR = "/run/user/1000";
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "nix-2.16.2"
-  ];
-
   environment.systemPackages = with pkgs; [
     wsl-open
     wslu

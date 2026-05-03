@@ -23,7 +23,10 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    wezterm.url = "github:wez/wezterm?dir=nix";
+    wezterm = {
+      url = "github:wez/wezterm?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     wasabi375 = {
       url = "github:Wasabi375/nix-wasabipkgs/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -99,7 +102,7 @@
       nzxt-wsl = lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit pkgs-unstable;
+          inherit pkgs-unstable inputs;
         };
         modules = [
           nixoswsl.nixosModules.wsl
@@ -126,7 +129,7 @@
       nixos-dev = lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit pkgs-unstable;
+          inherit pkgs-unstable inputs;
         };
         modules = [
           ./hosts/nixos-dev/configuration.nix

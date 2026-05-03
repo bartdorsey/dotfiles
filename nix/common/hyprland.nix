@@ -24,9 +24,6 @@
     linger = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    tuigreet
-  ];
   programs.firefox.preferences = {
     # disable libadwaita theming for Firefox
     "widget.gtk.libadwaita-colors.enabled" = false;
@@ -45,6 +42,7 @@
   services.hypridle.enable = true;
 
   environment.systemPackages = with pkgs; [
+    tuigreet
     hyprpicker
     hyprcursor
     hyprlock

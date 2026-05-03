@@ -30,15 +30,14 @@
     ])
     ++ [inputs.cos-cli.defaultPackage.${pkgs.stdenv.hostPlatform.system}];
 
-  environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
+  environment.sessionVariables = {
+    COSMIC_DATA_CONTROL_ENABLED = "1";
+    QT_QPA_PLATFORMTHEME = "kvantum";
+    QT_STYLE_OVERRIDE = "kvantum";
+  };
 
   programs.firefox.preferences = {
     # disable libadwaita theming for Firefox
     "widget.gtk.libadwaita-colors.enabled" = false;
-  };
-
-  environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "kvantum";
-    QT_STYLE_OVERRIDE = "kvantum";
   };
 }

@@ -156,7 +156,6 @@
       discord
       dmenu #application launcher most people use
       dunst
-      dust
       feh
       flameshot
       fontpreview

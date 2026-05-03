@@ -57,6 +57,10 @@
   # allow unfree packages
   nixpkgs.config.allowunfree = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "nix-2.16.2"
+  ];
+
   # ZSH
   programs.zsh = {
     enable = true;

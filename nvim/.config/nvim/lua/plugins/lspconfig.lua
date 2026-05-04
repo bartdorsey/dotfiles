@@ -135,7 +135,6 @@ return {
             superhtml = {
                 filetypes = { "html" },
             },
-            ansiblels = {},
             yamlls = {
                 settings = {
                     yaml = {
@@ -183,7 +182,6 @@ return {
                 filetypes = { "sh", "zsh" },
             },
             cssls = {},
-            cssmodules_ls = {},
             tailwindcss = {},
             html = {
                 settings = {
@@ -199,7 +197,6 @@ return {
             -- ocamllsp = {},
             vimls = {},
             intelephense = {},
-            sqlls = {},
             powershell_es = {},
         }
 

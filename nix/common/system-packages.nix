@@ -136,6 +136,7 @@
       pyright
       refind
       restic
+      resticprofile
       ripgrep
       rmpc
       ruff

@@ -39,10 +39,12 @@
       distrobox-tui
       djlint
       docker-buildx
+      docker-language-server
       dune_3
       dust
       efibootmgr
       emacs-nox
+      emmet-language-server
       fastfetch
       fd
       ffmpeg
@@ -85,6 +87,7 @@
       lsb-release
       lsd
       lua
+      lua-language-server
       luarocks
       markdownlint-cli
       markdownlint-cli2
@@ -114,6 +117,8 @@
       parted
       pass
       pciutils
+      perl
+      perlnavigator
       php
       php83Packages.composer
       pinentry-curses
@@ -160,6 +165,7 @@
       uv
       vice
       vim
+      vim-language-server
       vimpc
       vtm
       wget

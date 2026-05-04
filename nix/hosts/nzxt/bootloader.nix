@@ -4,7 +4,7 @@
 
   # Bootloader.
   boot = {
-    consoleLogLevel = 3;
+    consoleLogLevel = 4;
     loader = {
       grub = {
         enable = true;
@@ -36,8 +36,8 @@
     kernelParams = [
       "video=1920x1080"
       "boot.shell_on_fail"
-      "loglevel=3"
-      "systemd.show_status=auto"
+      "loglevel=4"
+      "systemd.show_status=1"
       "rd.udev.log_priority=3"
       "fbcon=nodefer"
       "usbcore.autosuspend=-1"

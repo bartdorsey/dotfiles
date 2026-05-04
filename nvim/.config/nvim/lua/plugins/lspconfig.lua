@@ -193,7 +193,7 @@ return {
                 },
             },
             eslint = {},
-            dockerls = {},
+            docker_language_server = {},
             -- ocamllsp = {},
             vimls = {},
             intelephense = {},

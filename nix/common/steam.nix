@@ -10,6 +10,9 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
-    extraPackages = with pkgs; [gamescope];
+    extraPackages = with pkgs; [
+      gamescope
+      mangohud
+    ];
   };
 }

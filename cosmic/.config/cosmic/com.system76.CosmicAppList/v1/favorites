@@ -1,8 +1,8 @@
 [
-    "org.wezfurlong.wezterm",
     "zen-beta",
     "firefox",
     "chromium-browser",
+    "org.wezfurlong.wezterm",
     "com.system76.CosmicSettings",
     "com.system76.CosmicFiles",
     "1password",

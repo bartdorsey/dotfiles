@@ -22,9 +22,9 @@ return {
         "markdown",
         "typst",
     },
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-    },
+    -- dependencies = {
+    --     "nvim-treesitter/nvim-treesitter",
+    -- },
     opts = {
         separator = "┄",
     },

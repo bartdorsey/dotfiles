@@ -154,6 +154,7 @@
       syncthing
       systemctl-tui
       sysz
+      tailwindcss-language-server
       texlive.combined.scheme-full
       tmux
       toolbox

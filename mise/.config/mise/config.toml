@@ -39,6 +39,7 @@ pipx = "latest"
 dust = "latest"
 act = "latest"
 claude-code = "latest"
+tree-sitter = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["python"]

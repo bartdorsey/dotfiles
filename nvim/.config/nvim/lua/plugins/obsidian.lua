@@ -60,9 +60,6 @@ return {
         templates = {
             subdir = "templates",
         },
-        follow_url_func = function(url)
-            vim.fn.jobstart({ "wsl-open", url })
-        end,
         completion = {
             blink = true,
             -- Trigger completion at 2 chars.

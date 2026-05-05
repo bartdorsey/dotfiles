@@ -24,11 +24,11 @@
       "org.telegram.desktop"
       "org.signal.Signal"
       "com.github.tchx84.Flatseal"
-      "com.github.tchx84.Flatseal"
       "com.bambulab.BambuStudio"
       "com.orcaslicer.OrcaSlicer"
       "io.beekeeperstudio.Studio"
       "io.github.kolunmi.Bazaar"
+      "media.emby.EmbyTheater"
       "tv.plex.PlexDesktop"
       "us.zoom.Zoom"
     ];

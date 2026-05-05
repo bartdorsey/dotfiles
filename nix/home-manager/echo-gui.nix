@@ -8,6 +8,12 @@
     package = inputs.wezterm.packages.${pkgs.stdenv.hostPlatform.system}.default;
   };
 
+  # xdg-data-dirs for flatpak
+  xdg.systemDirs.data = [
+    "/var/lib/flatpak/exports/share"
+    "$HOME/.local/share/flatpak/exports/share"
+  ];
+
   systemd.user.services.onepassword = {
     Unit = {
       Description = "1Password";

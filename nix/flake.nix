@@ -35,6 +35,9 @@
       url = "github:estin/cos-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+    };
   };
 
   outputs = inputs @ {
@@ -43,7 +46,7 @@
     nixpkgs-unstable,
     home-manager,
     nixos-cli,
-    nixos-hardware,
+    nix-flatpak,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -82,6 +85,7 @@
           ./users/echo-gui.nix
           home-manager.nixosModules.home-manager
           nixos-cli.nixosModules.nixos-cli
+          nix-flatpak.nixosModules.nix-flatpak
           {
             nixpkgs.config.allowUnfree = true;
             home-manager = {

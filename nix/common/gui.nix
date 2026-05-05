@@ -2,6 +2,7 @@
   pkgs,
   pkgs-unstable,
   inputs,
+  lib,
   ...
 }: {
   # programs.uwsm = {
@@ -15,14 +16,22 @@
     binfmt = true;
   };
 
-  services.flatpak.enable = true;
-
-  systemd.services.flatpak-repo = {
-    wantedBy = ["multi-user.target"];
-    path = [pkgs.flatpak];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
+  services.flatpak = {
+    enable = true;
+    update.onActivation = true;
+    packages = [
+      "com.fastmail.Fastmail"
+      "org.telegram.desktop"
+      "org.signal.Signal"
+      "com.github.tchx84.Flatseal"
+      "com.github.tchx84.Flatseal"
+      "com.bambulab.BambuStudio"
+      "com.orcaslicer.OrcaSlicer"
+      "io.beekeeperstudio.Studio"
+      "io.github.kolunmi.Bazaar"
+      "tv.plex.PlexDesktop"
+      "us.zoom.Zoom"
+    ];
   };
 
   services.autorandr.enable = true;
@@ -191,11 +200,9 @@
       podman-desktop
       qutebrowser
       rofi
-      signal-desktop
       slack
       slurp
       syncthingtray
-      telegram-desktop
       terminus_font_ttf
       thonny
       thunderbird

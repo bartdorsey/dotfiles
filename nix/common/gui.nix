@@ -135,7 +135,6 @@
     ])
     ++ (with pkgs; [
       appimage-run
-      bambu-studio
       cava
       (chromium.override
         {

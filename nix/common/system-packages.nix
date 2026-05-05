@@ -29,6 +29,7 @@
       clang
       cloc
       codespell
+      compsize
       curl
       curlie
       deno

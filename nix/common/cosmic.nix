@@ -30,6 +30,13 @@
     ])
     ++ [inputs.cos-cli.defaultPackage.${pkgs.stdenv.hostPlatform.system}];
 
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = false;
+    extraPortals = [pkgs.xdg-desktop-portal-cosmic pkgs.xdg-desktop-portal-gtk];
+    config.common.default = ["cosmic" "gtk"];
+  };
+
   environment.sessionVariables = {
     COSMIC_DATA_CONTROL_ENABLED = "1";
     QT_QPA_PLATFORMTHEME = "kvantum";
@@ -39,5 +46,15 @@
   programs.firefox.preferences = {
     # disable libadwaita theming for Firefox
     "widget.gtk.libadwaita-colors.enabled" = false;
+  };
+
+  # This is a workaround for xdg-portal links. the dbus environment doesn't have XDG_DATA_DIRS set
+  systemd.user.services.dbus-update-activation-environment = {
+    description = "Update D-Bus activation environment";
+    wantedBy = ["default.target"];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd XDG_DATA_DIRS PATH";
+    };
   };
 }

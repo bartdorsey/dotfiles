@@ -4,15 +4,15 @@
   # };
 
   xdg = {
-    portal = {
-      enable = true;
-      wlr.enable = true;
-      extraPortals = with pkgs; [
-        # xdg-desktop-portal-hyprland
-        xdg-desktop-portal-gtk
-      ];
-      config.common.default = ["hyprland" "gtk"];
-    };
+    # portal = {
+    #   enable = true;
+    #   wlr.enable = true;
+    #   # extraPortals = with pkgs; [
+    #   #   # xdg-desktop-portal-hyprland
+    #   #   xdg-desktop-portal-gtk
+    #   # ];
+    #   # config.common.default = ["hyprland" "gtk"];
+    # };
     # Default applications
     terminal-exec = {
       enable = true;

@@ -111,7 +111,6 @@
     "1password/custom_allowed_browsers" = {
       text = ''
         zen
-        vivaldi-bin
       '';
       mode = "0755";
     };
@@ -132,7 +131,6 @@
       firefoxpwa
       zed-editor-fhs
       rustdesk-flutter
-      fastmail-desktop
       prismlauncher
     ])
     ++ (with pkgs; [
@@ -161,20 +159,19 @@
       fontpreview
       ghostty
       gimp
-      gparted
       gnome-tweaks
-      google-chrome
+      gparted
       grim
       grimblast
       gruvbox-dark-icons-gtk
       gruvbox-plus-icons
       hunspell
-      hunspellDicts.uk_UA
       hunspellDicts.th_TH
+      hunspellDicts.uk_UA
       inkscape
       insomnia
-      libreoffice-qt
       libnotify
+      libreoffice-qt
       lora
       maim
       mpv
@@ -187,6 +184,7 @@
       obs-studio
       obsidian
       onlyoffice-desktopeditors
+      openscad
       orca-slicer
       pavucontrol
       plattenalbum
@@ -199,18 +197,19 @@
       slack
       slurp
       syncthingtray
+      telegram-desktop
       terminus_font_ttf
       thonny
       thunderbird
       v4l-utils
       vesktop
       vice
-      vivaldi
+      # vivaldi
       vlc
       wayland-utils # Wayland utilities
       wl-clipboard # Command-line copy/paste utilities for Wayland
-      wttrbar
       wofi
+      wttrbar
       wtype
       xorg.xhost
       xss-lock
@@ -225,12 +224,12 @@
   # ];
 
   # Vivaldi stuff
-  nixpkgs.config = {
-    vivaldi = {
-      proprietaryCodecs = true;
-      enableWideView = true;
-    };
-  };
+  # nixpkgs.config = {
+  #   vivaldi = {
+  #     proprietaryCodecs = true;
+  #     enableWideView = true;
+  #   };
+  # };
 
   programs.ssh = {
     askPassword = pkgs.lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";

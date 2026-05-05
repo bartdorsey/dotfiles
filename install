@@ -100,6 +100,20 @@ if type stow &>/dev/null; then
         ignore_directories+=("omarchy/")
     fi
 
+    if [[ "$(uname)" != "Darwin" ]]; then
+        cyan "-------------------------------------------"
+        cyan "Non-macOS detected, skipping macOS packages"
+        cyan "-------------------------------------------"
+        ignore_directories+=("aerospace/" "sketchybar/" "borders/")
+    fi
+
+    if [[ -z "$WSL_DISTRO_NAME" && "$(uname)" != "Darwin" ]]; then
+        cyan "----------------------------------------------"
+        cyan "Non-Windows detected, skipping Windows packages"
+        cyan "----------------------------------------------"
+        ignore_directories+=("yasb/")
+    fi
+
     for i in */; do
         if [[ " ${ignore_directories[@]} " =~ " $i " ]]; then
             cyan "Ignoring $i"

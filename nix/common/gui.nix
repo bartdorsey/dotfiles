@@ -184,7 +184,6 @@
       obsidian
       onlyoffice-desktopeditors
       openscad
-      orca-slicer
       pavucontrol
       plattenalbum
       playerctl
@@ -207,6 +206,7 @@
       vlc
       wayland-utils # Wayland utilities
       wl-clipboard # Command-line copy/paste utilities for Wayland
+      wlr-randr
       wofi
       wttrbar
       wtype

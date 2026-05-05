@@ -10,12 +10,12 @@
     "dev.zed.Zed",
     "vesktop",
     "slack",
+    "org.signal.Signal",
     "org.telegram.desktop",
     "thunderbird",
     "vice-org-x64sc",
     "gimp",
     "steam",
-    "com.system76.CosmicStore",
     "com.fastmail.Fastmail",
     "org.prismlauncher.PrismLauncher",
 ]

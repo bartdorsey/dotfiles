@@ -62,6 +62,8 @@
   hardware.system76.power-daemon.enable = true;
   services.power-profiles-daemon.enable = true;
 
+  services.btrfs.autoScrub.enable = true;
+
   fileSystems."/boot/efi" = {
     device = "/dev/disk/by-uuid/95AE-6CA5";
     fsType = "vfat";
@@ -71,6 +73,9 @@
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/2d7c255f-2e84-4127-9205-12c2086b8a34";
     fsType = "btrfs";
+    options = [
+      "compress=zstd"
+    ];
   };
 
   fileSystems."/home/echo/projects" = {
@@ -82,6 +87,7 @@
       "x-systemd.automount"
       "x-systemd.device-timeout=10"
       "subvol=/projects"
+      "compress=zstd"
     ];
   };
 
@@ -94,6 +100,7 @@
       "x-systemd.automount"
       "x-systemd.device-timeout=10"
       "subvol=/games"
+      "compress=zstd"
     ];
   };
 

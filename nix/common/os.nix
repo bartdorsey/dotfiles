@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   system.autoUpgrade.allowReboot = false;
 
+  programs.sysdig.enable = true;
+
   networking.search = [
     "bigeye-cosmological.ts.net"
     "home"
@@ -124,7 +126,6 @@
     XDG_STATE_HOME = "$HOME/.local/state";
     XDG_CACHE_HOME = "$HOME/.cache";
   };
-
 
   services.udev.packages = [pkgs.yubikey-personalization];
 

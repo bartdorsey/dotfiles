@@ -78,6 +78,7 @@
           ./common/vscode.nix
           ./common/steam.nix
           # ./common/plasma.nix
+          ./common/programming-tools.nix
           ./common/system-packages.nix
           ./common/virtual-machines.nix
           ./common/incus.nix
@@ -114,6 +115,7 @@
           ./common/os.nix
           ./common/tailscale.nix
           ./common/mounts.nix
+          ./common/programming-tools.nix
           ./common/system-packages.nix
           ./users/echo.nix
           home-manager.nixosModules.home-manager
@@ -139,6 +141,7 @@
           ./hosts/nixos-dev/configuration.nix
           ./common/os.nix
           ./common/tailscale.nix
+          ./common/programming-tools.nix
           ./common/system-packages.nix
           ./users/echo.nix
           home-manager.nixosModules.home-manager

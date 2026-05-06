@@ -5,47 +5,26 @@
 }: {
   environment.systemPackages =
     (with pkgs; [
-      (python313.withPackages (ps:
-        with ps; [
-          pip
-          flake8
-          black
-          pipx
-          ipython
-          pgcli
-          mypy
-          vdirsyncer
-        ]))
-      alejandra
-      basedpyright
-      bash-language-server
       bat
-      beautysh
       binutils
       btop
       buku
-      bun
       cifs-utils
       clang
       cloc
-      codespell
       compsize
       curl
       curlie
-      deno
       devbox
       dig
       direnv
       distrobox
       distrobox-tui
-      djlint
       docker-buildx
-      docker-language-server
       dune_3
       dust
       efibootmgr
       emacs-nox
-      emmet-language-server
       fastfetch
       fd
       ffmpeg
@@ -58,14 +37,10 @@
       git-lfs
       gita
       glab
-      gleam
       glibc
       glow
       gnumake
       gnupg
-      go
-      gopls
-      gotools
       grc
       gum
       helix
@@ -73,13 +48,10 @@
       hub
       image_optim
       inetutils
-      intelephense
       iotop
       iotop-c
       iperf3
-      jdk21
       jq
-      julia
       khal
       killall
       kmod
@@ -87,11 +59,6 @@
       lazygit
       lsb-release
       lsd
-      lua
-      lua-language-server
-      luarocks
-      markdownlint-cli
-      markdownlint-cli2
       mc
       micro
       mokutil
@@ -104,13 +71,8 @@
       nh
       nix-output-monitor
       nix-search-cli
-      nixd
-      nodejs_24
       nvd
-      ocaml
-      ocamlPackages.findlib
-      ocamlPackages.ocaml-lsp
-      ocamlformat
+      opencode
       optinix
       optnix
       os-prober
@@ -118,30 +80,19 @@
       parted
       pass
       pciutils
-      perl
-      perlnavigator
-      php
-      php83Packages.composer
       pinentry-curses
-      pnpm
       podman
-      postgres-language-server
       postgresql
       postgresql.lib
-      prettier
-      prettierd
       procs
       pulseaudio
       pulseaudio-ctl
       pulsemixer
-      pyright
       refind
       restic
       resticprofile
       ripgrep
       rmpc
-      ruff
-      rustup
       samba
       sbctl
       socat
@@ -149,13 +100,11 @@
       starship
       stdenv.cc.cc
       stow
-      stylua
       superfile
       superhtml
       syncthing
       systemctl-tui
       sysz
-      tailwindcss-language-server
       texlive.combined.scheme-full
       tmux
       toolbox
@@ -165,18 +114,14 @@
       typst
       unzip
       usbutils
-      uv
       vice
       vim
-      vim-language-server
       vimpc
       vtm
       wget
       xdg-desktop-portal-termfilechooser
       xdg-utils
       xh
-      yamlfmt
-      yarn
       yazi
       yt-dlp
       yubikey-personalization
@@ -189,6 +134,5 @@
     ++ (with pkgs-unstable; [
       claude-code
       cryptsetup
-      tree-sitter
     ]);
 }

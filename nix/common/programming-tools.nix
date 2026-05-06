@@ -81,8 +81,12 @@
       ruff
       stylua
       yamlfmt
+
+      # AI Tooling
+      opencode
     ])
     ++ (with pkgs-unstable; [
       tree-sitter
+      claude-code
     ]);
 }

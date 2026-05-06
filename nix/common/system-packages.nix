@@ -72,7 +72,6 @@
       nix-output-monitor
       nix-search-cli
       nvd
-      opencode
       optinix
       optnix
       os-prober
@@ -132,7 +131,6 @@
       zsh
     ])
     ++ (with pkgs-unstable; [
-      claude-code
       cryptsetup
     ]);
 }

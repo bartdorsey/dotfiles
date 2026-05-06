@@ -46,6 +46,7 @@
     QT_QPA_PLATFORMTHEME = "kvantum";
     QT_STYLE_OVERRIDE = "kvantum";
     XDG_DATA_DIRS = ["${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"];
+    GTK_THEME = "Gruvbox-Dark";
   };
 
   programs.firefox.preferences = {

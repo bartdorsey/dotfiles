@@ -5,6 +5,14 @@
 }: {
   environment.systemPackages =
     (with pkgs; [
+      # C / C++ Build Tools
+      binutils
+      clang
+      gcc
+      glibc
+      gnumake
+      stdenv.cc.cc
+
       # Python
       (python313.withPackages (ps:
         with ps; [
@@ -84,6 +92,44 @@
 
       # AI Tooling
       opencode
+
+      # Git / Version Control
+      git
+      git-crypt
+      git-lfs
+      gita
+      gh
+      glab
+      hub
+      lazygit
+      transcrypt
+
+      # Editors
+      emacs-nox
+      helix
+      micro
+      vim
+
+      # Container / Dev Environments
+      docker-buildx
+      distrobox
+      distrobox-tui
+      lazydocker
+      podman
+      toolbox
+
+      # Databases
+      postgresql
+      postgresql.lib
+      sqlite
+
+       # Dev Utilities
+       cloc
+       devbox
+       direnv
+       dune_3
+       superhtml
+       typst
     ])
     ++ (with pkgs-unstable; [
       tree-sitter

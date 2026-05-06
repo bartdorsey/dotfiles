@@ -5,130 +5,128 @@
 }: {
   environment.systemPackages =
     (with pkgs; [
-      bat
-      binutils
+       # Terminal / CLI utilities
+       bat
+       dust
+       fd
+       file
+       fzf
+       grc
+       lsd
+       ripgrep
+       tree
+
+      # Shell tools
+      gum
+      starship
+      zoxide
+      zsh
+
+      # File managers
+      mc
+      superfile
+      yazi
+
+      # Archival
+      p7zip
+      unzip
+      zip
+
+      # System monitors
       btop
-      buku
-      cifs-utils
-      clang
-      cloc
-      compsize
+      htop
+      procs
+      systemctl-tui
+      sysz
+
+      # Networking
       curl
       curlie
-      devbox
       dig
-      direnv
-      distrobox
-      distrobox-tui
-      docker-buildx
-      dune_3
-      dust
-      efibootmgr
-      emacs-nox
-      fastfetch
-      fd
-      ffmpeg
-      file
-      fzf
-      gcc
-      gh
-      git
-      git-crypt
-      git-lfs
-      gita
-      glab
-      glibc
-      glow
-      gnumake
-      gnupg
-      grc
-      gum
-      helix
-      htop
-      hub
-      image_optim
-      inetutils
-      iotop
-      iotop-c
-      iperf3
-      jq
-      khal
-      killall
-      kmod
-      lazydocker
-      lazygit
-      lsb-release
-      lsd
-      mc
-      micro
-      mokutil
       mosh
-      mpc
-      mpdris2
       mtr
-      ncmpcpp
-      nfs-utils
+      wget
+      xh
+
+      # Nix tools
       nh
       nix-output-monitor
       nix-search-cli
       nvd
       optinix
       optnix
-      os-prober
-      p7zip
-      parted
-      pass
-      pciutils
-      pinentry-curses
-      podman
-      postgresql
-      postgresql.lib
-      procs
+
+      # Audio / Music
+      mpc
+      mpdris2
+      ncmpcpp
       pulseaudio
       pulseaudio-ctl
       pulsemixer
-      refind
+      rmpc
+      vimpc
+
+      # Calendar / Bookmarks
+      buku
+      khal
+
+      # Media
+      ffmpeg
+      yt-dlp
+
+      # Backup / Sync
       restic
       resticprofile
-      ripgrep
-      rmpc
-      samba
-      sbctl
-      socat
-      sqlite
-      starship
-      stdenv.cc.cc
-      stow
-      superfile
-      superhtml
       syncthing
-      systemctl-tui
-      sysz
-      texlive.combined.scheme-full
-      tmux
-      toolbox
-      transcrypt
+
+      # Storage / File sharing
+      cifs-utils
+      nfs-utils
+      samba
+      socat
+
+      # Security / Encryption
+      gnupg
+      pass
+      pinentry-curses
+      sbctl
+      yubikey-personalization
+
+      # Boot / System management
+      efibootmgr
+      kmod
+      lsb-release
+      mokutil
+      os-prober
+      parted
+      refind
+
+      # Desktop utilities
       trash-cli
-      tree
-      typst
-      unzip
-      usbutils
-      vice
-      vim
-      vimpc
-      vtm
-      wget
       xdg-desktop-portal-termfilechooser
       xdg-utils
-      xh
-      yazi
-      yt-dlp
-      yubikey-personalization
-      zellij
       zenity
-      zip
-      zoxide
-      zsh
+
+      # Hardware info
+      pciutils
+      usbutils
+
+      # System info
+      fastfetch
+
+      # Terminal multiplexer
+      tmux
+      vtm
+      zellij
+
+      # Dotfile management
+      stow
+
+      # Emulator
+      vice
+
+      # LaTeX
+      texlive.combined.scheme-full
     ])
     ++ (with pkgs-unstable; [
       cryptsetup

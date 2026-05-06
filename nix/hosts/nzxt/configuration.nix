@@ -41,7 +41,7 @@
   services.printing.enable = true;
 
   # environment.variables.WLR_NO_HARDWARE_CURSORS = "1";
-  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # services.snapper = {
   #   snapshotInterval = "daily";

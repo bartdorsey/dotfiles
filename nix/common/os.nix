@@ -137,6 +137,8 @@
     services = {
       login.u2fAuth = true;
       sudo.u2fAuth = true;
+      cosmic-greeter.u2fAuth = false;
+      greetd.u2fAuth = false;
     };
   };
 

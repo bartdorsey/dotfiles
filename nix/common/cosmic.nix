@@ -9,6 +9,9 @@
   # Enable the COSMIC desktop environment
   services.desktopManager.cosmic.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.cosmic-greeter.enableGnomeKeyring = true;
+
   services.system76-scheduler.enable = true;
 
   environment.systemPackages =
@@ -22,6 +25,7 @@
       cosmic-ext-tweaks
       quick-webapps
       gcr
+      gsettings-desktop-schemas
       libsForQt5.qtstyleplugin-kvantum # Qt6 kvantum
       qt6Packages.qtstyleplugin-kvantum
     ])
@@ -41,6 +45,7 @@
     COSMIC_DATA_CONTROL_ENABLED = "1";
     QT_QPA_PLATFORMTHEME = "kvantum";
     QT_STYLE_OVERRIDE = "kvantum";
+    XDG_DATA_DIRS = ["${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"];
   };
 
   programs.firefox.preferences = {

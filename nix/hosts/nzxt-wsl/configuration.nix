@@ -60,6 +60,7 @@
       "x-systemd.automount"
       "x-systemd.device-timeout=10"
       "subvol=/projects"
+      "compress=zstd"
     ];
   };
 
